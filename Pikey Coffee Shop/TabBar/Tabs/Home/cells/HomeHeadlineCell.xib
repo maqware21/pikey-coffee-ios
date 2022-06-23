@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cocogoose Pro Light Italic-trial.ttf">
+            <string>CocogoosePro-LightItalic</string>
+        </array>
+        <array key="Gloss_And_Bloom.ttf">
+            <string>GlossAndBloom</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="278" id="KGk-i7-Jjw" customClass="HomeHeadlineCell" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="572" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="572" height="272"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gH-3P-0u7">
+                        <rect key="frame" x="0.0" y="0.0" width="572" height="272"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stR-tg-lsS">
+                                <rect key="frame" x="16" y="32" width="540" height="224"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Special Offer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vy7-gm-iGl">
+                                        <rect key="frame" x="24" y="16" width="94" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="XTy-Yn-WPs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GlossAndBloom" family="Gloss And Bloom" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksR-9V-NTG">
+                                        <rect key="frame" x="24" y="48" width="354" height="96"/>
+                                        <string key="text">20% OFF on
+All Latte &amp; Coffee </string>
+                                        <fontDescription key="fontDescription" name="CocogoosePro-LightItalic" family="Cocogoose Pro" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CoffeeBeanIcon" translatesAutoresizingMaskIntoConstraints="NO" id="421-af-uuH">
+                                        <rect key="frame" x="450" y="134" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="6TC-FE-vfQ"/>
+                                            <constraint firstAttribute="width" constant="90" id="fZ1-pJ-fcE"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yu3-Qj-ONS" customClass="HorizontalGradientView" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+                                        <rect key="frame" x="24" y="160" width="130" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obx-hU-eHF">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Order Now">
+                                                    <fontDescription key="titleFontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="obx-hU-eHF" secondAttribute="bottom" id="2V7-vr-MVM"/>
+                                            <constraint firstItem="obx-hU-eHF" firstAttribute="top" secondItem="yu3-Qj-ONS" secondAttribute="top" id="Khd-rh-SZZ"/>
+                                            <constraint firstItem="obx-hU-eHF" firstAttribute="leading" secondItem="yu3-Qj-ONS" secondAttribute="leading" id="RK7-Hd-S0k"/>
+                                            <constraint firstAttribute="trailing" secondItem="obx-hU-eHF" secondAttribute="trailing" id="VUp-s9-Dwy"/>
+                                            <constraint firstAttribute="width" constant="130" id="gUl-yf-TT5"/>
+                                            <constraint firstAttribute="height" constant="40" id="lFO-F8-Mpk"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yu3-Qj-ONS" secondAttribute="bottom" constant="24" id="6d9-mG-brY"/>
+                                    <constraint firstItem="vy7-gm-iGl" firstAttribute="top" secondItem="stR-tg-lsS" secondAttribute="top" constant="16" id="7jb-I6-BIF"/>
+                                    <constraint firstAttribute="trailing" secondItem="421-af-uuH" secondAttribute="trailing" id="BgO-qm-p19"/>
+                                    <constraint firstAttribute="bottom" secondItem="421-af-uuH" secondAttribute="bottom" id="FaV-vL-gRG"/>
+                                    <constraint firstItem="yu3-Qj-ONS" firstAttribute="leading" secondItem="ksR-9V-NTG" secondAttribute="leading" id="HNb-Cz-P7n"/>
+                                    <constraint firstItem="ksR-9V-NTG" firstAttribute="top" secondItem="vy7-gm-iGl" secondAttribute="bottom" id="Pqv-IT-1Np"/>
+                                    <constraint firstItem="yu3-Qj-ONS" firstAttribute="top" secondItem="ksR-9V-NTG" secondAttribute="bottom" constant="16" id="h98-nK-xsy"/>
+                                    <constraint firstItem="vy7-gm-iGl" firstAttribute="leading" secondItem="stR-tg-lsS" secondAttribute="leading" constant="24" id="w5N-I2-dt6"/>
+                                    <constraint firstItem="ksR-9V-NTG" firstAttribute="leading" secondItem="vy7-gm-iGl" secondAttribute="leading" id="ynA-08-TVN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="shadowColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spilledCup" translatesAutoresizingMaskIntoConstraints="NO" id="KQW-Il-DUE">
+                                <rect key="frame" x="410" y="4" width="170" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="uKi-Az-htP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="stR-tg-lsS" secondAttribute="bottom" constant="16" id="04W-C6-9gf"/>
+                            <constraint firstItem="KQW-Il-DUE" firstAttribute="bottom" secondItem="stR-tg-lsS" secondAttribute="bottom" constant="-32" id="N8E-0I-THU"/>
+                            <constraint firstAttribute="trailing" secondItem="KQW-Il-DUE" secondAttribute="trailing" constant="-8" id="Ycw-f3-F4V"/>
+                            <constraint firstItem="KQW-Il-DUE" firstAttribute="leading" secondItem="ksR-9V-NTG" secondAttribute="trailing" constant="16" id="YqD-A0-ouE"/>
+                            <constraint firstItem="stR-tg-lsS" firstAttribute="leading" secondItem="1gH-3P-0u7" secondAttribute="leading" constant="16" id="bhf-vf-0XM"/>
+                            <constraint firstItem="KQW-Il-DUE" firstAttribute="top" secondItem="1gH-3P-0u7" secondAttribute="top" constant="4" id="dme-8k-Qhe"/>
+                            <constraint firstItem="stR-tg-lsS" firstAttribute="top" secondItem="1gH-3P-0u7" secondAttribute="top" constant="32" id="q7V-cG-lpZ"/>
+                            <constraint firstAttribute="trailing" secondItem="stR-tg-lsS" secondAttribute="trailing" constant="16" id="sG8-9J-Aam"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="1gH-3P-0u7" secondAttribute="bottom" id="1E9-08-PQQ"/>
+                    <constraint firstAttribute="trailing" secondItem="1gH-3P-0u7" secondAttribute="trailing" id="QF5-yc-Qg9"/>
+                    <constraint firstItem="1gH-3P-0u7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XfN-uq-1g1"/>
+                    <constraint firstItem="1gH-3P-0u7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lZP-dX-RRt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <point key="canvasLocation" x="346" y="83"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="CoffeeBeanIcon" width="107" height="108"/>
+        <image name="spilledCup" width="183" height="221"/>
+        <namedColor name="shadowColor">
+            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

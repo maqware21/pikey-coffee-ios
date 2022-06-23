@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cocogoose Pro Light-trial.ttf">
+            <string>Cocogoose-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="162" id="KGk-i7-Jjw" customClass="MyAddressCell" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="494" height="162"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="494" height="162"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1oz-DT-Y8U">
+                        <rect key="frame" x="16" y="16" width="462" height="130"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4p5-ah-0mS" customClass="HorizontalGradientView" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="462" height="130"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeAddressIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ejb-PI-WvU">
+                                        <rect key="frame" x="16" y="16" width="24" height="24"/>
+                                        <color key="tintColor" systemColor="tintColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="0Cj-qk-aDG"/>
+                                            <constraint firstAttribute="height" constant="24" id="MKa-gp-dCY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POG-GW-VSL">
+                                        <rect key="frame" x="48" y="19" width="398" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pikey Coffee Decatur Blvd South" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bR-7r-pHp">
+                                        <rect key="frame" x="48" y="45.5" width="398" height="68.5"/>
+                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="9bR-7r-pHp" firstAttribute="leading" secondItem="POG-GW-VSL" secondAttribute="leading" id="373-WU-QX9"/>
+                                    <constraint firstItem="9bR-7r-pHp" firstAttribute="top" secondItem="POG-GW-VSL" secondAttribute="bottom" constant="8" id="XLo-1t-U5V"/>
+                                    <constraint firstItem="POG-GW-VSL" firstAttribute="centerY" secondItem="ejb-PI-WvU" secondAttribute="centerY" id="ZGj-1z-dqe"/>
+                                    <constraint firstAttribute="bottom" secondItem="9bR-7r-pHp" secondAttribute="bottom" constant="16" id="aHr-4d-Cux"/>
+                                    <constraint firstItem="POG-GW-VSL" firstAttribute="leading" secondItem="ejb-PI-WvU" secondAttribute="trailing" constant="8" id="b8Q-sU-VAu"/>
+                                    <constraint firstAttribute="trailing" secondItem="9bR-7r-pHp" secondAttribute="trailing" constant="16" id="fKK-fV-XRQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="POG-GW-VSL" secondAttribute="trailing" constant="16" id="feJ-D5-V4Q"/>
+                                    <constraint firstItem="ejb-PI-WvU" firstAttribute="leading" secondItem="4p5-ah-0mS" secondAttribute="leading" constant="16" id="kOQ-8O-D15"/>
+                                    <constraint firstItem="ejb-PI-WvU" firstAttribute="top" secondItem="4p5-ah-0mS" secondAttribute="top" constant="16" id="x8u-A3-aUg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nj-Ug-Fal">
+                                <rect key="frame" x="416" y="-15" width="30" height="30"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpb-3G-JWM" customClass="HorizontalGradientView" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editIcon" translatesAutoresizingMaskIntoConstraints="NO" id="hnc-R0-t86">
+                                                <rect key="frame" x="8" y="8" width="14" height="14"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hnc-R0-t86" secondAttribute="trailing" constant="8" id="76b-ex-B7b"/>
+                                            <constraint firstItem="hnc-R0-t86" firstAttribute="top" secondItem="lpb-3G-JWM" secondAttribute="top" constant="8" id="TkZ-ac-sws"/>
+                                            <constraint firstItem="hnc-R0-t86" firstAttribute="leading" secondItem="lpb-3G-JWM" secondAttribute="leading" constant="8" id="lPX-rB-Nv6"/>
+                                            <constraint firstAttribute="bottom" secondItem="hnc-R0-t86" secondAttribute="bottom" constant="8" id="z42-OO-mTY"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="lpb-3G-JWM" secondAttribute="trailing" id="2yz-mq-ntR"/>
+                                    <constraint firstItem="lpb-3G-JWM" firstAttribute="top" secondItem="4nj-Ug-Fal" secondAttribute="top" id="8Gn-o4-FsL"/>
+                                    <constraint firstItem="lpb-3G-JWM" firstAttribute="leading" secondItem="4nj-Ug-Fal" secondAttribute="leading" id="8Z8-ia-HGM"/>
+                                    <constraint firstAttribute="height" constant="30" id="B0i-GG-dBv"/>
+                                    <constraint firstAttribute="width" constant="30" id="GQ9-4H-YDJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="lpb-3G-JWM" secondAttribute="bottom" id="t4c-RH-X3Y"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="shadowColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="-5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4p5-ah-0mS" secondAttribute="bottom" id="7UB-fk-ivd"/>
+                            <constraint firstItem="4p5-ah-0mS" firstAttribute="leading" secondItem="1oz-DT-Y8U" secondAttribute="leading" id="Mkt-Gk-CZW"/>
+                            <constraint firstAttribute="trailing" secondItem="4p5-ah-0mS" secondAttribute="trailing" id="QST-v8-05O"/>
+                            <constraint firstItem="4p5-ah-0mS" firstAttribute="top" secondItem="1oz-DT-Y8U" secondAttribute="top" id="Qab-Dy-cBi"/>
+                            <constraint firstItem="4nj-Ug-Fal" firstAttribute="top" secondItem="4p5-ah-0mS" secondAttribute="top" constant="-15" id="WQR-j0-YRp"/>
+                            <constraint firstItem="4nj-Ug-Fal" firstAttribute="trailing" secondItem="4p5-ah-0mS" secondAttribute="trailing" constant="-16" id="oAe-aE-ahf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="1oz-DT-Y8U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7N8-NZ-pIX"/>
+                    <constraint firstItem="1oz-DT-Y8U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="FQi-RE-iro"/>
+                    <constraint firstAttribute="bottom" secondItem="1oz-DT-Y8U" secondAttribute="bottom" constant="16" id="a5x-Db-Pvs"/>
+                    <constraint firstAttribute="trailing" secondItem="1oz-DT-Y8U" secondAttribute="trailing" constant="16" id="vBd-gY-As5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="addressIcon" destination="ejb-PI-WvU" id="nqK-Ff-EC9"/>
+                <outlet property="addressLabel" destination="9bR-7r-pHp" id="PIW-AK-SDW"/>
+                <outlet property="containerView" destination="4p5-ah-0mS" id="nfT-ZD-diA"/>
+                <outlet property="editIcon" destination="hnc-R0-t86" id="9yc-fY-kjd"/>
+                <outlet property="editView" destination="lpb-3G-JWM" id="n1C-cC-vE6"/>
+                <outlet property="name" destination="POG-GW-VSL" id="L6c-Bf-eP4"/>
+            </connections>
+            <point key="canvasLocation" x="257.97101449275362" y="113.16964285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="editIcon" width="21" height="21"/>
+        <image name="homeAddressIcon" width="18" height="20"/>
+        <namedColor name="shadowColor">
+            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

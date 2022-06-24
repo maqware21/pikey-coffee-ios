@@ -24,7 +24,11 @@ class HomeViewController: TabItemViewController {
     @IBAction func onClickAddressOptoin() {
         let controller = DeliveryView(frame: .zero)
         let vc = PickeySheet(view: controller)
-        present(vc, animated: true)
+        let navigation = UINavigationController(rootViewController: vc)
+        navigation.navigationBar.isHidden = true
+        navigation.modalTransitionStyle = .coverVertical
+        navigation.modalPresentationStyle = .overFullScreen
+        present(navigation, animated: true)
     }
 
 }

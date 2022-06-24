@@ -180,6 +180,15 @@ class DeliveryView: UIView {
             tableView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -32),
             tableView.heightAnchor.constraint(equalToConstant: 250)
         ])
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(addLocationClicked))
+        addAddressButton.addGestureRecognizer(tap)
+    }
+    
+    @objc func addLocationClicked() {
+        let controller = AddAddressView(frame: .zero)
+        let vc = PickeySheet(view: controller, withAnimation: false)
+        self.parentViewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

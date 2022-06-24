@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5603F098286659DD008DEFDE /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5603F097286659DD008DEFDE /* AddAddressView.swift */; };
+		5603F09A28665DAA008DEFDE /* PikeyIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5603F09928665DAA008DEFDE /* PikeyIconButton.swift */; };
 		560FE5362858FEC100C194B0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560FE5352858FEC100C194B0 /* Profile.storyboard */; };
 		560FE53A2859062900C194B0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560FE5392859062900C194B0 /* EditProfileViewController.swift */; };
 		560FE55828591DD600C194B0 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560FE55728591DD600C194B0 /* ChangePasswordViewController.swift */; };
@@ -63,7 +65,7 @@
 		56840502285A4FD800AE2DBF /* MyAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56840500285A4FD800AE2DBF /* MyAddressCell.swift */; };
 		56840503285A4FD800AE2DBF /* MyAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56840501285A4FD800AE2DBF /* MyAddressCell.xib */; };
 		56840505285A542000AE2DBF /* MyAddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56840504285A542000AE2DBF /* MyAddressesViewController.swift */; };
-		5684050D285A75F900AE2DBF /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684050C285A75F900AE2DBF /* LogoutView.swift */; };
+		5684050D285A75F900AE2DBF /* ConfirmationBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684050C285A75F900AE2DBF /* ConfirmationBottomSheet.swift */; };
 		5687E1B82860FFB90063CE47 /* PaymentTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E1B62860FFB90063CE47 /* PaymentTypeCell.swift */; };
 		5687E1B92860FFB90063CE47 /* PaymentTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5687E1B72860FFB90063CE47 /* PaymentTypeCell.xib */; };
 		5687E1BC28610E930063CE47 /* BillingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E1BA28610E930063CE47 /* BillingDetailsCell.swift */; };
@@ -91,6 +93,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5603F097286659DD008DEFDE /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
+		5603F09928665DAA008DEFDE /* PikeyIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PikeyIconButton.swift; sourceTree = "<group>"; };
 		560FE5352858FEC100C194B0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		560FE5392859062900C194B0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		560FE55728591DD600C194B0 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +152,7 @@
 		56840500285A4FD800AE2DBF /* MyAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressCell.swift; sourceTree = "<group>"; };
 		56840501285A4FD800AE2DBF /* MyAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyAddressCell.xib; sourceTree = "<group>"; };
 		56840504285A542000AE2DBF /* MyAddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressesViewController.swift; sourceTree = "<group>"; };
-		5684050C285A75F900AE2DBF /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
+		5684050C285A75F900AE2DBF /* ConfirmationBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationBottomSheet.swift; sourceTree = "<group>"; };
 		5687E1B62860FFB90063CE47 /* PaymentTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTypeCell.swift; sourceTree = "<group>"; };
 		5687E1B72860FFB90063CE47 /* PaymentTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTypeCell.xib; sourceTree = "<group>"; };
 		5687E1BA28610E930063CE47 /* BillingDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingDetailsCell.swift; sourceTree = "<group>"; };
@@ -187,10 +191,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5603F09B28666C52008DEFDE /* subviews */ = {
+			isa = PBXGroup;
+			children = (
+				5603F09928665DAA008DEFDE /* PikeyIconButton.swift */,
+			);
+			path = subviews;
+			sourceTree = "<group>";
+		};
+		5603F09C28666C5B008DEFDE /* subviews */ = {
+			isa = PBXGroup;
+			children = (
+				5662D7242864DCB400BDB969 /* CartCategoryView.swift */,
+				5662D7262864F67700BDB969 /* CartConterItem.swift */,
+			);
+			path = subviews;
+			sourceTree = "<group>";
+		};
+		5603F09D28666DFC008DEFDE /* Bottom Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				5684050C285A75F900AE2DBF /* ConfirmationBottomSheet.swift */,
+				5603F09E28666E1E008DEFDE /* Base  */,
+			);
+			path = "Bottom Sheet";
+			sourceTree = "<group>";
+		};
+		5603F09E28666E1E008DEFDE /* Base  */ = {
+			isa = PBXGroup;
+			children = (
+				56D57C56285BB1B300877C51 /* PickeySheet.swift */,
+			);
+			path = "Base ";
+			sourceTree = "<group>";
+		};
 		560FE537285905FC00C194B0 /* Edit Profile */ = {
 			isa = PBXGroup;
 			children = (
-				56AC85E8285CEB5700E13156 /* views */,
 				568404FF285A4F8500AE2DBF /* cells */,
 				560FE5382859061000C194B0 /* Controllers */,
 			);
@@ -325,12 +362,12 @@
 		564873DC2847FA01003C63DD /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				5603F09D28666DFC008DEFDE /* Bottom Sheet */,
 				5683603E2863B5CA00A0608F /* ratings */,
 				5680BA9228494096003B5DBE /* RangeGestureRecognizer.swift */,
 				564873DD2847FA18003C63DD /* IconTextField.swift */,
 				5681D9812853BF3C00340A4E /* HorizontalGradientView.swift */,
 				568CA4552857B0CE00589AE1 /* DashedView.swift */,
-				56D57C56285BB1B300877C51 /* PickeySheet.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -364,9 +401,8 @@
 		5662D7212864DA3300BDB969 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				5603F09C28666C5B008DEFDE /* subviews */,
 				5662D7222864DA4800BDB969 /* AddToCartView.swift */,
-				5662D7242864DCB400BDB969 /* CartCategoryView.swift */,
-				5662D7262864F67700BDB969 /* CartConterItem.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -538,14 +574,6 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
-		56AC85E8285CEB5700E13156 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				5684050C285A75F900AE2DBF /* LogoutView.swift */,
-			);
-			path = views;
-			sourceTree = "<group>";
-		};
 		56AC85EB285D021900E13156 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,7 +639,9 @@
 		56D57C61285BD34A00877C51 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				5603F09B28666C52008DEFDE /* subviews */,
 				56D57C5E285BC2ED00877C51 /* DeliveryView.swift */,
+				5603F097286659DD008DEFDE /* AddAddressView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -758,6 +788,7 @@
 				564873E028480C06003C63DD /* UILabel+Extension.swift in Sources */,
 				564873DE2847FA18003C63DD /* IconTextField.swift in Sources */,
 				568360422863B5F100A0608F /* StarRatingView.swift in Sources */,
+				5603F098286659DD008DEFDE /* AddAddressView.swift in Sources */,
 				5680BA8E284932FF003B5DBE /* RegistrationBaseController.swift in Sources */,
 				568CA45C2857C4E200589AE1 /* CartCell.swift in Sources */,
 				56D57C5F285BC2ED00877C51 /* DeliveryView.swift in Sources */,
@@ -773,6 +804,7 @@
 				5662D7252864DCB400BDB969 /* CartCategoryView.swift in Sources */,
 				56840502285A4FD800AE2DBF /* MyAddressCell.swift in Sources */,
 				565FA1AE284A8722007E8C1C /* SignUpViewController.swift in Sources */,
+				5603F09A28665DAA008DEFDE /* PikeyIconButton.swift in Sources */,
 				560FE53A2859062900C194B0 /* EditProfileViewController.swift in Sources */,
 				5662D7272864F67700BDB969 /* CartConterItem.swift in Sources */,
 				56AC85F2285D109A00E13156 /* InformationCell.swift in Sources */,
@@ -795,7 +827,7 @@
 				564873D82847DA8F003C63DD /* UIColor+Extension.swift in Sources */,
 				568CA4562857B0CE00589AE1 /* DashedView.swift in Sources */,
 				56A8C2052863D2C700D75257 /* ProductCell.swift in Sources */,
-				5684050D285A75F900AE2DBF /* LogoutView.swift in Sources */,
+				5684050D285A75F900AE2DBF /* ConfirmationBottomSheet.swift in Sources */,
 				5680BA9328494096003B5DBE /* RangeGestureRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

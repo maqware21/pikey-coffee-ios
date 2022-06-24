@@ -108,13 +108,25 @@ South</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X6-h5-2z1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="onClickButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="J4a-ai-oOS"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="9X6-h5-2z1" firstAttribute="leading" secondItem="f9b-PS-BlN" secondAttribute="leading" id="7ZG-fc-dtu"/>
                                                     <constraint firstItem="MG8-q8-9OZ" firstAttribute="leading" secondItem="f9b-PS-BlN" secondAttribute="leading" id="IwO-JI-iaM"/>
                                                     <constraint firstAttribute="bottom" secondItem="MG8-q8-9OZ" secondAttribute="bottom" id="Jb8-Yf-D7n"/>
                                                     <constraint firstAttribute="trailing" secondItem="MG8-q8-9OZ" secondAttribute="trailing" id="XGi-Qu-UyC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9X6-h5-2z1" secondAttribute="trailing" id="dLn-k5-sQP"/>
                                                     <constraint firstItem="MG8-q8-9OZ" firstAttribute="top" secondItem="f9b-PS-BlN" secondAttribute="top" id="l4D-0u-Q22"/>
+                                                    <constraint firstItem="9X6-h5-2z1" firstAttribute="top" secondItem="f9b-PS-BlN" secondAttribute="top" id="m2H-lx-mad"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9X6-h5-2z1" secondAttribute="bottom" id="oZZ-HU-x3c"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

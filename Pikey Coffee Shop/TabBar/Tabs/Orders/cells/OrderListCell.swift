@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol OrderCellDelegate: AnyObject {
+    func presentOnCell()
+}
+
 class OrderListCell: UITableViewCell {
 
+    weak var delegate: OrderCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +26,7 @@ class OrderListCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func onClickButton() {
+        delegate?.presentOnCell()
+    }
 }

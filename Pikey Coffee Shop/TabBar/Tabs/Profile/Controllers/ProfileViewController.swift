@@ -28,16 +28,18 @@ class ProfileViewController: TabItemViewController {
     }
     
     @IBAction func onClickLogout() {
-        let controller = LogoutView()
+        let controller = ConfirmationBottomSheet()
         controller.delegate = self
+        controller.titleLabel.text = "Logout"
+        controller.messageLabel.text = "Are you sure you want to logout?"
         let vc = PickeySheet(view: controller)
         present(vc, animated: true)
     }
 }
 
 
-extension ProfileViewController: LogoutDelegate {
-    func logOut() {
+extension ProfileViewController: ConfirmationDelegate {
+    func confirmAction() {
         self.presentedViewController?.dismiss(animated: true)
         self.navigationController?.popToRootViewController(animated: true)
     }

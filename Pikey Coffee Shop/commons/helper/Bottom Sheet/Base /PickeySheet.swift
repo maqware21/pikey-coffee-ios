@@ -4,6 +4,7 @@ import UIKit
 public class PickeySheet: UIViewController {
     
     private var contentsViewHeight: CGFloat = 300
+    private var allowAnimation: Bool = true
     
     private lazy var dimmedView: UIView = {
         let view = UIView(frame: self.view.frame)
@@ -17,8 +18,9 @@ public class PickeySheet: UIViewController {
     
     private let contentsView: UIView
     
-    public init(view contentsView: UIView) {
+    public init(view contentsView: UIView, withAnimation: Bool = true) {
         self.contentsView = contentsView
+        self.allowAnimation = withAnimation
         super.init(nibName: nil, bundle: nil)
         modalPresentationStyle = .overFullScreen
     }
@@ -80,7 +82,7 @@ public class PickeySheet: UIViewController {
     private func show(contentsViewHeight: CGFloat) {
         self.contentsView.transform = .init(translationX: 0, y: contentsViewHeight)
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: self.allowAnimation ? 0.3 : 0) {
                 self.dimmedView.alpha = 0.6
                 self.contentsView.transform = .init(translationX: 0, y: 0)
             }

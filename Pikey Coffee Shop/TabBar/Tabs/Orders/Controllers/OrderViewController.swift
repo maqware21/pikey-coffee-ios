@@ -30,6 +30,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderListCell
+        cell.delegate = self
         return cell
     }
     
@@ -58,3 +59,20 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+extension OrderViewController: OrderCellDelegate, ConfirmationDelegate {
+    func presentOnCell() {
+        let controller = ConfirmationBottomSheet()
+        controller.delegate = self
+        controller.titleLabel.text = "Cancel Order"
+        controller.messageLabel.text = "Are you sure you want to cancel the order?"
+        let vc = PickeySheet(view: controller)
+        self.present(vc, animated: true)
+    }
+    
+    func confirmAction() {
+        self.presentedViewController?.dismiss(animated: true)
+    }
+}
+
+

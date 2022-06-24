@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol LogoutDelegate: AnyObject {
-    func logOut()
+protocol ConfirmationDelegate: AnyObject {
+    func confirmAction()
 }
 
 
-class LogoutView: UIView {
+class ConfirmationBottomSheet: UIView {
 
-    weak var delegate: LogoutDelegate?
+    weak var delegate: ConfirmationDelegate?
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -45,6 +45,8 @@ class LogoutView: UIView {
         view.text = "Are you sure you want to logout?"
         view.textColor = UIColor(named: "coffeeGray")
         view.font = UIFont(name: "Cocogoose-light", size: 18)
+        view.numberOfLines = 0
+        view.textAlignment = .center
         return view
     }()
     
@@ -135,7 +137,9 @@ class LogoutView: UIView {
         self.containerView.addSubview(messageLabel)
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
-            messageLabel.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor)
+            messageLabel.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
+            messageLabel.leftAnchor.constraint(greaterThanOrEqualTo: self.containerView.leftAnchor, constant: 16),
+            messageLabel.rightAnchor.constraint(lessThanOrEqualTo: self.containerView.rightAnchor, constant: -16)
         ])
         
         self.containerView.addSubview(stackView)
@@ -175,7 +179,7 @@ class LogoutView: UIView {
 
     
     @objc func onClickYes() {
-        self.delegate?.logOut()
+        self.delegate?.confirmAction()
     }
     
     @objc func onClickNo() {

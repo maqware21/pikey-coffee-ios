@@ -12,8 +12,14 @@ class LoginViewController: RegistrationBaseController {
     @IBOutlet weak var passwordField: IconTextField!
     @IBOutlet weak var signUpMessage: UILabel!
     
+    var viewModel = RegistrationViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.registerDelegate = self
+        if let _ = UserDefaults.standard[.user] {
+            moveToTab(animated: false)
+        }
     }
     
     override func setLayout() {
@@ -39,7 +45,44 @@ class LoginViewController: RegistrationBaseController {
     }
     
     @IBAction func onClickSingIn() {
+        if validate() {
+            self.showLoader()
+            viewModel.loginUser(email: emailField.text ?? "",
+                                password: passwordField.text ?? "")
+        }
+    }
+    
+    func validate() -> Bool {
+        if emailField.isEmpty || !(emailField.text ?? "").isValidEmail() {
+            self.view.displayNotice(with: "Valid email required")
+            return false
+        }
+        
+        if passwordField.isEmpty {
+            self.view.displayNotice(with: "Password required")
+            return false
+        }
+        
+        return true
+    }
+    
+    func moveToTab(animated: Bool = true) {
         let controller = TabViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: animated)
+    }
+}
+
+extension LoginViewController: RegisterDelegate {
+    func authenticated(_ user: User?) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            self.emailField.text = ""
+            self.passwordField.text = ""
+            self.view.endEditing(true)
+            if let user = user {
+                UserDefaults.standard[.user] = user
+                self.moveToTab()
+            }
+        }
     }
 }

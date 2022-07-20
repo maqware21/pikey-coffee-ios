@@ -64,7 +64,7 @@
                                                                         <rect key="frame" x="8" y="0.0" width="366" height="55"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
                                                                                 <size key="value" width="32" height="32"/>
@@ -651,7 +651,7 @@ please re-enter your password.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qa-Er-IcJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="856"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="924"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="yyH-Ni-bTe">
                                                 <rect key="frame" x="107" y="48" width="200" height="200"/>
@@ -673,7 +673,7 @@ please re-enter your password.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xwf-Zv-U8z">
-                                                <rect key="frame" x="0.0" y="354" width="414" height="196"/>
+                                                <rect key="frame" x="0.0" y="354" width="414" height="264"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-Pd-oGg">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -743,7 +743,7 @@ please re-enter your password.</string>
                                                                         <rect key="frame" x="8" y="0.0" width="366" height="50"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
                                                                                 <size key="value" width="32" height="32"/>
@@ -791,17 +791,17 @@ please re-enter your password.</string>
                                                             <constraint firstAttribute="height" constant="60" id="v97-uO-3RP"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJS-l2-qEG">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2YJ-DV-Ara">
                                                         <rect key="frame" x="0.0" y="136" width="414" height="60"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7c-jt-vXb">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPK-4f-5e2">
                                                                 <rect key="frame" x="16" y="0.0" width="382" height="55"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JCk-q2-z8a" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ic-Nn-LGU" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                                                         <rect key="frame" x="8" y="0.0" width="366" height="55"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="one-time-code"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
                                                                                 <size key="value" width="32" height="32"/>
@@ -815,10 +815,68 @@ please re-enter your password.</string>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="JCk-q2-z8a" firstAttribute="leading" secondItem="D7c-jt-vXb" secondAttribute="leading" constant="8" id="LEX-TV-8Hf"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="JCk-q2-z8a" secondAttribute="trailing" constant="8" id="OXh-No-PtF"/>
-                                                                    <constraint firstItem="JCk-q2-z8a" firstAttribute="top" secondItem="D7c-jt-vXb" secondAttribute="top" id="bfU-0x-fL8"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="JCk-q2-z8a" secondAttribute="bottom" id="wv4-5k-5Ts"/>
+                                                                    <constraint firstItem="7ic-Nn-LGU" firstAttribute="leading" secondItem="rPK-4f-5e2" secondAttribute="leading" constant="8" id="2D5-PU-D7m"/>
+                                                                    <constraint firstItem="7ic-Nn-LGU" firstAttribute="top" secondItem="rPK-4f-5e2" secondAttribute="top" id="7n3-fY-22h"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="7ic-Nn-LGU" secondAttribute="trailing" constant="8" id="EpU-yg-ndd"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="7ic-Nn-LGU" secondAttribute="bottom" id="IYO-JX-BfL"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                        <color key="value" name="shadowColor"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                        <real key="value" value="0.59999999999999998"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                        <size key="value" width="0.0" height="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                        <real key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="25"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="rPK-4f-5e2" secondAttribute="trailing" constant="16" id="0cS-WN-Z4w"/>
+                                                            <constraint firstAttribute="height" constant="60" id="4Yc-Jl-e5j"/>
+                                                            <constraint firstItem="rPK-4f-5e2" firstAttribute="leading" secondItem="2YJ-DV-Ara" secondAttribute="leading" constant="16" id="EWT-ug-YYd"/>
+                                                            <constraint firstAttribute="bottom" secondItem="rPK-4f-5e2" secondAttribute="bottom" constant="5" id="avz-xH-Lxg"/>
+                                                            <constraint firstItem="rPK-4f-5e2" firstAttribute="top" secondItem="2YJ-DV-Ara" secondAttribute="top" id="hSM-G7-665"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qK-yt-NLn">
+                                                        <rect key="frame" x="0.0" y="204" width="414" height="60"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mxa-Bz-udm">
+                                                                <rect key="frame" x="16" y="0.0" width="382" height="55"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Phone No." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QoC-hw-8XQ" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+                                                                        <rect key="frame" x="8" y="0.0" width="366" height="55"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
+                                                                                <size key="value" width="32" height="32"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                                                <color key="value" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="cellIcon"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="QoC-hw-8XQ" secondAttribute="trailing" constant="8" id="IOf-xK-Fub"/>
+                                                                    <constraint firstItem="QoC-hw-8XQ" firstAttribute="top" secondItem="Mxa-Bz-udm" secondAttribute="top" id="Rh7-pi-Ffi"/>
+                                                                    <constraint firstItem="QoC-hw-8XQ" firstAttribute="leading" secondItem="Mxa-Bz-udm" secondAttribute="leading" constant="8" id="XIE-5R-GDK"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="QoC-hw-8XQ" secondAttribute="bottom" id="lme-Tf-5Wu"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -842,17 +900,17 @@ please re-enter your password.</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="D7c-jt-vXb" firstAttribute="leading" secondItem="XJS-l2-qEG" secondAttribute="leading" constant="16" id="0wO-Qf-Qk2"/>
-                                                            <constraint firstAttribute="bottom" secondItem="D7c-jt-vXb" secondAttribute="bottom" constant="5" id="Fkh-0W-kT1"/>
-                                                            <constraint firstAttribute="height" constant="60" id="S6c-Ov-5jH"/>
-                                                            <constraint firstItem="D7c-jt-vXb" firstAttribute="top" secondItem="XJS-l2-qEG" secondAttribute="top" id="T0L-rf-QGR"/>
-                                                            <constraint firstAttribute="trailing" secondItem="D7c-jt-vXb" secondAttribute="trailing" constant="16" id="cGJ-Zd-tFd"/>
+                                                            <constraint firstItem="Mxa-Bz-udm" firstAttribute="leading" secondItem="2qK-yt-NLn" secondAttribute="leading" constant="16" id="4UF-4e-kFA"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Mxa-Bz-udm" secondAttribute="trailing" constant="16" id="Ije-Rs-21E"/>
+                                                            <constraint firstItem="Mxa-Bz-udm" firstAttribute="top" secondItem="2qK-yt-NLn" secondAttribute="top" id="Of7-3p-dvb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Mxa-Bz-udm" secondAttribute="bottom" constant="5" id="QAO-KG-kMx"/>
+                                                            <constraint firstAttribute="height" constant="60" id="uFw-aA-mhr"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eM4-zG-lIt" customClass="HorizontalGradientView" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="614" width="70" height="70"/>
+                                                <rect key="frame" x="172" y="682" width="70" height="70"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nextArrow" translatesAutoresizingMaskIntoConstraints="NO" id="xFb-jd-Xaw">
                                                         <rect key="frame" x="15" y="15" width="40" height="40"/>
@@ -886,13 +944,13 @@ please re-enter your password.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In with one of the following options" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWi-ws-7Ab">
-                                                <rect key="frame" x="54.5" y="739" width="305" height="18.5"/>
+                                                <rect key="frame" x="54.5" y="807" width="305" height="18.5"/>
                                                 <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
                                                 <color key="textColor" name="coffeeGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="II4-o5-I9D">
-                                                <rect key="frame" x="117" y="821.5" width="180" height="18.5"/>
+                                                <rect key="frame" x="117" y="889.5" width="180" height="18.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnS-O4-fSQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="180" height="18.5"/>
@@ -958,7 +1016,8 @@ please re-enter your password.</string>
                     <connections>
                         <outlet property="emailField" destination="qhi-1w-tZG" id="d13-we-0ku"/>
                         <outlet property="loginMessage" destination="BnS-O4-fSQ" id="1FS-Q4-JlW"/>
-                        <outlet property="passwordField" destination="JCk-q2-z8a" id="cnf-LA-TxT"/>
+                        <outlet property="passwordField" destination="7ic-Nn-LGU" id="PNK-ZM-GEJ"/>
+                        <outlet property="phoneField" destination="QoC-hw-8XQ" id="z2f-k3-bl4"/>
                         <outlet property="termsAndConditionLabel" destination="zWi-ws-7Ab" id="LbT-Yc-nJk"/>
                         <outlet property="userNameField" destination="ifA-T4-KAW" id="H8S-1c-woe"/>
                     </connections>
@@ -1765,6 +1824,7 @@ please re-enter your password.</string>
     </scenes>
     <resources>
         <image name="appleIcon" width="20" height="24"/>
+        <image name="cellIcon" width="48" height="48"/>
         <image name="checkIcon" width="14" height="14"/>
         <image name="eraseIcon" width="26" height="19"/>
         <image name="googleIcon" width="20" height="20"/>

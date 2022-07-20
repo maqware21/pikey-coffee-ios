@@ -40,6 +40,7 @@ class ProfileViewController: TabItemViewController {
 
 extension ProfileViewController: ConfirmationDelegate {
     func confirmAction() {
+        UserDefaults.standard[.user] = nil
         self.presentedViewController?.dismiss(animated: true)
         self.navigationController?.popToRootViewController(animated: true)
     }

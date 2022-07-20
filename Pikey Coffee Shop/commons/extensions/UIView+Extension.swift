@@ -1,5 +1,6 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
+import SwiftEntryKit
 
 // MARK: - enums
 
@@ -501,6 +502,14 @@ public extension UIView {
             let bottom = bottomAnchor.constraint(equalTo: superview.bottomAnchor)
             NSLayoutConstraint.activate([left, right, top, bottom])
         }
+    }
+    
+    func displayNotice(with title: String) {
+        let customView = NoticeView(frame: .zero)
+        customView.titleLabel.text = title
+        var attributes = EKAttributes()
+        attributes.displayDuration = 8
+        SwiftEntryKit.display(entry: customView, using: attributes)
     }
 
     /// SwifterSwift: Add anchors from any side of the current view into the specified anchors and returns the newly added constraints.

@@ -13,12 +13,6 @@ class ChangePasswordViewController: EditProfileBaseViewController {
     @IBOutlet weak var newPasswordField: IconTextField!
     @IBOutlet weak var confirmPasswordField: IconTextField!
     
-    
-    var rightIcon: UIImageView = {
-        let view = UIImageView(image: UIImage(systemName: "eye.slash.fill"))
-        view.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-        return view
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

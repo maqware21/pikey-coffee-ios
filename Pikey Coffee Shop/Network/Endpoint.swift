@@ -1,9 +1,4 @@
-//
-//  RequestPath.swift
-//  RequestApp
-//
-//  Created by Victor Catão on 30/01/22.
-//
+
 
 protocol Endpoint {
     var scheme: String { get }

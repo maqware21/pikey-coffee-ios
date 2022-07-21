@@ -16,11 +16,11 @@ class SignUpViewController: RegistrationBaseController {
     @IBOutlet weak var termsAndConditionLabel: UILabel!
     @IBOutlet weak var loginMessage: UILabel!
     
-    var viewModel = RegistrationViewModel()
+    var viewModel = AuthenticationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.registerDelegate = self
+        viewModel.authenticationDelegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -48,6 +48,7 @@ class SignUpViewController: RegistrationBaseController {
         termsAndConditionLabel.addRangeGesture(stringRange: termsAndConditiontext) {
             print("terms clicked")
         }
+        passwordField.enablePasswordToggle()
     }
     
     @IBAction func nextButtonClicked() {
@@ -66,7 +67,7 @@ class SignUpViewController: RegistrationBaseController {
             return false
         }
         
-        if emailField.isEmpty || !(emailField.text ?? "").isValidEmail() {
+        if emailField.isEmpty || !emailField.hasValidEmail {
             self.view.displayNotice(with: "Valid email required")
             return false
         }
@@ -76,7 +77,7 @@ class SignUpViewController: RegistrationBaseController {
             return false
         }
         
-        if phoneField.isEmpty || !(phoneField.text ?? "").isValidPhone() {
+        if phoneField.isEmpty || !phoneField.hasValidPhoneNo {
             self.view.displayNotice(with: "Valid phone number required")
             return false
         }
@@ -85,7 +86,7 @@ class SignUpViewController: RegistrationBaseController {
     }
 }
 
-extension SignUpViewController: RegisterDelegate {
+extension SignUpViewController: AuthenticationDelegate {
     func authenticated(_ user: User?) {
         DispatchQueue.main.async {
             self.removeLoader()

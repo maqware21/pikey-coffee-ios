@@ -1,39 +1,36 @@
-//
-//  MoviesEndpoint.swift
-//  RequestApp
-//
-//  Created by Victor Catão on 18/02/22.
-//
 
-enum RegistrationEndpoint {
+enum AuthenticationEndpoint {
     case signUp(name: String,
                 email: String,
                 password: String,
                 phoneNo: String)
     case signIn(email: String,
                 password: String)
+    case forgotPassword(email: String)
 }
 
-extension RegistrationEndpoint: Endpoint {
+extension AuthenticationEndpoint: Endpoint {
     var path: String {
         switch self {
         case .signUp:
             return "/api/oauth/register"
         case .signIn:
             return "/api/oauth/login"
+        case .forgotPassword:
+            return "/api/oauth/forget-password"
         }
     }
 
     var method: RequestMethod {
         switch self {
-        case .signUp, .signIn:
+        case .signUp, .signIn, .forgotPassword:
             return .post
         }
     }
 
     var header: [String: String]? {
         switch self {
-        case .signUp, .signIn:
+        case .signUp, .signIn, .forgotPassword:
             return [
                 "Accept": "application/json",
                 "Content-Type": "application/json;charset=utf-8"
@@ -61,6 +58,11 @@ extension RegistrationEndpoint: Endpoint {
                                 "client_id": "2",
                                 "client_secret": "iJNPgKRPYEgnxHRhCJDKESGC2ZV904r7cGuByH5N",
                                 "grant_type": "password"
+                            ]
+            return parameter
+        case .forgotPassword(let email):
+            let parameter: [String: String] = [
+                                "email": email
                             ]
             return parameter
         }

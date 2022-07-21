@@ -11,10 +11,12 @@ class ForgetPasswordViewController: RegistrationBaseController {
 
     @IBOutlet weak var emailField: IconTextField!
     @IBOutlet weak var loginMessage: UILabel!
+     
+    var viewModel = AuthenticationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel.forgotPasswordDelegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -29,6 +31,34 @@ class ForgetPasswordViewController: RegistrationBaseController {
         
         loginMessage.addRangeGesture(stringRange: "Log In") {
             self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @IBAction func onClickSend() {
+        if validate() {
+            self.showLoader()
+            viewModel.sendForgotPasswordReq(for: emailField.text ?? "")
+        }
+    }
+    
+    func validate() -> Bool {
+        if emailField.isEmpty || !emailField.hasValidEmail {
+            self.view.displayNotice(with: "Valid email required")
+            return false
+        }
+        
+        return true
+    }
+}
+
+extension ForgetPasswordViewController: ForgotPasswordDelegate {
+    
+    func forgotPasswordResponse(with message: String) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            self.emailField.text = ""
+            self.view.endEditing(true)
+            self.view.displayNotice(with: message)
         }
     }
 }

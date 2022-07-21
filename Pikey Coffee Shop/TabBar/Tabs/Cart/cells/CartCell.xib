@@ -21,14 +21,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mz-dr-xUx">
                         <rect key="frame" x="20" y="16" width="393" height="190"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Espresso" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyF-7X-Q9D">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Espresso" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyF-7X-Q9D">
                                 <rect key="frame" x="122" y="32" width="80.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="x 1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-2F-PIC">
-                                <rect key="frame" x="122" y="56" width="80.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-2F-PIC">
+                                <rect key="frame" x="122" y="59" width="80.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" name="coffeeGray"/>
                                 <nil key="highlightedColor"/>
@@ -227,10 +227,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="TF7-2F-PIC" firstAttribute="top" secondItem="dyF-7X-Q9D" secondAttribute="bottom" constant="3" id="1H7-kI-vy2"/>
                             <constraint firstItem="iMu-P1-EsW" firstAttribute="leading" secondItem="0mz-dr-xUx" secondAttribute="leading" constant="16" id="5Ln-xn-EoO"/>
                             <constraint firstItem="hwM-cH-vRC" firstAttribute="leading" secondItem="0mz-dr-xUx" secondAttribute="leading" constant="16" id="9R5-v2-PQc"/>
                             <constraint firstItem="TF7-2F-PIC" firstAttribute="leading" secondItem="dyF-7X-Q9D" secondAttribute="leading" id="AaM-a8-DGN"/>
-                            <constraint firstItem="TF7-2F-PIC" firstAttribute="top" secondItem="dyF-7X-Q9D" secondAttribute="bottom" id="FHB-Il-ig2"/>
                             <constraint firstItem="dyF-7X-Q9D" firstAttribute="leading" secondItem="mmA-Ip-rjI" secondAttribute="trailing" constant="16" id="GBP-9o-kg7"/>
                             <constraint firstItem="hwM-cH-vRC" firstAttribute="top" secondItem="TF7-2F-PIC" secondAttribute="bottom" constant="24" id="Hxh-Xh-QaW"/>
                             <constraint firstAttribute="bottom" secondItem="iMu-P1-EsW" secondAttribute="bottom" constant="16" id="JiS-3l-ymj"/>

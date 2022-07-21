@@ -26,37 +26,6 @@ public extension UITextField {
 // MARK: - Properties
 
 public extension UITextField {
-    /// SwifterSwift: Set textField for common text types.
-    var textType: TextType {
-        get {
-            if keyboardType == .emailAddress {
-                return .emailAddress
-            } else if isSecureTextEntry {
-                return .password
-            }
-            return .generic
-        }
-        set {
-            switch newValue {
-            case .emailAddress:
-                keyboardType = .emailAddress
-                autocorrectionType = .no
-                autocapitalizationType = .none
-                isSecureTextEntry = false
-                placeholder = "Email Address"
-
-            case .password:
-                keyboardType = .asciiCapable
-                autocorrectionType = .no
-                autocapitalizationType = .none
-                isSecureTextEntry = true
-                placeholder = "Password"
-
-            case .generic:
-                isSecureTextEntry = false
-            }
-        }
-    }
 
     /// SwifterSwift: Check if text field is empty.
     var isEmpty: Bool {
@@ -79,6 +48,13 @@ public extension UITextField {
     var hasValidEmail: Bool {
         // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
         return text!.range(of: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+                           options: String.CompareOptions.regularExpression,
+                           range: nil, locale: nil) != nil
+    }
+    
+    
+    var hasValidPhoneNo: Bool {
+        return text!.range(of: "^\\+(?:[0-9]?){6,14}[0-9]$",
                            options: String.CompareOptions.regularExpression,
                            range: nil, locale: nil) != nil
     }

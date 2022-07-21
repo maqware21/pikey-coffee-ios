@@ -463,7 +463,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGp-S5-ETh">
                                                 <rect key="frame" x="16" y="297.5" width="382" height="48"/>
                                                 <string key="text">If you have forgotten your password, 
-please re-enter your password.</string>
+please re-enter your email.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" name="coffeeGray"/>
                                                 <nil key="highlightedColor"/>
@@ -541,6 +541,9 @@ please re-enter your password.</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="onClickSend" destination="VUW-UF-qgT" eventType="touchUpInside" id="iho-ow-3rZ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

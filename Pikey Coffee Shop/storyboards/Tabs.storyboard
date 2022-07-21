@@ -807,6 +807,11 @@
                             <constraint firstItem="bge-AZ-d5I" firstAttribute="trailing" secondItem="LqI-vB-pit" secondAttribute="trailing" id="wL4-F3-iDv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="TS1-wW-c8V" id="eoJ-TZ-9lj"/>
+                        <outlet property="pointsLabel" destination="2Ti-ME-YW5" id="oQi-IH-ui2"/>
+                        <outlet property="userNameLabel" destination="IUg-yu-tYm" id="Tlj-F4-N1y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SK6-9A-sby" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

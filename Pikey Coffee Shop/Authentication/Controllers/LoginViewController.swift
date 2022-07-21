@@ -12,11 +12,11 @@ class LoginViewController: RegistrationBaseController {
     @IBOutlet weak var passwordField: IconTextField!
     @IBOutlet weak var signUpMessage: UILabel!
     
-    var viewModel = RegistrationViewModel()
+    var viewModel = AuthenticationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.registerDelegate = self
+        viewModel.authenticationDelegate = self
         if let _ = UserDefaults.standard[.user] {
             moveToTab(animated: false)
         }
@@ -36,6 +36,7 @@ class LoginViewController: RegistrationBaseController {
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
+        passwordField.enablePasswordToggle()
     }
     
     @IBAction func onClickForgetPassword() {
@@ -53,7 +54,7 @@ class LoginViewController: RegistrationBaseController {
     }
     
     func validate() -> Bool {
-        if emailField.isEmpty || !(emailField.text ?? "").isValidEmail() {
+        if emailField.isEmpty || !emailField.hasValidEmail {
             self.view.displayNotice(with: "Valid email required")
             return false
         }
@@ -72,7 +73,7 @@ class LoginViewController: RegistrationBaseController {
     }
 }
 
-extension LoginViewController: RegisterDelegate {
+extension LoginViewController: AuthenticationDelegate {
     func authenticated(_ user: User?) {
         DispatchQueue.main.async {
             self.removeLoader()

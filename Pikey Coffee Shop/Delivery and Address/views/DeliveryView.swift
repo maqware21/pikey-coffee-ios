@@ -28,7 +28,7 @@ class DeliveryView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Deliver to"
         view.textColor = .white
-        view.font = UIFont(name: "Cocogoose", size: 20)
+        view.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return view
     }()
     
@@ -47,7 +47,7 @@ class DeliveryView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "+ Add Address"
         label.textColor = .white
-        label.font = UIFont(name: "Cocogoose-light", size: 14)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
     }()
@@ -70,7 +70,7 @@ class DeliveryView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.iconSize = CGSize(width: 32, height: 32)
         view.icon = UIImage(named: "locateIcon")
-        view.font = UIFont(name: "Cocogoose-light", size: 14)
+        view.font = UIFont.systemFont(ofSize: 18)
         view.placeholder = "Use Current Location"
         view.textColor = .white
         view.placeholderColor = UIColor(hex: "888888")
@@ -82,7 +82,7 @@ class DeliveryView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Delivery Addresses"
         view.textColor = .white
-        view.font = UIFont(name: "Cocogoose", size: 20)
+        view.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return view
     }()
     

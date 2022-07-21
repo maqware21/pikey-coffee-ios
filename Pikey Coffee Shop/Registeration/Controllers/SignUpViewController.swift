@@ -30,7 +30,7 @@ class SignUpViewController: RegistrationBaseController {
         loginMessage.tappableLabels(string: logintext,
                                     tappableStrings: ["Log In"],
                                     textColor: .white,
-                                    font: UIFont(name: "Cocogoose-light", size: 14.0)!,
+                                    font: UIFont.systemFont(ofSize: 18),
                                     isUnderLined: true)
         
         loginMessage.addRangeGesture(stringRange: "Log In") {
@@ -42,7 +42,7 @@ class SignUpViewController: RegistrationBaseController {
         termsAndConditionLabel.tappableLabels(string: termsAndConditiontext,
                                               tappableStrings: ["Terms and Conditions"],
                                               textColor: .white,
-                                              font: UIFont(name: "Cocogoose-light", size: 14.0)!,
+                                              font: UIFont.systemFont(ofSize: 18),
                                               isUnderLined: true)
         
         termsAndConditionLabel.addRangeGesture(stringRange: termsAndConditiontext) {

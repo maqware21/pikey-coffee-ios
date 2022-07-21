@@ -8,14 +8,6 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Cocogoose Pro Light-trial.ttf">
-            <string>Cocogoose-Light</string>
-        </array>
-        <array key="Cocogoose Pro-trial.ttf">
-            <string>Cocogoose</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -32,8 +24,8 @@
                                         <rect key="frame" x="82" y="16" width="250" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deliver to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drg-Wm-qc1">
-                                                <rect key="frame" x="26.5" y="16" width="74.5" height="18.5"/>
-                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                                <rect key="frame" x="24.5" y="14.5" width="76.5" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -41,13 +33,13 @@
                                                 <rect key="frame" x="125" y="5" width="120" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZQ-t8-aqk">
-                                                        <rect key="frame" x="24" y="11" width="47.5" height="18.5"/>
-                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
+                                                        <rect key="frame" x="24" y="9.5" width="48" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uAn-gZ-Z7N">
-                                                        <rect key="frame" x="79.5" y="14" width="13" height="12"/>
+                                                        <rect key="frame" x="80" y="14" width="13" height="12"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="13" id="F0y-B6-aAo"/>
@@ -150,13 +142,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders &amp; Reordering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yq-T8-yad">
-                                        <rect key="frame" x="74" y="16" width="266" height="31"/>
-                                        <fontDescription key="fontDescription" name="Cocogoose" family="Cocogoose" pointSize="22"/>
+                                        <rect key="frame" x="83.5" y="16" width="247.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dEa-vK-uy4">
-                                        <rect key="frame" x="0.0" y="63" width="414" height="755"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="414" height="754.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
@@ -200,13 +192,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cih-We-twG">
-                                        <rect key="frame" x="128" y="16" width="158" height="31"/>
-                                        <fontDescription key="fontDescription" name="Cocogoose" family="Cocogoose" pointSize="22"/>
+                                        <rect key="frame" x="129" y="16" width="156" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="p9l-93-rxQ">
-                                        <rect key="frame" x="0.0" y="63" width="414" height="755"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="414" height="754.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
@@ -247,16 +239,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQN-sL-kra">
-                                <rect key="frame" x="166" y="60" width="82.5" height="31"/>
-                                <fontDescription key="fontDescription" name="Cocogoose" family="Cocogoose" pointSize="22"/>
+                                <rect key="frame" x="167.5" y="60" width="79" height="31.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bge-AZ-d5I">
-                                <rect key="frame" x="0.0" y="107" width="414" height="755"/>
+                                <rect key="frame" x="0.0" y="107.5" width="414" height="754.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vcc-Bl-hRT">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="887.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="889"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Myw-Gh-xlO">
                                                 <rect key="frame" x="134" y="8" width="146" height="146"/>
@@ -272,19 +264,19 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lious William" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUg-yu-tYm">
-                                                <rect key="frame" x="147.5" y="170" width="119" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="Cocogoose" family="Cocogoose" pointSize="16"/>
+                                                <rect key="frame" x="145" y="170" width="124" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="liouswilliam98@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS1-wW-c8V">
-                                                <rect key="frame" x="122" y="196.5" width="170.5" height="17"/>
+                                                <rect key="frame" x="122" y="198" width="170.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LT4-NY-WT2">
-                                                <rect key="frame" x="161" y="221.5" width="104" height="24"/>
+                                                <rect key="frame" x="161" y="223" width="104" height="24"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="giftIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9mb-t6-7Cx">
                                                         <rect key="frame" x="4" y="-8" width="20" height="40"/>
@@ -313,7 +305,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfR-yl-1DU">
-                                                <rect key="frame" x="8" y="277.5" width="398" height="50"/>
+                                                <rect key="frame" x="8" y="279" width="398" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accountSettingsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pfp-3q-bH6">
                                                         <rect key="frame" x="16" y="0.0" width="32" height="50"/>
@@ -323,7 +315,7 @@
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83u-J7-sSX">
                                                         <rect key="frame" x="52" y="0.0" width="346" height="50"/>
-                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -340,7 +332,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oBU-GI-E3P">
-                                                <rect key="frame" x="16" y="343.5" width="382" height="180"/>
+                                                <rect key="frame" x="16" y="345" width="382" height="180"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hei-Mo-ZSa">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
@@ -349,8 +341,8 @@
                                                                 <rect key="frame" x="4" y="5" width="374" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skr-9b-I4Z">
-                                                                        <rect key="frame" x="20" y="0.0" width="81.5" height="50"/>
-                                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                                                        <rect key="frame" x="20" y="0.0" width="86.5" height="50"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -419,8 +411,8 @@
                                                                 <rect key="frame" x="4" y="5" width="374" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Addresses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAq-aJ-HLE">
-                                                                        <rect key="frame" x="20" y="0.0" width="108" height="50"/>
-                                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                                                        <rect key="frame" x="20" y="0.0" width="114" height="50"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -489,8 +481,8 @@
                                                                 <rect key="frame" x="4" y="5" width="374" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrr-id-03i">
-                                                                        <rect key="frame" x="20" y="0.0" width="92.5" height="50"/>
-                                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                                                        <rect key="frame" x="20" y="0.0" width="101.5" height="50"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -539,7 +531,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5d-hm-9GA">
-                                                <rect key="frame" x="8" y="539.5" width="398" height="50"/>
+                                                <rect key="frame" x="8" y="541" width="398" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpIcon" translatesAutoresizingMaskIntoConstraints="NO" id="H9X-Pb-Clc">
                                                         <rect key="frame" x="16" y="0.0" width="32" height="50"/>
@@ -549,7 +541,7 @@
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmJ-RQ-9QN">
                                                         <rect key="frame" x="52" y="0.0" width="346" height="50"/>
-                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -566,7 +558,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oiq-I2-502">
-                                                <rect key="frame" x="16" y="605.5" width="382" height="120"/>
+                                                <rect key="frame" x="16" y="607" width="382" height="120"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VkA-jc-KwB">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
@@ -575,8 +567,8 @@
                                                                 <rect key="frame" x="4" y="5" width="374" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share with your friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cb-pC-Dq7">
-                                                                        <rect key="frame" x="20" y="0.0" width="180" height="50"/>
-                                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                                                        <rect key="frame" x="20" y="0.0" width="185" height="50"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -642,8 +634,8 @@
                                                                 <rect key="frame" x="4" y="5" width="374" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate the app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrT-0h-yVh">
-                                                                        <rect key="frame" x="20" y="0.0" width="101.5" height="50"/>
-                                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                                                        <rect key="frame" x="20" y="0.0" width="102" height="50"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -705,7 +697,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n6f-Db-OaS">
-                                                <rect key="frame" x="107" y="773.5" width="200" height="50"/>
+                                                <rect key="frame" x="107" y="775" width="200" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoutIcon" translatesAutoresizingMaskIntoConstraints="NO" id="cJr-dy-KKI">
                                                         <rect key="frame" x="32" y="-16" width="48" height="82"/>
@@ -715,7 +707,7 @@
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAC-qu-8f2">
                                                         <rect key="frame" x="80" y="0.0" width="120" height="50"/>
-                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -832,13 +824,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFT-0W-5FM">
-                                        <rect key="frame" x="179.5" y="16" width="55" height="31"/>
-                                        <fontDescription key="fontDescription" name="Cocogoose" family="Cocogoose" pointSize="22"/>
+                                        <rect key="frame" x="180.5" y="16" width="53.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6h-2f-4nC">
-                                        <rect key="frame" x="16" y="9" width="45" height="45"/>
+                                        <rect key="frame" x="16" y="9.5" width="45" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FaV-n2-ed8">
                                                 <rect key="frame" x="10.5" y="15" width="24" height="15"/>
@@ -888,15 +880,15 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xgt-iU-5jM">
-                                        <rect key="frame" x="0.0" y="63" width="414" height="755"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="414" height="754.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3Z-ih-oHh" customClass="HorizontalGradientView" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                         <rect key="frame" x="16" y="768" width="382" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vk8-YL-VhM">
-                                                <rect key="frame" x="145" y="13" width="92.5" height="24"/>
-                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="18"/>
+                                                <rect key="frame" x="145" y="12" width="92" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

@@ -30,7 +30,7 @@ class AddToCartView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Cappuccino"
         view.textColor = .white
-        view.font = UIFont(name: "Cocogoose", size: 20)
+        view.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return view
     }()
     
@@ -39,7 +39,7 @@ class AddToCartView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do euismod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia."
         view.textColor = UIColor(named: "coffeeGray")
-        view.font = UIFont(name: "Cocogoose-light", size: 18)
+        view.font = UIFont.systemFont(ofSize: 22)
         view.textAlignment = .center
         view.numberOfLines = 0
         return view
@@ -89,7 +89,7 @@ class AddToCartView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Add to cart"
         label.textColor = .black
-        label.font = UIFont(name: "Cocogoose-light", size: 14)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
     }()

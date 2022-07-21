@@ -34,7 +34,7 @@ class CartEmptyView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Your cart is empty!"
-        label.font = UIFont(name: "Cocogoose", size: 20)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = .white
         label.textAlignment = .center
         return label
@@ -44,7 +44,7 @@ class CartEmptyView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Looks like you have not added anything to your cart yet"
-        label.font = UIFont(name: "cocogoose-light", size: 18)
+        label.font = UIFont.systemFont(ofSize: 22)
         label.textColor = UIColor(hex: "999999")
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -63,7 +63,7 @@ class CartEmptyView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Back to Main Menu", for: .normal)
-        button.titleLabel?.font = UIFont(name: "cocogoose-light", size: 18)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 22)
         button.setTitleColor(UIColor.black, for: .normal)
         return button
     }()

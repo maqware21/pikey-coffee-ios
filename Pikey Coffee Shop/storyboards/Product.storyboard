@@ -7,14 +7,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Cocogoose Pro Light-trial.ttf">
-            <string>Cocogoose-Light</string>
-        </array>
-        <array key="Cocogoose Pro-trial.ttf">
-            <string>Cocogoose</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Product View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -28,13 +20,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmr-p2-zeB">
-                                        <rect key="frame" x="151.5" y="16" width="111.5" height="31"/>
-                                        <fontDescription key="fontDescription" name="Cocogoose" family="Cocogoose" pointSize="22"/>
+                                        <rect key="frame" x="152" y="16" width="110" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhN-k4-EkP">
-                                        <rect key="frame" x="16" y="9" width="45" height="45"/>
+                                        <rect key="frame" x="16" y="9.5" width="45" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hJO-7E-v1j">
                                                 <rect key="frame" x="10.5" y="15" width="24" height="15"/>
@@ -84,10 +76,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPI-5J-5f7">
-                                        <rect key="frame" x="0.0" y="63" width="414" height="755"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="414" height="754.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsH-bN-bRm">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="840.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="843"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XK7-tI-Txt">
                                                         <rect key="frame" x="0.0" y="16" width="414" height="230"/>
@@ -203,13 +195,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pikey Coffee Decatur Blvd South" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UP-fu-V8y">
-                                                        <rect key="frame" x="16" y="310" width="382" height="26.5"/>
-                                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="20"/>
+                                                        <rect key="frame" x="16" y="310" width="382" height="29"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uJd-V5-Jbq">
-                                                        <rect key="frame" x="16" y="352.5" width="382" height="100"/>
+                                                        <rect key="frame" x="16" y="355" width="382" height="100"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rTZ-8u-2sB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -336,7 +328,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGl-gw-5H3" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                                        <rect key="frame" x="16" y="468.5" width="382" height="40"/>
+                                                        <rect key="frame" x="16" y="471" width="382" height="40"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="5Td-cC-JIy"/>
@@ -358,7 +350,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W6R-cn-fF3">
-                                                        <rect key="frame" x="16" y="524.5" width="382" height="300"/>
+                                                        <rect key="frame" x="16" y="527" width="382" height="300"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="300" id="ptR-uS-ygd"/>

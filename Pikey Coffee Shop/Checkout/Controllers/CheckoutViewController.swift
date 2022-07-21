@@ -94,7 +94,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             break
         }
-        headline.font = UIFont(name: "Cocogoose-light", size: 20)
+        headline.font = UIFont.systemFont(ofSize: 24)
         headline.textColor = .white
         view.addArrangedSubview(headline)
         

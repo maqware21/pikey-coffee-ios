@@ -8,14 +8,6 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Cocogoose Pro Light-trial.ttf">
-            <string>Cocogoose-Light</string>
-        </array>
-        <array key="Cocogoose Pro-trial.ttf">
-            <string>Cocogoose</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,25 +25,25 @@
                                 <rect key="frame" x="10" y="70" width="202" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cappuccino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oho-EN-uHK">
-                                        <rect key="frame" x="16" y="56" width="122" height="26"/>
-                                        <fontDescription key="fontDescription" name="Cocogoose" family="COCOGOOSE" pointSize="18"/>
+                                        <rect key="frame" x="16" y="56" width="123.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$17.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfU-u7-1Vi">
-                                        <rect key="frame" x="16" y="90" width="52" height="19.5"/>
+                                        <rect key="frame" x="16" y="90.5" width="52" height="19.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$17.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="755-Sz-OuC">
-                                        <rect key="frame" x="80" y="90" width="52" height="19.5"/>
+                                        <rect key="frame" x="80" y="90.5" width="52" height="19.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" name="coffeeGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpE-T2-SD8">
-                                        <rect key="frame" x="80" y="99.5" width="52" height="1"/>
+                                        <rect key="frame" x="80" y="100" width="52" height="1"/>
                                         <color key="backgroundColor" name="coffeeGray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="0p8-R0-hlj"/>
@@ -100,15 +92,15 @@
                                 <rect key="frame" x="30" y="210" width="162" height="40"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cartIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ZcJ-cL-ZiY">
-                                        <rect key="frame" x="44.5" y="10" width="20" height="20"/>
+                                        <rect key="frame" x="44" y="10" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="2ph-4k-N1v"/>
                                             <constraint firstAttribute="width" constant="20" id="g5H-2X-cHA"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWG-YY-6fA">
-                                        <rect key="frame" x="72.5" y="9.5" width="37.5" height="21.5"/>
-                                        <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="16"/>
+                                        <rect key="frame" x="72" y="8" width="38" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

@@ -28,7 +28,7 @@ class LoginViewController: RegistrationBaseController {
         signUpMessage.tappableLabels(string: text,
                                      tappableStrings: ["Sign Up"],
                                      textColor: .white,
-                                     font: UIFont(name: "Cocogoose-light", size: 14.0)!,
+                                     font: UIFont.systemFont(ofSize: 18),
                                      isUnderLined: true)
         
         signUpMessage.addRangeGesture(stringRange: "Sign Up") {

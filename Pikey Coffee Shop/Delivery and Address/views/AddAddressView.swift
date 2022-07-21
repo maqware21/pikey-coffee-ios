@@ -28,7 +28,7 @@ class AddAddressView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Add Address"
         view.textColor = .white
-        view.font = UIFont(name: "Cocogoose", size: 20)
+        view.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return view
     }()
     
@@ -47,7 +47,7 @@ class AddAddressView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Cancel"
         label.textColor = .white
-        label.font = UIFont(name: "Cocogoose-light", size: 14)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
     }()
@@ -78,7 +78,7 @@ class AddAddressView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.iconSize = CGSize(width: 32, height: 32)
         view.icon = UIImage(named: "searchIcon")
-        view.font = UIFont(name: "Cocogoose-light", size: 14)
+        view.font = UIFont.systemFont(ofSize: 18)
         view.placeholder = "Use Current Location"
         view.textColor = .white
         view.placeholderColor = UIColor(hex: "888888")
@@ -107,7 +107,7 @@ class AddAddressView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Save Location"
         label.textColor = .black
-        label.font = UIFont(name: "Cocogoose-light", size: 14)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
     }()

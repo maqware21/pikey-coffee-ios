@@ -21,7 +21,7 @@ class NoticeView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "notice"
         view.textColor = .black
-        view.font = UIFont(name: "Cocogoose", size: 16)
+        view.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         view.textAlignment = .center
         view.numberOfLines = 0
         return view

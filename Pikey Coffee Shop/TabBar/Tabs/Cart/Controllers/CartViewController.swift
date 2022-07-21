@@ -91,12 +91,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         
         let headline = UILabel()
         headline.text = "Your Items"
-        headline.font = UIFont(name: "Cocogoose-light", size: 20)
+        headline.font = UIFont.systemFont(ofSize: 24)
         headline.textColor = .white
         
         let subline = UILabel()
         subline.text = "Pikey Coffee Decatur Blvd South"
-        subline.font = UIFont(name: "Cocogoose-light", size: 18)
+        subline.font = UIFont.systemFont(ofSize: 22)
         subline.textColor = UIColor(named: "coffeeGray")
         
         view.addArrangedSubview(headline)

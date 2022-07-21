@@ -8,45 +8,40 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Cocogoose Pro Light-trial.ttf">
-            <string>Cocogoose-Light</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="223" id="KGk-i7-Jjw" customClass="CartCell" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="433" height="221.5"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="219.5" id="KGk-i7-Jjw" customClass="CartCell" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="222"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="433" height="221.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="433" height="222"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mz-dr-xUx">
-                        <rect key="frame" x="20" y="16" width="393" height="189.5"/>
+                        <rect key="frame" x="20" y="16" width="393" height="190"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Espresso" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyF-7X-Q9D">
-                                <rect key="frame" x="122" y="32" width="100.5" height="26.5"/>
-                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Espresso" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyF-7X-Q9D">
+                                <rect key="frame" x="122" y="32" width="80.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x 1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-2F-PIC">
-                                <rect key="frame" x="122" y="58.5" width="100.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="x 1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-2F-PIC">
+                                <rect key="frame" x="122" y="56" width="80.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" name="coffeeGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwM-cH-vRC">
-                                <rect key="frame" x="16" y="106.5" width="361" height="1"/>
+                                <rect key="frame" x="16" y="107" width="361" height="1"/>
                                 <color key="backgroundColor" name="shadowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="lO5-55-tZR"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMu-P1-EsW">
-                                <rect key="frame" x="16" y="123.5" width="361" height="50"/>
+                                <rect key="frame" x="16" y="124" width="361" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$17.99 x 1 = $17.99" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzP-qw-x6r">
                                         <rect key="frame" x="0.0" y="0.0" width="152" height="50"/>
@@ -302,7 +297,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="213.768115942029" y="132.58928571428572"/>
+            <point key="canvasLocation" x="213.768115942029" y="131.91964285714286"/>
         </tableViewCell>
     </objects>
     <resources>

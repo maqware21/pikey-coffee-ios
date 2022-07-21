@@ -8,14 +8,6 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Cocogoose Pro Light-trial.ttf">
-            <string>Cocogoose-Light</string>
-        </array>
-        <array key="Cocogoose Pro-trial.ttf">
-            <string>Cocogoose</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Edit Profile View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -29,13 +21,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETp-cO-Tgw">
-                                        <rect key="frame" x="138.5" y="16" width="137.5" height="31"/>
-                                        <fontDescription key="fontDescription" name="Cocogoose" family="Cocogoose" pointSize="22"/>
+                                        <rect key="frame" x="141.5" y="16" width="131.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKi-mo-IEd">
-                                        <rect key="frame" x="16" y="9" width="45" height="45"/>
+                                        <rect key="frame" x="16" y="9.5" width="45" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RSa-T4-M8o">
                                                 <rect key="frame" x="10.5" y="15" width="24" height="15"/>
@@ -85,7 +77,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMc-BH-JEe">
-                                        <rect key="frame" x="0.0" y="70" width="414" height="682"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="414" height="681.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shw-cL-KSI">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="436"/>
@@ -164,7 +156,7 @@
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lious William" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2c2-0b-STG" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                                                                 <rect key="frame" x="8" y="0.0" width="358" height="50"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
@@ -224,7 +216,7 @@
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="liouswilliam98@gmail.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZv-1c-hRg" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                                                                 <rect key="frame" x="8" y="0.0" width="358" height="50"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
@@ -280,8 +272,8 @@
                                                                         <rect key="frame" x="4" y="5" width="374" height="50"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJh-1T-Auc">
-                                                                                <rect key="frame" x="20" y="0.0" width="141.5" height="50"/>
-                                                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="14"/>
+                                                                                <rect key="frame" x="20" y="0.0" width="144.5" height="50"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -373,8 +365,8 @@
                                         <rect key="frame" x="16" y="768" width="382" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moL-aA-PKI">
-                                                <rect key="frame" x="154" y="13" width="74.5" height="24"/>
-                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="18"/>
+                                                <rect key="frame" x="156" y="12" width="70.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -434,13 +426,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdl-5j-f9Q">
-                                        <rect key="frame" x="94" y="16" width="226" height="31"/>
-                                        <fontDescription key="fontDescription" name="Cocogoose" family="Cocogoose" pointSize="22"/>
+                                        <rect key="frame" x="97.5" y="16" width="219" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSD-y0-ZBN">
-                                        <rect key="frame" x="16" y="9" width="45" height="45"/>
+                                        <rect key="frame" x="16" y="9.5" width="45" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FV9-ma-xNb">
                                                 <rect key="frame" x="10.5" y="15" width="24" height="15"/>
@@ -490,7 +482,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0l-Na-5tV">
-                                        <rect key="frame" x="0.0" y="70" width="414" height="682"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="414" height="681.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTp-3e-0Ij">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="468"/>
@@ -543,7 +535,7 @@
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Current Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fOv-PA-YTr" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                                                                 <rect key="frame" x="8" y="0.0" width="358" height="50"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
@@ -603,7 +595,7 @@
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x2i-Ix-04C" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                                                                 <rect key="frame" x="8" y="0.0" width="358" height="50"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
@@ -661,7 +653,7 @@
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kEv-AK-tUN" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                                                                 <rect key="frame" x="8" y="0.0" width="358" height="50"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="Cocogoose" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
@@ -738,8 +730,8 @@
                                         <rect key="frame" x="16" y="768" width="382" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VN-Up-hUf">
-                                                <rect key="frame" x="154" y="13" width="74.5" height="24"/>
-                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="18"/>
+                                                <rect key="frame" x="156" y="12" width="70.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -804,13 +796,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Addresses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OE-Rs-XKU">
-                                        <rect key="frame" x="119" y="16" width="176" height="31"/>
-                                        <fontDescription key="fontDescription" name="Cocogoose" family="Cocogoose" pointSize="22"/>
+                                        <rect key="frame" x="121" y="16" width="172.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSp-Va-bu2">
-                                        <rect key="frame" x="16" y="9" width="45" height="45"/>
+                                        <rect key="frame" x="16" y="9.5" width="45" height="45"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gEA-rV-oha">
                                                 <rect key="frame" x="10.5" y="15" width="24" height="15"/>
@@ -860,15 +852,15 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SIX-FF-3Uc">
-                                        <rect key="frame" x="0.0" y="63" width="414" height="689"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="414" height="688.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rjb-lv-dej" customClass="HorizontalGradientView" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                         <rect key="frame" x="16" y="768" width="382" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bA-cL-qwW">
-                                                <rect key="frame" x="126.5" y="13" width="129" height="24"/>
-                                                <fontDescription key="fontDescription" name="Cocogoose-Light" family="COCOGOOSE" pointSize="18"/>
+                                                <rect key="frame" x="130" y="12" width="122.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

@@ -24,7 +24,7 @@ class ForgetPasswordViewController: RegistrationBaseController {
         loginMessage.tappableLabels(string: text,
                                     tappableStrings: ["Log In"],
                                     textColor: .white,
-                                    font: UIFont(name: "Cocogoose-light", size: 14.0)!,
+                                    font: UIFont.systemFont(ofSize: 18),
                                     isUnderLined: true)
         
         loginMessage.addRangeGesture(stringRange: "Log In") {

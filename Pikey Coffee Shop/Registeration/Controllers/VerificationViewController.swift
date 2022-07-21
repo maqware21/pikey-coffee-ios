@@ -18,7 +18,7 @@ class VerificationViewController: RegistrationBaseController {
         resendCodeLabel.tappableLabels(string: text,
                                        tappableStrings: ["Resend Code"],
                                        textColor: UIColor(hex: "999999")!,
-                                       font: UIFont(name: "Cocogoose-light", size: 18.0)!,
+                                       font: UIFont.systemFont(ofSize: 22),
                                        isUnderLined: true)
         
         resendCodeLabel.addRangeGesture(stringRange: "Resend Code") {

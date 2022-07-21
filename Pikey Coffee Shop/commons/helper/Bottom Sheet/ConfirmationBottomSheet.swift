@@ -35,7 +35,7 @@ class ConfirmationBottomSheet: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Logout"
         view.textColor = .white
-        view.font = UIFont(name: "Cocogoose", size: 20)
+        view.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return view
     }()
     
@@ -44,7 +44,7 @@ class ConfirmationBottomSheet: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Are you sure you want to logout?"
         view.textColor = UIColor(named: "coffeeGray")
-        view.font = UIFont(name: "Cocogoose-light", size: 18)
+        view.font = UIFont.systemFont(ofSize: 22)
         view.numberOfLines = 0
         view.textAlignment = .center
         return view
@@ -72,7 +72,7 @@ class ConfirmationBottomSheet: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Yes"
         label.textColor = .black
-        label.font = UIFont(name: "Cocogoose-light", size: 14)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
     }()
@@ -92,7 +92,7 @@ class ConfirmationBottomSheet: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "No"
         label.textColor = .white
-        label.font = UIFont(name: "Cocogoose-light", size: 14)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
     }()

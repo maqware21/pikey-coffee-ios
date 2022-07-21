@@ -44,7 +44,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         view.backgroundColor = .black
         let label = UILabel()
         label.text = "Nearby Cafes"
-        label.font = UIFont(name: "Cocogoose-light", size: 20)
+        label.font = UIFont.systemFont(ofSize: 24)
         label.textColor = .white
         label.backgroundColor = .black
         view.addSubview(label)

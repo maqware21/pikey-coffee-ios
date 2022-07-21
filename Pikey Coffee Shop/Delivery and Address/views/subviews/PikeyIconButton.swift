@@ -30,7 +30,7 @@ class PikeyIconButton: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Home"
         view.textColor = UIColor(hex: "coffeeGray")
-        view.font = UIFont(name: "Cocogoose-light", size: 14)
+        view.font = UIFont.systemFont(ofSize: 18)
         return view
     }()
     

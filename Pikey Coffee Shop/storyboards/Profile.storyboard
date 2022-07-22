@@ -275,7 +275,7 @@
                                                                                 <rect key="frame" x="8" y="0.0" width="358" height="50"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done" textContentType="tel"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
                                                                                         <size key="value" width="32" height="32"/>
@@ -428,12 +428,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5g-tW-Z6b">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="onClickUpdate" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y2V-if-RRU"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="moL-aA-PKI" firstAttribute="centerX" secondItem="gM4-Pa-zR9" secondAttribute="centerX" id="6pQ-33-t8U"/>
                                             <constraint firstAttribute="height" constant="50" id="7t4-zh-I5X"/>
+                                            <constraint firstItem="i5g-tW-Z6b" firstAttribute="top" secondItem="gM4-Pa-zR9" secondAttribute="top" id="MDg-ia-2ce"/>
+                                            <constraint firstItem="i5g-tW-Z6b" firstAttribute="leading" secondItem="gM4-Pa-zR9" secondAttribute="leading" id="NLk-Cf-kba"/>
                                             <constraint firstItem="moL-aA-PKI" firstAttribute="centerY" secondItem="gM4-Pa-zR9" secondAttribute="centerY" id="g4Q-n7-Xly"/>
+                                            <constraint firstAttribute="trailing" secondItem="i5g-tW-Z6b" secondAttribute="trailing" id="lLt-E7-lad"/>
+                                            <constraint firstAttribute="bottom" secondItem="i5g-tW-Z6b" secondAttribute="bottom" id="lgm-4W-pBV"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -467,6 +479,11 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1Wz-Ww-Acn" secondAttribute="trailing" id="j6r-By-VYW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="GZv-1c-hRg" id="zJW-ch-t1J"/>
+                        <outlet property="nameField" destination="2c2-0b-STG" id="u8k-cf-3kb"/>
+                        <outlet property="phoneField" destination="7UY-et-cYC" id="GxU-fU-igm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -793,12 +810,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2l-Nu-Pv3">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="onClickUpdate" destination="Hdl-aZ-fHG" eventType="touchUpInside" id="728-oT-gxw"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="BPo-fd-I0e"/>
+                                            <constraint firstItem="e2l-Nu-Pv3" firstAttribute="leading" secondItem="bKI-1L-Vfg" secondAttribute="leading" id="Fi3-4r-IcN"/>
                                             <constraint firstItem="4VN-Up-hUf" firstAttribute="centerY" secondItem="bKI-1L-Vfg" secondAttribute="centerY" id="Omv-44-NbG"/>
+                                            <constraint firstAttribute="trailing" secondItem="e2l-Nu-Pv3" secondAttribute="trailing" id="UVa-mM-YHp"/>
+                                            <constraint firstItem="e2l-Nu-Pv3" firstAttribute="top" secondItem="bKI-1L-Vfg" secondAttribute="top" id="lkA-wP-xuR"/>
                                             <constraint firstItem="4VN-Up-hUf" firstAttribute="centerX" secondItem="bKI-1L-Vfg" secondAttribute="centerX" id="tkp-nK-f9e"/>
+                                            <constraint firstAttribute="bottom" secondItem="e2l-Nu-Pv3" secondAttribute="bottom" id="x3Q-TW-Z55"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

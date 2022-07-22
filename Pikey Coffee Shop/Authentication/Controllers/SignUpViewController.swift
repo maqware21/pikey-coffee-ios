@@ -93,6 +93,8 @@ extension SignUpViewController: AuthenticationDelegate {
             if let _ = user {
                 self.view.displayNotice(with: "Please verify your email")
                 self.navigationController?.popViewController(animated: true)
+            } else {
+                self.view.displayNotice(with: "Invalid data.")
             }
         }
     }

@@ -27,4 +27,30 @@ class ProfileViewModel {
             }
         }
     }
+    
+    func updateProfile(userName: String, phoneNo: String) {
+        Task(priority: .background) {
+            let result = await ProfileService.shared.updateProfile(userName: userName, phoneNo: phoneNo)
+            switch result {
+            case .success(let data):
+                delegate?.profileUpdated(data)
+            case .failure(let error):
+                delegate?.profileUpdated(nil)
+                print(error.customMessage)
+            }
+        }
+    }
+    
+    func updatePassword(oldPassword: String, newPassword: String, confirmPassword: String) {
+        Task(priority: .background) {
+            let result = await ProfileService.shared.updatePassword(oldPassword: oldPassword, newPassword: newPassword, confirmPassword: confirmPassword)
+            switch result {
+            case .success(let data):
+                delegate?.profileUpdated(data)
+            case .failure(let error):
+                delegate?.profileUpdated(nil)
+                print(error.customMessage)
+            }
+        }
+    }
 }

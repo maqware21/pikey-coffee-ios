@@ -43,6 +43,7 @@ class ProfileViewController: TabItemViewController {
     
     @IBAction func onClickEditProfile() {
         if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController {
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -61,6 +62,15 @@ class ProfileViewController: TabItemViewController {
         let vc = PickeySheet(view: controller)
         present(vc, animated: true)
     }
+    
+    func updateView(user: User) {
+        self.userNameLabel.text = user.name
+        self.emailLabel.text = user.email
+        self.pointsLabel.text = "\(user.points ?? 0) Points"
+        self.userNameLabel.hideSkeleton()
+        self.emailLabel.hideSkeleton()
+        self.pointsLabel.hideSkeleton()
+    }
 }
 
 
@@ -78,13 +88,24 @@ extension ProfileViewController: ProfileDelegate {
     func profileUpdated(_ user: User?) {
         if let user = user {
             DispatchQueue.main.async {
-                self.userNameLabel.text = "\(user.firstName ?? "") \(user.lastName ?? "")"
-                self.emailLabel.text = user.email
-                self.pointsLabel.text = "\(user.points ?? 0) Points"
-                self.userNameLabel.hideSkeleton()
-                self.emailLabel.hideSkeleton()
-                self.pointsLabel.hideSkeleton()
+                if var storedUser = UserDefaults.standard[.user] {
+                    storedUser.firstName = user.firstName
+                    storedUser.lastName = user.lastName
+                    storedUser.phoneNumber = user.phoneNumber
+                    storedUser.points = user.points
+                    UserDefaults.standard[.user] = storedUser
+                    self.updateView(user: storedUser)
+                }
             }
+        }
+    }
+}
+
+extension ProfileViewController: EditProfileDelegate {
+    
+    func profileEdited(_ user: User?) {
+        if let user = user {
+            updateView(user: user)
         }
     }
 }

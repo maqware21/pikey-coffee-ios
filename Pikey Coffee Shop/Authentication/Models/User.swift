@@ -10,10 +10,10 @@ import Foundation
 struct User: Codable {
     
     let id: Int
-    let firstName: String?
-    let lastName: String?
+    var firstName: String?
+    var lastName: String?
     let email: String?
-    let phoneNumber: String?
+    var phoneNumber: String?
     let type: Int?
     let isEmailVerified: Int?
     let isEmailVerifiedText: String?
@@ -25,7 +25,7 @@ struct User: Codable {
     let accessToken: String?
     let refreshToken: String?
     let accessTokenExp: Int?
-    let points: Int?
+    var points: Int?
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -45,6 +45,10 @@ struct User: Codable {
         case refreshToken = "refresh_token"
         case accessTokenExp = "access_token_expires_in"
         case points
+    }
+    
+    var name: String {
+        return (firstName ?? "") + " " + (lastName ?? "")
     }
 }
 

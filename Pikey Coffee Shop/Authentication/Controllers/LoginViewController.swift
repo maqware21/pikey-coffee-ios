@@ -83,6 +83,8 @@ extension LoginViewController: AuthenticationDelegate {
             if let user = user {
                 UserDefaults.standard[.user] = user
                 self.moveToTab()
+            } else {
+                self.view.displayNotice(with: "Invalid email or password")
             }
         }
     }

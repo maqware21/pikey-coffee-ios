@@ -9,8 +9,7 @@ import Foundation
 
 protocol ProfileServiceable {
     func getProfile() async -> Result<User, RequestError>
-    func updateProfile(userName: String,
-                       phoneNo: String) async -> Result<User, RequestError>
+    func updateProfile(userName: String) async -> Result<User, RequestError>
     func updatePassword(oldPassword: String,
                         newPassword: String,
                         confirmPassword: String) async -> Result<User, RequestError>
@@ -24,8 +23,8 @@ struct ProfileService: HTTPClient, ProfileServiceable {
         return await sendRequest(endpoint: ProfileEndpoint.getProfile, responseModel: User.self)
     }
     
-    func updateProfile(userName: String, phoneNo: String) async -> Result<User, RequestError> {
-        return await sendRequest(endpoint: ProfileEndpoint.updateProfile(userName: userName, phoneNo: phoneNo), responseModel: User.self)
+    func updateProfile(userName: String) async -> Result<User, RequestError> {
+        return await sendRequest(endpoint: ProfileEndpoint.updateProfile(userName: userName), responseModel: User.self)
     }
     
     func updatePassword(oldPassword: String, newPassword: String, confirmPassword: String) async -> Result<User, RequestError> {

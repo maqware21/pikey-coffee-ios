@@ -36,23 +36,19 @@ class EditProfileViewController: EditProfileBaseViewController {
         emailField.text = user.email
         emailField.isUserInteractionEnabled = false
         phoneField.text = user.phoneNumber
+        phoneField.isUserInteractionEnabled = false
     }
     
     @IBAction func onClickUpdate() {
         if validate() {
             self.showLoader()
-            viewModel.updateProfile(userName: nameField.text ?? "", phoneNo: phoneField.text ?? "")
+            viewModel.updateProfile(userName: nameField.text ?? "")
         }
     }
     
     func validate() -> Bool {
         if nameField.isEmpty {
             self.view.displayNotice(with: "Name required")
-            return false
-        }
-        
-        if phoneField.isEmpty || !phoneField.hasValidPhoneNo {
-            self.view.displayNotice(with: "Password required")
             return false
         }
         
@@ -78,12 +74,10 @@ extension EditProfileViewController: ProfileDelegate {
                 if var storedUser = UserDefaults.standard[.user] {
                     storedUser.firstName = user.firstName
                     storedUser.lastName = user.lastName
-                    storedUser.phoneNumber = user.phoneNumber
                     UserDefaults.standard[.user] = storedUser
                     self.delegate?.profileEdited(storedUser)
                 }
                 self.nameField.text = user.name
-                self.phoneField.text = user.phoneNumber
                 self.view.displayNotice(with: "Updated successfully")
             } else {
                 self.view.displayNotice(with: "Invalid user information")

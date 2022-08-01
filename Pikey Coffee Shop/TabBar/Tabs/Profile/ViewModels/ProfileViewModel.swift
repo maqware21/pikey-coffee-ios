@@ -28,9 +28,9 @@ class ProfileViewModel {
         }
     }
     
-    func updateProfile(userName: String, phoneNo: String) {
+    func updateProfile(userName: String) {
         Task(priority: .background) {
-            let result = await ProfileService.shared.updateProfile(userName: userName, phoneNo: phoneNo)
+            let result = await ProfileService.shared.updateProfile(userName: userName)
             switch result {
             case .success(let data):
                 delegate?.profileUpdated(data)

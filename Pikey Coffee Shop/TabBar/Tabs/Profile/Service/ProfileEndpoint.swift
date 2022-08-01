@@ -8,8 +8,7 @@ import Foundation
 
 enum ProfileEndpoint {
     case getProfile
-    case updateProfile(userName: String,
-                       phoneNo: String)
+    case updateProfile(userName: String)
     case updatePassword(oldPassword: String,
                         newPassword: String,
                         confirmPassword: String)
@@ -49,14 +48,14 @@ extension ProfileEndpoint: Endpoint {
         switch self {
         case .getProfile:
             return nil
-        case .updateProfile(let name, let phoneNo):
+        case .updateProfile(let name):
             guard let user = UserDefaults.standard[.user] else { return nil }
             let namecomponents = name.components(separatedBy: " ")
             let parameter: [String: String] = [
                                 "email": user.email ?? "",
                                 "first_name": namecomponents.first ?? "",
                                 "last_name": namecomponents.last ?? "",
-                                "phone_number": phoneNo
+                                "phone_number": user.phoneNumber ?? ""
                             ]
             return parameter
         case .updatePassword(let oldPassword, let newPassword, let confirmPassword):

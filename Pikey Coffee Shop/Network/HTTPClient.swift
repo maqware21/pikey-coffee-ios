@@ -36,7 +36,7 @@ extension HTTPClient {
             switch response.statusCode {
             case 200...299:
                 print("🧐 ")
-                print(String(data: data, encoding: .utf8))
+                print(String(data: data, encoding: .utf8) as Any)
                 guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
                     return .failure(.decode)
                 }

@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeFeedCell: UITableViewCell {
 
+    @IBOutlet weak var categoryImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +22,19 @@ class HomeFeedCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    var category: Category? {
+        didSet {
+            guard let category else {
+                return
+            }
+            
+            if let url = URL(string: category.images?.first?.path ?? "") {
+                categoryImage.kf.setImage(with: url)
+            }
+            titleLabel.text = category.name
+        }
     }
     
 }

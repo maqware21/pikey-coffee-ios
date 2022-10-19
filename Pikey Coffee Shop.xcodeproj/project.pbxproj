@@ -70,10 +70,15 @@
 		5687E1B92860FFB90063CE47 /* PaymentTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5687E1B72860FFB90063CE47 /* PaymentTypeCell.xib */; };
 		5687E1BC28610E930063CE47 /* BillingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E1BA28610E930063CE47 /* BillingDetailsCell.swift */; };
 		5687E1BD28610E930063CE47 /* BillingDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5687E1BB28610E930063CE47 /* BillingDetailsCell.xib */; };
+		568C2B3829009DF200891734 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 568C2B3729009DF200891734 /* Kingfisher */; };
 		568CA4562857B0CE00589AE1 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CA4552857B0CE00589AE1 /* DashedView.swift */; };
 		568CA4592857B32200589AE1 /* CartEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CA4582857B32200589AE1 /* CartEmptyView.swift */; };
 		568CA45C2857C4E200589AE1 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CA45A2857C4E200589AE1 /* CartCell.swift */; };
 		568CA45D2857C4E200589AE1 /* CartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568CA45B2857C4E200589AE1 /* CartCell.xib */; };
+		5692A07D28FDE38A00B91F59 /* HomeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5692A07C28FDE38A00B91F59 /* HomeEndpoint.swift */; };
+		5692A07F28FDE39400B91F59 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5692A07E28FDE39400B91F59 /* HomeService.swift */; };
+		5692A08128FDEAE700B91F59 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5692A08028FDEAE700B91F59 /* Categories.swift */; };
+		5692A08428FDED0A00B91F59 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5692A08328FDED0A00B91F59 /* HomeViewModel.swift */; };
 		569D07BE28872A280075B78A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D07BD28872A280075B78A /* AuthenticationViewModel.swift */; };
 		569D07C128872CDA0075B78A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D07C028872CDA0075B78A /* User.swift */; };
 		56A8C2012863CBC100D75257 /* BetterSegmentedControl in Frameworks */ = {isa = PBXBuildFile; productRef = 56A8C2002863CBC100D75257 /* BetterSegmentedControl */; };
@@ -169,6 +174,10 @@
 		568CA4582857B32200589AE1 /* CartEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartEmptyView.swift; sourceTree = "<group>"; };
 		568CA45A2857C4E200589AE1 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		568CA45B2857C4E200589AE1 /* CartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartCell.xib; sourceTree = "<group>"; };
+		5692A07C28FDE38A00B91F59 /* HomeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEndpoint.swift; sourceTree = "<group>"; };
+		5692A07E28FDE39400B91F59 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		5692A08028FDEAE700B91F59 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		5692A08328FDED0A00B91F59 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		569D07BD28872A280075B78A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		569D07C028872CDA0075B78A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		56A8C2032863D2C700D75257 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -198,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				568C2B3829009DF200891734 /* Kingfisher in Frameworks */,
 				56834EDA2888877F00DB8C29 /* SwiftEntryKit in Frameworks */,
 				568360472863B9E000A0608F /* IQKeyboardManagerSwift in Frameworks */,
 				56A8C2012863CBC100D75257 /* BetterSegmentedControl in Frameworks */,
@@ -311,6 +321,9 @@
 		5632901A284E9E8000BBE2D5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5692A08228FDECF100B91F59 /* ViewModel */,
+				5692A07B28FDE2F000B91F59 /* Model */,
+				5692A07A28FDE2E700B91F59 /* Service */,
 				5632901D284E9EDD00BBE2D5 /* cells */,
 				5632901C284E9ECD00BBE2D5 /* Controllers */,
 				563185B32863A835005C46F1 /* Products */,
@@ -590,6 +603,31 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		5692A07A28FDE2E700B91F59 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5692A07C28FDE38A00B91F59 /* HomeEndpoint.swift */,
+				5692A07E28FDE39400B91F59 /* HomeService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5692A07B28FDE2F000B91F59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5692A08028FDEAE700B91F59 /* Categories.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5692A08228FDECF100B91F59 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5692A08328FDED0A00B91F59 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		569D07BC28872A100075B78A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,6 +812,7 @@
 				56E470BA28873FED00523965 /* NVActivityIndicatorView */,
 				56834ED92888877F00DB8C29 /* SwiftEntryKit */,
 				56DF35822889E817004CF09C /* SkeletonView */,
+				568C2B3729009DF200891734 /* Kingfisher */,
 			);
 			productName = "Pikey Coffee Shop";
 			productReference = 56720DCD28469F9F006AAFFA /* Pikey Coffee Shop.app */;
@@ -809,6 +848,7 @@
 				56E470B928873FED00523965 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				56834ED82888877F00DB8C29 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
 				56DF35812889E817004CF09C /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				568C2B3629009DF200891734 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 56720DCE28469F9F006AAFFA /* Products */;
 			projectDirPath = "";
@@ -865,17 +905,20 @@
 				568360432863B5F100A0608F /* StarRatingStackView.swift in Sources */,
 				56834ED52888723200DB8C29 /* AuthenticationService.swift in Sources */,
 				564873D62847D84C003C63DD /* LoginViewController.swift in Sources */,
+				5692A07F28FDE39400B91F59 /* HomeService.swift in Sources */,
 				564873E028480C06003C63DD /* UILabel+Extension.swift in Sources */,
 				564873DE2847FA18003C63DD /* IconTextField.swift in Sources */,
 				568360422863B5F100A0608F /* StarRatingView.swift in Sources */,
 				5603F098286659DD008DEFDE /* AddAddressView.swift in Sources */,
 				5680BA8E284932FF003B5DBE /* RegistrationBaseController.swift in Sources */,
 				568CA45C2857C4E200589AE1 /* CartCell.swift in Sources */,
+				5692A08128FDEAE700B91F59 /* Categories.swift in Sources */,
 				56D57C5F285BC2ED00877C51 /* DeliveryView.swift in Sources */,
 				56E470BD2887404700523965 /* UIviewController+extension.swift in Sources */,
 				56DF35802889E3AE004CF09C /* ProfileViewModel.swift in Sources */,
 				564873D32847D6CC003C63DD /* UITextField+Extension.swift in Sources */,
 				5680BA96284950D0003B5DBE /* ForgetPasswordViewController.swift in Sources */,
+				5692A08428FDED0A00B91F59 /* HomeViewModel.swift in Sources */,
 				56504633285123BA00E4C2FF /* OrderViewController.swift in Sources */,
 				56D41A7F28526F1400859D47 /* ProfileViewController.swift in Sources */,
 				565FA1B0284A9182007E8C1C /* VerificationViewController.swift in Sources */,
@@ -892,6 +935,7 @@
 				56834EDF28889A4700DB8C29 /* UserDefaults+Extension.swift in Sources */,
 				5662D7272864F67700BDB969 /* CartConterItem.swift in Sources */,
 				56AC85F2285D109A00E13156 /* InformationCell.swift in Sources */,
+				5692A07D28FDE38A00B91F59 /* HomeEndpoint.swift in Sources */,
 				56834ED42888723200DB8C29 /* Endpoint.swift in Sources */,
 				56834ED22888723200DB8C29 /* HTTPClient.swift in Sources */,
 				56720DD328469F9F006AAFFA /* SceneDelegate.swift in Sources */,
@@ -1156,6 +1200,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		568C2B3629009DF200891734 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		56A8C1FF2863CBC100D75257 /* XCRemoteSwiftPackageReference "BetterSegmentedControl" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/gmarm/BetterSegmentedControl";
@@ -1192,6 +1244,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 568360452863B9E000A0608F /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		568C2B3729009DF200891734 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 568C2B3629009DF200891734 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		56A8C2002863CBC100D75257 /* BetterSegmentedControl */ = {
 			isa = XCSwiftPackageProductDependency;

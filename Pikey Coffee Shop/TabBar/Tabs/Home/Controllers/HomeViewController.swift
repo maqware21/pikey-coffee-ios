@@ -7,18 +7,23 @@
 
 import UIKit
 
+
 class HomeViewController: TabItemViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    internal var viewModel = HomeViewModel()
+    
+    internal var categoryData: CategoryData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HomeHeadlineCell", bundle: .main), forCellReuseIdentifier: "homeCell")
         tableView.register(UINib(nibName: "HomeFeedCell", bundle: .main), forCellReuseIdentifier: "homeFeedCell")
         tableView.contentInset.bottom = 48
-        // Do any additional setup after loading the view.
+        self.loadData(page: 1)
     }
     
     @IBAction func onClickAddressOptoin() {
@@ -30,13 +35,18 @@ class HomeViewController: TabItemViewController {
         navigation.modalPresentationStyle = .overFullScreen
         present(navigation, animated: true)
     }
+    
+    func loadData(page: Int) {
+        self.showLoader()
+        viewModel.getCategories(for: page)
+    }
 
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -60,21 +70,27 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 : 60
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 5
+        return categoryData?.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return  indexPath.section == 0 ?
-                headlineCell(tableView, cellForRowAt: indexPath) :
+        return  //indexPath.section == 0 ?
+                //headlineCell(tableView, cellForRowAt: indexPath) :
                 feedCell(tableView, cellForRowAt: indexPath)
     }
     
     func feedCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeFeedCell", for: indexPath) as! HomeFeedCell
+        cell.category = categoryData?.data?[indexPath.row]
+        
+        if (categoryData?.data?.count ?? 0) - indexPath.row == CategoryConstants.perPageCount/2 {
+            self.loadData(page: (categoryData?.pagination?.currentPage ?? 0) + 1)
+        }
+        
         return cell
     }
     
@@ -84,10 +100,27 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            if let controller = UIStoryboard(name: "Product", bundle: .main).instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController {
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
+        if let controller = UIStoryboard(name: "Product", bundle: .main).instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController {
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+}
+
+extension HomeViewController: HomeDelegate {
+    func categoryResponse(with categoryData: CategoryData?) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            if let categoryData {
+                if self.categoryData != nil {
+                    self.categoryData?.data?.append(contentsOf: categoryData.data ?? [])
+                    self.categoryData?.pagination = categoryData.pagination
+                } else {
+                    self.categoryData = categoryData
+                }
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
+    
 }

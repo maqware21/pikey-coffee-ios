@@ -1,4 +1,6 @@
 
+import Foundation
+
 enum AuthenticationEndpoint {
     case signUp(name: String,
                 email: String,
@@ -25,16 +27,6 @@ extension AuthenticationEndpoint: Endpoint {
         switch self {
         case .signUp, .signIn, .forgotPassword:
             return .post
-        }
-    }
-
-    var header: [String: String]? {
-        switch self {
-        case .signUp, .signIn, .forgotPassword:
-            return [
-                "Accept": "application/json",
-                "Content-Type": "application/json;charset=utf-8"
-            ]
         }
     }
     
@@ -65,6 +57,13 @@ extension AuthenticationEndpoint: Endpoint {
                                 "email": email
                             ]
             return parameter
+        }
+    }
+    
+    var queryParams: [URLQueryItem]? {
+        switch self {
+        default:
+            return nil
         }
     }
 }

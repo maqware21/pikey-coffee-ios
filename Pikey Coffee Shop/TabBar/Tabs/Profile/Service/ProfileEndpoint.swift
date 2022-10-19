@@ -32,17 +32,6 @@ extension ProfileEndpoint: Endpoint {
             return .put
         }
     }
-
-    var header: [String: String]? {
-        switch self {
-        case .getProfile, .updatePassword, .updateProfile:
-            return [
-                "Accept": "application/json",
-                "Content-Type": "application/json;charset=utf-8",
-                "Authorization": "Bearer \(UserDefaults.standard[.user]?.accessToken ?? "")"
-            ]
-        }
-    }
     
     var body: [String: String]? {
         switch self {
@@ -70,6 +59,13 @@ extension ProfileEndpoint: Endpoint {
                                 "password_confirmation": confirmPassword
                             ]
             return parameter
+        }
+    }
+    
+    var queryParams: [URLQueryItem]? {
+        switch self {
+        default:
+            return nil
         }
     }
 }

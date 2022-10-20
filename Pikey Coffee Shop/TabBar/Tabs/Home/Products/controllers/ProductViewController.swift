@@ -9,21 +9,20 @@ import UIKit
 import BetterSegmentedControl
 
 class ProductViewController: UIViewController {
-
-    @IBOutlet weak var segmentControl: BetterSegmentedControl!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionHeight: NSLayoutConstraint!
+    @IBOutlet weak var segmentView: CollectionViewSegmentedControl!
+    
+    var categories: [Category]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        segmentControl.segments = LabelSegment.segments(withTitles: ["Coffee", "Espresso", "Tea"],
-                              normalTextColor: UIColor(hex: "888888"),
-                              selectedTextColor: .black)
-        segmentControl.setOptions([.backgroundColor(.black),
-                                    .indicatorViewBackgroundColor(.white),
-                                    .cornerRadius(20.0),
-                                    .animationSpringDamping(1.0)])
-        
+        if let categories {
+            let names = categories.map({ $0.name ?? "" })
+            segmentView.items = names
+        }
+        segmentView.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
         collectionView.register(UINib(nibName: "ProductCell", bundle: .main), forCellWithReuseIdentifier: "ProductCell")
         collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         collectionView.dataSource = self
@@ -35,6 +34,9 @@ class ProductViewController: UIViewController {
         return .lightContent
     }
     
+    @objc func segmentValueChanged() {
+        print(segmentView.selectedIndex)
+    }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if(keyPath == "contentSize"){

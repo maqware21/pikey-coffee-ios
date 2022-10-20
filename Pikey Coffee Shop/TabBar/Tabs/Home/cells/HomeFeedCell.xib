@@ -42,8 +42,8 @@
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KJr-md-CqW">
                                 <rect key="frame" x="20" y="328" width="485" height="0.0"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTI-G9-1Ik">
-                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="50"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTI-G9-1Ik">
+                                        <rect key="frame" x="485" y="0.0" width="33" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eVS-gz-4qS">
                                                 <rect key="frame" x="5" y="5" width="20" height="40"/>
@@ -53,7 +53,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0B-7c-qn8">
-                                                <rect key="frame" x="33" y="5" width="119.5" height="40"/>
+                                                <rect key="frame" x="33" y="5" width="0.0" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" name="coffeeGray"/>
                                                 <nil key="highlightedColor"/>
@@ -70,8 +70,8 @@
                                             <constraint firstItem="a0B-7c-qn8" firstAttribute="leading" secondItem="eVS-gz-4qS" secondAttribute="trailing" constant="8" id="t9N-dO-hXj"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="she-zB-Hc2">
-                                        <rect key="frame" x="160.5" y="0.0" width="153.5" height="50"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="she-zB-Hc2">
+                                        <rect key="frame" x="485" y="0.0" width="33" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationMarker" translatesAutoresizingMaskIntoConstraints="NO" id="mPb-cp-yyb">
                                                 <rect key="frame" x="5" y="5" width="20" height="40"/>
@@ -81,7 +81,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.75mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFU-x2-Ufz">
-                                                <rect key="frame" x="33" y="5" width="120.5" height="40"/>
+                                                <rect key="frame" x="33" y="5" width="0.0" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" name="coffeeGray"/>
                                                 <nil key="highlightedColor"/>
@@ -98,8 +98,8 @@
                                             <constraint firstItem="mPb-cp-yyb" firstAttribute="top" secondItem="she-zB-Hc2" secondAttribute="top" constant="5" id="moo-Hw-xsy"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OF-Gh-bBC">
-                                        <rect key="frame" x="322" y="0.0" width="163" height="50"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OF-Gh-bBC">
+                                        <rect key="frame" x="485" y="0.0" width="33" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mUr-K2-t4L">
                                                 <rect key="frame" x="5" y="5" width="20" height="40"/>
@@ -109,7 +109,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="46mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy2-BW-Gx5">
-                                                <rect key="frame" x="33" y="5" width="130" height="40"/>
+                                                <rect key="frame" x="33" y="5" width="0.0" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" name="coffeeGray"/>
                                                 <nil key="highlightedColor"/>

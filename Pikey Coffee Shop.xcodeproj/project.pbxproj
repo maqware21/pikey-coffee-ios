@@ -104,6 +104,7 @@
 		56F532F028526614006695DD /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F532EF28526614006695DD /* NotificationsViewController.swift */; };
 		56F532F428526640006695DD /* NotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F532F228526640006695DD /* NotificationsCell.swift */; };
 		56F532F528526640006695DD /* NotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F532F328526640006695DD /* NotificationsCell.xib */; };
+		56F6D44F2901DCC10065DCB4 /* CollectionViewSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6D44E2901DCC10065DCB4 /* CollectionViewSegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +201,7 @@
 		56F532EF28526614006695DD /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		56F532F228526640006695DD /* NotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCell.swift; sourceTree = "<group>"; };
 		56F532F328526640006695DD /* NotificationsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsCell.xib; sourceTree = "<group>"; };
+		56F6D44E2901DCC10065DCB4 /* CollectionViewSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,6 +409,7 @@
 				564873DD2847FA18003C63DD /* IconTextField.swift */,
 				5681D9812853BF3C00340A4E /* HorizontalGradientView.swift */,
 				568CA4552857B0CE00589AE1 /* DashedView.swift */,
+				56F6D44E2901DCC10065DCB4 /* CollectionViewSegmentedControl.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 				568CA45C2857C4E200589AE1 /* CartCell.swift in Sources */,
 				5692A08128FDEAE700B91F59 /* Categories.swift in Sources */,
 				56D57C5F285BC2ED00877C51 /* DeliveryView.swift in Sources */,
+				56F6D44F2901DCC10065DCB4 /* CollectionViewSegmentedControl.swift in Sources */,
 				56E470BD2887404700523965 /* UIviewController+extension.swift in Sources */,
 				56DF35802889E3AE004CF09C /* ProfileViewModel.swift in Sources */,
 				564873D32847D6CC003C63DD /* UITextField+Extension.swift in Sources */,

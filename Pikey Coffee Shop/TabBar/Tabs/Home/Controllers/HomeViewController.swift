@@ -108,7 +108,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeViewController: HomeDelegate {
-    func categoryResponse(with categoryData: CategoryData?) {
+    func categoryUpdate(with categoryData: CategoryData?) {
         DispatchQueue.main.async {
             self.removeLoader()
             if let categoryData {

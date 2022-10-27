@@ -34,7 +34,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pikey Coffee Decatur Blvd South" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjA-vN-c0b">
-                                <rect key="frame" x="20" y="238" width="485" height="90"/>
+                                <rect key="frame" x="20" y="238" width="485" height="74"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -134,7 +134,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KJr-md-CqW" firstAttribute="top" secondItem="SjA-vN-c0b" secondAttribute="bottom" id="Feb-eT-d9U"/>
+                            <constraint firstItem="KJr-md-CqW" firstAttribute="top" secondItem="SjA-vN-c0b" secondAttribute="bottom" constant="16" id="Feb-eT-d9U"/>
                             <constraint firstItem="KJr-md-CqW" firstAttribute="leading" secondItem="SjA-vN-c0b" secondAttribute="leading" id="Hd4-It-kvD"/>
                             <constraint firstAttribute="bottom" secondItem="KJr-md-CqW" secondAttribute="bottom" constant="5" id="L2G-0g-aXQ"/>
                             <constraint firstItem="SjA-vN-c0b" firstAttribute="trailing" secondItem="kGf-Hp-X7D" secondAttribute="trailing" id="NEA-92-PqB"/>

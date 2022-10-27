@@ -13,8 +13,11 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionHeight: NSLayoutConstraint!
     @IBOutlet weak var segmentView: CollectionViewSegmentedControl!
+    private let viewModel = ProductViewModel()
+    
     
     var categories: [Category]!
+    var productData: ProductData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,8 @@ class ProductViewController: UIViewController {
         collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         collectionView.dataSource = self
         collectionView.delegate = self
+        viewModel.delegate = self
+        fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0)
         // Do any additional setup after loading the view.
     }
     
@@ -35,7 +40,14 @@ class ProductViewController: UIViewController {
     }
     
     @objc func segmentValueChanged() {
-        print(segmentView.selectedIndex)
+        fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0)
+    }
+    
+    func fetchProducts(id: Int, page: Int = 1) {
+        self.productData = nil
+        self.collectionView.reloadData()
+        self.showLoader()
+        viewModel.getProducts(with: id, for: page)
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -56,20 +68,45 @@ class ProductViewController: UIViewController {
 extension ProductViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return productData?.data?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
+        cell.product = productData?.data?[indexPath.item]
         cell.cartButton.addAction(UIAction(handler: { _ in
             let view = AddToCartView()
             let sheet = PickeySheet(view: view)
             self.present(sheet, animated: true)
         }), for: .touchUpInside)
+        
+        if (productData?.data?.count ?? 0) - indexPath.row == ProductConstants.perPageCount/2 {
+            self.fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0,
+                               page: (productData?.pagination?.currentPage ?? 0) + 1)
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collectionView.frame.width/2, height: 290)
+        return CGSize(width: self.collectionView.frame.width/2, height: 320)
+    }
+}
+
+
+extension ProductViewController: ProductsDelegate {
+    func productsUpdate(with products: ProductData?) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            if let products {
+                if self.productData != nil {
+                    self.productData?.data?.append(contentsOf: products.data ?? [])
+                    self.productData?.pagination = products.pagination
+                } else {
+                    self.productData = products
+                }
+            }
+            self.collectionView.reloadData()
+        }
     }
 }

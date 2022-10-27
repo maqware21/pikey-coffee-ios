@@ -6,7 +6,7 @@
 //
 
 protocol HomeDelegate: AnyObject {
-    func categoryResponse(with categoryData: CategoryData?)
+    func categoryUpdate(with categoryData: CategoryData?)
 }
 
 import Foundation
@@ -20,9 +20,9 @@ class HomeViewModel {
             let result = await HomeService.shared.getCategories(page: page)
             switch result {
             case .success(let data):
-                delegate?.categoryResponse(with: data)
+                delegate?.categoryUpdate(with: data)
             case .failure(let error):
-                delegate?.categoryResponse(with: nil)
+                delegate?.categoryUpdate(with: nil)
                 print(error.customMessage)
             }
         }

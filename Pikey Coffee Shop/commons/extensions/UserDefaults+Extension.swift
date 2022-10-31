@@ -62,4 +62,5 @@ extension UserDefaults {
 extension UserDefaults.Key {
     typealias Key = UserDefaults.Key
     static var user: Key<User> { return Key<User>("user") }
+    static var cart: Key<User> { return Key<User>("cart") }
 }

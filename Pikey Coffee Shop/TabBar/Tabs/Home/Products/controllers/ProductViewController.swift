@@ -73,9 +73,14 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-        cell.product = productData?.data?[indexPath.item]
+        let product = productData?.data?[indexPath.item]
+        cell.product = product
         cell.cartButton.addAction(UIAction(handler: { _ in
             let view = AddToCartView()
+            view.productName = product?.name
+            view.productDetail = product?.longDescription
+            let addOns = product?.addons
+            view.addOns = addOns
             let sheet = PickeySheet(view: view)
             self.present(sheet, animated: true)
         }), for: .touchUpInside)

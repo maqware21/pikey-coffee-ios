@@ -10,6 +10,43 @@ protocol AddToCartDelegate: AnyObject {
 class AddToCartView: UIView {
 
     weak var delegate: AddToCartDelegate?
+    var quantity: Int = 0
+    var cartItem: Item?
+    var productName: String? {
+        didSet {
+            titleLabel.text = productName ?? ""
+        }
+    }
+    
+    var productDetail: String? {
+        didSet {
+            messageLabel.text = productDetail ?? ""
+        }
+    }
+    
+    var addOns: [Product?]? {
+        didSet {
+            guard let addOns else { return }
+            categoryStackView.arrangedSubviews.forEach { view in
+                view.removeFromSuperview()
+            }
+            addOns.enumerated().forEach({ (index,addOn) in
+                if let addOn {
+                    let view = CartCategoryView(frame: .zero)
+                    view.tag = index
+                    view.isSelected = false
+                    view.product = addOn
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(categorySelected(_:)))
+                    view.addGestureRecognizer(tap)
+                    categoryStackView.addArrangedSubview(view)
+                    NSLayoutConstraint.activate([
+                        view.heightAnchor.constraint(equalToConstant: 70),
+                        view.widthAnchor.constraint(greaterThanOrEqualToConstant: 90)
+                    ])
+                }
+            })
+        }
+    }
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -50,10 +87,23 @@ class AddToCartView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .horizontal
         view.spacing = 16
-        view.distribution = .fillEqually
+        view.distribution = .fill
         return view
     }()
     
+    lazy var categoryScrollview: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
+    }()
     
     lazy var stackView: UIStackView = {
         let view = UIStackView()
@@ -148,28 +198,30 @@ class AddToCartView: UIView {
             messageLabel.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor)
         ])
         
-        self.containerView.addSubview(categoryStackView)
+        self.containerView.addSubview(categoryScrollview)
         NSLayoutConstraint.activate([
-            categoryStackView.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 24),
-            categoryStackView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 32),
-            categoryStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -32)
+            categoryScrollview.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 24),
+            categoryScrollview.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 32),
+            categoryScrollview.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -32),
+            categoryScrollview.heightAnchor.constraint(equalToConstant: 100)
         ])
         
-        for i in 0..<3 {
-            let view = CartCategoryView(frame: .zero)
-            view.tag = i+1
-            let tap = UITapGestureRecognizer(target: self, action: #selector(categorySelected(_:)))
-            view.addGestureRecognizer(tap)
-            if i == 0 {
-                view.isSelected = true
-            } else {
-                view.isSelected = false
-            }
-            categoryStackView.addArrangedSubview(view)
-            NSLayoutConstraint.activate([
-                view.heightAnchor.constraint(equalToConstant: 100)
-            ])
-        }
+        self.categoryScrollview.addSubview(contentView)
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: categoryScrollview.topAnchor),
+            contentView.leftAnchor.constraint(equalTo: categoryScrollview.leftAnchor),
+            contentView.rightAnchor.constraint(equalTo: categoryScrollview.rightAnchor),
+            contentView.bottomAnchor.constraint(equalTo: categoryScrollview.bottomAnchor),
+        ])
+        
+        self.contentView.addSubview(categoryStackView)
+        NSLayoutConstraint.activate([
+            categoryStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            categoryStackView.leftAnchor.constraint(greaterThanOrEqualTo: contentView.leftAnchor),
+            categoryStackView.rightAnchor.constraint(lessThanOrEqualTo: contentView.rightAnchor),
+            categoryStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            categoryScrollview.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
         
         self.containerView.addSubview(bottomContainer)
         NSLayoutConstraint.activate([
@@ -253,12 +305,19 @@ class AddToCartView: UIView {
     func onClickCounter(_ option: CounterOptions) {
         numberStack.arrangedSubviews.forEach { view in
             if let view = view as? CartConterItem, view.type == .label {
+                let value = Int(view.label.text!)!
                 switch option {
                 case .plus:
-                    view.label.text = "\(Int(view.label.text!)! + 1)"
+                    let quantity = value + 1
+                    view.label.text = "\(quantity)"
+                    self.quantity = quantity
                 case .negetive:
-                    if (Int(view.label.text!)!) > 1 {
-                        view.label.text = "\(Int(view.label.text!)! - 1)"
+                    if value > 1 {
+                        let quantity = value - 1
+                        view.label.text = "\(quantity)"
+                        self.quantity = quantity
+                    } else {
+                        self.quantity = 1
                     }
                 }
             }

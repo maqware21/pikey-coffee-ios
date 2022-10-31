@@ -9,10 +9,18 @@ import UIKit
 
 class CartCategoryView: UIView {
     
+    var product: Product? {
+        didSet {
+            guard let product else { return }
+            self.titleLabel.text = product.name
+            self.priceLabel.text = "$\(product.price ?? 0)"
+        }
+    }
+    
     lazy var containerView: HorizontalGradientView = {
         let view = HorizontalGradientView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.cornerRadius = 20
+        view.cornerRadius = 10
         view.borderColor = UIColor(named: "shadowColor")
         return view
     }()
@@ -60,16 +68,16 @@ class CartCategoryView: UIView {
         
         containerView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
-            titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor)
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 6),
+            titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 12),
+            titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -12)
         ])
         
         containerView.addSubview(priceLabel)
         NSLayoutConstraint.activate([
             priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0),
-            priceLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            priceLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor)
+            priceLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            priceLabel.rightAnchor.constraint(equalTo: titleLabel.rightAnchor)
         ])
     }
     

@@ -74,7 +74,6 @@
                                     <constraint firstItem="PfU-u7-1Vi" firstAttribute="leading" secondItem="Oho-EN-uHK" secondAttribute="leading" id="KjI-6x-vZm"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0v9-n9-VVH" secondAttribute="trailing" constant="8" id="NQg-g9-2IA"/>
                                     <constraint firstItem="PfU-u7-1Vi" firstAttribute="top" secondItem="Oho-EN-uHK" secondAttribute="bottom" constant="8" id="WDg-bg-ygj"/>
-                                    <constraint firstAttribute="height" constant="170" id="el5-FB-Gji"/>
                                     <constraint firstItem="0v9-n9-VVH" firstAttribute="leading" secondItem="PfU-u7-1Vi" secondAttribute="trailing" constant="12" id="fl6-UO-jO7"/>
                                     <constraint firstItem="0v9-n9-VVH" firstAttribute="top" secondItem="PfU-u7-1Vi" secondAttribute="top" id="hHr-J9-1V8"/>
                                 </constraints>

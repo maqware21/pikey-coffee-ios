@@ -8,13 +8,13 @@
 import Foundation
 
 struct Cart: Codable {
-    let paymentMethod: Int
-    let token: String
-    let type: Int
-    let userComment: String
-    let locationID: Int
-    let deliveryDate: String
-    let items: [Item]
+    let paymentMethod: Int?
+    let token: String?
+    let type: Int?
+    let userComment: String?
+    let locationID: Int?
+    let deliveryDate: String?
+    let items: [Item]?
 
     enum CodingKeys: String, CodingKey {
         case paymentMethod = "payment_method"
@@ -27,8 +27,8 @@ struct Cart: Codable {
 }
 
 struct Item: Codable {
-    let productID, quantity: Int
-    let addons: [Item]
+    let productID, quantity: Int?
+    let addons: [Item]?
 
     enum CodingKeys: String, CodingKey {
         case productID = "product_id"

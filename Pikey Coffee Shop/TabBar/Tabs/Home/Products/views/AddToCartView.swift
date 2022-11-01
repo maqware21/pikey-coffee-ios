@@ -3,7 +3,7 @@
 import UIKit
 
 protocol AddToCartDelegate: AnyObject {
-    func addToCart()
+    func addToCart(_ item: Item)
 }
 
 
@@ -24,6 +24,14 @@ class AddToCartView: UIView {
         }
     }
     
+    var product: Product? {
+        didSet {
+            self.productName = product?.name
+            self.productDetail = product?.longDescription
+            self.addOns = product?.addons
+        }
+    }
+    
     var addOns: [Product?]? {
         didSet {
             guard let addOns else { return }
@@ -33,11 +41,19 @@ class AddToCartView: UIView {
             addOns.enumerated().forEach({ (index,addOn) in
                 if let addOn {
                     let view = CartCategoryView(frame: .zero)
-                    view.tag = index
+                    view.tag = addOn.id ?? 0
                     view.isSelected = false
                     view.product = addOn
-                    let tap = UITapGestureRecognizer(target: self, action: #selector(categorySelected(_:)))
-                    view.addGestureRecognizer(tap)
+                    view.onSelected = {[weak self] id in
+                        guard let self else { return }
+                        if let index = self.selectedAddons.firstIndex(where: {$0.id == id}) {
+                            self.selectedAddons.remove(at: index)
+                        } else {
+                            if let obj = self.addOns?.first(where: { $0?.id == id }), let selected = obj {
+                                self.selectedAddons.append(selected)
+                            }
+                        }
+                    }
                     categoryStackView.addArrangedSubview(view)
                     NSLayoutConstraint.activate([
                         view.heightAnchor.constraint(equalToConstant: 70),
@@ -47,6 +63,8 @@ class AddToCartView: UIView {
             })
         }
     }
+    
+    var selectedAddons = [Product]()
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -287,19 +305,12 @@ class AddToCartView: UIView {
 
     
     @objc func onClickAdd() {
-        self.delegate?.addToCart()
-    }
-    
-    @objc func categorySelected(_ gesture: UIGestureRecognizer) {
-        if let index = gesture.view?.tag {
-            self.categoryStackView.arrangedSubviews.forEach { view in
-                if view.tag == index {
-                    (view as? CartCategoryView)?.isSelected = true
-                } else {
-                    (view as? CartCategoryView)?.isSelected = false
-                }
-            }
+        var addons = selectedAddons.map { product in
+            return Item(productID: product.id, quantity: 1, addons: nil)
         }
+        let item = Item(productID: product?.id, quantity: self.quantity, addons: addons)
+        self.delegate?.addToCart(item)
+        self.parentViewController?.dismiss(animated: true)
     }
     
     func onClickCounter(_ option: CounterOptions) {

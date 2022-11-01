@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias CartCategoryCallback = ((_: Int) -> Void)
+
 class CartCategoryView: UIView {
     
     var product: Product? {
@@ -16,6 +18,8 @@ class CartCategoryView: UIView {
             self.priceLabel.text = "$\(product.price ?? 0)"
         }
     }
+    
+    var onSelected: CartCategoryCallback?
     
     lazy var containerView: HorizontalGradientView = {
         let view = HorizontalGradientView()
@@ -58,6 +62,9 @@ class CartCategoryView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(categorySelected(_:)))
+        self.addGestureRecognizer(tap)
+        
         self.addSubview(containerView)
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
@@ -97,5 +104,10 @@ class CartCategoryView: UIView {
                 self.containerView.gradient.isHidden = true
             }
         }
+    }
+    
+    @objc func categorySelected(_ gesture: UIGestureRecognizer) {
+        self.isSelected.toggle()
+        onSelected?(self.tag)
     }
 }

@@ -77,10 +77,8 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDeleg
         cell.product = product
         cell.cartButton.addAction(UIAction(handler: { _ in
             let view = AddToCartView()
-            view.productName = product?.name
-            view.productDetail = product?.longDescription
-            let addOns = product?.addons
-            view.addOns = addOns
+            view.product = product
+            view.delegate = self
             let sheet = PickeySheet(view: view)
             self.present(sheet, animated: true)
         }), for: .touchUpInside)
@@ -113,5 +111,11 @@ extension ProductViewController: ProductsDelegate {
             }
             self.collectionView.reloadData()
         }
+    }
+}
+
+extension ProductViewController: AddToCartDelegate {
+    func addToCart(_ item: Item) {
+        print(Cart(paymentMethod: 2, token: "", type: 3, userComment: "", locationID: 23, deliveryDate: "", items: [item]))
     }
 }

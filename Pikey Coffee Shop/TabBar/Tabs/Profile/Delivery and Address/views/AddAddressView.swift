@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import GoogleMaps
+import CoreLocation
 
 class AddAddressView: UIView {
+    
+    var locationManager: CLLocationManager?
     
     lazy var containerView: UIView = {
         let view = UIView()

@@ -72,6 +72,7 @@
 		5687E1B92860FFB90063CE47 /* PaymentTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5687E1B72860FFB90063CE47 /* PaymentTypeCell.xib */; };
 		5687E1BC28610E930063CE47 /* BillingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687E1BA28610E930063CE47 /* BillingDetailsCell.swift */; };
 		5687E1BD28610E930063CE47 /* BillingDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5687E1BB28610E930063CE47 /* BillingDetailsCell.xib */; };
+		5688C3FA291410C800651E19 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5688C3F9291410C800651E19 /* AddLocationViewController.swift */; };
 		568C2B3829009DF200891734 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 568C2B3729009DF200891734 /* Kingfisher */; };
 		568CA4562857B0CE00589AE1 /* DashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CA4552857B0CE00589AE1 /* DashedView.swift */; };
 		568CA4592857B32200589AE1 /* CartEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CA4582857B32200589AE1 /* CartEmptyView.swift */; };
@@ -180,6 +181,7 @@
 		5687E1B72860FFB90063CE47 /* PaymentTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTypeCell.xib; sourceTree = "<group>"; };
 		5687E1BA28610E930063CE47 /* BillingDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingDetailsCell.swift; sourceTree = "<group>"; };
 		5687E1BB28610E930063CE47 /* BillingDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillingDetailsCell.xib; sourceTree = "<group>"; };
+		5688C3F9291410C800651E19 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		568CA4552857B0CE00589AE1 /* DashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedView.swift; sourceTree = "<group>"; };
 		568CA4582857B32200589AE1 /* CartEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartEmptyView.swift; sourceTree = "<group>"; };
 		568CA45A2857C4E200589AE1 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
@@ -778,6 +780,7 @@
 		56D57C60285BC2F600877C51 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5688C3F9291410C800651E19 /* AddLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1047,6 +1050,7 @@
 				565FA1B0284A9182007E8C1C /* VerificationViewController.swift in Sources */,
 				568CA4592857B32200589AE1 /* CartEmptyView.swift in Sources */,
 				560FE55828591DD600C194B0 /* ChangePasswordViewController.swift in Sources */,
+				5688C3FA291410C800651E19 /* AddLocationViewController.swift in Sources */,
 				56840505285A542000AE2DBF /* MyAddressesViewController.swift in Sources */,
 				56329016284E981600BBE2D5 /* TabItemViewController.swift in Sources */,
 				5662D7252864DCB400BDB969 /* CartCategoryView.swift in Sources */,
@@ -1240,6 +1244,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B375QK6APV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pikey Coffee Shop/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1270,6 +1275,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B375QK6APV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pikey Coffee Shop/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

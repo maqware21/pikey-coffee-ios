@@ -22,6 +22,12 @@ class MyAddressesViewController: EditProfileBaseViewController {
     @IBAction func onclickBack() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func onClickAddAddress() {
+        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "AddLocationViewController") as? AddLocationViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 

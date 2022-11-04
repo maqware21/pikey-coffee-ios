@@ -6,6 +6,7 @@ target 'Pikey Coffee Shop' do
   use_frameworks!
 
   # Pods for Pikey Coffee Shop
-   pod 'GoogleMaps', '7.1.0'
+   pod 'GoogleMaps', '~> 7.1.0'
+   pod 'GooglePlaces', '~> 7.1.0'
 
 end

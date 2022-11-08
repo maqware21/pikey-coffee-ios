@@ -1,6 +1,7 @@
 
 
 import Foundation
+import UIKit
 
 protocol HTTPClient {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
@@ -45,6 +46,9 @@ extension HTTPClient {
                 }
                 return .success(decodedResponse)
             case 401:
+                if let appDelegate = await UIApplication.shared.delegate as? AppDelegate {
+                    await appDelegate.logout()
+                }
                 return .failure(.unauthorized)
             default:
                 return .failure(.unexpectedStatusCode)

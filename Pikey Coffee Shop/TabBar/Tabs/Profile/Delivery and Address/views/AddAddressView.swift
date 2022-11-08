@@ -9,9 +9,12 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
+typealias AddressViewTypeCall = ((_:IconButtonType) -> Void)
+
 class AddAddressView: UIView {
     
     var locationManager: CLLocationManager?
+    var typeSelected: AddressViewTypeCall?
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -54,39 +57,6 @@ class AddAddressView: UIView {
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
-    }()
-    
-    lazy var mapView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.cornerRadius = 20
-        view.backgroundColor = .purple
-        return view
-    }()
-    
-    lazy var fieldContainer: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .black
-        view.cornerRadius = 25
-        view.shadowColor = UIColor(named: "shadowColor")
-        view.shadowOffset = CGSize(width: 0, height: -3)
-        view.shadowOpacity = 0.7
-        view.shadowRadius = 16
-        view.masksToBounds = false
-        return view
-    }()
-    
-    lazy var currentLocationfield: IconTextField = {
-        let view = IconTextField()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.iconSize = CGSize(width: 32, height: 32)
-        view.icon = UIImage(named: "searchIcon")
-        view.font = UIFont.systemFont(ofSize: 18)
-        view.placeholder = "Use Current Location"
-        view.textColor = .white
-        view.placeholderColor = UIColor(hex: "888888")
-        return view
     }()
     
     lazy var stackView: UIStackView = {
@@ -168,33 +138,9 @@ class AddAddressView: UIView {
             cancelLabel.bottomAnchor.constraint(equalTo: self.cancelButton.bottomAnchor)
         ])
         
-        self.containerView.addSubview(mapView)
-        NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 32),
-            mapView.leftAnchor.constraint(equalTo: self.titleLabel.leftAnchor, constant: 0),
-            mapView.rightAnchor.constraint(equalTo: self.cancelButton.rightAnchor, constant: 0),
-            mapView.heightAnchor.constraint(equalToConstant: 200)
-        ])
-        
-        self.containerView.addSubview(fieldContainer)
-        NSLayoutConstraint.activate([
-            fieldContainer.topAnchor.constraint(equalTo: self.mapView.bottomAnchor, constant: 32),
-            fieldContainer.leftAnchor.constraint(equalTo: self.titleLabel.leftAnchor, constant: 0),
-            fieldContainer.rightAnchor.constraint(equalTo: self.cancelButton.rightAnchor),
-            fieldContainer.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        self.fieldContainer.addSubview(currentLocationfield)
-        NSLayoutConstraint.activate([
-            currentLocationfield.topAnchor.constraint(equalTo: self.fieldContainer.topAnchor, constant: 5),
-            currentLocationfield.leftAnchor.constraint(equalTo: self.fieldContainer.leftAnchor, constant: 5),
-            currentLocationfield.rightAnchor.constraint(equalTo: self.fieldContainer.rightAnchor, constant: -5),
-            currentLocationfield.bottomAnchor.constraint(equalTo: self.fieldContainer.bottomAnchor, constant: -5)
-        ])
-        
         self.containerView.addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.fieldContainer.bottomAnchor, constant: 32),
+            stackView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 32),
             stackView.leftAnchor.constraint(equalTo: self.titleLabel.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: self.cancelLabel.rightAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 40)
@@ -210,6 +156,7 @@ class AddAddressView: UIView {
             homeButton.selected = true
             officeButton.selected = false
             otherButton.selected = false
+            self.typeSelected?(.Home)
         }
         officeButton.type = .Office
         officeButton.selected = false
@@ -217,6 +164,7 @@ class AddAddressView: UIView {
             officeButton.selected = true
             homeButton.selected = false
             otherButton.selected = false
+            self.typeSelected?(.Office)
         }
         otherButton.type = .Other
         otherButton.selected = false
@@ -224,6 +172,7 @@ class AddAddressView: UIView {
             otherButton.selected = true
             homeButton.selected = false
             officeButton.selected = false
+            self.typeSelected?(.Other)
         }
         
         stackView.addArrangedSubview(homeButton)

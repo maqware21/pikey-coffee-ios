@@ -27,7 +27,6 @@ class AddLocationViewController: EditProfileBaseViewController {
     var placesClient: GMSPlacesClient!
     var preciseLocationZoomLevel: Float = 15.0
     var approximateLocationZoomLevel: Float = 10.0
-    var selectedPlace: GMSPlace?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,13 +62,14 @@ class AddLocationViewController: EditProfileBaseViewController {
         searchBar.searchTextField.placeholder = "Search"
         searchBar.searchTextField.addPaddingLeftIcon(UIImage(named: "searchIcon")!, padding: 0)
         searchBar.backgroundColor = .black
+        searchBar.barStyle = .black
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchView.addSubview(searchBar)
         NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: searchView.topAnchor, constant: -3),
-            searchBar.leftAnchor.constraint(equalTo: searchView.leftAnchor, constant: -6),
-            searchBar.rightAnchor.constraint(equalTo: searchView.rightAnchor, constant: 6),
-            searchBar.bottomAnchor.constraint(equalTo: searchView.bottomAnchor, constant: 3)
+            searchBar.topAnchor.constraint(equalTo: searchView.topAnchor, constant: -16),
+            searchBar.leftAnchor.constraint(equalTo: searchView.leftAnchor, constant: -12),
+            searchBar.rightAnchor.constraint(equalTo: searchView.rightAnchor, constant: 12),
+            searchBar.bottomAnchor.constraint(equalTo: searchView.bottomAnchor, constant: 16)
         ])
         addDoneButtonOnKeyboard()
     }
@@ -79,7 +79,7 @@ class AddLocationViewController: EditProfileBaseViewController {
         doneToolbar.barStyle = .default
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.toolbarButtonAction))
         
         let items = [flexSpace, done]
         doneToolbar.items = items
@@ -88,8 +88,25 @@ class AddLocationViewController: EditProfileBaseViewController {
         searchBar.inputAccessoryView = doneToolbar
     }
     
-    @objc func doneButtonAction(){
+    @objc func toolbarButtonAction(){
         searchBar.resignFirstResponder()
+    }
+    
+    @IBAction func onclickDone() {
+        let controller = AddAddressView(frame: .zero)
+        controller.typeSelected = {[weak self] addressType in
+            guard let self else {return}
+//            switch addressType {
+//            case .Home:
+//                
+//            case .Office:
+//                <#code#>
+//            case .Other:
+//                <#code#>
+//            }
+        }
+        let vc = PickeySheet(view: controller)
+        present(vc, animated: true)
     }
     
     func addMap() {
@@ -272,17 +289,8 @@ extension AddLocationViewController: GMSMapViewDelegate {
             if error != nil {
                 print("reverse geodcode fail: \(error!.localizedDescription)")
             } else {
-                if let places = response?.results() {
-                    if let place = places.first {
-                        
-                        
-                        if let lines = place.lines {
-                            print("GEOCODE: Formatted Address: \(lines)")
-                        }
-                        
-                    } else {
-                        print("GEOCODE: nil first in places")
-                    }
+                if let place = response?.firstResult() {
+                    //yep
                 } else {
                     print("GEOCODE: nil in places")
                 }

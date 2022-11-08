@@ -12,6 +12,7 @@ enum ProfileEndpoint {
     case updatePassword(oldPassword: String,
                         newPassword: String,
                         confirmPassword: String)
+    case getLocations(page: Int)
 }
 
 extension ProfileEndpoint: Endpoint {
@@ -21,6 +22,8 @@ extension ProfileEndpoint: Endpoint {
             return "/api/customer/profile"
         case .updatePassword, .updateProfile:
             return "/api/customer/profile"
+        case .getLocations:
+            return "/api/customer/locations"
         }
     }
 
@@ -30,12 +33,14 @@ extension ProfileEndpoint: Endpoint {
             return .get
         case .updatePassword, .updateProfile:
             return .put
+        case .getLocations:
+            return .get
         }
     }
     
     var body: [String: String]? {
         switch self {
-        case .getProfile:
+        case .getProfile, .getLocations:
             return nil
         case .updateProfile(let name):
             guard let user = UserDefaults.standard[.user] else { return nil }
@@ -64,6 +69,12 @@ extension ProfileEndpoint: Endpoint {
     
     var queryParams: [URLQueryItem]? {
         switch self {
+        case .getLocations(let page):
+            let parameter: [URLQueryItem] = [
+                URLQueryItem(name: "page", value: String(page)),
+                URLQueryItem(name: "per_page", value: String(AddressConstant.perPageCount))
+            ]
+            return parameter
         default:
             return nil
         }

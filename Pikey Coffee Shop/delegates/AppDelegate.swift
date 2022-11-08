@@ -9,15 +9,16 @@ import UIKit
 import IQKeyboardManagerSwift
 import GoogleMaps
 import GooglePlaces
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        let locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
@@ -41,5 +42,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    func logout() {
+        UserDefaults.standard[.user] = nil
+        let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
+
+        let rootViewController = scene?
+            .windows.first(where: { $0.isKeyWindow })?
+            .rootViewController
+        (rootViewController as? UINavigationController)?.dismiss(animated: true)
+        (rootViewController as? UINavigationController)?.popToRootViewController(animated: true)
+    }
+    
 }
 

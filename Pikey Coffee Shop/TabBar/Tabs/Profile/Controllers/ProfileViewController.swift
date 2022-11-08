@@ -64,21 +64,21 @@ class ProfileViewController: TabItemViewController {
     }
     
     func updateView(user: User) {
-        self.userNameLabel.text = user.name
-        self.emailLabel.text = user.email
-        self.pointsLabel.text = "\(user.points ?? 0) Points"
         self.userNameLabel.hideSkeleton()
         self.emailLabel.hideSkeleton()
         self.pointsLabel.hideSkeleton()
+        self.userNameLabel.text = user.name
+        self.emailLabel.text = user.email
+        self.pointsLabel.text = "\(user.points ?? 0) Points"
     }
 }
 
 
 extension ProfileViewController: ConfirmationDelegate {
     func confirmAction() {
-        UserDefaults.standard[.user] = nil
-        self.presentedViewController?.dismiss(animated: true)
-        self.navigationController?.popToRootViewController(animated: true)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.logout()
+        }
     }
 }
 

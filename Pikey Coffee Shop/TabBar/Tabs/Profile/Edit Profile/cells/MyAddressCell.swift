@@ -23,6 +23,14 @@ class MyAddressCell: UITableViewCell {
         addressIcon.image = UIImage(named: "homeAddressIcon")?.withRenderingMode(.alwaysTemplate)
         editIcon.image = UIImage(named: "editIcon")?.withRenderingMode(.alwaysTemplate)
     }
+    
+    var address: PickeyAddress? {
+        didSet {
+            guard let address else {return}
+            name.text = address.name
+            addressLabel.text = address.address
+        }
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

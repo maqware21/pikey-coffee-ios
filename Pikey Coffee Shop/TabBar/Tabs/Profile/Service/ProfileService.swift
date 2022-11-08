@@ -13,6 +13,7 @@ protocol ProfileServiceable {
     func updatePassword(oldPassword: String,
                         newPassword: String,
                         confirmPassword: String) async -> Result<User, RequestError>
+    func getAddresses(page: Int) async -> Result<AddressList, RequestError>
 }
 
 struct ProfileService: HTTPClient, ProfileServiceable {
@@ -31,4 +32,7 @@ struct ProfileService: HTTPClient, ProfileServiceable {
         return await sendRequest(endpoint: ProfileEndpoint.updatePassword(oldPassword: oldPassword, newPassword: newPassword, confirmPassword: confirmPassword), responseModel: User.self)
     }
     
+    func getAddresses(page: Int) async -> Result<AddressList, RequestError> {
+        return await sendRequest(endpoint: ProfileEndpoint.getLocations(page: page), responseModel: AddressList.self)
+    }
 }

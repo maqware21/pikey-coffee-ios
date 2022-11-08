@@ -9,6 +9,13 @@ import Foundation
 
 protocol ProfileDelegate: AnyObject {
     func profileUpdated(_ user: User?)
+    func addressListUpdated(addresses: AddressList?)
+}
+
+
+extension ProfileDelegate {
+    func profileUpdated(_ user: User?) {return}
+    func addressListUpdated(addresses: AddressList?) {return}
 }
 
 class ProfileViewModel {
@@ -49,6 +56,19 @@ class ProfileViewModel {
                 delegate?.profileUpdated(data)
             case .failure(let error):
                 delegate?.profileUpdated(nil)
+                print(error.customMessage)
+            }
+        }
+    }
+
+    func getAddressList(for page: Int) {
+        Task(priority: .background) {
+            let result = await ProfileService.shared.getAddresses(page: page)
+            switch result {
+            case .success(let data):
+                delegate?.addressListUpdated(addresses: data)
+            case .failure(let error):
+                delegate?.addressListUpdated(addresses: nil)
                 print(error.customMessage)
             }
         }

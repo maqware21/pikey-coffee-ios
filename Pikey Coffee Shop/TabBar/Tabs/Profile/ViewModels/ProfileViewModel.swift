@@ -10,12 +10,14 @@ import Foundation
 protocol ProfileDelegate: AnyObject {
     func profileUpdated(_ user: User?)
     func addressListUpdated(addresses: AddressList?)
+    func addressCreated()
 }
 
 
 extension ProfileDelegate {
     func profileUpdated(_ user: User?) {return}
     func addressListUpdated(addresses: AddressList?) {return}
+    func addressCreated() {return}
 }
 
 class ProfileViewModel {

@@ -37,7 +37,7 @@ class NoticeView: UIView {
     }
     
     func setLayout() {
-        self.backgroundColor = .black
+        self.backgroundColor = .clear
         self.containerView.backgroundColor = .black
         
         self.addSubview(containerView)

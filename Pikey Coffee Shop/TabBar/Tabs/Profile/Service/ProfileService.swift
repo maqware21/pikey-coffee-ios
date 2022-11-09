@@ -14,6 +14,7 @@ protocol ProfileServiceable {
                         newPassword: String,
                         confirmPassword: String) async -> Result<User, RequestError>
     func getAddresses(page: Int) async -> Result<AddressList, RequestError>
+    func createAddress(address: PickeyAddress) async -> Result<PickeyAddress, RequestError>
 }
 
 struct ProfileService: HTTPClient, ProfileServiceable {
@@ -34,5 +35,9 @@ struct ProfileService: HTTPClient, ProfileServiceable {
     
     func getAddresses(page: Int) async -> Result<AddressList, RequestError> {
         return await sendRequest(endpoint: ProfileEndpoint.getLocations(page: page), responseModel: AddressList.self)
+    }
+    
+    func createAddress(address: PickeyAddress) async -> Result<PickeyAddress, RequestError> {
+        return await sendRequest(endpoint: ProfileEndpoint.createLocation(location: address), responseModel: PickeyAddress.self)
     }
 }

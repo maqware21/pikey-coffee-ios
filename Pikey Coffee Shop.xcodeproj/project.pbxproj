@@ -84,6 +84,8 @@
 		5692A07F28FDE39400B91F59 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5692A07E28FDE39400B91F59 /* HomeService.swift */; };
 		5692A08128FDEAE700B91F59 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5692A08028FDEAE700B91F59 /* Categories.swift */; };
 		5692A08428FDED0A00B91F59 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5692A08328FDED0A00B91F59 /* HomeViewModel.swift */; };
+		56942DD3291C11BA001438CB /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56942DD2291C11BA001438CB /* Encodable+Extension.swift */; };
+		56942DD5291C1601001438CB /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56942DD4291C1601001438CB /* Array+Extension.swift */; };
 		569D07BE28872A280075B78A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D07BD28872A280075B78A /* AuthenticationViewModel.swift */; };
 		569D07C128872CDA0075B78A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D07C028872CDA0075B78A /* User.swift */; };
 		56A8C2012863CBC100D75257 /* BetterSegmentedControl in Frameworks */ = {isa = PBXBuildFile; productRef = 56A8C2002863CBC100D75257 /* BetterSegmentedControl */; };
@@ -194,6 +196,8 @@
 		5692A07E28FDE39400B91F59 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		5692A08028FDEAE700B91F59 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		5692A08328FDED0A00B91F59 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		56942DD2291C11BA001438CB /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		56942DD4291C1601001438CB /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		569D07BD28872A280075B78A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		569D07C028872CDA0075B78A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		56A8C2032863D2C700D75257 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -418,6 +422,8 @@
 				56E470BC2887404700523965 /* UIviewController+extension.swift */,
 				56834ED6288883ED00DB8C29 /* String+Extension.swift */,
 				56834EDE28889A4700DB8C29 /* UserDefaults+Extension.swift */,
+				56942DD2291C11BA001438CB /* Encodable+Extension.swift */,
+				56942DD4291C1601001438CB /* Array+Extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -1047,6 +1053,7 @@
 				564873D62847D84C003C63DD /* LoginViewController.swift in Sources */,
 				5692A07F28FDE39400B91F59 /* HomeService.swift in Sources */,
 				564873E028480C06003C63DD /* UILabel+Extension.swift in Sources */,
+				56942DD3291C11BA001438CB /* Encodable+Extension.swift in Sources */,
 				564873DE2847FA18003C63DD /* IconTextField.swift in Sources */,
 				568360422863B5F100A0608F /* StarRatingView.swift in Sources */,
 				5603F098286659DD008DEFDE /* AddAddressView.swift in Sources */,
@@ -1069,6 +1076,7 @@
 				56840505285A542000AE2DBF /* MyAddressesViewController.swift in Sources */,
 				56329016284E981600BBE2D5 /* TabItemViewController.swift in Sources */,
 				5662D7252864DCB400BDB969 /* CartCategoryView.swift in Sources */,
+				56942DD5291C1601001438CB /* Array+Extension.swift in Sources */,
 				56840502285A4FD800AE2DBF /* MyAddressCell.swift in Sources */,
 				56834ED7288883ED00DB8C29 /* String+Extension.swift in Sources */,
 				5605183A29196DD00040AA13 /* PickeyAddress.swift in Sources */,
@@ -1279,7 +1287,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pickey.ios.Pikey-Coffee-Shop";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.Pikey-Coffee-Shop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1314,7 +1322,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pickey.ios.Pikey-Coffee-Shop";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.Pikey-Coffee-Shop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

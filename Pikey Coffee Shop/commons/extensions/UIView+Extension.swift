@@ -508,7 +508,7 @@ public extension UIView {
         let customView = NoticeView(frame: .zero)
         customView.titleLabel.text = title
         var attributes = EKAttributes()
-        attributes.displayDuration = 8
+        attributes.displayDuration = 3
         SwiftEntryKit.display(entry: customView, using: attributes)
     }
 

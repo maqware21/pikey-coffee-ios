@@ -10,6 +10,9 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
+protocol AddLocationDelegate: AnyObject {
+    func locationAdded()
+}
 
 class AddLocationViewController: EditProfileBaseViewController {
     
@@ -27,6 +30,8 @@ class AddLocationViewController: EditProfileBaseViewController {
     var placesClient: GMSPlacesClient!
     var preciseLocationZoomLevel: Float = 15.0
     var approximateLocationZoomLevel: Float = 10.0
+    var viewModel = AddressViewModel()
+    weak var delegate: AddLocationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +56,7 @@ class AddLocationViewController: EditProfileBaseViewController {
         
         self.addMap()
         self.addSerachBar()
-        
+        viewModel.delegate = self
         placesClient = GMSPlacesClient.shared()
     }
     
@@ -68,7 +73,7 @@ class AddLocationViewController: EditProfileBaseViewController {
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: searchView.topAnchor, constant: -16),
             searchBar.leftAnchor.constraint(equalTo: searchView.leftAnchor, constant: -12),
-            searchBar.rightAnchor.constraint(equalTo: searchView.rightAnchor, constant: 12),
+            searchBar.rightAnchor.constraint(equalTo: searchView.rightAnchor, constant: 6),
             searchBar.bottomAnchor.constraint(equalTo: searchView.bottomAnchor, constant: 16)
         ])
         addDoneButtonOnKeyboard()
@@ -96,14 +101,9 @@ class AddLocationViewController: EditProfileBaseViewController {
         let controller = AddAddressView(frame: .zero)
         controller.typeSelected = {[weak self] addressType in
             guard let self else {return}
-//            switch addressType {
-//            case .Home:
-//                
-//            case .Office:
-//                <#code#>
-//            case .Other:
-//                <#code#>
-//            }
+            self.showLoader()
+            self.viewModel.addressName = addressType.name
+            self.viewModel.createAddress()
         }
         let vc = PickeySheet(view: controller)
         present(vc, animated: true)
@@ -225,6 +225,9 @@ extension AddLocationViewController: CLLocationManagerDelegate {
         marker.snippet = place.formattedAddress
         marker.isDraggable = true
         marker.map = mapView
+        viewModel.seletedPlace = place
+        viewModel.selectedCoordinates = coordinate
+        viewModel.fetchedAddress = nil
     }
     
 }
@@ -290,11 +293,23 @@ extension AddLocationViewController: GMSMapViewDelegate {
                 print("reverse geodcode fail: \(error!.localizedDescription)")
             } else {
                 if let place = response?.firstResult() {
-                    //yep
+                    self.viewModel.fetchedAddress = place
+                    self.viewModel.seletedPlace = nil
+                    self.viewModel.selectedCoordinates = nil
                 } else {
                     print("GEOCODE: nil in places")
                 }
             }
+        }
+    }
+}
+
+extension AddLocationViewController: ProfileDelegate {
+    func addressCreated() {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            self.delegate?.locationAdded()
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

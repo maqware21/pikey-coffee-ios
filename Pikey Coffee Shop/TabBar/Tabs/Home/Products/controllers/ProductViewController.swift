@@ -102,7 +102,7 @@ extension ProductViewController: ProductsDelegate {
         DispatchQueue.main.async {
             self.removeLoader()
             if let products {
-                if self.productData != nil {
+                if products.pagination?.currentPage != 1 {
                     self.productData?.data?.append(contentsOf: products.data ?? [])
                     self.productData?.pagination = products.pagination
                 } else {

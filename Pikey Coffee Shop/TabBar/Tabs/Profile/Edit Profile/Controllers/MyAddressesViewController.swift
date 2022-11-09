@@ -34,6 +34,7 @@ class MyAddressesViewController: EditProfileBaseViewController {
     
     @IBAction func onClickAddAddress() {
         if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "AddLocationViewController") as? AddLocationViewController {
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -67,7 +68,7 @@ extension MyAddressesViewController: ProfileDelegate {
     func addressListUpdated(addresses: AddressList?) {
         DispatchQueue.main.async {
             self.removeLoader()
-            if self.addressData != nil {
+            if addresses?.pagination?.currentPage != 1 {
                 self.addressData?.data?.append(contentsOf: addresses?.data ?? [])
                 self.addressData?.pagination = addresses?.pagination
             } else {
@@ -75,5 +76,11 @@ extension MyAddressesViewController: ProfileDelegate {
             }
             self.tableView.reloadData()
         }
+    }
+}
+
+extension MyAddressesViewController: AddLocationDelegate {
+    func locationAdded() {
+        self.fetchAddresses(page: 1)
     }
 }

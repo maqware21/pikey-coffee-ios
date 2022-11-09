@@ -30,7 +30,7 @@ extension AuthenticationEndpoint: Endpoint {
         }
     }
     
-    var body: [String: String]? {
+    var body: [String: Any]? {
         switch self {
         case .signUp(let name, let email, let password, let phoneNo):
             let namecomponents = name.components(separatedBy: " ")

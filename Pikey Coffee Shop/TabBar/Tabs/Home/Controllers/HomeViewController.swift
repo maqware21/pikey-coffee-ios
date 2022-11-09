@@ -112,7 +112,7 @@ extension HomeViewController: HomeDelegate {
         DispatchQueue.main.async {
             self.removeLoader()
             if let categoryData {
-                if self.categoryData != nil {
+                if categoryData.pagination?.currentPage != 1 {
                     self.categoryData?.data?.append(contentsOf: categoryData.data ?? [])
                     self.categoryData?.pagination = categoryData.pagination
                 } else {

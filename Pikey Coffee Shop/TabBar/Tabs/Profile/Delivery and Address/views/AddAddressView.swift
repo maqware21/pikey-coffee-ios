@@ -15,6 +15,7 @@ class AddAddressView: UIView {
     
     var locationManager: CLLocationManager?
     var typeSelected: AddressViewTypeCall?
+    var selectedType: IconButtonType = .Home
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -84,6 +85,36 @@ class AddAddressView: UIView {
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .center
         return label
+    }()
+    
+    lazy var fieldStackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.distribution = .fill
+        view.isLayoutMarginsRelativeArrangement = true
+        return view
+    }()
+    
+    lazy var addressNameFieldView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .black
+        view.isHidden = true
+        view.cornerRadius = 25
+        view.borderWidth = 1
+        view.borderColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        return view
+    }()
+    
+    lazy var addressNameField: UITextField = {
+        let view = UITextField()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        view.textColor = .white
+        view.placeholder = "Address"
+        view.setPlaceHolderTextColor(UIColor(named: "coffeeGray")!)
+        return view
     }()
     
     override init(frame: CGRect) {
@@ -156,7 +187,9 @@ class AddAddressView: UIView {
             homeButton.selected = true
             officeButton.selected = false
             otherButton.selected = false
-            self.typeSelected?(.Home)
+            self.addressNameFieldView.isHidden = true
+            self.fieldStackView.layoutMargins.bottom = 0
+            self.selectedType = homeButton.type
         }
         officeButton.type = .Office
         officeButton.selected = false
@@ -164,25 +197,48 @@ class AddAddressView: UIView {
             officeButton.selected = true
             homeButton.selected = false
             otherButton.selected = false
-            self.typeSelected?(.Office)
+            self.addressNameFieldView.isHidden = true
+            self.fieldStackView.layoutMargins.bottom = 0
+            self.selectedType = officeButton.type
         }
-        otherButton.type = .Other
+        otherButton.type = .Other(addressNameField.text)
         otherButton.selected = false
         otherButton.tapped = {
             otherButton.selected = true
             homeButton.selected = false
             officeButton.selected = false
-            self.typeSelected?(.Other)
+            self.addressNameFieldView.isHidden = false
+            self.fieldStackView.layoutMargins.bottom = 32
+            self.selectedType = otherButton.type
         }
         
         stackView.addArrangedSubview(homeButton)
         stackView.addArrangedSubview(officeButton)
         stackView.addArrangedSubview(otherButton)
         
+        containerView.addSubview(fieldStackView)
+        NSLayoutConstraint.activate([
+            fieldStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 32),
+            fieldStackView.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            fieldStackView.rightAnchor.constraint(equalTo: cancelLabel.rightAnchor)
+        ])
+        
+        fieldStackView.addArrangedSubview(addressNameFieldView)
+        NSLayoutConstraint.activate([
+            addressNameFieldView.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        addressNameFieldView.addSubview(addressNameField)
+        NSLayoutConstraint.activate([
+            addressNameField.topAnchor.constraint(equalTo: addressNameFieldView.topAnchor),
+            addressNameField.leftAnchor.constraint(equalTo: addressNameFieldView.leftAnchor, constant: 16),
+            addressNameField.rightAnchor.constraint(equalTo: addressNameFieldView.rightAnchor, constant: -16),
+            addressNameField.bottomAnchor.constraint(equalTo: addressNameFieldView.bottomAnchor)
+        ])
         
         containerView.addSubview(saveLocationButton)
         NSLayoutConstraint.activate([
-            saveLocationButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 32),
+            saveLocationButton.topAnchor.constraint(equalTo: fieldStackView.bottomAnchor, constant: 0),
             saveLocationButton.leftAnchor.constraint(equalTo: self.titleLabel.leftAnchor),
             saveLocationButton.rightAnchor.constraint(equalTo: self.cancelButton.rightAnchor),
             saveLocationButton.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -32),
@@ -200,9 +256,28 @@ class AddAddressView: UIView {
         let tap = UITapGestureRecognizer(target: self, action: #selector(onCancel))
         cancelButton.addGestureRecognizer(tap)
         
+        let savetap = UITapGestureRecognizer(target: self, action: #selector(onclickAddLocation))
+        saveLocationButton.addGestureRecognizer(savetap)
+        
     }
     
     @objc func onCancel() {
         self.parentViewController?.dismiss(animated: true)
+    }
+    
+    @objc func onclickAddLocation() {
+        switch selectedType {
+        case .Other:
+            if addressNameField.isEmpty {
+                self.displayNotice(with: "Add Address name")
+                return
+            }
+            selectedType = .Other(self.addressNameField.text)
+        default:
+            break
+        }
+        self.parentViewController?.dismiss(animated: true) {
+            self.typeSelected?(self.selectedType)
+        }
     }
 }

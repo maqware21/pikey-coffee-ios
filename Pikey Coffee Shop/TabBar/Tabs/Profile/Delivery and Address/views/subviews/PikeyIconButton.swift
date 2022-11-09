@@ -137,5 +137,16 @@ class PikeyIconButton: UIView {
 enum IconButtonType {
     case Home
     case Office
-    case Other
+    case Other(String?)
+    
+    var name: String {
+        switch self {
+        case .Home:
+            return "home"
+        case .Office:
+            return "office"
+        case .Other(let string):
+            return string ?? ""
+        }
+    }
 }

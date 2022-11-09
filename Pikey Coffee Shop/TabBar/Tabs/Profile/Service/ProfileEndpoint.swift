@@ -13,9 +13,11 @@ enum ProfileEndpoint {
                         newPassword: String,
                         confirmPassword: String)
     case getLocations(page: Int)
+    case createLocation(location: PickeyAddress)
 }
 
 extension ProfileEndpoint: Endpoint {
+    
     var path: String {
         switch self {
         case .getProfile:
@@ -23,6 +25,8 @@ extension ProfileEndpoint: Endpoint {
         case .updatePassword, .updateProfile:
             return "/api/customer/profile"
         case .getLocations:
+            return "/api/customer/locations"
+        case .createLocation:
             return "/api/customer/locations"
         }
     }
@@ -35,10 +39,12 @@ extension ProfileEndpoint: Endpoint {
             return .put
         case .getLocations:
             return .get
+        case .createLocation:
+            return .post
         }
     }
     
-    var body: [String: String]? {
+    var body: [String: Any]? {
         switch self {
         case .getProfile, .getLocations:
             return nil
@@ -64,6 +70,8 @@ extension ProfileEndpoint: Endpoint {
                                 "password_confirmation": confirmPassword
                             ]
             return parameter
+        case .createLocation(let location):
+            return try? location.toDictionary()
         }
     }
     

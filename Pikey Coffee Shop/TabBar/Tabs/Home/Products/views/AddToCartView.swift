@@ -3,7 +3,7 @@
 import UIKit
 
 protocol AddToCartDelegate: AnyObject {
-    func addToCart(_ item: Item)
+    func addToCart(_ item: Product?)
 }
 
 
@@ -305,11 +305,9 @@ class AddToCartView: UIView {
 
     
     @objc func onClickAdd() {
-        var addons = selectedAddons.map { product in
-            return Item(productID: product.id, quantity: 1, addons: nil)
-        }
-        let item = Item(productID: product?.id, quantity: self.quantity, addons: addons)
-        self.delegate?.addToCart(item)
+        var product = product
+        product?.addons = selectedAddons
+        self.delegate?.addToCart(product)
         self.parentViewController?.dismiss(animated: true)
     }
     

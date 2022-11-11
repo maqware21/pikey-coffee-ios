@@ -54,6 +54,7 @@ class TabViewController: UITabBarController {
         buttonWrapper.cornerRadius = 35
 
         menuButton.setImage(UIImage(named: "cartIcon"), for: .normal)
+        menuButton.tintColor = .black
         menuButton.addTarget(self, action: #selector(menuButtonAction(sender:)), for: .touchUpInside)
 
         view.layoutIfNeeded()

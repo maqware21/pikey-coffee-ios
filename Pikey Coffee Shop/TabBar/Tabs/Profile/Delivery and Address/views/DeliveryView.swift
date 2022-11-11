@@ -9,6 +9,10 @@ import UIKit
 
 class DeliveryView: UIView {
     
+    var addresses: AddressList?
+    var profileViewModel = ProfileViewModel()
+    
+    
     lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -52,40 +56,6 @@ class DeliveryView: UIView {
         return label
     }()
     
-    lazy var fieldContainer: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .black
-        view.cornerRadius = 25
-        view.shadowColor = UIColor(named: "shadowColor")
-        view.shadowOffset = CGSize(width: 0, height: -3)
-        view.shadowOpacity = 0.7
-        view.shadowRadius = 16
-        view.masksToBounds = false
-        return view
-    }()
-    
-    lazy var currentLocationfield: IconTextField = {
-        let view = IconTextField()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.iconSize = CGSize(width: 32, height: 32)
-        view.icon = UIImage(named: "locateIcon")
-        view.font = UIFont.systemFont(ofSize: 18)
-        view.placeholder = "Use Current Location"
-        view.textColor = .white
-        view.placeholderColor = UIColor(hex: "888888")
-        return view
-    }()
-    
-    lazy var adddressLabel: UILabel = {
-        let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.text = "Delivery Addresses"
-        view.textColor = .white
-        view.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        return view
-    }()
-    
     lazy var tableView: UITableView = {
         let view = UITableView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -110,6 +80,8 @@ class DeliveryView: UIView {
     func setLayout() {
         
         self.backgroundColor = .black
+        profileViewModel.delegate = self
+        fetchAddresses(page: 1)
         
         self.addSubview(containerView)
         NSLayoutConstraint.activate([
@@ -150,31 +122,9 @@ class DeliveryView: UIView {
             addAddressLabel.bottomAnchor.constraint(equalTo: self.addAddressButton.bottomAnchor)
         ])
         
-        self.containerView.addSubview(fieldContainer)
-        NSLayoutConstraint.activate([
-            fieldContainer.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 32),
-            fieldContainer.leftAnchor.constraint(equalTo: self.titleLabel.leftAnchor, constant: 0),
-            fieldContainer.rightAnchor.constraint(equalTo: self.addAddressButton.rightAnchor),
-            fieldContainer.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        self.fieldContainer.addSubview(currentLocationfield)
-        NSLayoutConstraint.activate([
-            currentLocationfield.topAnchor.constraint(equalTo: self.fieldContainer.topAnchor, constant: 5),
-            currentLocationfield.leftAnchor.constraint(equalTo: self.fieldContainer.leftAnchor, constant: 5),
-            currentLocationfield.rightAnchor.constraint(equalTo: self.fieldContainer.rightAnchor, constant: -5),
-            currentLocationfield.bottomAnchor.constraint(equalTo: self.fieldContainer.bottomAnchor, constant: -5)
-        ])
-        
-        self.containerView.addSubview(adddressLabel)
-        NSLayoutConstraint.activate([
-            adddressLabel.topAnchor.constraint(equalTo: self.currentLocationfield.bottomAnchor, constant: 24),
-            adddressLabel.leftAnchor.constraint(equalTo: self.titleLabel.leftAnchor, constant: 0)
-        ])
-        
         self.containerView.addSubview(tableView)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.adddressLabel.bottomAnchor, constant: 16),
+            tableView.topAnchor.constraint(equalTo: self.addAddressLabel.bottomAnchor, constant: 16),
             tableView.leftAnchor.constraint(equalTo: self.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: self.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -32),
@@ -186,23 +136,55 @@ class DeliveryView: UIView {
     }
     
     @objc func addLocationClicked() {
-        let controller = AddAddressView(frame: .zero)
-        let vc = PickeySheet(view: controller, withAnimation: false)
-        self.parentViewController?.navigationController?.pushViewController(vc, animated: true)
+        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "AddLocationViewController") as? AddLocationViewController {
+            vc.delegate = self
+            self.parentViewController?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func fetchAddresses(page: Int) {
+        profileViewModel.getAddressList(for: page)
     }
 }
 
 extension DeliveryView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return addresses?.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myAddressCell", for: indexPath) as! MyAddressCell
-        if indexPath.row == 0 {
+        let address = addresses?.data?[indexPath.row]
+        cell.address = address
+        if address?.isPrimary == 1 {
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         }
+        if (addresses?.data?.count ?? 0) - indexPath.row == AddressConstant.perPageCount/2 {
+            self.fetchAddresses(page: (addresses?.pagination?.currentPage ?? 0) + 1)
+        }
+        
         return cell
+    }
+}
+
+extension DeliveryView: AddLocationDelegate {
+    func locationAdded() {
+        profileViewModel.getAddressList(for: 1)
+    }
+}
+
+extension DeliveryView: ProfileDelegate {
+    func addressListUpdated(addresses: AddressList?) {
+        DispatchQueue.main.async {
+            if addresses?.pagination?.currentPage != 1 {
+                self.addresses?.data?.append(contentsOf: addresses?.data ?? [])
+                self.addresses?.pagination = addresses?.pagination
+            } else {
+                self.addresses = addresses
+            }
+            UserDefaults.standard[.addresses] = self.addresses
+            self.tableView.reloadData()
+        }
     }
 }

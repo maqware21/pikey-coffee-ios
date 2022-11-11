@@ -25,7 +25,7 @@ struct Product: Codable {
     let price, priceInPoints: Int?
     let sku: String?
     let type, selectedQuantity, isTaxable: Int?
-    let addons: [Product]?
+    var addons: [Product]?
     let images: [Image]?
     let categories: [Category]?
 

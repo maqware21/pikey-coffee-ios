@@ -13,6 +13,8 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionHeight: NSLayoutConstraint!
     @IBOutlet weak var segmentView: CollectionViewSegmentedControl!
+    @IBOutlet weak var cartCounterView: UIView!
+    @IBOutlet weak var cartCounterLabel: UILabel!
     private let viewModel = ProductViewModel()
     
     
@@ -32,6 +34,11 @@ class ProductViewController: UIViewController {
         collectionView.delegate = self
         viewModel.delegate = self
         fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0)
+        
+        let storedCart = UserDefaults.standard[.cart] ?? []
+        cartCounterView.isHidden = storedCart.isEmpty
+        cartCounterLabel.text = "\(storedCart.count)"
+        
         // Do any additional setup after loading the view.
     }
     
@@ -62,6 +69,16 @@ class ProductViewController: UIViewController {
     
     @IBAction func goBack() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func onclickCart() {
+        if let controller = UIStoryboard(name: "Tabs", bundle: .main).instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            let navigationController = UINavigationController(rootViewController: controller)
+            navigationController.modalTransitionStyle = .coverVertical
+            navigationController.modalPresentationStyle = .fullScreen
+            navigationController.isNavigationBarHidden = true
+            self.present(navigationController, animated: true)
+        }
     }
 }
 
@@ -115,7 +132,15 @@ extension ProductViewController: ProductsDelegate {
 }
 
 extension ProductViewController: AddToCartDelegate {
-    func addToCart(_ item: Item) {
-        print(Cart(paymentMethod: 2, token: "", type: 3, userComment: "", locationID: 23, deliveryDate: "", items: [item]))
+    func addToCart(_ item: Product?) {
+        guard let item else {
+            return
+        }
+        
+        var storedCart = UserDefaults.standard[.cart] ?? []
+        storedCart.append(item)
+        UserDefaults.standard[.cart] = storedCart
+        cartCounterView.isHidden = storedCart.isEmpty
+        cartCounterLabel.text = "\(storedCart.count)"
     }
 }

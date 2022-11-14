@@ -11,38 +11,21 @@ class CartViewController: TabItemViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var checkOutView: UIView!
-    static var count = 1
     
     lazy var emptyView: CartEmptyView = {
         let view = CartEmptyView(frame: .zero)
         return view
     }()
-    
-    var sections = 0
-    var rows = 0
+    var products = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CartViewController.count += 1
         tableView.delegate = self
         tableView.dataSource = self
         tableView.contentInset.bottom = 64
         tableView.register(UINib(nibName: "CartCell", bundle: .main), forCellReuseIdentifier: "cartCell")
         setLayout()
-        
-        if CartViewController.count % 2 != 0 {
-            self.emptyView.isHidden = false
-            self.rows = 0
-            self.sections = 0
-            self.checkOutView.isHidden = true
-            self.tableView.reloadData()
-        } else {
-            self.emptyView.isHidden = true
-            self.rows = 5
-            self.sections = 1
-            self.checkOutView.isHidden = false
-            self.tableView.reloadData()
-        }
+        reload()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(onClickCheckout))
         checkOutView.addGestureRecognizer(tap)
@@ -72,13 +55,27 @@ class CartViewController: TabItemViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+    
+    func reload() {
+        products = UserDefaults.standard[.cart] ?? []
+        if products.isEmpty {
+            self.emptyView.isHidden = false
+            self.checkOutView.isHidden = true
+            self.tableView.reloadData()
+        } else {
+            self.emptyView.isHidden = true
+            self.checkOutView.isHidden = false
+            self.tableView.reloadData()
+        }
+    }
+    
 }
 
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections
+        return products.isEmpty ? 0 : 1
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -106,11 +103,22 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.rows
+        return self.products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartCell
+        cell.product = products[indexPath.row]
+        cell.quantityCallback = {[weak self] quantity in
+            self?.products[indexPath.row].selectedQuantity = quantity
+            UserDefaults.standard[.cart] = self?.products
+            self?.reload()
+        }
+        cell.cartRemoveCallback = {[weak self] in
+            self?.products.remove(at: indexPath.row)
+            UserDefaults.standard[.cart] = self?.products
+            self?.reload()
+        }
         return cell
     }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -55,32 +56,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5bO-1z-dqb">
                                                 <rect key="frame" x="8" y="0.0" width="104" height="40"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pid-22-K18">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pid-22-K18" customClass="CartConterItem" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="5" width="30" height="30"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MinusIcon" translatesAutoresizingMaskIntoConstraints="NO" id="6UO-ZG-MaO">
-                                                                <rect key="frame" x="7.5" y="7.5" width="15" height="15"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="15" id="3fd-gp-6Zt"/>
-                                                                    <constraint firstAttribute="width" constant="15" id="hL1-HB-VqT"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dyw-1G-bTS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain"/>
-                                                            </button>
-                                                        </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="1tz-7K-UhW"/>
-                                                            <constraint firstItem="Dyw-1G-bTS" firstAttribute="top" secondItem="pid-22-K18" secondAttribute="top" id="5w9-TJ-qDK"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Dyw-1G-bTS" secondAttribute="bottom" id="BB6-e8-cgV"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Dyw-1G-bTS" secondAttribute="trailing" id="HVA-Yn-bAf"/>
-                                                            <constraint firstItem="6UO-ZG-MaO" firstAttribute="centerX" secondItem="pid-22-K18" secondAttribute="centerX" id="UGo-Mc-chk"/>
-                                                            <constraint firstItem="6UO-ZG-MaO" firstAttribute="centerY" secondItem="pid-22-K18" secondAttribute="centerY" id="eqJ-ef-XzT"/>
                                                             <constraint firstAttribute="width" constant="30" id="gEq-Oy-kxk"/>
-                                                            <constraint firstItem="Dyw-1G-bTS" firstAttribute="leading" secondItem="pid-22-K18" secondAttribute="leading" id="yNM-VR-a34"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -101,49 +82,13 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e56-rp-3U7">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e56-rp-3U7" customClass="CartConterItem" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                                         <rect key="frame" x="37" y="5" width="30" height="30"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seZ-r1-nvR">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="seZ-r1-nvR" secondAttribute="trailing" id="1Zh-xg-lZY"/>
-                                                            <constraint firstItem="seZ-r1-nvR" firstAttribute="leading" secondItem="e56-rp-3U7" secondAttribute="leading" id="Z4t-dc-IRl"/>
-                                                            <constraint firstItem="seZ-r1-nvR" firstAttribute="top" secondItem="e56-rp-3U7" secondAttribute="top" id="al0-xk-YTZ"/>
-                                                            <constraint firstAttribute="bottom" secondItem="seZ-r1-nvR" secondAttribute="bottom" id="nMx-Dn-nKF"/>
-                                                        </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qx6-ei-13O">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qx6-ei-13O" customClass="CartConterItem" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                                         <rect key="frame" x="74" y="5" width="30" height="30"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlusIcon" translatesAutoresizingMaskIntoConstraints="NO" id="uh0-Qs-1yd">
-                                                                <rect key="frame" x="7.5" y="7.5" width="15" height="15"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="15" id="ACJ-jZ-cmi"/>
-                                                                    <constraint firstAttribute="width" constant="15" id="meB-nU-oiI"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCl-5y-Vfz">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain"/>
-                                                            </button>
-                                                        </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="uh0-Qs-1yd" firstAttribute="centerX" secondItem="qx6-ei-13O" secondAttribute="centerX" id="5Ia-xs-rGF"/>
-                                                            <constraint firstItem="uh0-Qs-1yd" firstAttribute="centerY" secondItem="qx6-ei-13O" secondAttribute="centerY" id="GM6-5z-kDB"/>
-                                                            <constraint firstItem="JCl-5y-Vfz" firstAttribute="top" secondItem="qx6-ei-13O" secondAttribute="top" id="fcf-4H-vV5"/>
-                                                            <constraint firstAttribute="bottom" secondItem="JCl-5y-Vfz" secondAttribute="bottom" id="l5Z-Cj-s1i"/>
-                                                            <constraint firstItem="JCl-5y-Vfz" firstAttribute="leading" secondItem="qx6-ei-13O" secondAttribute="leading" id="mbH-Hh-zg2"/>
-                                                            <constraint firstAttribute="trailing" secondItem="JCl-5y-Vfz" secondAttribute="trailing" id="nmM-sG-m6I"/>
-                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="15"/>
@@ -211,7 +156,7 @@
                                     <constraint firstAttribute="bottom" secondItem="YzP-qw-x6r" secondAttribute="bottom" id="nPv-xn-7Dm"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffeeImage" translatesAutoresizingMaskIntoConstraints="NO" id="mmA-Ip-rjI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffeeImage" translatesAutoresizingMaskIntoConstraints="NO" id="mmA-Ip-rjI">
                                 <rect key="frame" x="16" y="16" width="90" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -269,14 +214,26 @@
                                 <rect key="frame" x="5" y="7" width="20" height="15.5"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT7-E3-h8t">
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="onClickRemove" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Sax-B5-AHr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="AT7-E3-h8t" firstAttribute="top" secondItem="MYs-km-OWn" secondAttribute="top" id="7Dl-X7-tmp"/>
+                            <constraint firstItem="AT7-E3-h8t" firstAttribute="leading" secondItem="MYs-km-OWn" secondAttribute="leading" id="RTZ-ks-V3l"/>
                             <constraint firstAttribute="bottom" secondItem="CSr-aP-FiC" secondAttribute="bottom" constant="5" id="ZkG-sq-Vsw"/>
                             <constraint firstAttribute="height" constant="30" id="cY4-Gh-SyW"/>
                             <constraint firstItem="CSr-aP-FiC" firstAttribute="top" secondItem="MYs-km-OWn" secondAttribute="top" constant="5" id="f2O-GH-7QA"/>
+                            <constraint firstAttribute="trailing" secondItem="AT7-E3-h8t" secondAttribute="trailing" id="kdW-13-JWr"/>
                             <constraint firstItem="CSr-aP-FiC" firstAttribute="leading" secondItem="MYs-km-OWn" secondAttribute="leading" constant="5" id="mKd-Nv-E0r"/>
                             <constraint firstAttribute="trailing" secondItem="CSr-aP-FiC" secondAttribute="trailing" constant="5" id="wXg-lJ-fgw"/>
+                            <constraint firstAttribute="bottom" secondItem="AT7-E3-h8t" secondAttribute="bottom" id="yBD-55-FA9"/>
                             <constraint firstAttribute="width" constant="30" id="zoE-ud-sNQ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -297,12 +254,19 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="counterLabel" destination="e56-rp-3U7" id="hRV-NX-gBm"/>
+                <outlet property="counterMinus" destination="pid-22-K18" id="mDw-du-HMs"/>
+                <outlet property="counterPlus" destination="qx6-ei-13O" id="S4O-qg-6VL"/>
+                <outlet property="nameLabel" destination="dyF-7X-Q9D" id="VFZ-3c-oHu"/>
+                <outlet property="productImage" destination="mmA-Ip-rjI" id="Emy-Qz-GvA"/>
+                <outlet property="quantityLabel" destination="TF7-2F-PIC" id="JWW-tq-3hz"/>
+                <outlet property="quantityPriceLabel" destination="YzP-qw-x6r" id="Ik4-fd-qBZ"/>
+            </connections>
             <point key="canvasLocation" x="213.768115942029" y="131.91964285714286"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="MinusIcon" width="11" height="2"/>
-        <image name="PlusIcon" width="14" height="14"/>
         <image name="coffeeImage" width="103" height="83"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="coffeeGray">

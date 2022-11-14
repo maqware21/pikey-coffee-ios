@@ -10,7 +10,7 @@ protocol AddToCartDelegate: AnyObject {
 class AddToCartView: UIView {
 
     weak var delegate: AddToCartDelegate?
-    var quantity: Int = 0
+    var quantity: Int = 1
     var cartItem: Item?
     var productName: String? {
         didSet {
@@ -307,6 +307,7 @@ class AddToCartView: UIView {
     @objc func onClickAdd() {
         var product = product
         product?.addons = selectedAddons
+        product?.selectedQuantity = self.quantity
         self.delegate?.addToCart(product)
         self.parentViewController?.dismiss(animated: true)
     }

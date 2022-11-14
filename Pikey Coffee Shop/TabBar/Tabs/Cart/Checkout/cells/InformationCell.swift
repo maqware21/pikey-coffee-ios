@@ -8,10 +8,19 @@
 import UIKit
 
 class InformationCell: UITableViewCell {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
 
+    var user = UserDefaults.standard[.user]
+    var address = UserDefaults.standard[.addresses]?.data?.first
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        nameLabel.text = user?.name
+        numberLabel.text = user?.phoneNumber
+        addressLabel.text = address?.address
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

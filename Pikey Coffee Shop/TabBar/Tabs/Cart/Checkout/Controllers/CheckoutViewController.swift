@@ -13,9 +13,12 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet var textView : UITextView!
     var placeholderLabel : UILabel!
+    
+    var products = [Product]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        products = UserDefaults.standard[.cart] ?? []
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CartCell", bundle: .main), forCellReuseIdentifier: "cartCell")
@@ -104,7 +107,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 2
+            return products.count
         case 1, 2, 3:
             return 1
         default:
@@ -129,6 +132,17 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func cartCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartCell
+        cell.product = products[indexPath.row]
+        cell.quantityCallback = {[weak self] quantity in
+            self?.products[indexPath.row].selectedQuantity = quantity
+            UserDefaults.standard[.cart] = self?.products
+            tableView.reloadData()
+        }
+        cell.cartRemoveCallback = {[weak self] in
+            self?.products.remove(at: indexPath.row)
+            UserDefaults.standard[.cart] = self?.products
+            tableView.reloadData()
+        }
         return cell
     }
     

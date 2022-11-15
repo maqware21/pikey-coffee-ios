@@ -215,13 +215,25 @@ Main Building, US</string>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fxm-8U-CLt">
                                         <rect key="frame" x="8" y="8" width="14" height="14"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxj-xg-cVa">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="onClickEdit" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Lhk-Up-tH4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="fxm-8U-CLt" secondAttribute="bottom" constant="8" id="7vB-46-xpW"/>
+                                    <constraint firstAttribute="bottom" secondItem="bxj-xg-cVa" secondAttribute="bottom" id="FEQ-Od-afg"/>
+                                    <constraint firstAttribute="trailing" secondItem="bxj-xg-cVa" secondAttribute="trailing" id="ZSq-E9-09f"/>
                                     <constraint firstAttribute="trailing" secondItem="fxm-8U-CLt" secondAttribute="trailing" constant="8" id="koa-LS-Hgh"/>
+                                    <constraint firstItem="bxj-xg-cVa" firstAttribute="leading" secondItem="EwV-2U-6VG" secondAttribute="leading" id="lOq-u7-b4X"/>
                                     <constraint firstItem="fxm-8U-CLt" firstAttribute="leading" secondItem="EwV-2U-6VG" secondAttribute="leading" constant="8" id="oHs-oB-Q8Z"/>
                                     <constraint firstItem="fxm-8U-CLt" firstAttribute="top" secondItem="EwV-2U-6VG" secondAttribute="top" constant="8" id="vdg-CT-uPg"/>
+                                    <constraint firstItem="bxj-xg-cVa" firstAttribute="top" secondItem="EwV-2U-6VG" secondAttribute="top" id="wDa-KJ-hhH"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

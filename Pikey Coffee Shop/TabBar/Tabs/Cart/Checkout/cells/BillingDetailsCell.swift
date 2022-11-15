@@ -11,6 +11,24 @@ class BillingDetailsCell: UITableViewCell {
 
     @IBOutlet var nameLabels: [UILabel]!
     @IBOutlet var valueLabels: [UILabel]!
+    @IBOutlet weak var availStack: UIStackView!
+    
+    var products: [Product]? {
+        didSet {
+            guard let products else {return}
+            var subTotal = 0
+            var discount = 0
+            var dileveryCharges = 0
+            products.forEach { product in
+                subTotal += (product.price ?? 0) * (product.selectedQuantity ?? 0)
+            }
+            
+            valueLabels[0].text = String(format: "$%.2f", Float(subTotal))
+            valueLabels[1].text = String(format: "$%.2f", Float(discount))
+            valueLabels[2].text = String(format: "$%.2f", Float(dileveryCharges))
+            valueLabels[4].text = String(format: "$%.2f", Float(subTotal + discount + dileveryCharges))
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +42,8 @@ class BillingDetailsCell: UITableViewCell {
         valueLabels[3].addRangeGesture(stringRange: "Avail Points") {
             print("avail clicked")
         }
+        
+        availStack.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

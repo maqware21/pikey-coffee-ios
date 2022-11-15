@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yd-2B-gSd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVL-1q-nic">
                                         <rect key="frame" x="148.5" y="16" width="117.5" height="31.5"/>
@@ -77,7 +78,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Grs-AR-vTV">
-                                        <rect key="frame" x="0.0" y="63.5" width="414" height="688.5"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="414" height="684.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2l-5X-IUW">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="767"/>
@@ -178,7 +179,7 @@
                                         <viewLayoutGuide key="frameLayoutGuide" id="XFD-dj-9G6"/>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKM-pc-UzG" customClass="HorizontalGradientView" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="768" width="382" height="50"/>
+                                        <rect key="frame" x="16" y="764" width="382" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZy-Ms-5Yu">
                                                 <rect key="frame" x="135" y="12" width="112" height="26.5"/>
@@ -186,11 +187,23 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sc9-0E-UJP">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="onClickPlaceOrder" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gBm-Ah-hBb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="Sc9-0E-UJP" firstAttribute="top" secondItem="SKM-pc-UzG" secondAttribute="top" id="Cz7-AT-h25"/>
+                                            <constraint firstItem="Sc9-0E-UJP" firstAttribute="leading" secondItem="SKM-pc-UzG" secondAttribute="leading" id="Qb4-AU-lG6"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sc9-0E-UJP" secondAttribute="trailing" id="fYx-ra-WQZ"/>
                                             <constraint firstItem="oZy-Ms-5Yu" firstAttribute="centerY" secondItem="SKM-pc-UzG" secondAttribute="centerY" id="fjO-Xs-l1s"/>
                                             <constraint firstAttribute="height" constant="50" id="u6C-YP-02E"/>
+                                            <constraint firstAttribute="bottom" secondItem="Sc9-0E-UJP" secondAttribute="bottom" id="uJQ-Kh-yzb"/>
                                             <constraint firstItem="oZy-Ms-5Yu" firstAttribute="centerX" secondItem="SKM-pc-UzG" secondAttribute="centerX" id="yYv-67-kE4"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -237,7 +250,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <namedColor name="coffeeGray">
             <color red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

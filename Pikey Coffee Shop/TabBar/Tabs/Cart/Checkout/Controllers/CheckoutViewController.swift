@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CheckoutAddressUpdateDelegate: AnyObject {
+    func addressUpdated()
+}
+
 class CheckoutViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -14,13 +18,17 @@ class CheckoutViewController: UIViewController {
     @IBOutlet var textView : UITextView!
     var placeholderLabel : UILabel!
     
+    weak var delegate: CartDelegate?
+    let viewModel = CheckOutViewModel()
     var products = [Product]()
+    var address = UserDefaults.standard[.selectedAddress]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         products = UserDefaults.standard[.cart] ?? []
         tableView.delegate = self
         tableView.dataSource = self
+        viewModel.delegate = self
         tableView.register(UINib(nibName: "CartCell", bundle: .main), forCellReuseIdentifier: "cartCell")
         tableView.register(UINib(nibName: "InformationCell", bundle: .main), forCellReuseIdentifier: "informationCell")
         tableView.register(UINib(nibName: "PaymentTypeCell", bundle: .main), forCellReuseIdentifier: "paymentTypeCell")
@@ -66,6 +74,21 @@ class CheckoutViewController: UIViewController {
     
     @IBAction func goBack() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func onClickPlaceOrder() {
+        let items = products.compactMap { product in
+            return Item(productID: product.id,
+                        quantity: product.selectedQuantity,
+                        addons: product.addons?.compactMap({ addOn in
+                            return Item(productID: addOn.id,
+                                        quantity: addOn.selectedQuantity,
+                                        addons: nil)
+            }))
+        }
+        let cart = Cart(paymentMethod: 0, token: "", type: 2, userComment: self.textView.text ?? "", locationID: 1, deliveryDate: "", items: items)
+        self.showLoader()
+        viewModel.createOrder(cart: cart)
     }
 }
 
@@ -141,6 +164,8 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         cell.cartRemoveCallback = {[weak self] in
             self?.products.remove(at: indexPath.row)
             UserDefaults.standard[.cart] = self?.products
+            self?.delegate?.loadProducts()
+            if self?.products.isEmpty ?? [].isEmpty { self?.navigationController?.popViewController(animated: true) }
             tableView.reloadData()
         }
         return cell
@@ -148,6 +173,13 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func infoCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell", for: indexPath) as! InformationCell
+        cell.address = address
+        cell.callback = {[weak self] in
+            if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "MyAddressesViewController") as? MyAddressesViewController {
+                vc.delegate = self
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
         return cell
     }
     
@@ -158,6 +190,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func billingDetailsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billingDetailsCell", for: indexPath) as! BillingDetailsCell
+        cell.products = products
         return cell
     }
     
@@ -166,5 +199,20 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
 extension CheckoutViewController : UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !textView.text.isEmpty
+    }
+}
+
+extension CheckoutViewController: CheckOutDelegate, CheckoutAddressUpdateDelegate {
+    func orderCreated(_ order: Order?) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            UserDefaults.standard[.cart] = []
+            self.presentingViewController?.dismiss(animated: true)
+        }
+    }
+    
+    func addressUpdated() {
+        self.address = UserDefaults.standard[.selectedAddress]
+        tableView.reloadData()
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CartDelegate: AnyObject {
+    func loadProducts()
+}
+
 class CartViewController: TabItemViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -52,6 +56,7 @@ class CartViewController: TabItemViewController {
     
     @objc func onClickCheckout() {
         if let controller = UIStoryboard(name: "Cart", bundle: .main).instantiateViewController(withIdentifier: "CheckoutViewController") as? CheckoutViewController {
+            controller.delegate = self
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
@@ -120,5 +125,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
             self?.reload()
         }
         return cell
+    }
+}
+
+extension CartViewController: CartDelegate {
+    func loadProducts() {
+        self.reload()
     }
 }

@@ -12,6 +12,7 @@ class MyAddressesViewController: EditProfileBaseViewController {
     @IBOutlet weak var tableView: UITableView!
     var viewModel = ProfileViewModel()
     var addressData: AddressList?
+    weak var delegate: CheckoutAddressUpdateDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,12 @@ extension MyAddressesViewController: UITableViewDelegate, UITableViewDataSource 
         
         if (addressData?.data?.count ?? 0) - indexPath.row == AddressConstant.perPageCount/2 {
             self.fetchAddresses(page: (addressData?.pagination?.currentPage ?? 0) + 1)
+        }
+        
+        cell.callback = {[weak self] in
+            UserDefaults.standard[.selectedAddress] = address
+            self?.delegate?.addressUpdated()
+            self?.navigationController?.popViewController(animated: true)
         }
         
         return cell

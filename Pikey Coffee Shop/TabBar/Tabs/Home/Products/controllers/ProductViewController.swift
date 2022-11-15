@@ -35,15 +35,23 @@ class ProductViewController: UIViewController {
         viewModel.delegate = self
         fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0)
         
-        let storedCart = UserDefaults.standard[.cart] ?? []
-        cartCounterView.isHidden = storedCart.isEmpty
-        cartCounterLabel.text = "\(storedCart.count)"
+        updateCartCounter()
         
         // Do any additional setup after loading the view.
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func updateCartCounter() {
+        let storedCart = UserDefaults.standard[.cart] ?? []
+        cartCounterView.isHidden = storedCart.isEmpty
+        cartCounterLabel.text = "\(storedCart.count)"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateCartCounter()
     }
     
     @objc func segmentValueChanged() {

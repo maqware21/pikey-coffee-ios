@@ -106,6 +106,10 @@
 		56D57C5C285BC00200877C51 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D57C5B285BC00200877C51 /* Cart.storyboard */; };
 		56D57C5F285BC2ED00877C51 /* DeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D57C5E285BC2ED00877C51 /* DeliveryView.swift */; };
 		56D8D13629104061005C553E /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8D13529104061005C553E /* Cart.swift */; };
+		56DC00512923F6A600180F70 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC00502923F6A600180F70 /* CartService.swift */; };
+		56DC00532923F6B000180F70 /* CartEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC00522923F6B000180F70 /* CartEndpoint.swift */; };
+		56DC00562923F93600180F70 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC00552923F93600180F70 /* Order.swift */; };
+		56DC00592923FAE700180F70 /* CheckOutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC00582923FAE700180F70 /* CheckOutViewModel.swift */; };
 		56DF35772889D104004CF09C /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF35762889D104004CF09C /* ForgotPassword.swift */; };
 		56DF357C2889E24E004CF09C /* ProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF357B2889E24E004CF09C /* ProfileEndpoint.swift */; };
 		56DF357E2889E258004CF09C /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF357D2889E258004CF09C /* ProfileService.swift */; };
@@ -217,6 +221,10 @@
 		56D57C5B285BC00200877C51 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
 		56D57C5E285BC2ED00877C51 /* DeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryView.swift; sourceTree = "<group>"; };
 		56D8D13529104061005C553E /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		56DC00502923F6A600180F70 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		56DC00522923F6B000180F70 /* CartEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartEndpoint.swift; sourceTree = "<group>"; };
+		56DC00552923F93600180F70 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		56DC00582923FAE700180F70 /* CheckOutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutViewModel.swift; sourceTree = "<group>"; };
 		56DF35762889D104004CF09C /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		56DF357B2889E24E004CF09C /* ProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEndpoint.swift; sourceTree = "<group>"; };
 		56DF357D2889E258004CF09C /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -457,6 +465,7 @@
 		5650462F2851230A00E4C2FF /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				56DC00542923F92E00180F70 /* Model */,
 				565046312851238200E4C2FF /* cells */,
 				565046302851231E00E4C2FF /* Controllers */,
 			);
@@ -577,6 +586,7 @@
 		5681D9832853E7D700340A4E /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				56DC004F2923F68C00180F70 /* Service */,
 				56D8D13429104056005C553E /* Model */,
 				568CA4572857B31000589AE1 /* views */,
 				5681D9852853E7EC00340A4E /* cells */,
@@ -738,6 +748,7 @@
 		56AC85EB285D021900E13156 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
+				56DC00572923FADA00180F70 /* Viewmodel */,
 				56AC85EF285D108200E13156 /* cells */,
 				56AC85EC285D025A00E13156 /* Controllers */,
 			);
@@ -820,6 +831,31 @@
 				56D8D13529104061005C553E /* Cart.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		56DC004F2923F68C00180F70 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				56DC00502923F6A600180F70 /* CartService.swift */,
+				56DC00522923F6B000180F70 /* CartEndpoint.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		56DC00542923F92E00180F70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56DC00552923F93600180F70 /* Order.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56DC00572923FADA00180F70 /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				56DC00582923FAE700180F70 /* CheckOutViewModel.swift */,
+			);
+			path = Viewmodel;
 			sourceTree = "<group>";
 		};
 		56DF35782889E096004CF09C /* Service */ = {
@@ -1039,6 +1075,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DC00592923FAE700180F70 /* CheckOutViewModel.swift in Sources */,
 				569D07C128872CDA0075B78A /* User.swift in Sources */,
 				56AC85EA285D013600E13156 /* EditProfileBaseViewController.swift in Sources */,
 				56DF357C2889E24E004CF09C /* ProfileEndpoint.swift in Sources */,
@@ -1051,9 +1088,11 @@
 				568360432863B5F100A0608F /* StarRatingStackView.swift in Sources */,
 				56834ED52888723200DB8C29 /* AuthenticationService.swift in Sources */,
 				564873D62847D84C003C63DD /* LoginViewController.swift in Sources */,
+				56DC00512923F6A600180F70 /* CartService.swift in Sources */,
 				5692A07F28FDE39400B91F59 /* HomeService.swift in Sources */,
 				564873E028480C06003C63DD /* UILabel+Extension.swift in Sources */,
 				56942DD3291C11BA001438CB /* Encodable+Extension.swift in Sources */,
+				56DC00532923F6B000180F70 /* CartEndpoint.swift in Sources */,
 				564873DE2847FA18003C63DD /* IconTextField.swift in Sources */,
 				568360422863B5F100A0608F /* StarRatingView.swift in Sources */,
 				5603F098286659DD008DEFDE /* AddAddressView.swift in Sources */,
@@ -1094,6 +1133,7 @@
 				5682BCD22905379400581A1C /* Products.swift in Sources */,
 				56834ED02888723200DB8C29 /* AuthenticationEndpoint.swift in Sources */,
 				563185B62863A85F005C46F1 /* ProductViewController.swift in Sources */,
+				56DC00562923F93600180F70 /* Order.swift in Sources */,
 				5681D9822853BF3C00340A4E /* HorizontalGradientView.swift in Sources */,
 				56834ED12888723200DB8C29 /* HTTPMethod.swift in Sources */,
 				5681D9872853F66900340A4E /* CartViewController.swift in Sources */,

@@ -64,4 +64,5 @@ extension UserDefaults.Key {
     static var user: Key<User> { return Key<User>("user") }
     static var cart: Key<[Product]> { return Key<[Product]>("cart") }
     static var addresses: Key<AddressList> { return Key<AddressList>("addresses") }
+    static var selectedAddress: Key<PickeyAddress> { return Key<PickeyAddress>("selectedAddress") }
 }

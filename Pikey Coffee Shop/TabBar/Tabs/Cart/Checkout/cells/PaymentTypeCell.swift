@@ -8,16 +8,23 @@
 import UIKit
 
 class PaymentTypeCell: UITableViewCell {
+    
+    @IBOutlet weak var rowOneBullet: UIView!
+    @IBOutlet weak var rowTwoBullet: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func onClickRow(_ sender: UIButton!) {
+        if sender.tag == 1 {
+            rowOneBullet.backgroundColor = .white
+            rowTwoBullet.backgroundColor = .clear
+        } else {
+            rowOneBullet.backgroundColor = .clear
+            rowTwoBullet.backgroundColor = .white
+        }
     }
     
 }

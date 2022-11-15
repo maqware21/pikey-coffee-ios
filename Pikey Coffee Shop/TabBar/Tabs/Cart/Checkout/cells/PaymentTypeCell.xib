@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -207,13 +208,37 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90P-wU-z6C">
+                                <rect key="frame" x="0.0" y="0.0" width="534" height="52"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="onClickRow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hja-q2-BjV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rb-px-JdA">
+                                <rect key="frame" x="0.0" y="54" width="534" height="52"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="onClickRow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GOD-HB-I3G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7Zc-qn-rvv" secondAttribute="trailing" id="Ed9-jG-M8y"/>
+                            <constraint firstItem="3Rb-px-JdA" firstAttribute="leading" secondItem="5EC-X6-cVl" secondAttribute="leading" id="M8I-Ip-2iU"/>
                             <constraint firstItem="7Zc-qn-rvv" firstAttribute="leading" secondItem="2Ab-bC-T1e" secondAttribute="leading" id="Qso-a2-6v0"/>
+                            <constraint firstItem="90P-wU-z6C" firstAttribute="bottom" secondItem="dBI-Ac-Htl" secondAttribute="bottom" id="WLq-JV-Icr"/>
                             <constraint firstItem="7Zc-qn-rvv" firstAttribute="top" secondItem="2Ab-bC-T1e" secondAttribute="top" id="XrH-ff-9eC"/>
+                            <constraint firstItem="3Rb-px-JdA" firstAttribute="bottom" secondItem="5EC-X6-cVl" secondAttribute="bottom" id="cFE-i4-sO1"/>
+                            <constraint firstItem="90P-wU-z6C" firstAttribute="leading" secondItem="dBI-Ac-Htl" secondAttribute="leading" id="ffk-cd-nFd"/>
                             <constraint firstAttribute="bottom" secondItem="7Zc-qn-rvv" secondAttribute="bottom" id="gf2-ub-DEY"/>
+                            <constraint firstItem="3Rb-px-JdA" firstAttribute="top" secondItem="5EC-X6-cVl" secondAttribute="top" id="hl0-cx-GXh"/>
+                            <constraint firstItem="90P-wU-z6C" firstAttribute="trailing" secondItem="dBI-Ac-Htl" secondAttribute="trailing" id="jh6-Vk-oQv"/>
+                            <constraint firstItem="90P-wU-z6C" firstAttribute="top" secondItem="dBI-Ac-Htl" secondAttribute="top" id="osD-pn-UNn"/>
+                            <constraint firstItem="3Rb-px-JdA" firstAttribute="trailing" secondItem="5EC-X6-cVl" secondAttribute="trailing" id="qQN-vW-yWp"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -245,6 +270,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="rowOneBullet" destination="nJ7-hu-5ko" id="5vz-FW-1XF"/>
+                <outlet property="rowTwoBullet" destination="65c-mc-M0o" id="GiM-3u-spO"/>
+            </connections>
             <point key="canvasLocation" x="284.05797101449275" y="77.678571428571431"/>
         </tableViewCell>
     </objects>

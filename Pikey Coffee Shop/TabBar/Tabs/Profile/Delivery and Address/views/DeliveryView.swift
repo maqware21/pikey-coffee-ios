@@ -184,6 +184,7 @@ extension DeliveryView: ProfileDelegate {
                 self.addresses = addresses
             }
             UserDefaults.standard[.addresses] = self.addresses
+            UserDefaults.standard[.selectedAddress] = self.addresses?.data?.first
             self.tableView.reloadData()
         }
     }

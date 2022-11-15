@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias AddressSelectedCallback = (() -> Void)
+
 class MyAddressCell: UITableViewCell {
 
     @IBOutlet weak var containerView: HorizontalGradientView!
@@ -15,6 +17,7 @@ class MyAddressCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var addressIcon: UIImageView!
     @IBOutlet weak var editIcon: UIImageView!
+    var callback: AddressSelectedCallback?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +48,7 @@ class MyAddressCell: UITableViewCell {
             self.editIcon.tintColor = .black
             self.containerView.gradient.isHidden = false
             self.editView.gradient.isHidden = false
+            self.callback?()
         } else {
             self.containerView.borderWidth = 1
             self.containerView.backgroundColor = .black

@@ -9,13 +9,14 @@ import Foundation
 
 enum CartEndpoint {
     case createOrder(cart: Cart?)
+    case getOrders
 }
 
 extension CartEndpoint: Endpoint {
     
     var path: String {
         switch self {
-        case .createOrder:
+        case .createOrder, .getOrders:
             return "/api/customer/orders"
         }
     }
@@ -24,6 +25,8 @@ extension CartEndpoint: Endpoint {
         switch self {
         case .createOrder:
             return .post
+        case .getOrders:
+            return .get
         }
     }
     
@@ -31,6 +34,8 @@ extension CartEndpoint: Endpoint {
         switch self {
         case .createOrder(let cart):
             return try? cart.toDictionary()
+        default:
+            return nil
         }
     }
     

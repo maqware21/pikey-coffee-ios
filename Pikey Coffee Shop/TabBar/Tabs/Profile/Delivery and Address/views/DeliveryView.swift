@@ -160,7 +160,7 @@ extension DeliveryView: UITableViewDelegate, UITableViewDataSource {
         if address?.isPrimary == 1 {
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         }
-        if (addresses?.data?.count ?? 0) - indexPath.row == AddressConstant.perPageCount/2 {
+        if (addresses?.data?.count ?? 0) - indexPath.row == AddressConstant.perPageCount/2 && addresses?.pagination?.totalPages ?? 0 > addresses?.pagination?.currentPage ?? 0 {
             self.fetchAddresses(page: (addresses?.pagination?.currentPage ?? 0) + 1)
         }
         

@@ -37,6 +37,7 @@
 		56504633285123BA00E4C2FF /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56504632285123BA00E4C2FF /* OrderViewController.swift */; };
 		565046362851258700E4C2FF /* OrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565046342851258700E4C2FF /* OrderListCell.swift */; };
 		565046372851258700E4C2FF /* OrderListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565046352851258700E4C2FF /* OrderListCell.xib */; };
+		565C5649292586F900834EFA /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C5648292586F900834EFA /* OrderViewModel.swift */; };
 		565FA1AE284A8722007E8C1C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565FA1AD284A8722007E8C1C /* SignUpViewController.swift */; };
 		565FA1B0284A9182007E8C1C /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565FA1AF284A9182007E8C1C /* VerificationViewController.swift */; };
 		5662D7232864DA4800BDB969 /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662D7222864DA4800BDB969 /* AddToCartView.swift */; };
@@ -153,6 +154,7 @@
 		56504632285123BA00E4C2FF /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		565046342851258700E4C2FF /* OrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCell.swift; sourceTree = "<group>"; };
 		565046352851258700E4C2FF /* OrderListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderListCell.xib; sourceTree = "<group>"; };
+		565C5648292586F900834EFA /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		565FA1AD284A8722007E8C1C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		565FA1AF284A9182007E8C1C /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		5662D7222864DA4800BDB969 /* AddToCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartView.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 		5650462F2851230A00E4C2FF /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				565C5647292586EC00834EFA /* Viewmodel */,
 				56DC00542923F92E00180F70 /* Model */,
 				565046312851238200E4C2FF /* cells */,
 				565046302851231E00E4C2FF /* Controllers */,
@@ -487,6 +490,14 @@
 				565046352851258700E4C2FF /* OrderListCell.xib */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		565C5647292586EC00834EFA /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				565C5648292586F900834EFA /* OrderViewModel.swift */,
+			);
+			path = Viewmodel;
 			sourceTree = "<group>";
 		};
 		5662D7212864DA3300BDB969 /* views */ = {
@@ -1132,6 +1143,7 @@
 				56720DD328469F9F006AAFFA /* SceneDelegate.swift in Sources */,
 				5682BCD22905379400581A1C /* Products.swift in Sources */,
 				56834ED02888723200DB8C29 /* AuthenticationEndpoint.swift in Sources */,
+				565C5649292586F900834EFA /* OrderViewModel.swift in Sources */,
 				563185B62863A85F005C46F1 /* ProductViewController.swift in Sources */,
 				56DC00562923F93600180F70 /* Order.swift in Sources */,
 				5681D9822853BF3C00340A4E /* HorizontalGradientView.swift in Sources */,

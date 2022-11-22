@@ -38,6 +38,7 @@ extension HTTPClient {
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }
+            print(response.statusCode)
             switch response.statusCode {
             case 200...299:
                 print("🧐 ")

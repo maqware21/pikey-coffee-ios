@@ -60,8 +60,8 @@ class AuthenticationViewModel {
             switch result {
             case .success(let data):
                 forgotPasswordDelegate?.forgotPasswordResponse(with: data.message ?? "")
-            case .failure(let error):
-                forgotPasswordDelegate?.forgotPasswordResponse(with: error.customMessage)
+            case .failure(_):
+                forgotPasswordDelegate?.forgotPasswordResponse(with: "Email does not exist.")
             }
         }
     }

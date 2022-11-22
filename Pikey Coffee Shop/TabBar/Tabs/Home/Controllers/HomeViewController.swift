@@ -87,7 +87,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeFeedCell", for: indexPath) as! HomeFeedCell
         cell.category = categoryData?.data?[indexPath.row]
         
-        if (categoryData?.data?.count ?? 0) - indexPath.row == CategoryConstants.perPageCount/2 {
+        if (categoryData?.data?.count ?? 0) - indexPath.row == CategoryConstants.perPageCount/2 && categoryData?.pagination?.totalPages ?? 0 > categoryData?.pagination?.currentPage ?? 0 {
             self.loadData(page: (categoryData?.pagination?.currentPage ?? 0) + 1)
         }
         
@@ -100,9 +100,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let controller = UIStoryboard(name: "Product", bundle: .main).instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController {
-            controller.categories = categoryData?.data?[indexPath.row].children
-            self.navigationController?.pushViewController(controller, animated: true)
+        if let categories = categoryData?.data?[indexPath.row].children, !categories.isEmpty {
+            if let controller = UIStoryboard(name: "Product", bundle: .main).instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController {
+                controller.categories = categories
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        } else {
+            self.view.displayNotice(with: "This category has no data")
         }
     }
 }
@@ -118,8 +122,8 @@ extension HomeViewController: HomeDelegate {
                 } else {
                     self.categoryData = categoryData
                 }
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
         }
     }
     

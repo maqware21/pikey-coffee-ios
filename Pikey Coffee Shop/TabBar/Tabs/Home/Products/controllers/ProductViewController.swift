@@ -18,23 +18,23 @@ class ProductViewController: UIViewController {
     private let viewModel = ProductViewModel()
     
     
-    var categories: [Category]!
+    var categories: [Category]?
     var productData: ProductData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let categories {
-            let names = categories.map({ $0.name ?? "" })
-            segmentView.items = names
-        }
         segmentView.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
         collectionView.register(UINib(nibName: "ProductCell", bundle: .main), forCellWithReuseIdentifier: "ProductCell")
         collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         collectionView.dataSource = self
         collectionView.delegate = self
         viewModel.delegate = self
-        fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0)
         
+        if let categories {
+            let names = categories.map({ $0.name ?? "" })
+            segmentView.items = names
+            fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0)
+        }
         updateCartCounter()
         
         // Do any additional setup after loading the view.
@@ -55,7 +55,7 @@ class ProductViewController: UIViewController {
     }
     
     @objc func segmentValueChanged() {
-        fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0)
+        fetchProducts(id: categories?[segmentView.selectedIndex].id ?? 0)
     }
     
     func fetchProducts(id: Int, page: Int = 1) {
@@ -108,8 +108,8 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDeleg
             self.present(sheet, animated: true)
         }), for: .touchUpInside)
         
-        if (productData?.data?.count ?? 0) - indexPath.row == ProductConstants.perPageCount/2 {
-            self.fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0,
+        if (productData?.data?.count ?? 0) - indexPath.row == ProductConstants.perPageCount/2 && productData?.pagination?.totalPages ?? 0 > productData?.pagination?.currentPage ?? 0 {
+            self.fetchProducts(id: categories?[segmentView.selectedIndex].id ?? 0,
                                page: (productData?.pagination?.currentPage ?? 0) + 1)
         }
         

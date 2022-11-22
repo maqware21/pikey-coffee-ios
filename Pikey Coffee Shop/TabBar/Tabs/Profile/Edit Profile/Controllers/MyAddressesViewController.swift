@@ -56,7 +56,7 @@ extension MyAddressesViewController: UITableViewDelegate, UITableViewDataSource 
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         }
         
-        if (addressData?.data?.count ?? 0) - indexPath.row == AddressConstant.perPageCount/2 {
+        if (addressData?.data?.count ?? 0) - indexPath.row == AddressConstant.perPageCount/2 && addressData?.pagination?.totalPages ?? 0 > addressData?.pagination?.currentPage ?? 0 {
             self.fetchAddresses(page: (addressData?.pagination?.currentPage ?? 0) + 1)
         }
         

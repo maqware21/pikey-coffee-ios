@@ -10,14 +10,22 @@ import UIKit
 class OrderViewController: TabItemViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var viewModel = OrderViewModel()
+    var orders = [Order]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        viewModel.delegate = self
         tableView.register(UINib(nibName: "OrderListCell", bundle: .main), forCellReuseIdentifier: "orderCell")
         tableView.contentInset.bottom = 48
         // Do any additional setup after loading the view.
+    }
+    
+    func getOrders() {
+        self.showLoader()
+        viewModel.getOrders()
     }
 
 }
@@ -25,7 +33,7 @@ class OrderViewController: TabItemViewController {
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,3 +84,13 @@ extension OrderViewController: OrderCellDelegate, ConfirmationDelegate {
 }
 
 
+extension OrderViewController: OrderDelegate {
+    func ordersUpdated(_ orders: [Order]?) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            guard let orders else { return }
+            self.orders = orders
+            self.tableView.reloadData()
+        }
+    }
+}

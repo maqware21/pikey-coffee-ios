@@ -9,6 +9,7 @@ import Foundation
 
 protocol CartServiceable {
     func createOrder(cart: Cart?) async -> Result<Order, RequestError>
+    func getOrders() async -> Result<[Order], RequestError>
 }
 
 struct CartService: HTTPClient, CartServiceable {
@@ -17,5 +18,9 @@ struct CartService: HTTPClient, CartServiceable {
     
     func createOrder(cart: Cart?) async -> Result<Order, RequestError> {
         return await sendRequest(endpoint: CartEndpoint.createOrder(cart: cart), responseModel: Order.self)
+    }
+    
+    func getOrders() async -> Result<[Order], RequestError> {
+        return await sendRequest(endpoint: CartEndpoint.getOrders, responseModel: [Order].self)
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TabHomeDelegate: AnyObject {
+    func moveToHome()
+}
+
 class TabViewController: UITabBarController {
 
     // MARK: - View lifecycle
@@ -65,6 +69,7 @@ class TabViewController: UITabBarController {
 
     @objc private func menuButtonAction(sender: UIButton) {
         if let controller = UIStoryboard(name: "Tabs", bundle: .main).instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            controller.tabHomeDelegate = self
             let navigationController = UINavigationController(rootViewController: controller)
             navigationController.modalTransitionStyle = .coverVertical
             navigationController.modalPresentationStyle = .fullScreen
@@ -74,12 +79,16 @@ class TabViewController: UITabBarController {
     }
 }
 
-extension TabViewController: UITabBarControllerDelegate {
+extension TabViewController: UITabBarControllerDelegate, TabHomeDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 3 {
             return false
         } else {
             return true
         }
+    }
+    
+    func moveToHome() {
+        self.selectedIndex = 0
     }
 }

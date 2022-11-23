@@ -50,8 +50,18 @@ class ChangePasswordViewController: EditProfileBaseViewController {
             return false
         }
         
+        if newPasswordField.text?.count ?? 0 < 8 {
+            self.view.displayNotice(with: "Minimum 8 chracters required for new password")
+            return false
+        }
+        
         if confirmPasswordField.isEmpty {
             self.view.displayNotice(with: "Confirm Password required")
+            return false
+        }
+        
+        if confirmPasswordField.text != newPasswordField.text {
+            self.view.displayNotice(with: "Confirm password not matched")
             return false
         }
         

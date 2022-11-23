@@ -36,19 +36,23 @@ class EditProfileViewController: EditProfileBaseViewController {
         emailField.text = user.email
         emailField.isUserInteractionEnabled = false
         phoneField.text = user.phoneNumber
-        phoneField.isUserInteractionEnabled = false
     }
     
     @IBAction func onClickUpdate() {
         if validate() {
             self.showLoader()
-            viewModel.updateProfile(userName: nameField.text ?? "")
+            viewModel.updateProfile(userName: nameField.text ?? "", phoneNumber: phoneField.text ?? "")
         }
     }
     
     func validate() -> Bool {
         if nameField.isEmpty {
             self.view.displayNotice(with: "Name required")
+            return false
+        }
+        
+        if phoneField.isEmpty {
+            self.view.displayNotice(with: "Phone number required")
             return false
         }
         

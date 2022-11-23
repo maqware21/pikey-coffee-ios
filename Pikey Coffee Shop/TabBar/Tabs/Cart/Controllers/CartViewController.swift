@@ -15,6 +15,7 @@ class CartViewController: TabItemViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var checkOutView: UIView!
+    weak var tabHomeDelegate: TabHomeDelegate?
     
     lazy var emptyView: CartEmptyView = {
         let view = CartEmptyView(frame: .zero)
@@ -50,6 +51,7 @@ class CartViewController: TabItemViewController {
         ])
         
         emptyView.menuButton.addAction(UIAction(handler: { _ in
+            self.tabHomeDelegate?.moveToHome()
             self.onClickBack()
         }), for: .touchUpInside)
     }

@@ -64,5 +64,5 @@ class AuthenticationViewModel {
                 forgotPasswordDelegate?.forgotPasswordResponse(with: "Email does not exist.")
             }
         }
-    }
+    } 
 }

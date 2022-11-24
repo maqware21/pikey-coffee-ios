@@ -156,7 +156,7 @@ extension AddLocationViewController: CLLocationManagerDelegate {
         let location: CLLocation = locations.last!
         moveMap(location.coordinate)
         
-        let placeFields: GMSPlaceField = [.name, .coordinate]
+        let placeFields: GMSPlaceField = [.all, .addressComponents]
         placesClient.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: placeFields) { (placeLikelihoods, error) in
             guard error == nil else {
                 // TODO: Handle the error.
@@ -164,12 +164,14 @@ extension AddLocationViewController: CLLocationManagerDelegate {
                 return
             }
             
-            guard let placeLikelihoods = placeLikelihoods else {
+            guard let place = placeLikelihoods?.randomElement()?.place else {
                 print("No places found.")
                 return
             }
             
-            self.addMarkerToPlace(placeLikelihoods.first?.place, location.coordinate)
+            self.placesClient.fetchPlace(fromPlaceID: place.placeID ?? "", placeFields: [.all], sessionToken: nil) { place, error in
+                self.addMarkerToPlace(place, location.coordinate)
+            }
         }
     }
     

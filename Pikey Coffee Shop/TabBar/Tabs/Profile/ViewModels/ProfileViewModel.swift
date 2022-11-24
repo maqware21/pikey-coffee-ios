@@ -11,6 +11,7 @@ protocol ProfileDelegate: AnyObject {
     func profileUpdated(_ user: User?)
     func addressListUpdated(addresses: AddressList?)
     func addressCreated()
+    func addressDeleted(_ message: String?)
 }
 
 
@@ -18,6 +19,7 @@ extension ProfileDelegate {
     func profileUpdated(_ user: User?) {return}
     func addressListUpdated(addresses: AddressList?) {return}
     func addressCreated() {return}
+    func addressDeleted(_ message: String?) {return}
 }
 
 class ProfileViewModel {
@@ -71,6 +73,19 @@ class ProfileViewModel {
                 delegate?.addressListUpdated(addresses: data)
             case .failure(let error):
                 delegate?.addressListUpdated(addresses: nil)
+                print(error.customMessage)
+            }
+        }
+    }
+    
+    func deleteAddress(with id: Int) {
+        Task(priority: .background) {
+            let result = await ProfileService.shared.deleteAddress(id: id)
+            switch result {
+            case .success(let data):
+                delegate?.addressDeleted(data.message)
+            case .failure(let error):
+                delegate?.addressDeleted(nil)
                 print(error.customMessage)
             }
         }

@@ -45,7 +45,8 @@ class AddressViewModel {
                                             state: seletedPlace.addressComponents?.valueFor(placeTypes: "administrative_area_level_1"),
                                             postalCode: seletedPlace.addressComponents?.valueFor(placeTypes: "postal_code"),
                                             latitude: seletedPlace.coordinate.latitude.formatted(),
-                                            longitude: seletedPlace.coordinate.longitude.formatted(), type: 1)
+                                            longitude: seletedPlace.coordinate.longitude.formatted(),
+                                            type: 1)
             if let selectedCoordinates {
                 selectedAddress?.longitude = selectedCoordinates.longitude.formatted()
                 selectedAddress?.latitude = selectedCoordinates.latitude.formatted()

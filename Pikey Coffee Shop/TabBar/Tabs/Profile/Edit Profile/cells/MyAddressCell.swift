@@ -8,23 +8,25 @@
 import UIKit
 
 typealias AddressSelectedCallback = (() -> Void)
+typealias AddressCallbackWithId = ((Int?, AddressAction) -> Void)
 
 class MyAddressCell: UITableViewCell {
 
     @IBOutlet weak var containerView: HorizontalGradientView!
-    @IBOutlet weak var editView: HorizontalGradientView!
+    @IBOutlet weak var editView: UIView!
+    @IBOutlet weak var deleteView: UIView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var addressIcon: UIImageView!
-    @IBOutlet weak var editIcon: UIImageView!
     var callback: AddressSelectedCallback?
+    var idCallback: AddressCallbackWithId?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.borderColor = UIColor(named: "shadowColor")
-        editView.borderColor = UIColor(named: "shadowColor")
         addressIcon.image = UIImage(named: "homeAddressIcon")?.withRenderingMode(.alwaysTemplate)
-        editIcon.image = UIImage(named: "editIcon")?.withRenderingMode(.alwaysTemplate)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onClickContainer))
+        containerView.addGestureRecognizer(tap)
     }
     
     var address: PickeyAddress? {
@@ -32,34 +34,42 @@ class MyAddressCell: UITableViewCell {
             guard let address else {return}
             name.text = address.name
             addressLabel.text = address.address
+            showSelected()
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        if selected {
+    
+    func showSelected() {
+        if let savedAddress = UserDefaults.standard[.selectedAddress], savedAddress.id == address?.id {
             self.containerView.borderWidth = 0
             self.containerView.backgroundColor = .white
-            self.editView.borderWidth = 0
-            self.editView.backgroundColor = .white
             self.name.textColor = .black
             self.addressLabel.textColor = UIColor(hex: "333333")
             self.addressIcon.tintColor = .black
-            self.editIcon.tintColor = .black
             self.containerView.gradient.isHidden = false
-            self.editView.gradient.isHidden = false
-            self.callback?()
         } else {
             self.containerView.borderWidth = 1
             self.containerView.backgroundColor = .black
-            self.editView.borderWidth = 1
-            self.editView.backgroundColor = .black
             self.name.textColor = .white
             self.addressLabel.textColor = UIColor(named: "coffeeGray")
             self.addressIcon.tintColor = .white
-            self.editIcon.tintColor = UIColor(named: "coffeeGray")
             self.containerView.gradient.isHidden = true
-            self.editView.gradient.isHidden = true
         }
     }
+    
+    @objc func onClickContainer() {
+        self.callback?()
+    }
+    
+    @IBAction func onClickEdit() {
+        idCallback?(address?.id, .edit)
+    }
+    
+    @IBAction func onClickDelete() {
+        idCallback?(address?.id, .delete)
+    }
+}
+
+enum AddressAction {
+    case edit
+    case delete
 }

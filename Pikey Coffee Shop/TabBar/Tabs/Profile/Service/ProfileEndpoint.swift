@@ -15,6 +15,7 @@ enum ProfileEndpoint {
                         confirmPassword: String)
     case getLocations(page: Int)
     case createLocation(location: PickeyAddress)
+    case deleteLocation(id: Int)
 }
 
 extension ProfileEndpoint: Endpoint {
@@ -29,6 +30,8 @@ extension ProfileEndpoint: Endpoint {
             return "/api/customer/locations"
         case .createLocation:
             return "/api/customer/locations"
+        case .deleteLocation(let id):
+            return "/api/customer/locations/\(id)"
         }
     }
 
@@ -42,6 +45,8 @@ extension ProfileEndpoint: Endpoint {
             return .get
         case .createLocation:
             return .post
+        case .deleteLocation:
+            return .delete
         }
     }
     
@@ -73,6 +78,8 @@ extension ProfileEndpoint: Endpoint {
             return parameter
         case .createLocation(let location):
             return try? location.toDictionary()
+        case .deleteLocation:
+            return nil
         }
     }
     

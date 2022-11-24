@@ -62,8 +62,24 @@ extension MyAddressesViewController: UITableViewDelegate, UITableViewDataSource 
         
         cell.callback = {[weak self] in
             UserDefaults.standard[.selectedAddress] = address
-            self?.delegate?.addressUpdated()
-            self?.navigationController?.popViewController(animated: true)
+            self?.tableView.reloadData()
+            if let delegate = self?.delegate {
+                delegate.addressUpdated()
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        cell.idCallback = {[weak self] id, type in
+            switch type {
+            case .edit:
+                print("edit")
+            case .delete:
+                guard let id else {return}
+                self?.showLoader()
+                self?.addressData?.data?.remove(at: indexPath.row)
+                self?.tableView.reloadData()
+                self?.viewModel.deleteAddress(with: id)
+            }
         }
         
         return cell
@@ -83,6 +99,14 @@ extension MyAddressesViewController: ProfileDelegate {
             }
             UserDefaults.standard[.addresses] = self.addressData
             self.tableView.reloadData()
+        }
+    }
+    
+    func addressDeleted(_ message: String?) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            guard let message else { return }
+            self.view.displayNotice(with: message)
         }
     }
 }

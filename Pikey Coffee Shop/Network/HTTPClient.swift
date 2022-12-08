@@ -43,10 +43,13 @@ extension HTTPClient {
             case 200...299:
                 print("🧐 ")
                 print(String(data: data, encoding: .utf8) as Any)
-                guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
+                do {
+                    let decodedResponse = try JSONDecoder().decode(responseModel, from: data)
+                    return .success(decodedResponse)
+                } catch {
+                    print(error)
                     return .failure(.decode)
                 }
-                return .success(decodedResponse)
             case 401:
                 if let appDelegate = await UIApplication.shared.delegate as? AppDelegate {
                     await appDelegate.logout()

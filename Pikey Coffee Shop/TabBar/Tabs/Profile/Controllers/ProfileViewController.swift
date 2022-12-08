@@ -65,16 +65,17 @@ class ProfileViewController: TabItemViewController {
     }
     
     @IBAction func onClickRateApp() {
-        if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
-
-        } else if let url = URL(string: "itms-apps://itunes.apple.com/app/" + "appId") {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-
-            } else {
-                UIApplication.shared.openURL(url)
-            }
+        guard let scene = UIApplication.shared.foregroundActiveScene else { return }
+        SKStoreReviewController.requestReview(in: scene)
+    }
+    
+    @IBAction func onClickShareApp() {
+        if let name = URL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8"), !name.absoluteString.isEmpty {
+          let objectsToShare = [name]
+          let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+          self.present(activityVC, animated: true, completion: nil)
+        } else {
+          // show alert for not available
         }
     }
     
@@ -122,5 +123,12 @@ extension ProfileViewController: EditProfileDelegate {
         if let user = user {
             updateView(user: user)
         }
+    }
+}
+
+extension UIApplication {
+    var foregroundActiveScene: UIWindowScene? {
+        connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
     }
 }

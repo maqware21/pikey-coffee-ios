@@ -11,7 +11,8 @@ class OrderViewController: TabItemViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var viewModel = OrderViewModel()
-    var orders = [Order]()
+    var ordersData: OrderList?
+    var itemId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +21,12 @@ class OrderViewController: TabItemViewController {
         viewModel.delegate = self
         tableView.register(UINib(nibName: "OrderListCell", bundle: .main), forCellReuseIdentifier: "orderCell")
         tableView.contentInset.bottom = 48
-        // Do any additional setup after loading the view.
+        loadData()
     }
     
-    func getOrders() {
+    func loadData(page: Int = 0) {
         self.showLoader()
-        viewModel.getOrders()
+        viewModel.getOrders(page: page)
     }
 
 }
@@ -33,12 +34,17 @@ class OrderViewController: TabItemViewController {
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders.count
+        return ordersData?.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderListCell
         cell.delegate = self
+        cell.order = ordersData?.data?[indexPath.row]
+        
+        if (ordersData?.data?.count ?? 0) - indexPath.row == OrderConstants.perPageCount/2 && ordersData?.pagination?.totalPages ?? 0 > ordersData?.pagination?.currentPage ?? 0 {
+            self.loadData(page: (ordersData?.pagination?.currentPage ?? 0) + 1)
+        }
         return cell
     }
     
@@ -69,7 +75,8 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension OrderViewController: OrderCellDelegate, ConfirmationDelegate {
-    func presentOnCell() {
+    func presentOnCell(id: Int?) {
+        itemId = id
         let controller = ConfirmationBottomSheet()
         controller.delegate = self
         controller.titleLabel.text = "Cancel Order"
@@ -80,17 +87,37 @@ extension OrderViewController: OrderCellDelegate, ConfirmationDelegate {
     
     func confirmAction() {
         self.presentedViewController?.dismiss(animated: true)
+        guard let itemId else {return}
+        viewModel.cancelOrders(id: itemId)
     }
 }
 
 
 extension OrderViewController: OrderDelegate {
-    func ordersUpdated(_ orders: [Order]?) {
+    func ordersUpdated(_ orders: OrderList?) {
         DispatchQueue.main.async {
             self.removeLoader()
-            guard let orders else { return }
-            self.orders = orders
-            self.tableView.reloadData()
+            if let orders {
+                if orders.pagination?.currentPage != 1 {
+                    self.ordersData?.data?.append(contentsOf: orders.data ?? [])
+                    self.ordersData?.pagination = orders.pagination
+                } else {
+                    self.ordersData = orders
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func orderCancelled(_ id: Int?) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            if let id {
+                if let index = self.ordersData?.data?.firstIndex(where: {$0.id == id}) {
+                    self.ordersData?.data?[index].statusInText = "Cancelled"
+                }
+                self.tableView.reloadData()
+            }
         }
     }
 }

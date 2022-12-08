@@ -16,11 +16,11 @@ class BillingDetailsCell: UITableViewCell {
     var products: [Product]? {
         didSet {
             guard let products else {return}
-            var subTotal = 0
-            var discount = 0
-            var dileveryCharges = 0
+            var subTotal = 0.0
+            var discount = 0.0
+            var dileveryCharges = 0.0
             products.forEach { product in
-                subTotal += (product.price ?? 0) * (product.selectedQuantity ?? 0)
+                subTotal += (product.price ?? 0) * (Double(product.selectedQuantity ?? 0))
             }
             
             valueLabels[0].text = String(format: "$%.2f", Float(subTotal))

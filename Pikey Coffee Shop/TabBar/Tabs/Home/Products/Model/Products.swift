@@ -22,7 +22,8 @@ struct Product: Codable {
     let id: Int?
     let name: String?
     let shortDescription, longDescription: String?
-    let price, priceInPoints: Int?
+    let price: Double?
+    let priceInPoints: Int?
     let sku: String?
     let type, isTaxable: Int?
     var selectedQuantity: Int?

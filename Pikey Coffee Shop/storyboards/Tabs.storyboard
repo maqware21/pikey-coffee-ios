@@ -585,6 +585,9 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                                        <connections>
+                                                                            <action selector="onClickShareApp" destination="pNE-1s-n1A" eventType="touchUpInside" id="2yy-MN-zVn"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

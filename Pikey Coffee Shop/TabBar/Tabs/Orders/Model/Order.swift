@@ -7,21 +7,31 @@
 
 import Foundation
 
+// MARK: - Constants
+struct OrderConstants {
+    static let perPageCount = 30
+}
+
+struct OrderList: Codable {
+    var data: [Order]?
+    var pagination: Pagination?
+}
+
 struct Order: Codable {
     let id, status: Int?
-    let statusInText: String?
+    var statusInText: String?
     let type: Int?
     let typeInText: String?
     let paymentMethod: Int?
     let paymentMethodInText, userFirstName, userLastName, userEmail: String?
     let userComment: String?
-    let totalPrice: Int?
+    let totalPrice: Double?
     let deliveryDate: String?
     let pickupDate: String?
     let locationID: Int?
     let userID: Int?
     let discountPercentage: Int?
-    let discountAmount, paidPrice: Int
+    let discountAmount, paidPrice: Double
     let carNumber, parkingSpotNumber: String?
     let items: [OrderedItem]?
     let location: PickeyAddress?
@@ -61,10 +71,11 @@ struct OrderedItem: Codable {
     let parentID: Int?
     let productID: Int?
     let productName, productSku: String?
-    let productPrice, totalPrice: Int?
+    let productPrice, totalPrice: Double?
     let comments: String?
     let discountPercentage, discountAmount: Int?
     let addons: [Item]?
+    let product: OrderedProduct?
 
     enum CodingKeys: String, CodingKey {
         case id, quantity
@@ -77,13 +88,14 @@ struct OrderedItem: Codable {
         case comments
         case discountPercentage = "discount_percentage"
         case discountAmount = "discount_amount"
-        case addons
+        case addons, product
     }
 }
 
 // MARK: - Transaction
 struct Transaction: Codable {
-    let amount, status: Int?
+    let amount: Double?
+    let status: Int?
     let statusInText: String?
     let type: Int?
     let typeInText: String?
@@ -98,5 +110,32 @@ struct Transaction: Codable {
         case orderID = "order_id"
         case paymentProfileID = "payment_profile_id"
         case providerTransactionID = "provider_transaction_id"
+    }
+}
+
+// MARK: - Ordered Product
+struct OrderedProduct: Codable {
+    let id: Int?
+    let name: String?
+    let shortDescription, longDescription: String?
+    let price: String?
+    let priceInPoints: Int?
+    let sku: String?
+    let type, isTaxable: Int?
+    var selectedQuantity: Int?
+    var addons: [OrderedProduct]?
+    let images: [Image]?
+    let categories: [Category]?
+
+    enum CodingKeys: String, CodingKey {
+        case id, name
+        case shortDescription = "short_description"
+        case longDescription = "long_description"
+        case price
+        case priceInPoints = "price_in_points"
+        case sku, type
+        case selectedQuantity = "selected_quantity"
+        case isTaxable = "is_taxable"
+        case addons, images, categories
     }
 }

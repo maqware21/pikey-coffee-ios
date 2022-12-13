@@ -78,6 +78,7 @@ extension EditProfileViewController: ProfileDelegate {
                 if var storedUser = UserDefaults.standard[.user] {
                     storedUser.firstName = user.firstName
                     storedUser.lastName = user.lastName
+                    storedUser.phoneNumber = user.phoneNumber
                     UserDefaults.standard[.user] = storedUser
                     self.delegate?.profileEdited(storedUser)
                 }

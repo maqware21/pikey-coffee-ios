@@ -98,6 +98,7 @@ extension MyAddressesViewController: ProfileDelegate {
                 self.addressData = addresses
             }
             UserDefaults.standard[.addresses] = self.addressData
+            UserDefaults.standard[.selectedAddress] = self.addressData?.data?.first
             self.tableView.reloadData()
         }
     }

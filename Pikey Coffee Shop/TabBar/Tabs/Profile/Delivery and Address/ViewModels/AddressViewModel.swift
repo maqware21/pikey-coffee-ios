@@ -35,6 +35,10 @@ class AddressViewModel {
         }
     }
     
+    func isAddressValid() -> Bool {
+        return seletedPlace != nil || fetchedAddress != nil
+    }
+    
     func getAddress() -> PickeyAddress? {
         var selectedAddress: PickeyAddress?
         if let seletedPlace {

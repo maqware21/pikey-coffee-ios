@@ -101,9 +101,13 @@ class AddLocationViewController: EditProfileBaseViewController {
         let controller = AddAddressView(frame: .zero)
         controller.typeSelected = {[weak self] addressType in
             guard let self else {return}
-            self.showLoader()
-            self.viewModel.addressName = addressType.name
-            self.viewModel.createAddress()
+            if self.viewModel.isAddressValid() {
+                self.showLoader()
+                self.viewModel.addressName = addressType.name
+                self.viewModel.createAddress()
+            } else {
+                self.view.displayNotice(with: "Please Add Address")
+            }
         }
         let vc = PickeySheet(view: controller)
         present(vc, animated: true)

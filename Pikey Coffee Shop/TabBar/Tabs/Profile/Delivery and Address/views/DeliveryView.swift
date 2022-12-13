@@ -64,6 +64,31 @@ class DeliveryView: UIView {
         return view
     }()
     
+    lazy var confirmButton: HorizontalGradientView = {
+        let view = HorizontalGradientView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.cornerRadius = 25
+        return view
+    }()
+    
+    lazy var yesLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "SHOW ALL ADDRESSES"
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    lazy var loader: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.style = .medium
+        view.color = .white
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -127,17 +152,53 @@ class DeliveryView: UIView {
             tableView.topAnchor.constraint(equalTo: self.addAddressLabel.bottomAnchor, constant: 16),
             tableView.leftAnchor.constraint(equalTo: self.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -32),
-            tableView.heightAnchor.constraint(equalToConstant: 250)
+            tableView.heightAnchor.constraint(equalToConstant: 220)
         ])
+        
+        self.containerView.addSubview(confirmButton)
+        NSLayoutConstraint.activate([
+            confirmButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 32),
+            confirmButton.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 32),
+            confirmButton.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -32),
+            confirmButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -32),
+            confirmButton.heightAnchor.constraint(equalToConstant: 48)
+        ])
+        
+        confirmButton.addSubview(yesLabel)
+        NSLayoutConstraint.activate([
+            yesLabel.topAnchor.constraint(equalTo: confirmButton.topAnchor),
+            yesLabel.leftAnchor.constraint(equalTo: confirmButton.leftAnchor),
+            yesLabel.rightAnchor.constraint(equalTo: confirmButton.rightAnchor),
+            yesLabel.bottomAnchor.constraint(equalTo: confirmButton.bottomAnchor)
+        ])
+        
+        self.containerView.addSubview(loader)
+        NSLayoutConstraint.activate([
+            loader.widthAnchor.constraint(equalToConstant: 40),
+            loader.heightAnchor.constraint(equalToConstant: 40),
+            loader.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
+            loader.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor)
+        ])
+        
+        let yesTap = UITapGestureRecognizer(target: self, action: #selector(showAllAddress))
+        confirmButton.addGestureRecognizer(yesTap)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(addLocationClicked))
         addAddressButton.addGestureRecognizer(tap)
+        
+        self.loader.isHidden = false
+        self.loader.startAnimating()
     }
     
     @objc func addLocationClicked() {
         if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "AddLocationViewController") as? AddLocationViewController {
             vc.delegate = self
+            self.parentViewController?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @objc func showAllAddress() {
+        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "MyAddressesViewController") as? MyAddressesViewController {
             self.parentViewController?.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -150,7 +211,14 @@ class DeliveryView: UIView {
 extension DeliveryView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return addresses?.data?.count ?? 0
+        if let count = self.addresses?.data?.count {
+            if count > 2 {
+                return 2
+            } else {
+                return count
+            }
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -177,6 +245,8 @@ extension DeliveryView: AddLocationDelegate {
 extension DeliveryView: ProfileDelegate {
     func addressListUpdated(addresses: AddressList?) {
         DispatchQueue.main.async {
+            self.loader.stopAnimating()
+            self.loader.isHidden = true
             if addresses?.pagination?.currentPage != 1 {
                 self.addresses?.data?.append(contentsOf: addresses?.data ?? [])
                 self.addresses?.pagination = addresses?.pagination

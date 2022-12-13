@@ -17,8 +17,8 @@ class BillingDetailsCell: UITableViewCell {
         didSet {
             guard let products else {return}
             var subTotal = 0.0
-            var discount = 0.0
-            var dileveryCharges = 0.0
+            let discount = 0.0
+            let dileveryCharges = 0.0
             products.forEach { product in
                 subTotal += (product.price ?? 0) * (Double(product.selectedQuantity ?? 0))
             }

@@ -81,7 +81,7 @@ extension ChangePasswordViewController: ProfileDelegate {
                 self.view.displayNotice(with: "Password changed successfully")
                 self.navigationController?.popViewController(animated: true)
             } else {
-                self.view.displayNotice(with: "Invalid information")
+                self.view.displayNotice(with: "Your current password is wrong")
             }
         }
     }

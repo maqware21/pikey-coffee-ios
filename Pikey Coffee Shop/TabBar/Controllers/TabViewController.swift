@@ -13,6 +13,7 @@ protocol TabHomeDelegate: AnyObject {
 
 class TabViewController: UITabBarController {
 
+    private var viewModel = ProfileViewModel()
     // MARK: - View lifecycle
 
     override func viewDidLoad() {
@@ -30,6 +31,8 @@ class TabViewController: UITabBarController {
 
         viewControllers = TabManager.shared.getTabs(tabs: [.Home, .Orders, .Cart, .Notifications, .Profile])
         setupMiddleButton()
+        viewModel.delegate = self
+        viewModel.getAddressList(for: 1)
     }
 
     // MARK: - Setups
@@ -79,7 +82,7 @@ class TabViewController: UITabBarController {
     }
 }
 
-extension TabViewController: UITabBarControllerDelegate, TabHomeDelegate {
+extension TabViewController: UITabBarControllerDelegate, TabHomeDelegate, ProfileDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 3 {
             return false
@@ -90,5 +93,8 @@ extension TabViewController: UITabBarControllerDelegate, TabHomeDelegate {
     
     func moveToHome() {
         self.selectedIndex = 0
+    }
+    func addressListUpdated(addresses: AddressList?) {
+        UserDefaults.standard[.selectedAddress] = addresses?.data?.first
     }
 }

@@ -1,10 +1,15 @@
 import Foundation
 import UIKit
 
+protocol PickeySheetDelegate: AnyObject {
+    func sheetClosed()
+}
+
 public class PickeySheet: UIViewController {
     
     private var contentsViewHeight: CGFloat = 300
     private var allowAnimation: Bool = true
+    weak var delegate: PickeySheetDelegate?
     
     private lazy var dimmedView: UIView = {
         let view = UIView(frame: self.view.frame)
@@ -94,6 +99,7 @@ public class PickeySheet: UIViewController {
             self.dimmedView.alpha = 0
             self.contentsView.transform = .init(translationX: 0, y: self.contentsViewHeight)
         } completion: { _ in
+            self.delegate?.sheetClosed()
             self.dismiss(animated: false)
         }
     }

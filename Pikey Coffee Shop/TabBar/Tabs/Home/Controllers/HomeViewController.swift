@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import BetterSegmentedControl
 
 
 class HomeViewController: TabItemViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segment: BetterSegmentedControl!
     internal var viewModel = HomeViewModel()
     
     internal var categoryData: CategoryData?
@@ -18,22 +20,38 @@ class HomeViewController: TabItemViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        
+        //tableView config
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HomeHeadlineCell", bundle: .main), forCellReuseIdentifier: "homeCell")
         tableView.register(UINib(nibName: "HomeFeedCell", bundle: .main), forCellReuseIdentifier: "homeFeedCell")
         tableView.contentInset.bottom = 48
+        
+        //segment config
+        segment.segments = LabelSegment.segments(withTitles: ["Deliver to", "Home"],
+                                                 normalTextColor: .white,
+                                                 selectedTextColor: .black)
+        segment.setIndex(1)
+
         self.loadData(page: 1)
     }
     
-    @IBAction func onClickAddressOptoin() {
+    func onClickAddressOptoin() {
         let controller = DeliveryView(frame: .zero)
         let vc = PickeySheet(view: controller)
+        vc.delegate = self
         let navigation = UINavigationController(rootViewController: vc)
         navigation.navigationBar.isHidden = true
         navigation.modalTransitionStyle = .coverVertical
         navigation.modalPresentationStyle = .overFullScreen
         present(navigation, animated: true)
+    }
+    
+    @IBAction func onSegmentValueChanged(_ sender: BetterSegmentedControl!) {
+        if sender.index == 0 {
+            onClickAddressOptoin()
+        }
     }
     
     func loadData(page: Int) {
@@ -111,7 +129,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: HomeDelegate {
+extension HomeViewController: HomeDelegate, PickeySheetDelegate {
     func categoryUpdate(with categoryData: CategoryData?) {
         DispatchQueue.main.async {
             self.removeLoader()
@@ -127,5 +145,8 @@ extension HomeViewController: HomeDelegate {
         }
     }
     
+    func sheetClosed() {
+        segment.setIndex(1)
+    }
     
 }

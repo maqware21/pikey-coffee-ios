@@ -118,9 +118,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let categories = categoryData?.data?[indexPath.row].children, !categories.isEmpty {
+        if let id = categoryData?.data?[indexPath.row].id {
             if let controller = UIStoryboard(name: "Product", bundle: .main).instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController {
-                controller.categories = categories
+                controller.categoryID = id
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         } else {

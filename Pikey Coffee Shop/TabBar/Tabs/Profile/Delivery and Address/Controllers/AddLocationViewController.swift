@@ -311,11 +311,16 @@ extension AddLocationViewController: GMSMapViewDelegate {
 }
 
 extension AddLocationViewController: ProfileDelegate {
-    func addressCreated() {
+    func addressCreated(staus status: ResultStatus) {
         DispatchQueue.main.async {
             self.removeLoader()
-            self.delegate?.locationAdded()
-            self.navigationController?.popViewController(animated: true)
+            switch status {
+            case .success:
+                self.delegate?.locationAdded()
+                self.navigationController?.popViewController(animated: true)
+            case .failure:
+                self.view.displayNotice(with: "Invalid Address")
+            }
         }
     }
 }

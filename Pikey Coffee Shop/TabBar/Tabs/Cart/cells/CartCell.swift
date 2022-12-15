@@ -33,7 +33,7 @@ class CartCell: UITableViewCell {
             }
             nameLabel.text = product.name
             quantityLabel.text = "X \(product.selectedQuantity ?? 0)"
-            quantityPriceLabel.text = "$\(product.price ?? 0) X \(product.selectedQuantity ?? 0) = $\(product.price ?? 0) * \(Double(product.selectedQuantity ?? 0))"
+            quantityPriceLabel.text = "$\(product.price ?? 0) X \(product.selectedQuantity ?? 0) = $\((product.price ?? 0) * (Double(product.selectedQuantity ?? 0)))"
             counterLabel.label.text = "\(product.selectedQuantity ?? 0)"
         }
     }

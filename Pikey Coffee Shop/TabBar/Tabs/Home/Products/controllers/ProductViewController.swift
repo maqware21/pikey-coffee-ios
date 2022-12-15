@@ -19,22 +19,25 @@ class ProductViewController: UIViewController {
     
     
     var categories: [Category]?
+    var categoryID: Int!
     var productData: ProductData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        segmentView.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
         collectionView.register(UINib(nibName: "ProductCell", bundle: .main), forCellWithReuseIdentifier: "ProductCell")
         collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         collectionView.dataSource = self
         collectionView.delegate = self
         viewModel.delegate = self
         
-        if let categories {
-            let names = categories.map({ $0.name ?? "" })
-            segmentView.items = names
-            fetchProducts(id: categories[segmentView.selectedIndex].id ?? 0)
-        }
+        /// Segment view implementation.
+//        segmentView.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
+//        if let categories {
+//            let names = categories.map({ $0.name ?? "" })
+//            segmentView.items = names
+//        }
+        
+        fetchProducts(id: categoryID)
         updateCartCounter()
         
         // Do any additional setup after loading the view.
@@ -54,9 +57,9 @@ class ProductViewController: UIViewController {
         updateCartCounter()
     }
     
-    @objc func segmentValueChanged() {
-        fetchProducts(id: categories?[segmentView.selectedIndex].id ?? 0)
-    }
+//    @objc func segmentValueChanged() {
+//        fetchProducts(id: categories?[segmentView.selectedIndex].id ?? 0)
+//    }
     
     func fetchProducts(id: Int, page: Int = 1) {
         self.productData = nil
@@ -109,7 +112,7 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDeleg
         }), for: .touchUpInside)
         
         if (productData?.data?.count ?? 0) - indexPath.row == ProductConstants.perPageCount/2 && productData?.pagination?.totalPages ?? 0 > productData?.pagination?.currentPage ?? 0 {
-            self.fetchProducts(id: categories?[segmentView.selectedIndex].id ?? 0,
+            self.fetchProducts(id: categoryID,
                                page: (productData?.pagination?.currentPage ?? 0) + 1)
         }
         

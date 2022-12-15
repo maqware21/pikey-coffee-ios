@@ -26,9 +26,9 @@ class AddressViewModel {
                 let result = await ProfileService.shared.createAddress(address: address)
                 switch result {
                 case .success(_):
-                    delegate?.addressCreated()
+                    delegate?.addressCreated(staus: .success)
                 case .failure(let failure):
-                    delegate?.addressCreated()
+                    delegate?.addressCreated(staus: .failure)
                     print(failure.customMessage)
                 }
             }

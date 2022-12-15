@@ -225,11 +225,23 @@ extension DeliveryView: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myAddressCell", for: indexPath) as! MyAddressCell
         let address = addresses?.data?[indexPath.row]
         cell.address = address
-        if address?.isPrimary == 1 {
-            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-        }
         if (addresses?.data?.count ?? 0) - indexPath.row == AddressConstant.perPageCount/2 && addresses?.pagination?.totalPages ?? 0 > addresses?.pagination?.currentPage ?? 0 {
             self.fetchAddresses(page: (addresses?.pagination?.currentPage ?? 0) + 1)
+        }
+        
+        cell.idCallback = {[weak self] id, type in
+            switch type {
+            case .edit:
+                print("edit")
+            case .delete:
+                guard let id else {return}
+                if self?.addresses?.data?.count ?? 0 > 1 {
+                    self?.parentViewController?.showLoader()
+                    self?.profileViewModel.deleteAddress(with: id)
+                } else {
+                    self?.parentViewController?.view?.displayNotice(with: "Last address cannot be removed")
+                }
+            }
         }
         
         return cell
@@ -254,8 +266,25 @@ extension DeliveryView: ProfileDelegate {
                 self.addresses = addresses
             }
             UserDefaults.standard[.addresses] = self.addresses
-            UserDefaults.standard[.selectedAddress] = self.addresses?.data?.first
+            if UserDefaults.standard[.selectedAddress] == nil {
+                UserDefaults.standard[.selectedAddress] = self.addresses?.data?.first
+            }
             self.tableView.reloadData()
+        }
+    }
+    
+    func addressDeleted(_ message: String?, id: Int) {
+        DispatchQueue.main.async {
+            self.parentViewController?.removeLoader()
+            guard let message else { return }
+            if let address = self.addresses?.data?.first(where: { $0.id == id}) {
+                self.addresses?.data?.removeAll(where: { $0.id == id})
+                if UserDefaults.standard[.selectedAddress]?.id == address.id {
+                    UserDefaults.standard[.selectedAddress] = self.addresses?.data?.first
+                }
+            }
+            self.tableView.reloadData()
+            self.parentViewController?.view?.displayNotice(with: message)
         }
     }
 }

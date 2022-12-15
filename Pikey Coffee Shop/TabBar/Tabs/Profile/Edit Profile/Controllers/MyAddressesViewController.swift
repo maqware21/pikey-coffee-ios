@@ -52,10 +52,6 @@ extension MyAddressesViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "myAddressCell", for: indexPath) as! MyAddressCell
         let address = addressData?.data?[indexPath.row]
         cell.address = address
-        if address?.isPrimary == 1 {
-            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-        }
-        
         if (addressData?.data?.count ?? 0) - indexPath.row == AddressConstant.perPageCount/2 && addressData?.pagination?.totalPages ?? 0 > addressData?.pagination?.currentPage ?? 0 {
             self.fetchAddresses(page: (addressData?.pagination?.currentPage ?? 0) + 1)
         }
@@ -75,10 +71,12 @@ extension MyAddressesViewController: UITableViewDelegate, UITableViewDataSource 
                 print("edit")
             case .delete:
                 guard let id else {return}
-                self?.showLoader()
-                self?.addressData?.data?.remove(at: indexPath.row)
-                self?.tableView.reloadData()
-                self?.viewModel.deleteAddress(with: id)
+                if self?.addressData?.data?.count ?? 0 > 1 {
+                    self?.showLoader()
+                    self?.viewModel.deleteAddress(with: id)
+                } else {
+                    self?.view.displayNotice(with: "Last address cannot be removed")
+                }
             }
         }
         
@@ -98,15 +96,24 @@ extension MyAddressesViewController: ProfileDelegate {
                 self.addressData = addresses
             }
             UserDefaults.standard[.addresses] = self.addressData
-            UserDefaults.standard[.selectedAddress] = self.addressData?.data?.first
+            if UserDefaults.standard[.selectedAddress] == nil {
+                UserDefaults.standard[.selectedAddress] = self.addressData?.data?.first
+            }
             self.tableView.reloadData()
         }
     }
     
-    func addressDeleted(_ message: String?) {
+    func addressDeleted(_ message: String?, id: Int) {
         DispatchQueue.main.async {
             self.removeLoader()
             guard let message else { return }
+            if let address = self.addressData?.data?.first(where: { $0.id == id}) {
+                self.addressData?.data?.removeAll(where: { $0.id == id})
+                if UserDefaults.standard[.selectedAddress]?.id == address.id {
+                    UserDefaults.standard[.selectedAddress] = self.addressData?.data?.first
+                }
+            }
+            self.tableView.reloadData()
             self.view.displayNotice(with: message)
         }
     }

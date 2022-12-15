@@ -10,16 +10,16 @@ import Foundation
 protocol ProfileDelegate: AnyObject {
     func profileUpdated(_ user: User?)
     func addressListUpdated(addresses: AddressList?)
-    func addressCreated()
-    func addressDeleted(_ message: String?)
+    func addressCreated(staus: ResultStatus)
+    func addressDeleted(_ message: String?, id: Int)
 }
 
 
 extension ProfileDelegate {
     func profileUpdated(_ user: User?) {return}
     func addressListUpdated(addresses: AddressList?) {return}
-    func addressCreated() {return}
-    func addressDeleted(_ message: String?) {return}
+    func addressCreated(staus: ResultStatus) {return}
+    func addressDeleted(_ message: String?, id: Int) {return}
 }
 
 class ProfileViewModel {
@@ -83,11 +83,16 @@ class ProfileViewModel {
             let result = await ProfileService.shared.deleteAddress(id: id)
             switch result {
             case .success(let data):
-                delegate?.addressDeleted(data.message)
+                delegate?.addressDeleted(data.message, id: id)
             case .failure(let error):
-                delegate?.addressDeleted(nil)
+                delegate?.addressDeleted(nil, id: 0)
                 print(error.customMessage)
             }
         }
     }
+}
+
+enum ResultStatus {
+    case success
+    case failure
 }

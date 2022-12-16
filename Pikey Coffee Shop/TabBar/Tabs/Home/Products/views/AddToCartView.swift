@@ -49,8 +49,14 @@ class AddToCartView: UIView {
                         if let index = self.selectedAddons.firstIndex(where: {$0.id == id}) {
                             self.selectedAddons.remove(at: index)
                         } else {
+                            self.selectedAddons.removeAll()
                             if let obj = self.addOns?.first(where: { $0?.id == id }), let selected = obj {
                                 self.selectedAddons.append(selected)
+                            }
+                            self.categoryStackView.arrangedSubviews.forEach { view in
+                                if !(view.tag == addOn.id ?? 0) {
+                                    (view as? CartCategoryView)?.isSelected = false
+                                }
                             }
                         }
                     }

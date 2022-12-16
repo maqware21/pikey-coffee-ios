@@ -21,6 +21,9 @@ class OrderViewController: TabItemViewController {
         viewModel.delegate = self
         tableView.register(UINib(nibName: "OrderListCell", bundle: .main), forCellReuseIdentifier: "orderCell")
         tableView.contentInset.bottom = 48
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         loadData()
     }
     

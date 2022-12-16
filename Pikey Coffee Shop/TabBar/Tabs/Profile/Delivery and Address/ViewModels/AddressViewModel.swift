@@ -44,10 +44,10 @@ class AddressViewModel {
         if let seletedPlace {
             selectedAddress = PickeyAddress(name: nil,
                                             isPrimary: 0,
-                                            address: seletedPlace.formattedAddress,
-                                            city: seletedPlace.addressComponents?.valueFor(placeTypes: "administrative_area_level_2"),
-                                            state: seletedPlace.addressComponents?.valueFor(placeTypes: "administrative_area_level_1"),
-                                            postalCode: seletedPlace.addressComponents?.valueFor(placeTypes: "postal_code"),
+                                            address: seletedPlace.formattedAddress ?? "address",
+                                            city: seletedPlace.addressComponents?.valueFor(placeTypes: "administrative_area_level_2") ?? "city",
+                                            state: seletedPlace.addressComponents?.valueFor(placeTypes: "administrative_area_level_1") ?? "state",
+                                            postalCode: seletedPlace.addressComponents?.valueFor(placeTypes: "postal_code") ?? "54000",
                                             latitude: seletedPlace.coordinate.latitude.formatted(),
                                             longitude: seletedPlace.coordinate.longitude.formatted(),
                                             type: 1)

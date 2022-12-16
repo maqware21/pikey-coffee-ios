@@ -206,7 +206,12 @@ extension CheckoutViewController: CheckOutDelegate, CheckoutAddressUpdateDelegat
     func orderCreated(_ order: Order?) {
         DispatchQueue.main.async {
             self.removeLoader()
+            guard let _ = order else {
+                self.view.displayNotice(with: "Order couldn't be created")
+                return
+            }
             UserDefaults.standard[.cart] = []
+            self.view.displayNotice(with: "Order created")
             self.presentingViewController?.dismiss(animated: true)
         }
     }

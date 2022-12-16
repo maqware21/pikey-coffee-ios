@@ -20,7 +20,7 @@ extension CartEndpoint: Endpoint {
         case .createOrder, .getOrders:
             return "/api/customer/orders"
         case .cancelOrder(let id):
-            return "api/customer/orders/\(id)/cancel"
+            return "/api/customer/orders/\(id)/cancel"
         }
     }
 

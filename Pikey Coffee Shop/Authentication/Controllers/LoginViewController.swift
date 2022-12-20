@@ -11,12 +11,14 @@ class LoginViewController: RegistrationBaseController {
     @IBOutlet weak var emailField: IconTextField!
     @IBOutlet weak var passwordField: IconTextField!
     @IBOutlet weak var signUpMessage: UILabel!
+    @IBOutlet weak var authButtonStack: UIStackView!
     
     var viewModel = AuthenticationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.authenticationDelegate = self
+        setupProviderLoginView()
         if let _ = UserDefaults.standard[.user] {
             moveToTab(animated: false)
         }

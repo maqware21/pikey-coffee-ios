@@ -100,6 +100,7 @@
 		56AC85EE285D030800E13156 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC85ED285D030800E13156 /* CheckoutViewController.swift */; };
 		56AC85F2285D109A00E13156 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC85F0285D109A00E13156 /* InformationCell.swift */; };
 		56AC85F3285D109A00E13156 /* InformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AC85F1285D109A00E13156 /* InformationCell.xib */; };
+		56C66540295210C500898969 /* LoginViewController+AppleAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6653F295210C500898969 /* LoginViewController+AppleAuth.swift */; };
 		56C6A4F4284FD7FE0009EEFE /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6A4F2284FD7FE0009EEFE /* HomeFeedCell.swift */; };
 		56C6A4F5284FD7FE0009EEFE /* HomeFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C6A4F3284FD7FE0009EEFE /* HomeFeedCell.xib */; };
 		56D41A7F28526F1400859D47 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D41A7E28526F1400859D47 /* ProfileViewController.swift */; };
@@ -216,6 +217,8 @@
 		56AC85ED285D030800E13156 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		56AC85F0285D109A00E13156 /* InformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
 		56AC85F1285D109A00E13156 /* InformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationCell.xib; sourceTree = "<group>"; };
+		56C6653F295210C500898969 /* LoginViewController+AppleAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+AppleAuth.swift"; sourceTree = "<group>"; };
+		56C66541295219F900898969 /* Pikey Coffee Shop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pikey Coffee Shop.entitlements"; sourceTree = "<group>"; };
 		56C6A4F2284FD7FE0009EEFE /* HomeFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedCell.swift; sourceTree = "<group>"; };
 		56C6A4F3284FD7FE0009EEFE /* HomeFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeFeedCell.xib; sourceTree = "<group>"; };
 		56D41A7E28526F1400859D47 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -530,6 +533,7 @@
 		56720DCF28469F9F006AAFFA /* Pikey Coffee Shop */ = {
 			isa = PBXGroup;
 			children = (
+				56C66541295219F900898969 /* Pikey Coffee Shop.entitlements */,
 				56720DE42846A966006AAFFA /* commons */,
 				56720E012846AB4A006AAFFA /* delegates */,
 				5632900F284E7BD200BBE2D5 /* TabBar */,
@@ -590,6 +594,7 @@
 				5680BA95284950D0003B5DBE /* ForgetPasswordViewController.swift */,
 				565FA1AD284A8722007E8C1C /* SignUpViewController.swift */,
 				565FA1AF284A9182007E8C1C /* VerificationViewController.swift */,
+				56C6653F295210C500898969 /* LoginViewController+AppleAuth.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1163,6 +1168,7 @@
 				56329012284E7BF100BBE2D5 /* HomeViewController.swift in Sources */,
 				56329014284E7CF100BBE2D5 /* TabViewController.swift in Sources */,
 				56C6A4F4284FD7FE0009EEFE /* HomeFeedCell.swift in Sources */,
+				56C66540295210C500898969 /* LoginViewController+AppleAuth.swift in Sources */,
 				56DF35772889D104004CF09C /* ForgotPassword.swift in Sources */,
 				56F532F428526640006695DD /* NotificationsCell.swift in Sources */,
 				564873D12847CE50003C63DD /* UIView+Extension.swift in Sources */,
@@ -1318,6 +1324,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Pikey Coffee Shop/Pikey Coffee Shop.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V85844E8P7;
@@ -1353,6 +1360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Pikey Coffee Shop/Pikey Coffee Shop.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V85844E8P7;

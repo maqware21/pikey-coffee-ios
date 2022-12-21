@@ -42,7 +42,12 @@ class AddToCartView: UIView {
                 if let addOn {
                     let view = CartCategoryView(frame: .zero)
                     view.tag = addOn.id ?? 0
-                    view.isSelected = false
+                    if index == .zero {
+                        view.isSelected = true
+                        self.selectedAddons.append(addOn)
+                    } else {
+                        view.isSelected = false
+                    }
                     view.product = addOn
                     view.onSelected = {[weak self] id in
                         guard let self else { return }

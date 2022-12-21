@@ -107,7 +107,9 @@ class CartCategoryView: UIView {
     }
     
     @objc func categorySelected(_ gesture: UIGestureRecognizer) {
-        self.isSelected.toggle()
-        onSelected?(self.tag)
+        if !isSelected {
+            isSelected.toggle()
+            onSelected?(self.tag)
+        }
     }
 }

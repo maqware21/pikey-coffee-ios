@@ -149,7 +149,13 @@ extension ProductViewController: AddToCartDelegate {
         }
         
         var storedCart = UserDefaults.standard[.cart] ?? []
-        storedCart.append(item)
+        if let index = storedCart.firstIndex(where: {$0.id == item.id}),
+            storedCart[index].addons?.first?.id ?? 0 == item.addons?.first?.id ?? 0 {
+            storedCart[index].selectedQuantity = (item.selectedQuantity ?? 0) + (storedCart[index].selectedQuantity ?? 0)
+        } else {
+            storedCart.append(item)
+        }
+        
         UserDefaults.standard[.cart] = storedCart
         cartCounterView.isHidden = storedCart.isEmpty
         cartCounterLabel.text = "\(storedCart.count)"

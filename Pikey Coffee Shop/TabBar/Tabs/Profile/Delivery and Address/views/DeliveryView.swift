@@ -269,6 +269,9 @@ extension DeliveryView: ProfileDelegate {
             if UserDefaults.standard[.selectedAddress] == nil {
                 UserDefaults.standard[.selectedAddress] = self.addresses?.data?.first
             }
+            if let index = self.addresses?.data?.firstIndex(where: { $0.id == UserDefaults.standard[.selectedAddress]?.id }) {
+                self.addresses?.data?.swapAt(0, index)
+            }
             self.tableView.reloadData()
         }
     }

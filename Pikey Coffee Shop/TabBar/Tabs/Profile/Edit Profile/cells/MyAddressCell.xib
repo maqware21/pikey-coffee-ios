@@ -90,14 +90,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naj-Pp-TOO">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
-                                                <connections>
-                                                    <action selector="onClickEdit" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VmW-jG-caV"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -106,10 +98,6 @@
                                             <constraint firstItem="lpb-3G-JWM" firstAttribute="leading" secondItem="4nj-Ug-Fal" secondAttribute="leading" id="8Z8-ia-HGM"/>
                                             <constraint firstAttribute="height" constant="30" id="B0i-GG-dBv"/>
                                             <constraint firstAttribute="width" constant="30" id="GQ9-4H-YDJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="Naj-Pp-TOO" secondAttribute="trailing" id="LsR-Hz-H7H"/>
-                                            <constraint firstItem="Naj-Pp-TOO" firstAttribute="leading" secondItem="4nj-Ug-Fal" secondAttribute="leading" id="Usy-L0-PTN"/>
-                                            <constraint firstAttribute="bottom" secondItem="Naj-Pp-TOO" secondAttribute="bottom" id="gJV-b8-Kgh"/>
-                                            <constraint firstItem="Naj-Pp-TOO" firstAttribute="top" secondItem="4nj-Ug-Fal" secondAttribute="top" id="olB-91-Jtg"/>
                                             <constraint firstAttribute="bottom" secondItem="lpb-3G-JWM" secondAttribute="bottom" id="t4c-RH-X3Y"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -152,25 +140,13 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9B-hn-X0W">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
-                                                <connections>
-                                                    <action selector="onClickDelete" destination="KGk-i7-Jjw" eventType="touchUpInside" id="b8p-CX-B5R"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="a9B-hn-X0W" firstAttribute="top" secondItem="yhk-zt-K9e" secondAttribute="top" id="0Qd-C6-aEK"/>
                                             <constraint firstAttribute="height" constant="30" id="5tU-g1-5m9"/>
                                             <constraint firstAttribute="width" constant="30" id="8Ts-2X-xGp"/>
-                                            <constraint firstItem="a9B-hn-X0W" firstAttribute="leading" secondItem="yhk-zt-K9e" secondAttribute="leading" id="Jwp-Sd-Ybg"/>
                                             <constraint firstItem="s7B-U4-hTf" firstAttribute="top" secondItem="yhk-zt-K9e" secondAttribute="top" id="Lgj-Ul-Cfn"/>
                                             <constraint firstAttribute="bottom" secondItem="s7B-U4-hTf" secondAttribute="bottom" id="Nmn-2H-Uss"/>
-                                            <constraint firstAttribute="trailing" secondItem="a9B-hn-X0W" secondAttribute="trailing" id="Pu9-iD-422"/>
-                                            <constraint firstAttribute="bottom" secondItem="a9B-hn-X0W" secondAttribute="bottom" id="cVg-TO-F9K"/>
                                             <constraint firstItem="s7B-U4-hTf" firstAttribute="leading" secondItem="yhk-zt-K9e" secondAttribute="leading" id="yaH-1Q-c0f"/>
                                             <constraint firstAttribute="trailing" secondItem="s7B-U4-hTf" secondAttribute="trailing" id="ymJ-6Q-ICQ"/>
                                         </constraints>
@@ -206,12 +182,36 @@
                             <constraint firstItem="wMP-Uu-pSs" firstAttribute="trailing" secondItem="4p5-ah-0mS" secondAttribute="trailing" constant="-16" id="Yi7-K8-vXJ"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naj-Pp-TOO">
+                        <rect key="frame" x="394" y="1" width="30" height="30"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="onClickEdit" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VmW-jG-caV"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9B-hn-X0W">
+                        <rect key="frame" x="432" y="1" width="30" height="30"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="onClickDelete" destination="KGk-i7-Jjw" eventType="touchUpInside" id="b8p-CX-B5R"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="1oz-DT-Y8U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7N8-NZ-pIX"/>
+                    <constraint firstItem="Naj-Pp-TOO" firstAttribute="leading" secondItem="4nj-Ug-Fal" secondAttribute="leading" id="EIa-Fc-fpA"/>
                     <constraint firstItem="1oz-DT-Y8U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="FQi-RE-iro"/>
+                    <constraint firstItem="a9B-hn-X0W" firstAttribute="top" secondItem="yhk-zt-K9e" secondAttribute="top" id="HNC-6v-ZNh"/>
+                    <constraint firstItem="a9B-hn-X0W" firstAttribute="trailing" secondItem="yhk-zt-K9e" secondAttribute="trailing" id="O9T-Kb-4UI"/>
+                    <constraint firstItem="Naj-Pp-TOO" firstAttribute="trailing" secondItem="4nj-Ug-Fal" secondAttribute="trailing" id="OOn-sd-omR"/>
+                    <constraint firstItem="a9B-hn-X0W" firstAttribute="leading" secondItem="yhk-zt-K9e" secondAttribute="leading" id="Tc4-Ln-coG"/>
                     <constraint firstAttribute="bottom" secondItem="1oz-DT-Y8U" secondAttribute="bottom" constant="16" id="a5x-Db-Pvs"/>
+                    <constraint firstItem="Naj-Pp-TOO" firstAttribute="top" secondItem="4nj-Ug-Fal" secondAttribute="top" id="g5l-xF-AH9"/>
+                    <constraint firstItem="Naj-Pp-TOO" firstAttribute="bottom" secondItem="4nj-Ug-Fal" secondAttribute="bottom" id="jt5-vn-3R6"/>
+                    <constraint firstItem="a9B-hn-X0W" firstAttribute="bottom" secondItem="yhk-zt-K9e" secondAttribute="bottom" id="o0I-QE-hc1"/>
                     <constraint firstAttribute="trailing" secondItem="1oz-DT-Y8U" secondAttribute="trailing" constant="16" id="vBd-gY-As5"/>
                 </constraints>
             </tableViewCellContentView>

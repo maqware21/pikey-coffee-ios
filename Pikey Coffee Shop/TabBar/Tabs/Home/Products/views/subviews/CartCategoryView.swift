@@ -15,7 +15,8 @@ class CartCategoryView: UIView {
         didSet {
             guard let product else { return }
             self.titleLabel.text = product.name
-            self.priceLabel.text = "$\(product.price ?? 0)"
+            let price = String(format: "%.2f", product.price ?? 0)
+            self.priceLabel.text = "$\(price)"
         }
     }
     

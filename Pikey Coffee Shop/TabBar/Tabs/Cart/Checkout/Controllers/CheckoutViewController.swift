@@ -86,7 +86,11 @@ class CheckoutViewController: UIViewController {
                                         addons: nil)
             }))
         }
-        let cart = Cart(paymentMethod: 0, token: "", type: 2, userComment: self.textView.text ?? "", locationID: 1, deliveryDate: "", items: items)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.string(from: Date())
+        
+        let cart = Cart(paymentMethod: 0, token: "", type: 2, userComment: self.textView.text ?? "", locationID: 1, deliveryDate: date, items: items)
         self.showLoader()
         viewModel.createOrder(cart: cart)
     }

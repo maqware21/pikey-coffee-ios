@@ -35,6 +35,8 @@ class OrderListCell: UITableViewCell {
             
             if let date = dateFormatterGet.date(from: order.deliveryDate ?? "") {
                 orderDate.text = dateFormatterPrint.string(from: date)
+            } else {
+                orderDate.text = ""
             }
             
             orderStatus.text = order.statusInText

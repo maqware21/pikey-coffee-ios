@@ -95,6 +95,8 @@ extension TabViewController: UITabBarControllerDelegate, TabHomeDelegate, Profil
         self.selectedIndex = 0
     }
     func addressListUpdated(addresses: AddressList?) {
-        UserDefaults.standard[.selectedAddress] = addresses?.data?.first
+        if UserDefaults.standard[.selectedAddress] == nil {
+            UserDefaults.standard[.selectedAddress] = addresses?.data?.first
+        }
     }
 }

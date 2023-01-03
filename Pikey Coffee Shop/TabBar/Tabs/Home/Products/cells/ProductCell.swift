@@ -31,7 +31,8 @@ class ProductCell: UICollectionViewCell {
                 productImage.kf.setImage(with: url)
             }
             nameLabel.text = product.name
-            priceLabel.text = "$\(product.price ?? 0)"
+            let price = String(format: "%.2f", product.price ?? 0)
+            priceLabel.text = "$\(price)"
             originalPriceView.isHidden = true
         }
     }

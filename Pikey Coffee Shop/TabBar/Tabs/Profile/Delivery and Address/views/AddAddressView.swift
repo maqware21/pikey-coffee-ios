@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import IQKeyboardManagerSwift
 
 typealias AddressViewTypeCall = ((_:IconButtonType) -> Void)
 
@@ -259,6 +260,11 @@ class AddAddressView: UIView {
         let savetap = UITapGestureRecognizer(target: self, action: #selector(onclickAddLocation))
         saveLocationButton.addGestureRecognizer(savetap)
         
+        addressNameField.addDoneOnKeyboardWithTarget(self, action: #selector(closeKeyboard), titleText: "Add Address")
+    }
+    
+    @objc func closeKeyboard() {
+        self.addressNameField.resignFirstResponder()
     }
     
     @objc func onCancel() {

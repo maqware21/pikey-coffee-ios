@@ -33,7 +33,9 @@ class CartCell: UITableViewCell {
             }
             nameLabel.text = "\(product.name ?? "") (\(product.addons?.first?.name ?? "Small"))"
             quantityLabel.text = "x \(product.selectedQuantity ?? 0)"
-            quantityPriceLabel.text = "$\(product.price ?? 0) x \(product.selectedQuantity ?? 0) = $\((product.price ?? 0) * (Double(product.selectedQuantity ?? 0)))"
+            let price = String(format: "%.2f", ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) )
+            let totalPrice = String(format: "%.2f", ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) * (Double(product.selectedQuantity ?? 0)))
+            quantityPriceLabel.text = "$\(price) x \(product.selectedQuantity ?? 0) = $\(totalPrice)"
             counterLabel.label.text = "\(product.selectedQuantity ?? 0)"
         }
     }

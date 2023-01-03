@@ -44,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func logout() {
         UserDefaults.standard[.user] = nil
+        UserDefaults.standard[.addresses] = nil
+        UserDefaults.standard[.selectedAddress] = nil
+        UserDefaults.standard[.cart] = nil
         let scene = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
 

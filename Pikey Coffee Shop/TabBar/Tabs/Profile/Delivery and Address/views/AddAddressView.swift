@@ -260,10 +260,10 @@ class AddAddressView: UIView {
         let savetap = UITapGestureRecognizer(target: self, action: #selector(onclickAddLocation))
         saveLocationButton.addGestureRecognizer(savetap)
         
-        addressNameField.addDoneOnKeyboardWithTarget(self, action: #selector(closeKeyboard), titleText: "Add Address")
+        addressNameField.addDoneOnKeyboardWithTarget(self, action: #selector(hideKeyboard), titleText: "Add Address")
     }
     
-    @objc func closeKeyboard() {
+    @objc func hideKeyboard() {
         self.addressNameField.resignFirstResponder()
     }
     

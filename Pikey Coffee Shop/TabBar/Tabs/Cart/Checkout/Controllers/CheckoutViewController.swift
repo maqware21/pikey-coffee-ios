@@ -189,6 +189,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func paymentTypeCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentTypeCell", for: indexPath) as! PaymentTypeCell
+        cell.products = products
         return cell
     }
     

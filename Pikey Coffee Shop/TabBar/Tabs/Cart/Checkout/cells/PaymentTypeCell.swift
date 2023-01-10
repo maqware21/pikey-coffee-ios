@@ -18,19 +18,34 @@ class PaymentTypeCell: UITableViewCell {
         // Initialization code
     }
     
+    var total: Double!
+    
+    var products: [Product]? {
+        didSet {
+            guard let products else {return}
+            var subTotal = 0.0
+            let discount = 0.0
+            let dileveryCharges = 0.0
+            products.forEach { product in
+                subTotal += ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) * (Double(product.selectedQuantity ?? 0))
+            }
+            total = subTotal + discount + dileveryCharges
+        }
+    }
+    
     private var paymentRequest: PKPaymentRequest = {
-            let request = PKPaymentRequest()
-            request.merchantIdentifier = "merchant.com..."
-            request.supportedNetworks = [.visa, .masterCard,.amex,.discover]
-            request.supportedCountries = ["UA"]
-            request.merchantCapabilities = .capability3DS
-            request.countryCode = "UA"
-            request.currencyCode = "UAH"
-            request.paymentSummaryItems = [PKPaymentSummaryItem(label: "App test", amount: 10.99)]
-            return request
-        }()
+        let request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.pickeyCoffeeMerchantID"
+        request.supportedNetworks = [.visa, .masterCard,.amex,.discover]
+        request.supportedCountries = ["US"]
+        request.merchantCapabilities = .capability3DS
+        request.countryCode = "US"
+        request.currencyCode = "USD"
+        return request
+    }()
     
     func purchase() {
+        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "Pickey order", amount: NSDecimalNumber(floatLiteral: total))]
         if let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest) {
             controller.delegate = self
             self.parentViewController?.present(controller, animated: true, completion: nil)

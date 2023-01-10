@@ -15,7 +15,7 @@ extension AuthenticationEndpoint: Endpoint {
     var path: String {
         switch self {
         case .signUp:
-            return "/api/oauth/register"
+            return "/api/oauth/register-mobile"
         case .signIn:
             return "/api/oauth/login"
         case .forgotPassword:

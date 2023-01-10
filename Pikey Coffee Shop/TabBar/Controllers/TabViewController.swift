@@ -33,6 +33,7 @@ class TabViewController: UITabBarController {
         setupMiddleButton()
         viewModel.delegate = self
         viewModel.getAddressList(for: 1)
+        viewModel.getProfile()
     }
 
     // MARK: - Setups
@@ -97,6 +98,19 @@ extension TabViewController: UITabBarControllerDelegate, TabHomeDelegate, Profil
     func addressListUpdated(addresses: AddressList?) {
         if UserDefaults.standard[.selectedAddress] == nil {
             UserDefaults.standard[.selectedAddress] = addresses?.data?.first
+        }
+    }
+    
+    func profileUpdated(_ user: User?) {
+        DispatchQueue.main.async {
+            if let user = user {
+                if var storedUser = UserDefaults.standard[.user] {
+                    storedUser.firstName = user.firstName
+                    storedUser.lastName = user.lastName
+                    storedUser.phoneNumber = user.phoneNumber
+                    UserDefaults.standard[.user] = storedUser
+                }
+            }
         }
     }
 }

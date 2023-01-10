@@ -20,7 +20,7 @@ class BillingDetailsCell: UITableViewCell {
             let discount = 0.0
             let dileveryCharges = 0.0
             products.forEach { product in
-                subTotal += (product.price ?? 0) * (Double(product.selectedQuantity ?? 0))
+                subTotal += ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) * (Double(product.selectedQuantity ?? 0))
             }
             
             valueLabels[0].text = String(format: "$%.2f", Float(subTotal))

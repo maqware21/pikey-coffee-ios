@@ -99,7 +99,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         headline.textColor = .white
         
         let subline = UILabel()
-        subline.text = "Pikey Coffee Decatur Blvd South"
+        subline.text = ""
         subline.font = UIFont.systemFont(ofSize: 22)
         subline.textColor = UIColor(named: "coffeeGray")
         

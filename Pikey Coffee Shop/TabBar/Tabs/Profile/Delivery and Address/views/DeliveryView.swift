@@ -90,6 +90,17 @@ class DeliveryView: UIView {
         return view
     }()
     
+    lazy var emptyLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.text = "Add your office/home address."
+        view.textColor = .white
+        view.textAlignment = .center
+        view.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        view.isHidden = true
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         tableView.register(UINib(nibName: "MyAddressCell", bundle: .main), forCellReuseIdentifier: "myAddressCell")
@@ -178,6 +189,14 @@ class DeliveryView: UIView {
             loader.heightAnchor.constraint(equalToConstant: 40),
             loader.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
             loader.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor)
+        ])
+        
+        self.containerView.addSubview(emptyLabel)
+        NSLayoutConstraint.activate([
+            emptyLabel.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor, constant: 0),
+            emptyLabel.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor, constant: 0),
+            emptyLabel.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -16),
+            emptyLabel.leftAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: 16)
         ])
         
         let yesTap = UITapGestureRecognizer(target: self, action: #selector(showAllAddress))
@@ -272,6 +291,7 @@ extension DeliveryView: ProfileDelegate {
             if let index = self.addresses?.data?.firstIndex(where: { $0.id == UserDefaults.standard[.selectedAddress]?.id }) {
                 self.addresses?.data?.swapAt(0, index)
             }
+            self.emptyLabel.isHidden = (self.addresses?.data?.count ?? 0) > 0
             self.tableView.reloadData()
         }
     }
@@ -286,6 +306,7 @@ extension DeliveryView: ProfileDelegate {
                     UserDefaults.standard[.selectedAddress] = self.addresses?.data?.first
                 }
             }
+            self.emptyLabel.isHidden = (self.addresses?.data?.count ?? 0) > 0
             self.tableView.reloadData()
             self.parentViewController?.view?.displayNotice(with: message)
         }

@@ -14,14 +14,36 @@ class MyAddressesViewController: EditProfileBaseViewController {
     var addressData: AddressList?
     weak var delegate: CheckoutAddressUpdateDelegate?
     
+    lazy var emptyLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.text = "Add your office/home address."
+        view.textColor = .white
+        view.textAlignment = .center
+        view.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        view.isHidden = true
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addEmptyLabel()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.viewModel.delegate = self
         tableView.register(UINib(nibName: "MyAddressCell", bundle: .main), forCellReuseIdentifier: "myAddressCell")
         fetchAddresses(page: 1)
         // Do any additional setup after loading the view.
+    }
+    
+    func addEmptyLabel() {
+        self.view.addSubview(emptyLabel)
+        NSLayoutConstraint.activate([
+            emptyLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0),
+            emptyLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
+            emptyLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+            emptyLabel.leftAnchor.constraint(equalTo: self.view.rightAnchor, constant: 16)
+        ])
     }
     
     func fetchAddresses(page: Int) {
@@ -99,6 +121,7 @@ extension MyAddressesViewController: ProfileDelegate {
             if UserDefaults.standard[.selectedAddress] == nil {
                 UserDefaults.standard[.selectedAddress] = self.addressData?.data?.first
             }
+            self.emptyLabel.isHidden = (self.addressData?.data?.count ?? 0) > 0
             self.tableView.reloadData()
         }
     }
@@ -113,6 +136,7 @@ extension MyAddressesViewController: ProfileDelegate {
                     UserDefaults.standard[.selectedAddress] = self.addressData?.data?.first
                 }
             }
+            self.emptyLabel.isHidden = (self.addressData?.data?.count ?? 0) > 0
             self.tableView.reloadData()
             self.view.displayNotice(with: message)
         }

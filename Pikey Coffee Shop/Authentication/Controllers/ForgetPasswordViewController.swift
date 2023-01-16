@@ -32,6 +32,7 @@ class ForgetPasswordViewController: RegistrationBaseController {
         loginMessage.addRangeGesture(stringRange: "Log In") {
             self.navigationController?.popViewController(animated: true)
         }
+        emailField.delegate = self
     }
     
     @IBAction func onClickSend() {
@@ -51,7 +52,7 @@ class ForgetPasswordViewController: RegistrationBaseController {
     }
 }
 
-extension ForgetPasswordViewController: ForgotPasswordDelegate {
+extension ForgetPasswordViewController: ForgotPasswordDelegate, UITextFieldDelegate {
     
     func forgotPasswordResponse(with message: String) {
         DispatchQueue.main.async {
@@ -60,5 +61,9 @@ extension ForgetPasswordViewController: ForgotPasswordDelegate {
             self.view.endEditing(true)
             self.view.displayNotice(with: message)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }

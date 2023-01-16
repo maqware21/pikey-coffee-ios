@@ -39,6 +39,8 @@ class LoginViewController: RegistrationBaseController {
             }
         }
         passwordField.enablePasswordToggle()
+        emailField.delegate = self
+        passwordField.delegate = self
     }
     
     @IBAction func onClickForgetPassword() {
@@ -75,13 +77,14 @@ class LoginViewController: RegistrationBaseController {
     }
 }
 
-extension LoginViewController: AuthenticationDelegate {
+extension LoginViewController: AuthenticationDelegate, UITextFieldDelegate {
     func authenticated(_ user: User?) {
         DispatchQueue.main.async {
             self.removeLoader()
             self.emailField.text = ""
             self.passwordField.text = ""
             self.view.endEditing(true)
+            self.view.displayNotice(with: "Logged in successfully")
             if let user = user {
                 UserDefaults.standard[.user] = user
                 self.moveToTab()
@@ -89,5 +92,9 @@ extension LoginViewController: AuthenticationDelegate {
                 self.view.displayNotice(with: "Invalid email or password")
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }

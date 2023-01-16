@@ -216,9 +216,20 @@ extension CheckoutViewController: CheckOutDelegate, CheckoutAddressUpdateDelegat
                 return
             }
             UserDefaults.standard[.cart] = []
-            self.view.displayNotice(with: "Order created")
-            self.presentingViewController?.dismiss(animated: true)
+            self.view.displayNotice(with: "Your order is placed")
+            self.moveToOrders()
         }
+    }
+    
+    func moveToOrders() {
+        (self.navigationController?.presentingViewController as? UINavigationController)?.viewControllers.forEach({ viewController in
+            if viewController is UITabBarController, let vc = viewController as? UITabBarController {
+                vc.selectedIndex = 1
+                self.navigationController?.presentingViewController?.dismiss(animated: true)
+                (self.navigationController?.presentingViewController as? UINavigationController)?.popToViewController(vc, animated: true)
+                
+            }
+        })
     }
     
     func addressUpdated() {

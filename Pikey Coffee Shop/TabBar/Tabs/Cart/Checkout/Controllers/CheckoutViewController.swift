@@ -77,22 +77,27 @@ class CheckoutViewController: UIViewController {
     }
     
     @IBAction func onClickPlaceOrder() {
-        let items = products.compactMap { product in
-            return Item(productID: product.id,
-                        quantity: product.selectedQuantity,
-                        addons: product.addons?.compactMap({ addOn in
-                            return Item(productID: addOn.id,
-                                        quantity: addOn.selectedQuantity,
-                                        addons: nil)
-            }))
+        if let address = UserDefaults.standard[.selectedAddress] {
+            let items = products.compactMap { product in
+                return Item(productID: product.id,
+                            quantity: product.selectedQuantity,
+                            addons: product.addons?.compactMap({ addOn in
+                    return Item(productID: addOn.id,
+                                quantity: addOn.selectedQuantity,
+                                addons: nil)
+                }))
+            }
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let date = dateFormatter.string(from: Date())
+            
+            let cart = Cart(paymentMethod: 0, token: "", type: 2, userComment: self.textView.text ?? "", locationID: address.id, deliveryDate: date, items: items)
+            self.showLoader()
+            viewModel.createOrder(cart: cart)
+        } else {
+            self.view.displayNotice(with: "kindly add your location/address")
+            self.moveToMyAddresses()
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormatter.string(from: Date())
-        
-        let cart = Cart(paymentMethod: 0, token: "", type: 2, userComment: self.textView.text ?? "", locationID: 1, deliveryDate: date, items: items)
-        self.showLoader()
-        viewModel.createOrder(cart: cart)
     }
 }
 
@@ -179,12 +184,16 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell", for: indexPath) as! InformationCell
         cell.address = address
         cell.callback = {[weak self] in
-            if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "MyAddressesViewController") as? MyAddressesViewController {
-                vc.delegate = self
-                self?.navigationController?.pushViewController(vc, animated: true)
-            }
+            self?.moveToMyAddresses()
         }
         return cell
+    }
+    
+    func moveToMyAddresses() {
+        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "MyAddressesViewController") as? MyAddressesViewController {
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func paymentTypeCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

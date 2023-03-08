@@ -13,11 +13,11 @@ protocol Endpoint {
 
 extension Endpoint {
     var scheme: String {
-        return "http"
+        return "https"
     }
 
     var host: String {
-        return "18.144.161.235"
+        return "dev.pikeycoffee.com"
     }
     
     var header: [String: String]? {

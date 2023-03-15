@@ -84,6 +84,7 @@ class ProductViewController: UIViewController {
     
     @IBAction func onclickCart() {
         if let controller = UIStoryboard(name: "Tabs", bundle: .main).instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            controller.tabHomeDelegate = self
             let navigationController = UINavigationController(rootViewController: controller)
             navigationController.modalTransitionStyle = .coverVertical
             navigationController.modalPresentationStyle = .fullScreen
@@ -159,5 +160,11 @@ extension ProductViewController: AddToCartDelegate {
         UserDefaults.standard[.cart] = storedCart
         cartCounterView.isHidden = storedCart.isEmpty
         cartCounterLabel.text = "\(storedCart.count)"
+    }
+}
+
+extension ProductViewController: TabHomeDelegate {
+    func moveToHome() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

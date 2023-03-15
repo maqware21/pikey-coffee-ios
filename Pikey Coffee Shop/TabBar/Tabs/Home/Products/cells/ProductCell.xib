@@ -111,16 +111,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NyU-PS-dgN" customClass="HorizontalGradientView" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
                                 <rect key="frame" x="30" y="220" width="162" height="40"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cartIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ZcJ-cL-ZiY">
-                                        <rect key="frame" x="44" y="10" width="20" height="20"/>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cartIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ZcJ-cL-ZiY">
+                                        <rect key="frame" x="25.5" y="10" width="20" height="20"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="2ph-4k-N1v"/>
                                             <constraint firstAttribute="width" constant="20" id="g5H-2X-cHA"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWG-YY-6fA">
-                                        <rect key="frame" x="72" y="8" width="38" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWG-YY-6fA">
+                                        <rect key="frame" x="53.5" y="8" width="55" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -140,7 +140,7 @@
                                     <constraint firstAttribute="height" constant="40" id="S0Q-l4-fRN"/>
                                     <constraint firstItem="ZcJ-cL-ZiY" firstAttribute="centerY" secondItem="NyU-PS-dgN" secondAttribute="centerY" id="d25-KH-I3g"/>
                                     <constraint firstItem="sWG-YY-6fA" firstAttribute="leading" secondItem="ZcJ-cL-ZiY" secondAttribute="trailing" constant="8" id="dyy-nx-Gmk"/>
-                                    <constraint firstItem="sWG-YY-6fA" firstAttribute="centerX" secondItem="NyU-PS-dgN" secondAttribute="centerX" constant="10" id="oVx-yc-uUp"/>
+                                    <constraint firstItem="sWG-YY-6fA" firstAttribute="centerX" secondItem="NyU-PS-dgN" secondAttribute="centerX" id="oVx-yc-uUp"/>
                                     <constraint firstItem="TJy-sA-tHy" firstAttribute="top" secondItem="NyU-PS-dgN" secondAttribute="top" id="p3O-mg-UKh"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>

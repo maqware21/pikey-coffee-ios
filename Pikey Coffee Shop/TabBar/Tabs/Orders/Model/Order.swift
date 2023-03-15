@@ -74,7 +74,7 @@ struct OrderedItem: Codable {
     let productPrice, totalPrice: Double?
     let comments: String?
     let discountPercentage, discountAmount: Int?
-    let addons: [Item]?
+    let addons: [OrderedItem]?
     let product: OrderedProduct?
 
     enum CodingKeys: String, CodingKey {

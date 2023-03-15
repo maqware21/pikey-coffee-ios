@@ -36,26 +36,45 @@ class OrderViewController: TabItemViewController {
 
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ordersData?.data?.count ?? 0
+        if section == 0 {
+            return ordersData?.data?.filter({$0.statusInText == "Pending"}).count ?? 0
+        } else {
+            return ordersData?.data?.filter({$0.statusInText != "Pending"}).count ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderListCell
         cell.delegate = self
-        cell.order = ordersData?.data?[indexPath.row]
-        
         if (ordersData?.data?.count ?? 0) - indexPath.row == OrderConstants.perPageCount/2 && ordersData?.pagination?.totalPages ?? 0 > ordersData?.pagination?.currentPage ?? 0 {
             self.loadData(page: (ordersData?.pagination?.currentPage ?? 0) + 1)
         }
-        return cell
+        if indexPath.section == 0 {
+            let data = ordersData?.data?.filter({$0.statusInText == "Pending"})
+            cell.order = data?[indexPath.row]
+            return cell
+        } else {
+            let data = ordersData?.data?.filter({$0.statusInText != "Pending"})
+            cell.order = data?[indexPath.row]
+            return cell
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.backgroundColor = .black
         let label = UILabel()
-        label.text = "Current Order"
+        if section == 0 {
+            label.text = "Current Order"
+        } else {
+            label.text = "Past Order"
+        }
         label.font = UIFont.systemFont(ofSize: 24)
         label.textColor = .white
         label.backgroundColor = .black
@@ -73,6 +92,13 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let controller = UIStoryboard(name: "Orders", bundle: .main).instantiateViewController(withIdentifier: "OrderDetailViewController") as? OrderDetailViewController {
+            controller.order = ordersData?.data?[indexPath.row]
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
 }

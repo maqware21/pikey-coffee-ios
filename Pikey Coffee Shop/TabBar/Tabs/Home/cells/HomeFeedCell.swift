@@ -31,7 +31,9 @@ class HomeFeedCell: UITableViewCell {
             }
             
             if let url = URL(string: category.images?.first?.path ?? "") {
-                categoryImage.kf.setImage(with: url)
+                categoryImage.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
+            } else {
+                categoryImage.image = UIImage(named: "placeholder")
             }
             titleLabel.text = category.name
         }

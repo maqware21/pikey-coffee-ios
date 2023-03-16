@@ -37,33 +37,21 @@ class OrderViewController: TabItemViewController {
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return ordersData?.data?.filter({$0.statusInText == "Pending"}).count ?? 0
-        } else {
-            return ordersData?.data?.filter({$0.statusInText != "Pending"}).count ?? 0
-        }
+        return ordersData?.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderListCell
         cell.delegate = self
+        cell.order = ordersData?.data?[indexPath.row]
         if (ordersData?.data?.count ?? 0) - indexPath.row == OrderConstants.perPageCount/2 && ordersData?.pagination?.totalPages ?? 0 > ordersData?.pagination?.currentPage ?? 0 {
             self.loadData(page: (ordersData?.pagination?.currentPage ?? 0) + 1)
         }
-        if indexPath.section == 0 {
-            let data = ordersData?.data?.filter({$0.statusInText == "Pending"})
-            cell.order = data?[indexPath.row]
-            return cell
-        } else {
-            let data = ordersData?.data?.filter({$0.statusInText != "Pending"})
-            cell.order = data?[indexPath.row]
-            return cell
-        }
-        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -91,7 +79,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -129,9 +117,11 @@ extension OrderViewController: OrderDelegate {
             if let orders {
                 if orders.pagination?.currentPage != 1 {
                     self.ordersData?.data?.append(contentsOf: orders.data ?? [])
+                    self.ordersData?.data?.sort(by: {$0.createdAt > $1.createdAt})
                     self.ordersData?.pagination = orders.pagination
                 } else {
                     self.ordersData = orders
+                    self.ordersData?.data?.sort(by: {$0.createdAt > $1.createdAt})
                 }
                 self.tableView.reloadData()
             }

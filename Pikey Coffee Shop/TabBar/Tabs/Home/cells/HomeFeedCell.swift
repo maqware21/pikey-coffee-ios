@@ -31,9 +31,11 @@ class HomeFeedCell: UITableViewCell {
             }
             
             if let url = URL(string: category.images?.first?.path ?? "") {
-                categoryImage.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
+                categoryImage.contentMode = .scaleToFill
+                categoryImage.kf.setImage(with: url, placeholder: UIImage(named: "pikey-logo-black"))
             } else {
-                categoryImage.image = UIImage(named: "placeholder")
+                categoryImage.contentMode = .scaleAspectFit
+                categoryImage.image = UIImage(named: "pikey-logo-black")
             }
             titleLabel.text = category.name
         }

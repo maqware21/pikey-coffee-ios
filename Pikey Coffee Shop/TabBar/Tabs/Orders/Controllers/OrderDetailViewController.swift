@@ -91,11 +91,10 @@ class OrderDetailViewController: UIViewController {
         var storedCart = UserDefaults.standard[.cart] ?? []
         order.items?.forEach({ item in
             guard let product = item.product else {return}
-            var addons: [Product]?
+            var addons = [Product]()
             if let prodAddons = item.addons?.first?.product {
-                addons?.append(Product(id: prodAddons.id, name: prodAddons.name, shortDescription: prodAddons.shortDescription, longDescription: prodAddons.longDescription, price: Double(prodAddons.price ?? "0"), priceInPoints: prodAddons.priceInPoints, sku: prodAddons.sku, type: prodAddons.type, isTaxable: prodAddons.isTaxable, selectedQuantity: item.quantity, addons: nil, images: prodAddons.images, categories: prodAddons.categories))
+                addons.append(Product(id: prodAddons.id, name: prodAddons.name, shortDescription: prodAddons.shortDescription, longDescription: prodAddons.longDescription, price: Double(prodAddons.price ?? "0"), priceInPoints: prodAddons.priceInPoints, sku: prodAddons.sku, type: prodAddons.type, isTaxable: prodAddons.isTaxable, selectedQuantity: item.quantity, addons: nil, images: prodAddons.images, categories: prodAddons.categories))
             }
-            
             let newItem = Product(id: product.id, name: product.name, shortDescription: product.shortDescription, longDescription: product.longDescription, price: Double(product.price ?? "0"), priceInPoints: product.priceInPoints, sku: product.sku, type: product.type, isTaxable: product.isTaxable, selectedQuantity: item.quantity, addons: addons, images: product.images, categories: product.categories)
             storedCart.append(newItem)
         })

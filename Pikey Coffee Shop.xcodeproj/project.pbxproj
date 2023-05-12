@@ -123,6 +123,7 @@
 		56DF357E2889E258004CF09C /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF357D2889E258004CF09C /* ProfileService.swift */; };
 		56DF35802889E3AE004CF09C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF357F2889E3AE004CF09C /* ProfileViewModel.swift */; };
 		56DF35832889E817004CF09C /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 56DF35822889E817004CF09C /* SkeletonView */; };
+		56E199082A0EF15300661C86 /* OrdersEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E199072A0EF15300661C86 /* OrdersEmptyView.swift */; };
 		56E470BB28873FED00523965 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 56E470BA28873FED00523965 /* NVActivityIndicatorView */; };
 		56E470BD2887404700523965 /* UIviewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E470BC2887404700523965 /* UIviewController+extension.swift */; };
 		56F532F028526614006695DD /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F532EF28526614006695DD /* NotificationsViewController.swift */; };
@@ -246,6 +247,7 @@
 		56DF357B2889E24E004CF09C /* ProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEndpoint.swift; sourceTree = "<group>"; };
 		56DF357D2889E258004CF09C /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		56DF357F2889E3AE004CF09C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		56E199072A0EF15300661C86 /* OrdersEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersEmptyView.swift; sourceTree = "<group>"; };
 		56E470BC2887404700523965 /* UIviewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIviewController+extension.swift"; sourceTree = "<group>"; };
 		56F532EF28526614006695DD /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		56F532F228526640006695DD /* NotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCell.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 		5650462F2851230A00E4C2FF /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				56E199062A0EF14200661C86 /* views */,
 				565C5647292586EC00834EFA /* Viewmodel */,
 				56DC00542923F92E00180F70 /* Model */,
 				565046312851238200E4C2FF /* cells */,
@@ -917,6 +920,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		56E199062A0EF14200661C86 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				56E199072A0EF15300661C86 /* OrdersEmptyView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		56F532ED2852656F006695DD /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -1201,6 +1212,7 @@
 				568CA4562857B0CE00589AE1 /* DashedView.swift in Sources */,
 				56A8C2052863D2C700D75257 /* ProductCell.swift in Sources */,
 				5684050D285A75F900AE2DBF /* ConfirmationBottomSheet.swift in Sources */,
+				56E199082A0EF15300661C86 /* OrdersEmptyView.swift in Sources */,
 				5680BA9328494096003B5DBE /* RangeGestureRecognizer.swift in Sources */,
 				56834ED32888723200DB8C29 /* RequestError.swift in Sources */,
 			);

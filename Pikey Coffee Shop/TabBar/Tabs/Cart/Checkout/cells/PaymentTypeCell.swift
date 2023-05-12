@@ -76,7 +76,6 @@ extension PaymentTypeCell: PKPaymentAuthorizationViewControllerDelegate {
     }
  
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
-        configureRows(2)
         controller.dismiss(animated: true, completion: nil)
     }
  

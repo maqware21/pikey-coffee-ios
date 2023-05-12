@@ -14,8 +14,15 @@ class OrderViewController: TabItemViewController {
     var ordersData: OrderList?
     var itemId: Int?
     
+    lazy var emptyView: OrdersEmptyView = {
+        let view = OrdersEmptyView(frame: .zero)
+        view.isHidden = true
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setLayout()
         tableView.delegate = self
         tableView.dataSource = self
         viewModel.delegate = self
@@ -25,6 +32,30 @@ class OrderViewController: TabItemViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+    }
+    
+    func setLayout() {
+        self.view.addSubview(emptyView)
+        NSLayoutConstraint.activate([
+            emptyView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            emptyView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 32),
+            emptyView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -32)
+        ])
+        
+        emptyView.menuButton.addAction(UIAction(handler: { _ in
+            self.tabBarController?.selectedIndex = 0
+        }), for: .touchUpInside)
+    }
+    
+    func reload() {
+        if ordersData?.data?.isEmpty ?? true {
+            self.emptyView.isHidden = false
+            self.tableView.reloadData()
+        } else {
+            self.emptyView.isHidden = true
+            self.tableView.reloadData()
+        }
     }
     
     func loadData(page: Int = 0) {
@@ -123,7 +154,7 @@ extension OrderViewController: OrderDelegate {
                     self.ordersData = orders
                     self.ordersData?.data?.sort(by: {$0.createdAt > $1.createdAt})
                 }
-                self.tableView.reloadData()
+                self.reload()
             }
         }
     }
@@ -135,7 +166,7 @@ extension OrderViewController: OrderDelegate {
                 if let index = self.ordersData?.data?.firstIndex(where: {$0.id == id}) {
                     self.ordersData?.data?[index].statusInText = "Cancelled"
                 }
-                self.tableView.reloadData()
+                self.reload()
             }
         }
     }

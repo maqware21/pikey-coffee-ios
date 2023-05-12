@@ -30,7 +30,7 @@ class DeliveryView: UIView {
     lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.text = "Deliver to"
+        view.text = "Pickup"
         view.textColor = .white
         view.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return view

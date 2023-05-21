@@ -79,6 +79,42 @@ class ProfileViewController: TabItemViewController {
         }
     }
     
+    @IBAction func onClickHelp() {
+        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "HelpViewController") as? HelpViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func onClickGiftCard() {
+        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "GiftCardViewController") as? GiftCardViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func onClickReward() {
+        
+    }
+    
+    @IBAction func onClickLegal() {
+        
+    }
+    
+    @IBAction func onClickFacebook() {
+        
+    }
+    
+    @IBAction func onClickInstagram() {
+        
+    }
+    
+    @IBAction func onClickTwitter() {
+        
+    }
+    
+    @IBAction func onClickTiktok() {
+        
+    }
+    
     func updateView(user: User) {
         self.userNameLabel.hideSkeleton()
         self.emailLabel.hideSkeleton()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HelpViewController: UIViewController {
+class HelpViewController: EditProfileBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

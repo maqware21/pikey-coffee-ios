@@ -92,11 +92,21 @@ class ProfileViewController: TabItemViewController {
     }
     
     @IBAction func onClickReward() {
-        
+        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "RewardAndPromotionVC") as? RewardAndPromotionVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func onClickLegal() {
-        
+        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "LegalTabVC") as? LegalTabVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func onClickMerchandise() {
+        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "MerchandiseVC") as? MerchandiseVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func onClickFacebook() {

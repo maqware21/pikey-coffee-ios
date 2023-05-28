@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GiftCardViewController: UIViewController {
+class GiftCardViewController: EditProfileBaseViewController {
 
     @IBOutlet weak var amountView: UIView!
     @IBOutlet weak var amountViewHeight: NSLayoutConstraint!

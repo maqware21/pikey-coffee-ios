@@ -12,9 +12,18 @@
 		5603F09A28665DAA008DEFDE /* PikeyIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5603F09928665DAA008DEFDE /* PikeyIconButton.swift */; };
 		5605183A29196DD00040AA13 /* PickeyAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605183929196DD00040AA13 /* PickeyAddress.swift */; };
 		5605183D2919A4230040AA13 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605183C2919A4230040AA13 /* AddressViewModel.swift */; };
+		560D44DB2A223FE70024CCD5 /* RewardAndPromotionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D44DA2A223FE70024CCD5 /* RewardAndPromotionVC.swift */; };
+		560D44DF2A2240640024CCD5 /* RewardAndPromotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D44DD2A2240640024CCD5 /* RewardAndPromotionCell.swift */; };
+		560D44E02A2240640024CCD5 /* RewardAndPromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560D44DE2A2240640024CCD5 /* RewardAndPromotionCell.xib */; };
+		560D44E32A2244450024CCD5 /* RewardsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D44E12A2244450024CCD5 /* RewardsHeaderCell.swift */; };
+		560D44E42A2244450024CCD5 /* RewardsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560D44E22A2244450024CCD5 /* RewardsHeaderCell.xib */; };
+		560D44E72A224DB90024CCD5 /* LegalTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D44E62A224DB90024CCD5 /* LegalTabVC.swift */; };
 		560FE5362858FEC100C194B0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560FE5352858FEC100C194B0 /* Profile.storyboard */; };
 		560FE53A2859062900C194B0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560FE5392859062900C194B0 /* EditProfileViewController.swift */; };
 		560FE55828591DD600C194B0 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560FE55728591DD600C194B0 /* ChangePasswordViewController.swift */; };
+		562292ED2A2388220094ABFB /* MerchandiseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562292EC2A2388220094ABFB /* MerchandiseVC.swift */; };
+		562292F12A2393490094ABFB /* MerchandiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562292EF2A2393490094ABFB /* MerchandiseCell.swift */; };
+		562292F22A2393490094ABFB /* MerchandiseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562292F02A2393490094ABFB /* MerchandiseCell.xib */; };
 		562C4A3729BFA75700848447 /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562C4A3629BFA75700848447 /* Orders.storyboard */; };
 		562C4A3929BFC29600848447 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C4A3829BFC29600848447 /* OrderDetailViewController.swift */; };
 		562C4A3C29BFC7FF00848447 /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C4A3A29BFC7FF00848447 /* OrderSummaryCell.swift */; };
@@ -141,9 +150,18 @@
 		5603F09928665DAA008DEFDE /* PikeyIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PikeyIconButton.swift; sourceTree = "<group>"; };
 		5605183929196DD00040AA13 /* PickeyAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickeyAddress.swift; sourceTree = "<group>"; };
 		5605183C2919A4230040AA13 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		560D44DA2A223FE70024CCD5 /* RewardAndPromotionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAndPromotionVC.swift; sourceTree = "<group>"; };
+		560D44DD2A2240640024CCD5 /* RewardAndPromotionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAndPromotionCell.swift; sourceTree = "<group>"; };
+		560D44DE2A2240640024CCD5 /* RewardAndPromotionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RewardAndPromotionCell.xib; sourceTree = "<group>"; };
+		560D44E12A2244450024CCD5 /* RewardsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsHeaderCell.swift; sourceTree = "<group>"; };
+		560D44E22A2244450024CCD5 /* RewardsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RewardsHeaderCell.xib; sourceTree = "<group>"; };
+		560D44E62A224DB90024CCD5 /* LegalTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalTabVC.swift; sourceTree = "<group>"; };
 		560FE5352858FEC100C194B0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		560FE5392859062900C194B0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		560FE55728591DD600C194B0 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		562292EC2A2388220094ABFB /* MerchandiseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchandiseVC.swift; sourceTree = "<group>"; };
+		562292EF2A2393490094ABFB /* MerchandiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchandiseCell.swift; sourceTree = "<group>"; };
+		562292F02A2393490094ABFB /* MerchandiseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MerchandiseCell.xib; sourceTree = "<group>"; };
 		562C4A3629BFA75700848447 /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
 		562C4A3829BFC29600848447 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		562C4A3A29BFC7FF00848447 /* OrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryCell.swift; sourceTree = "<group>"; };
@@ -323,6 +341,34 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		560D44D92A223FC50024CCD5 /* Rewards&Promotions */ = {
+			isa = PBXGroup;
+			children = (
+				560D44DC2A22402D0024CCD5 /* cells */,
+				560D44DA2A223FE70024CCD5 /* RewardAndPromotionVC.swift */,
+			);
+			path = "Rewards&Promotions";
+			sourceTree = "<group>";
+		};
+		560D44DC2A22402D0024CCD5 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				560D44DD2A2240640024CCD5 /* RewardAndPromotionCell.swift */,
+				560D44DE2A2240640024CCD5 /* RewardAndPromotionCell.xib */,
+				560D44E12A2244450024CCD5 /* RewardsHeaderCell.swift */,
+				560D44E22A2244450024CCD5 /* RewardsHeaderCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		560D44E52A224DA50024CCD5 /* Legal Tab */ = {
+			isa = PBXGroup;
+			children = (
+				560D44E62A224DB90024CCD5 /* LegalTabVC.swift */,
+			);
+			path = "Legal Tab";
+			sourceTree = "<group>";
+		};
 		560FE537285905FC00C194B0 /* Edit Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +387,24 @@
 				56840504285A542000AE2DBF /* MyAddressesViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		562292EB2A2388110094ABFB /* Merchandise */ = {
+			isa = PBXGroup;
+			children = (
+				562292EE2A2393260094ABFB /* cells */,
+				562292EC2A2388220094ABFB /* MerchandiseVC.swift */,
+			);
+			path = Merchandise;
+			sourceTree = "<group>";
+		};
+		562292EE2A2393260094ABFB /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				562292EF2A2393490094ABFB /* MerchandiseCell.swift */,
+				562292F02A2393490094ABFB /* MerchandiseCell.xib */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		563185B32863A835005C46F1 /* Products */ = {
@@ -823,6 +887,9 @@
 		56D41A7C28526EF500859D47 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				562292EB2A2388110094ABFB /* Merchandise */,
+				560D44E52A224DA50024CCD5 /* Legal Tab */,
+				560D44D92A223FC50024CCD5 /* Rewards&Promotions */,
 				56EDB30B2A1A9BB400CAA59A /* Help */,
 				56EDB3082A1A8D1700CAA59A /* Gift card */,
 				560FE537285905FC00C194B0 /* Edit Profile */,
@@ -1084,17 +1151,20 @@
 				560FE5362858FEC100C194B0 /* Profile.storyboard in Resources */,
 				56C6A4F5284FD7FE0009EEFE /* HomeFeedCell.xib in Resources */,
 				565046372851258700E4C2FF /* OrderListCell.xib in Resources */,
+				560D44E42A2244450024CCD5 /* RewardsHeaderCell.xib in Resources */,
 				568CA45D2857C4E200589AE1 /* CartCell.xib in Resources */,
 				56329026284EA3E800BBE2D5 /* gloss_and_bloom.png in Resources */,
 				568360442863B5F100A0608F /* StarRatingStackView.xib in Resources */,
 				5687E1BD28610E930063CE47 /* BillingDetailsCell.xib in Resources */,
 				56720DDA28469FA2006AAFFA /* Assets.xcassets in Resources */,
+				560D44E02A2240640024CCD5 /* RewardAndPromotionCell.xib in Resources */,
 				56AC85F3285D109A00E13156 /* InformationCell.xib in Resources */,
 				563185B82863ABCE005C46F1 /* Product.storyboard in Resources */,
 				56F532F528526640006695DD /* NotificationsCell.xib in Resources */,
 				56329028284EA3E800BBE2D5 /* Read Me.rtf in Resources */,
 				562C4A4529BFCE3E00848447 /* OrderedItemsCell.xib in Resources */,
 				56720DD828469F9F006AAFFA /* Register.storyboard in Resources */,
+				562292F22A2393490094ABFB /* MerchandiseCell.xib in Resources */,
 				56840503285A4FD800AE2DBF /* MyAddressCell.xib in Resources */,
 				56A8C2062863D2C700D75257 /* ProductCell.xib in Resources */,
 			);
@@ -1196,11 +1266,13 @@
 				56F6D44F2901DCC10065DCB4 /* CollectionViewSegmentedControl.swift in Sources */,
 				56E470BD2887404700523965 /* UIviewController+extension.swift in Sources */,
 				56DF35802889E3AE004CF09C /* ProfileViewModel.swift in Sources */,
+				560D44E72A224DB90024CCD5 /* LegalTabVC.swift in Sources */,
 				564873D32847D6CC003C63DD /* UITextField+Extension.swift in Sources */,
 				5680BA96284950D0003B5DBE /* ForgetPasswordViewController.swift in Sources */,
 				5692A08428FDED0A00B91F59 /* HomeViewModel.swift in Sources */,
 				56504633285123BA00E4C2FF /* OrderViewController.swift in Sources */,
 				56D41A7F28526F1400859D47 /* ProfileViewController.swift in Sources */,
+				560D44E32A2244450024CCD5 /* RewardsHeaderCell.swift in Sources */,
 				565FA1B0284A9182007E8C1C /* VerificationViewController.swift in Sources */,
 				568CA4592857B32200589AE1 /* CartEmptyView.swift in Sources */,
 				560FE55828591DD600C194B0 /* ChangePasswordViewController.swift in Sources */,
@@ -1211,6 +1283,7 @@
 				56942DD5291C1601001438CB /* Array+Extension.swift in Sources */,
 				56840502285A4FD800AE2DBF /* MyAddressCell.swift in Sources */,
 				56834ED7288883ED00DB8C29 /* String+Extension.swift in Sources */,
+				560D44DB2A223FE70024CCD5 /* RewardAndPromotionVC.swift in Sources */,
 				5605183A29196DD00040AA13 /* PickeyAddress.swift in Sources */,
 				565FA1AE284A8722007E8C1C /* SignUpViewController.swift in Sources */,
 				5603F09A28665DAA008DEFDE /* PikeyIconButton.swift in Sources */,
@@ -1221,6 +1294,7 @@
 				5692A07D28FDE38A00B91F59 /* HomeEndpoint.swift in Sources */,
 				56AA2FAC290B219F00A61909 /* Pagination.swift in Sources */,
 				56834ED42888723200DB8C29 /* Endpoint.swift in Sources */,
+				562292ED2A2388220094ABFB /* MerchandiseVC.swift in Sources */,
 				56834ED22888723200DB8C29 /* HTTPClient.swift in Sources */,
 				56720DD328469F9F006AAFFA /* SceneDelegate.swift in Sources */,
 				5682BCD22905379400581A1C /* Products.swift in Sources */,
@@ -1228,6 +1302,7 @@
 				565C5649292586F900834EFA /* OrderViewModel.swift in Sources */,
 				563185B62863A85F005C46F1 /* ProductViewController.swift in Sources */,
 				56DC00562923F93600180F70 /* Order.swift in Sources */,
+				560D44DF2A2240640024CCD5 /* RewardAndPromotionCell.swift in Sources */,
 				562C4A3929BFC29600848447 /* OrderDetailViewController.swift in Sources */,
 				5681D9822853BF3C00340A4E /* HorizontalGradientView.swift in Sources */,
 				56834ED12888723200DB8C29 /* HTTPMethod.swift in Sources */,
@@ -1251,6 +1326,7 @@
 				56C6A4F4284FD7FE0009EEFE /* HomeFeedCell.swift in Sources */,
 				56C66540295210C500898969 /* LoginViewController+AppleAuth.swift in Sources */,
 				56DF35772889D104004CF09C /* ForgotPassword.swift in Sources */,
+				562292F12A2393490094ABFB /* MerchandiseCell.swift in Sources */,
 				56F532F428526640006695DD /* NotificationsCell.swift in Sources */,
 				564873D12847CE50003C63DD /* UIView+Extension.swift in Sources */,
 				5687E1B82860FFB90063CE47 /* PaymentTypeCell.swift in Sources */,

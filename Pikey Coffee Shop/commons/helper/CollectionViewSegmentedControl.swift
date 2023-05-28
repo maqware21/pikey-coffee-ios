@@ -18,8 +18,8 @@ import UIKit
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
         layout.sectionInset = UIEdgeInsets(top: 0, left: self.margin,
                                            bottom: 0, right: self.margin)
         let cv = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
@@ -158,6 +158,8 @@ extension CollectionViewSegmentedControl: UICollectionViewDataSource {
         }
         cell.label.font = self.font
         cell.label.text = items[indexPath.row]
+        cell.borderColor = UIColor(named: "coffeeGray")
+        cell.borderWidth = 1
         
         if indexPath.row == selectedIndex {
             cell.backgroundColor = selectedBackgroundColor

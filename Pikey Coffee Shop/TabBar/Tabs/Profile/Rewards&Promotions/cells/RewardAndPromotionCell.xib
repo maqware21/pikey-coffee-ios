@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="RewardAndPromotionCell" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="239" height="266"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="239" height="266"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFp-55-C5o">
+                        <rect key="frame" x="0.0" y="0.0" width="239" height="266"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="JMa-wx-g3V">
+                                <rect key="frame" x="0.0" y="0.0" width="239" height="266"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="JMa-wx-g3V" secondAttribute="bottom" id="80y-QP-keh"/>
+                            <constraint firstItem="JMa-wx-g3V" firstAttribute="leading" secondItem="tFp-55-C5o" secondAttribute="leading" id="cbG-dg-sP5"/>
+                            <constraint firstItem="JMa-wx-g3V" firstAttribute="top" secondItem="tFp-55-C5o" secondAttribute="top" id="eMh-fC-U3X"/>
+                            <constraint firstAttribute="trailing" secondItem="JMa-wx-g3V" secondAttribute="trailing" id="yA5-hv-cFm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tFp-55-C5o" secondAttribute="bottom" id="2Tl-JE-y6g"/>
+                <constraint firstItem="tFp-55-C5o" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LXo-wQ-KyJ"/>
+                <constraint firstAttribute="trailing" secondItem="tFp-55-C5o" secondAttribute="trailing" id="YiN-xO-y2i"/>
+                <constraint firstItem="tFp-55-C5o" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="z8E-Zm-F8I"/>
+            </constraints>
+            <size key="customSize" width="239" height="266"/>
+            <connections>
+                <outlet property="imageView" destination="JMa-wx-g3V" id="ehc-ab-SLj"/>
+            </connections>
+            <point key="canvasLocation" x="251.14503816793894" y="95.774647887323951"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="placeholder" width="600" height="400"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

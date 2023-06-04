@@ -36,6 +36,11 @@ extension RewardAndPromotionVC: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RewardAndPromotionCell", for: indexPath) as! RewardAndPromotionCell
+        if indexPath.section == 0 {
+            cell.imageView.image = UIImage(named: "reward\(indexPath.item + 1)")
+        } else {
+            cell.imageView.image = UIImage(named: "reward5")
+        }
         return cell
     }
     

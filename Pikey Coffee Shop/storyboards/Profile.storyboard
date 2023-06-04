@@ -212,7 +212,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zx-y8-DeV">
                                                                 <rect key="frame" x="0.0" y="60" width="382" height="60"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmS-pC-BS7">
+                                                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmS-pC-BS7">
                                                                         <rect key="frame" x="4" y="5" width="374" height="50"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="liouswilliam98@gmail.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZv-1c-hRg" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
@@ -2905,7 +2905,7 @@ Effective as of December 01, 2022</string>
                                 <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchaindise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpK-H5-cOM">
-                                        <rect key="frame" x="125" y="16" width="164.5" height="31.5"/>
+                                        <rect key="frame" x="124.5" y="16" width="165" height="31.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>

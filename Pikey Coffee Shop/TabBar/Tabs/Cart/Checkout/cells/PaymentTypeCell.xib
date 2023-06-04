@@ -273,6 +273,7 @@
             <connections>
                 <outlet property="rowOneBullet" destination="nJ7-hu-5ko" id="5vz-FW-1XF"/>
                 <outlet property="rowTwoBullet" destination="65c-mc-M0o" id="GiM-3u-spO"/>
+                <outlet property="rowTwoView" destination="5EC-X6-cVl" id="uat-cv-OKQ"/>
             </connections>
             <point key="canvasLocation" x="284.05797101449275" y="77.678571428571431"/>
         </tableViewCell>

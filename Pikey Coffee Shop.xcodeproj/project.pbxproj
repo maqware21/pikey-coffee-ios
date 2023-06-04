@@ -124,6 +124,11 @@
 		56D57C5C285BC00200877C51 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D57C5B285BC00200877C51 /* Cart.storyboard */; };
 		56D57C5F285BC2ED00877C51 /* DeliveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D57C5E285BC2ED00877C51 /* DeliveryView.swift */; };
 		56D8D13629104061005C553E /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8D13529104061005C553E /* Cart.swift */; };
+		56DB6D042A2CA4F50058F1DD /* OrderPickupTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB6D022A2CA4F50058F1DD /* OrderPickupTypeCell.swift */; };
+		56DB6D052A2CA4F50058F1DD /* OrderPickupTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DB6D032A2CA4F50058F1DD /* OrderPickupTypeCell.xib */; };
+		56DB6D082A2CAA5B0058F1DD /* CheckoutCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB6D062A2CAA5B0058F1DD /* CheckoutCodeCell.swift */; };
+		56DB6D092A2CAA5B0058F1DD /* CheckoutCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DB6D072A2CAA5B0058F1DD /* CheckoutCodeCell.xib */; };
+		56DB6D0B2A2CADC80058F1DD /* PreCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DB6D0A2A2CADC80058F1DD /* PreCheckoutViewController.swift */; };
 		56DC00512923F6A600180F70 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC00502923F6A600180F70 /* CartService.swift */; };
 		56DC00532923F6B000180F70 /* CartEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC00522923F6B000180F70 /* CartEndpoint.swift */; };
 		56DC00562923F93600180F70 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DC00552923F93600180F70 /* Order.swift */; };
@@ -261,6 +266,11 @@
 		56D57C5B285BC00200877C51 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
 		56D57C5E285BC2ED00877C51 /* DeliveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryView.swift; sourceTree = "<group>"; };
 		56D8D13529104061005C553E /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		56DB6D022A2CA4F50058F1DD /* OrderPickupTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPickupTypeCell.swift; sourceTree = "<group>"; };
+		56DB6D032A2CA4F50058F1DD /* OrderPickupTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderPickupTypeCell.xib; sourceTree = "<group>"; };
+		56DB6D062A2CAA5B0058F1DD /* CheckoutCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCodeCell.swift; sourceTree = "<group>"; };
+		56DB6D072A2CAA5B0058F1DD /* CheckoutCodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutCodeCell.xib; sourceTree = "<group>"; };
+		56DB6D0A2A2CADC80058F1DD /* PreCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreCheckoutViewController.swift; sourceTree = "<group>"; };
 		56DC00502923F6A600180F70 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		56DC00522923F6B000180F70 /* CartEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartEndpoint.swift; sourceTree = "<group>"; };
 		56DC00552923F93600180F70 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -867,6 +877,7 @@
 			children = (
 				56AC85ED285D030800E13156 /* CheckoutViewController.swift */,
 				565804632A141B29002B5068 /* OrderFinalizeViewController.swift */,
+				56DB6D0A2A2CADC80058F1DD /* PreCheckoutViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -880,6 +891,10 @@
 				5687E1B72860FFB90063CE47 /* PaymentTypeCell.xib */,
 				5687E1BA28610E930063CE47 /* BillingDetailsCell.swift */,
 				5687E1BB28610E930063CE47 /* BillingDetailsCell.xib */,
+				56DB6D022A2CA4F50058F1DD /* OrderPickupTypeCell.swift */,
+				56DB6D032A2CA4F50058F1DD /* OrderPickupTypeCell.xib */,
+				56DB6D062A2CAA5B0058F1DD /* CheckoutCodeCell.swift */,
+				56DB6D072A2CAA5B0058F1DD /* CheckoutCodeCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -1158,7 +1173,9 @@
 				5687E1BD28610E930063CE47 /* BillingDetailsCell.xib in Resources */,
 				56720DDA28469FA2006AAFFA /* Assets.xcassets in Resources */,
 				560D44E02A2240640024CCD5 /* RewardAndPromotionCell.xib in Resources */,
+				56DB6D052A2CA4F50058F1DD /* OrderPickupTypeCell.xib in Resources */,
 				56AC85F3285D109A00E13156 /* InformationCell.xib in Resources */,
+				56DB6D092A2CAA5B0058F1DD /* CheckoutCodeCell.xib in Resources */,
 				563185B82863ABCE005C46F1 /* Product.storyboard in Resources */,
 				56F532F528526640006695DD /* NotificationsCell.xib in Resources */,
 				56329028284EA3E800BBE2D5 /* Read Me.rtf in Resources */,
@@ -1280,6 +1297,7 @@
 				56840505285A542000AE2DBF /* MyAddressesViewController.swift in Sources */,
 				56329016284E981600BBE2D5 /* TabItemViewController.swift in Sources */,
 				5662D7252864DCB400BDB969 /* CartCategoryView.swift in Sources */,
+				56DB6D042A2CA4F50058F1DD /* OrderPickupTypeCell.swift in Sources */,
 				56942DD5291C1601001438CB /* Array+Extension.swift in Sources */,
 				56840502285A4FD800AE2DBF /* MyAddressCell.swift in Sources */,
 				56834ED7288883ED00DB8C29 /* String+Extension.swift in Sources */,
@@ -1305,6 +1323,7 @@
 				560D44DF2A2240640024CCD5 /* RewardAndPromotionCell.swift in Sources */,
 				562C4A3929BFC29600848447 /* OrderDetailViewController.swift in Sources */,
 				5681D9822853BF3C00340A4E /* HorizontalGradientView.swift in Sources */,
+				56DB6D0B2A2CADC80058F1DD /* PreCheckoutViewController.swift in Sources */,
 				56834ED12888723200DB8C29 /* HTTPMethod.swift in Sources */,
 				562C4A3C29BFC7FF00848447 /* OrderSummaryCell.swift in Sources */,
 				5681D9872853F66900340A4E /* CartViewController.swift in Sources */,
@@ -1314,6 +1333,7 @@
 				5662D7232864DA4800BDB969 /* AddToCartView.swift in Sources */,
 				56329019284E989700BBE2D5 /* TabManager.swift in Sources */,
 				56D57C57285BB1B300877C51 /* PickeySheet.swift in Sources */,
+				56DB6D082A2CAA5B0058F1DD /* CheckoutCodeCell.swift in Sources */,
 				56F532F028526614006695DD /* NotificationsViewController.swift in Sources */,
 				56AC85EE285D030800E13156 /* CheckoutViewController.swift in Sources */,
 				56D8D13629104061005C553E /* Cart.swift in Sources */,

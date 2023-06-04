@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pre Checkout View Controller-->
         <scene sceneID="ZTN-gJ-QUx">
             <objects>
-                <viewController id="6gl-uH-2cc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PreCheckoutViewController" id="6gl-uH-2cc" customClass="PreCheckoutViewController" customModule="Pikey_Coffee_Shop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fpd-ej-8jX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +44,7 @@
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="goBack" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6s9-LP-Rwh"/>
+                                                    <action selector="goBack" destination="6gl-uH-2cc" eventType="touchUpInside" id="TgH-WO-daZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -125,6 +126,7 @@
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="onClickPlaceOrder" destination="Y6W-OH-hqX" eventType="touchUpInside" id="U9O-Mb-pFU"/>
+                                                    <action selector="onClickProceedToCheckout" destination="6gl-uH-2cc" eventType="touchUpInside" id="gfr-LH-kfC"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -170,6 +172,10 @@
                             <constraint firstItem="G4c-rz-btd" firstAttribute="bottom" secondItem="rFM-Lt-KT9" secondAttribute="bottom" id="bSR-XV-8C1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableHeight" destination="rs7-dJ-UxJ" id="qhJ-1H-lEh"/>
+                        <outlet property="tableView" destination="eh6-hr-cdF" id="NmW-0B-5SZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sr3-8G-LeD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

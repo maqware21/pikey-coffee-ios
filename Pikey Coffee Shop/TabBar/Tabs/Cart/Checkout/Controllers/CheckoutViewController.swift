@@ -22,6 +22,7 @@ class CheckoutViewController: UIViewController {
     let viewModel = CheckOutViewModel()
     var products = [Product]()
     var address = UserDefaults.standard[.selectedAddress]
+    var selectedType: OrderTypeState!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,9 @@ class CheckoutViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         viewModel.delegate = self
-        tableView.register(UINib(nibName: "CartCell", bundle: .main), forCellReuseIdentifier: "cartCell")
-        tableView.register(UINib(nibName: "InformationCell", bundle: .main), forCellReuseIdentifier: "informationCell")
         tableView.register(UINib(nibName: "PaymentTypeCell", bundle: .main), forCellReuseIdentifier: "paymentTypeCell")
         tableView.register(UINib(nibName: "BillingDetailsCell", bundle: .main), forCellReuseIdentifier: "billingDetailsCell")
+        tableView.register(UINib(nibName: "CheckoutCodeCell", bundle: .main), forCellReuseIdentifier: "CheckoutCodeCell")
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         textViewPlaceholder()
         // Do any additional setup after loading the view.
@@ -119,13 +119,13 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         let headline = UILabel()
         switch section {
         case 0:
-            headline.text = "Your Items"
-        case 1:
-            headline.text = "Your Information"
-        case 2:
             headline.text = "Payment Details"
+        case 1:
+            headline.text = "Add Coupon Code"
+        case 2:
+            headline.text = "Add Tip"
         case 3:
-            headline.text = "Billing Summary"
+            headline.text = "Billing Details"
         default:
             break
         }
@@ -137,56 +137,22 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return products.count
-        case 1, 2, 3:
-            return 1
-        default:
-            return 1
-        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            return cartCell(tableView, cellForRowAt: indexPath)
-        case 1:
-            return infoCell(tableView, cellForRowAt: indexPath)
-        case 2:
             return paymentTypeCell(tableView, cellForRowAt: indexPath)
+        case 1:
+            return couponCell(tableView, cellForRowAt: indexPath)
+        case 2:
+            return tipCell(tableView, cellForRowAt: indexPath)
         case 3:
             return billingDetailsCell(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
         }
-    }
-    
-    func cartCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartCell
-        cell.product = products[indexPath.row]
-        cell.quantityCallback = {[weak self] quantity in
-            self?.products[indexPath.row].selectedQuantity = quantity
-            UserDefaults.standard[.cart] = self?.products
-            tableView.reloadData()
-        }
-        cell.cartRemoveCallback = {[weak self] in
-            self?.products.remove(at: indexPath.row)
-            UserDefaults.standard[.cart] = self?.products
-            self?.delegate?.loadProducts()
-            if self?.products.isEmpty ?? [].isEmpty { self?.navigationController?.popViewController(animated: true) }
-            tableView.reloadData()
-        }
-        return cell
-    }
-    
-    func infoCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell", for: indexPath) as! InformationCell
-        cell.address = address
-        cell.callback = {[weak self] in
-            self?.moveToMyAddresses()
-        }
-        return cell
     }
     
     func moveToMyAddresses() {
@@ -196,9 +162,26 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func couponCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutCodeCell", for: indexPath) as! CheckoutCodeCell
+        return cell
+    }
+    
+    func tipCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutCodeCell", for: indexPath) as! CheckoutCodeCell
+        cell.codeField.placeholder = "Enter Tip"
+        cell.applyButton.setTitle("Enter", for: .normal)
+        return cell
+    }
+    
     func paymentTypeCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentTypeCell", for: indexPath) as! PaymentTypeCell
         cell.products = products
+        if selectedType == .now {
+            cell.rowTwoView.isHidden = true
+        } else {
+            cell.rowTwoView.isHidden = false
+        }
         return cell
     }
     

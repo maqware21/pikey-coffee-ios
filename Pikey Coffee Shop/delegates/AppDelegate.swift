@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
-        GMSServices.provideAPIKey("AIzaSyDuhg7N90hyBh4fMJ37P1yVYdKT1uOHNt0")
-        GMSPlacesClient.provideAPIKey("AIzaSyDuhg7N90hyBh4fMJ37P1yVYdKT1uOHNt0")
+        GMSServices.provideAPIKey("AIzaSyAQpkjrQwiU_FPgnI7Xm2G2LYX-3kEEcRo")
+        GMSPlacesClient.provideAPIKey("AIzaSyAQpkjrQwiU_FPgnI7Xm2G2LYX-3kEEcRo")
         return true
     }
 

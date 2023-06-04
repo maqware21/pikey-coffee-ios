@@ -12,6 +12,7 @@ class PaymentTypeCell: UITableViewCell {
     
     @IBOutlet weak var rowOneBullet: UIView!
     @IBOutlet weak var rowTwoBullet: UIView!
+    @IBOutlet weak var rowTwoView: UIStackView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

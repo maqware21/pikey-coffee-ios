@@ -57,7 +57,7 @@ class CartViewController: TabItemViewController {
     }
     
     @objc func onClickCheckout() {
-        if let controller = UIStoryboard(name: "Cart", bundle: .main).instantiateViewController(withIdentifier: "CheckoutViewController") as? CheckoutViewController {
+        if let controller = UIStoryboard(name: "Cart", bundle: .main).instantiateViewController(withIdentifier: "PreCheckoutViewController") as? PreCheckoutViewController {
             controller.delegate = self
             self.navigationController?.pushViewController(controller, animated: true)
         }

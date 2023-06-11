@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="KGk-i7-Jjw" customClass="DatePickerCell" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="483" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="483" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qop-4Y-M4c">
+                        <rect key="frame" x="0.0" y="0.0" width="483" height="60"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cY-VS-uoN">
+                                <rect key="frame" x="4" y="5" width="475" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="dd/mm/yyyy, --:-- --" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cha-BE-awW" customClass="IconTextField" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="422" height="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="username"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CalendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="a3d-Yc-6uN">
+                                        <rect key="frame" x="450" y="5" width="20" height="40"/>
+                                        <color key="tintColor" name="coffeeGray"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="4Zy-6v-jB5"/>
+                                            <constraint firstAttribute="width" constant="20" id="K0O-Mg-8gC"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="a3d-Yc-6uN" firstAttribute="centerY" secondItem="2cY-VS-uoN" secondAttribute="centerY" id="Gt4-6l-v69"/>
+                                    <constraint firstItem="Cha-BE-awW" firstAttribute="leading" secondItem="2cY-VS-uoN" secondAttribute="leading" constant="20" id="Lfv-Ja-rM1"/>
+                                    <constraint firstAttribute="trailing" secondItem="a3d-Yc-6uN" secondAttribute="trailing" constant="5" id="bFA-Ou-az9"/>
+                                    <constraint firstItem="Cha-BE-awW" firstAttribute="top" secondItem="2cY-VS-uoN" secondAttribute="top" id="ka0-zO-VsL"/>
+                                    <constraint firstItem="a3d-Yc-6uN" firstAttribute="leading" secondItem="Cha-BE-awW" secondAttribute="trailing" constant="8" id="kd8-Z6-Ehs"/>
+                                    <constraint firstAttribute="bottom" secondItem="Cha-BE-awW" secondAttribute="bottom" id="lvv-MS-fpZ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="shadowColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="-6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="8nn-8D-lut"/>
+                            <constraint firstAttribute="trailing" secondItem="2cY-VS-uoN" secondAttribute="trailing" constant="4" id="Nn4-Fy-02A"/>
+                            <constraint firstAttribute="bottom" secondItem="2cY-VS-uoN" secondAttribute="bottom" constant="5" id="RYt-Uf-gim"/>
+                            <constraint firstItem="2cY-VS-uoN" firstAttribute="top" secondItem="Qop-4Y-M4c" secondAttribute="top" constant="5" id="bek-aw-3ca"/>
+                            <constraint firstItem="2cY-VS-uoN" firstAttribute="leading" secondItem="Qop-4Y-M4c" secondAttribute="leading" constant="4" id="wro-cp-4ih"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Qop-4Y-M4c" secondAttribute="bottom" id="7sE-ho-CTo"/>
+                    <constraint firstItem="Qop-4Y-M4c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Bpq-kr-bNS"/>
+                    <constraint firstItem="Qop-4Y-M4c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="N5u-VT-m6h"/>
+                    <constraint firstAttribute="trailing" secondItem="Qop-4Y-M4c" secondAttribute="trailing" id="iCT-wg-8Jh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateField" destination="Cha-BE-awW" id="wna-re-lzU"/>
+            </connections>
+            <point key="canvasLocation" x="231.29770992366412" y="26.408450704225352"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="CalendarIcon" width="47" height="46"/>
+        <namedColor name="coffeeGray">
+            <color red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="shadowColor">
+            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

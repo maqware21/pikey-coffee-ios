@@ -42,6 +42,8 @@
 		56329026284EA3E800BBE2D5 /* gloss_and_bloom.png in Resources */ = {isa = PBXBuildFile; fileRef = 56329023284EA3E800BBE2D5 /* gloss_and_bloom.png */; };
 		56329027284EA3E800BBE2D5 /* Gloss_And_Bloom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56329024284EA3E800BBE2D5 /* Gloss_And_Bloom.ttf */; };
 		56329028284EA3E800BBE2D5 /* Read Me.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 56329025284EA3E800BBE2D5 /* Read Me.rtf */; };
+		5641F4572A35DE8F00DE42EC /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641F4552A35DE8F00DE42EC /* DatePickerCell.swift */; };
+		5641F4582A35DE8F00DE42EC /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5641F4562A35DE8F00DE42EC /* DatePickerCell.xib */; };
 		564873D12847CE50003C63DD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564873D02847CE50003C63DD /* UIView+Extension.swift */; };
 		564873D32847D6CC003C63DD /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564873D22847D6CC003C63DD /* UITextField+Extension.swift */; };
 		564873D62847D84C003C63DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564873D52847D84C003C63DD /* LoginViewController.swift */; };
@@ -185,6 +187,8 @@
 		56329023284EA3E800BBE2D5 /* gloss_and_bloom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gloss_and_bloom.png; sourceTree = "<group>"; };
 		56329024284EA3E800BBE2D5 /* Gloss_And_Bloom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gloss_And_Bloom.ttf; sourceTree = "<group>"; };
 		56329025284EA3E800BBE2D5 /* Read Me.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Read Me.rtf"; sourceTree = "<group>"; };
+		5641F4552A35DE8F00DE42EC /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		5641F4562A35DE8F00DE42EC /* DatePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		564873D02847CE50003C63DD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		564873D22847D6CC003C63DD /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		564873D52847D84C003C63DD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -895,6 +899,8 @@
 				56DB6D032A2CA4F50058F1DD /* OrderPickupTypeCell.xib */,
 				56DB6D062A2CAA5B0058F1DD /* CheckoutCodeCell.swift */,
 				56DB6D072A2CAA5B0058F1DD /* CheckoutCodeCell.xib */,
+				5641F4552A35DE8F00DE42EC /* DatePickerCell.swift */,
+				5641F4562A35DE8F00DE42EC /* DatePickerCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -1182,6 +1188,7 @@
 				562C4A4529BFCE3E00848447 /* OrderedItemsCell.xib in Resources */,
 				56720DD828469F9F006AAFFA /* Register.storyboard in Resources */,
 				562292F22A2393490094ABFB /* MerchandiseCell.xib in Resources */,
+				5641F4582A35DE8F00DE42EC /* DatePickerCell.xib in Resources */,
 				56840503285A4FD800AE2DBF /* MyAddressCell.xib in Resources */,
 				56A8C2062863D2C700D75257 /* ProductCell.xib in Resources */,
 			);
@@ -1357,6 +1364,7 @@
 				56E199082A0EF15300661C86 /* OrdersEmptyView.swift in Sources */,
 				5680BA9328494096003B5DBE /* RangeGestureRecognizer.swift in Sources */,
 				56834ED32888723200DB8C29 /* RequestError.swift in Sources */,
+				5641F4572A35DE8F00DE42EC /* DatePickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

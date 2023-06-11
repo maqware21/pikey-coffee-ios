@@ -12,6 +12,8 @@ class BillingDetailsCell: UITableViewCell {
     @IBOutlet var nameLabels: [UILabel]!
     @IBOutlet var valueLabels: [UILabel]!
     @IBOutlet weak var availStack: UIStackView!
+    @IBOutlet weak var discountView: UIStackView!
+    @IBOutlet weak var deliveryChargesView: UIStackView!
     
     var products: [Product]? {
         didSet {
@@ -22,11 +24,21 @@ class BillingDetailsCell: UITableViewCell {
             products.forEach { product in
                 subTotal += ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) * (Double(product.selectedQuantity ?? 0))
             }
-            
             valueLabels[0].text = String(format: "$%.2f", Float(subTotal))
             valueLabels[1].text = String(format: "$%.2f", Float(discount))
             valueLabels[2].text = String(format: "$%.2f", Float(dileveryCharges))
             valueLabels[4].text = String(format: "$%.2f", Float(subTotal + discount + dileveryCharges))
+        }
+    }
+    
+    var pickupType: OrderTypeState? {
+        didSet {
+            switch pickupType {
+            case .now:
+                deliveryChargesView.isHidden = true
+            default:
+                deliveryChargesView.isHidden = false
+            }
         }
     }
     
@@ -44,6 +56,7 @@ class BillingDetailsCell: UITableViewCell {
         }
         
         availStack.isHidden = true
+        discountView.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

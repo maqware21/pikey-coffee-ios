@@ -27,6 +27,7 @@ class PreCheckoutViewController: UIViewController {
         tableView.register(UINib(nibName: "InformationCell", bundle: .main), forCellReuseIdentifier: "informationCell")
         tableView.register(UINib(nibName: "BillingDetailsCell", bundle: .main), forCellReuseIdentifier: "billingDetailsCell")
         tableView.register(UINib(nibName: "OrderPickupTypeCell", bundle: .main), forCellReuseIdentifier: "OrderPickupTypeCell")
+        tableView.register(UINib(nibName: "DatePickerCell", bundle: .main), forCellReuseIdentifier: "DatePickerCell")
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         // Do any additional setup after loading the view.
     }
@@ -69,7 +70,12 @@ class PreCheckoutViewController: UIViewController {
 extension PreCheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        switch selectedType {
+        case .future:
+            return 5
+        default:
+            return 4
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -89,6 +95,8 @@ extension PreCheckoutViewController: UITableViewDelegate, UITableViewDataSource 
         case 2:
             headline.text = "Order Pickup type"
         case 3:
+            headline.text = selectedType == .future ? "Pickup Date" : "Billing Summary"
+        case 4:
             headline.text = "Billing Summary"
         default:
             break
@@ -118,6 +126,12 @@ extension PreCheckoutViewController: UITableViewDelegate, UITableViewDataSource 
         case 2:
             return orderTypeCell(tableView, cellForRowAt: indexPath)
         case 3:
+            if selectedType == .future {
+                return pickupDateCell(tableView, cellForRowAt: indexPath)
+            } else {
+                return billingDetailsCell(tableView, cellForRowAt: indexPath)
+            }
+        case 4:
             return billingDetailsCell(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
@@ -162,6 +176,7 @@ extension PreCheckoutViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderPickupTypeCell", for: indexPath) as! OrderPickupTypeCell
         cell.stateSelected = {[weak self] state in
             self?.selectedType = state
+            self?.tableView.reloadData()
         }
         return cell
     }
@@ -169,6 +184,12 @@ extension PreCheckoutViewController: UITableViewDelegate, UITableViewDataSource 
     func billingDetailsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billingDetailsCell", for: indexPath) as! BillingDetailsCell
         cell.products = products
+        cell.pickupType = selectedType
+        return cell
+    }
+    
+    func pickupDateCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DatePickerCell", for: indexPath) as! DatePickerCell
         return cell
     }
     

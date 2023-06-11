@@ -14,6 +14,8 @@ class GiftCardViewController: EditProfileBaseViewController {
     @IBOutlet weak var customAmountView: UIView!
     @IBOutlet weak var amountViewBottom: NSLayoutConstraint!
     @IBOutlet weak var customAmountViewBottom: NSLayoutConstraint!
+    @IBOutlet weak var tenDollarCheck: UIView!
+    @IBOutlet weak var fifteenDollarCheck: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,5 +45,10 @@ class GiftCardViewController: EditProfileBaseViewController {
         customAmountView.isHidden = false
         amountViewBottom.priority = .defaultHigh
         customAmountViewBottom.priority = .required
+    }
+    
+    @IBAction func onClickDefaultAmount(_ sender: UIButton!) {
+        self.tenDollarCheck.isHidden = !(sender.tag == 10)
+        self.fifteenDollarCheck.isHidden = !(sender.tag == 15)
     }
 }

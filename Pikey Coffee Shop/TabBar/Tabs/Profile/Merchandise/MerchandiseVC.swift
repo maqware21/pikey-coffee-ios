@@ -11,7 +11,9 @@ class MerchandiseVC: EditProfileBaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentView: CollectionViewSegmentedControl!
-    var categories = ["All", "Merchandise", "Retail Coffee", "Beans"]
+    var categories = [MerchandiseCategory]()
+    var viewModel = MerchandiseViewmodel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,9 @@ class MerchandiseVC: EditProfileBaseViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         segmentView.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
-        segmentView.items = categories
+        viewModel.delegate = self
+        self.showLoader()
+        viewModel.getCategories()
     }
 
     @objc func segmentValueChanged() {
@@ -43,5 +47,17 @@ extension MerchandiseVC: UICollectionViewDelegate, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.collectionView.frame.width/2 - 10, height: 270)
+    }
+}
+
+extension MerchandiseVC: MerchandiseDelegate {
+    func categoriesUpdated(_ categories: [MerchandiseCategory]?) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            self.categories = categories ?? []
+            self.segmentView.items = (categories ?? []).map({ cat in
+                return cat.name ?? ""
+            })
+        }
     }
 }

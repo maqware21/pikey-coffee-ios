@@ -16,6 +16,7 @@ enum ProfileEndpoint {
     case getLocations(page: Int)
     case createLocation(location: PickeyAddress)
     case deleteLocation(id: Int)
+    case getMerchandisingCategories
 }
 
 extension ProfileEndpoint: Endpoint {
@@ -32,6 +33,8 @@ extension ProfileEndpoint: Endpoint {
             return "/api/customer/locations"
         case .deleteLocation(let id):
             return "/api/customer/locations/\(id)"
+        case .getMerchandisingCategories:
+            return "/api/categories-without-pagination"
         }
     }
 
@@ -47,6 +50,8 @@ extension ProfileEndpoint: Endpoint {
             return .post
         case .deleteLocation:
             return .delete
+        case .getMerchandisingCategories:
+            return .get
         }
     }
     
@@ -80,6 +85,8 @@ extension ProfileEndpoint: Endpoint {
             return try? location.toDictionary()
         case .deleteLocation:
             return nil
+        case .getMerchandisingCategories:
+            return  nil
         }
     }
     
@@ -89,6 +96,11 @@ extension ProfileEndpoint: Endpoint {
             let parameter: [URLQueryItem] = [
                 URLQueryItem(name: "page", value: String(page)),
                 URLQueryItem(name: "per_page", value: String(AddressConstant.perPageCount))
+            ]
+            return parameter
+        case .getMerchandisingCategories:
+            let parameter: [URLQueryItem] = [
+                URLQueryItem(name: "type", value: "1")
             ]
             return parameter
         default:

@@ -110,19 +110,31 @@ class ProfileViewController: TabItemViewController {
     }
     
     @IBAction func onClickFacebook() {
-        
+        if let url = URL(string: "https://www.facebook.com/Pikeycoffee") {
+            openURL(url)
+        }
     }
     
     @IBAction func onClickInstagram() {
-        
+        if let url = URL(string: "https://www.instagram.com/pikeycoffee/") {
+            openURL(url)
+        }
     }
     
     @IBAction func onClickTwitter() {
-        
+        if let url = URL(string: "https://twitter.com/PikeyCoffee") {
+            openURL(url)
+        }
     }
     
     @IBAction func onClickTiktok() {
-        
+        if let url = URL(string: "https://www.tiktok.com/@pikeycoffee") {
+            openURL(url)
+        }
+    }
+    
+    func openURL(_ url: URL) {
+        UIApplication.shared.open(url)
     }
     
     func updateView(user: User) {

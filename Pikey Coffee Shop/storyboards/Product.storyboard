@@ -291,6 +291,7 @@
                         <outlet property="collectionHeight" destination="ptR-uS-ygd" id="djW-2W-sIm"/>
                         <outlet property="collectionView" destination="W6R-cn-fF3" id="xMa-G3-lrl"/>
                         <outlet property="segmentView" destination="sf8-yN-vob" id="nB7-UB-ykc"/>
+                        <outlet property="titleLabel" destination="mmr-p2-zeB" id="fFC-SV-wVZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

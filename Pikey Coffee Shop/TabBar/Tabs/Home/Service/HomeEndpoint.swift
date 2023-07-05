@@ -10,6 +10,7 @@ import Foundation
 enum HomeEndpoint {
     case getCategories(page: Int)
     case getProducts(categoryId: Int, page: Int)
+    case getMerchandise(page: Int, type: Int)
 }
 
 extension HomeEndpoint: Endpoint {
@@ -17,21 +18,21 @@ extension HomeEndpoint: Endpoint {
         switch self {
         case .getCategories:
             return "/api/categories"
-        case .getProducts:
+        case .getProducts, .getMerchandise:
             return "/api/products/all"
         }
     }
 
     var method: RequestMethod {
         switch self {
-        case .getCategories, .getProducts:
+        case .getCategories, .getProducts, .getMerchandise:
             return .get
         }
     }
     
     var body: [String: Any]? {
         switch self {
-        case .getCategories, .getProducts:
+        case .getCategories, .getProducts, .getMerchandise:
             return nil
         }
     }
@@ -48,7 +49,14 @@ extension HomeEndpoint: Endpoint {
             let parameter: [URLQueryItem] = [
                 URLQueryItem(name: "page", value: String(page)),
                 URLQueryItem(name: "per_page", value: String(ProductConstants.perPageCount)),
-                URLQueryItem(name: "categories[]", value: String(categoryId))
+                URLQueryItem(name: "categories[]", value: String(categoryId)),
+            ]
+            return parameter
+        case .getMerchandise(let page, let type):
+            let parameter: [URLQueryItem] = [
+                URLQueryItem(name: "page", value: String(page)),
+                URLQueryItem(name: "per_page", value: String(ProductConstants.perPageCount)),
+                URLQueryItem(name: "type", value: String(type)),
             ]
             return parameter
         }

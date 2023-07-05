@@ -15,9 +15,10 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var segmentView: CollectionViewSegmentedControl!
     @IBOutlet weak var cartCounterView: UIView!
     @IBOutlet weak var cartCounterLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     private let viewModel = ProductViewModel()
     
-    
+    var forMerchandise: Bool = false
     var categories: [Category]?
     var categoryID: Int!
     var productData: ProductData?
@@ -36,8 +37,13 @@ class ProductViewController: UIViewController {
 //            let names = categories.map({ $0.name ?? "" })
 //            segmentView.items = names
 //        }
-        
-        fetchProducts(id: categoryID)
+        if forMerchandise {
+            self.titleLabel.text = "Merchandise"
+            fetchMerchandise()
+        } else {
+            self.titleLabel.text = "Products"
+            fetchProducts(id: categoryID)
+        }
         updateCartCounter()
         
         // Do any additional setup after loading the view.
@@ -66,6 +72,13 @@ class ProductViewController: UIViewController {
         self.collectionView.reloadData()
         self.showLoader()
         viewModel.getProducts(with: id, for: page)
+    }
+    
+    func fetchMerchandise(page: Int = 1) {
+        self.productData = nil
+        self.collectionView.reloadData()
+        self.showLoader()
+        viewModel.getMerchandise(for: page)
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -113,8 +126,12 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDeleg
         }), for: .touchUpInside)
         
         if (productData?.data?.count ?? 0) - indexPath.row == ProductConstants.perPageCount/2 && productData?.pagination?.totalPages ?? 0 > productData?.pagination?.currentPage ?? 0 {
-            self.fetchProducts(id: categoryID,
-                               page: (productData?.pagination?.currentPage ?? 0) + 1)
+            if forMerchandise {
+                self.fetchMerchandise(page: (productData?.pagination?.currentPage ?? 0) + 1)
+            } else {
+                self.fetchProducts(id: categoryID,
+                                   page: (productData?.pagination?.currentPage ?? 0) + 1)
+            }
         }
         
         return cell

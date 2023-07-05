@@ -104,8 +104,9 @@ class ProfileViewController: TabItemViewController {
     }
     
     @IBAction func onClickMerchandise() {
-        if let vc = UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "MerchandiseVC") as? MerchandiseVC {
-            self.navigationController?.pushViewController(vc, animated: true)
+        if let controller = UIStoryboard(name: "Product", bundle: .main).instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController {
+            controller.forMerchandise = true
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
     

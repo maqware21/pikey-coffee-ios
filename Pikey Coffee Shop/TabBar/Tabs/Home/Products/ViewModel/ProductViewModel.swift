@@ -30,4 +30,17 @@ class ProductViewModel {
             }
         }
     }
+    
+    func getMerchandise(for page: Int) {
+        Task(priority: .background) {
+            let result = await ProductService.shared.getMerchandise(page: page)
+            switch result {
+            case .success(let data):
+                delegate?.productsUpdate(with: data)
+            case .failure(let error):
+                delegate?.productsUpdate(with: nil)
+                print(error.customMessage)
+            }
+        }
+    }
 }

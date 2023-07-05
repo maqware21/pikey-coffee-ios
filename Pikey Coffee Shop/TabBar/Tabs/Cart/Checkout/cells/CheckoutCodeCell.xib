@@ -50,6 +50,9 @@
                                                 <real key="value" value="23"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onClickApply" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2n2-xw-CeA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

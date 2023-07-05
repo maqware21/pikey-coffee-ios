@@ -12,6 +12,8 @@ class CheckoutCodeCell: UITableViewCell {
     @IBOutlet weak var codeField: UITextField!
     @IBOutlet weak var applyButton: UIButton!
     
+    var onApply: ((String) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,4 +25,7 @@ class CheckoutCodeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func onClickApply() {
+        onApply?(codeField.text ?? "0")
+    }
 }

@@ -14,20 +14,21 @@ class BillingDetailsCell: UITableViewCell {
     @IBOutlet weak var availStack: UIStackView!
     @IBOutlet weak var discountView: UIStackView!
     @IBOutlet weak var deliveryChargesView: UIStackView!
+    @IBOutlet weak var tipChargesView: UIStackView!
     
     var products: [Product]? {
         didSet {
             guard let products else {return}
             var subTotal = 0.0
             let discount = 0.0
-            let dileveryCharges = 0.0
+            let dileveryCharges = 10.0
             products.forEach { product in
                 subTotal += ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) * (Double(product.selectedQuantity ?? 0))
             }
             valueLabels[0].text = String(format: "$%.2f", Float(subTotal))
             valueLabels[1].text = String(format: "$%.2f", Float(discount))
             valueLabels[2].text = String(format: "$%.2f", Float(dileveryCharges))
-            valueLabels[4].text = String(format: "$%.2f", Float(subTotal + discount + dileveryCharges))
+            valueLabels[5].text = String(format: "$%.2f", Float(subTotal + discount + dileveryCharges))
         }
     }
     
@@ -42,21 +43,28 @@ class BillingDetailsCell: UITableViewCell {
         }
     }
     
+    var tip: String? {
+        didSet {
+            valueLabels[3].text = String(format: "$%.2f", Float(Int(tip ?? "0")!))
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         let text = "Avail Points"
         
-        valueLabels[3].tappableLabels(string: text,
+        valueLabels[4].tappableLabels(string: text,
                                       tappableStrings: ["Avail Points"],
                                       textColor: .white,
                                       isUnderLined: true)
         
-        valueLabels[3].addRangeGesture(stringRange: "Avail Points") {
+        valueLabels[4].addRangeGesture(stringRange: "Avail Points") {
             print("avail clicked")
         }
         
         availStack.isHidden = true
         discountView.isHidden = true
+        tipChargesView.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

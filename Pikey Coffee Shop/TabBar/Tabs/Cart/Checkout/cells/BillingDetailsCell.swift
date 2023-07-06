@@ -15,6 +15,7 @@ class BillingDetailsCell: UITableViewCell {
     @IBOutlet weak var discountView: UIStackView!
     @IBOutlet weak var deliveryChargesView: UIStackView!
     @IBOutlet weak var tipChargesView: UIStackView!
+    @IBOutlet weak var couponCodeView: UIStackView!
     
     var products: [Product]? {
         didSet {
@@ -45,7 +46,15 @@ class BillingDetailsCell: UITableViewCell {
     
     var tip: String? {
         didSet {
+            tipChargesView.isHidden = false
             valueLabels[3].text = String(format: "$%.2f", Float(Int(tip ?? "0")!))
+        }
+    }
+    
+    var code: String? {
+        didSet {
+            couponCodeView.isHidden = false
+            valueLabels[6].text = code ?? ""
         }
     }
     
@@ -65,6 +74,7 @@ class BillingDetailsCell: UITableViewCell {
         availStack.isHidden = true
         discountView.isHidden = true
         tipChargesView.isHidden = true
+        couponCodeView.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -24,6 +24,7 @@ class CheckoutViewController: UIViewController {
     var address = UserDefaults.standard[.selectedAddress]
     var selectedType: OrderTypeState!
     var tip: String = "0"
+    var couponCode: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,6 +166,10 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func couponCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutCodeCell", for: indexPath) as! CheckoutCodeCell
+        cell.onApply = {[weak self] value in
+            self?.couponCode = value
+            self?.tableView.reloadData()
+        }
         return cell
     }
     
@@ -194,6 +199,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billingDetailsCell", for: indexPath) as! BillingDetailsCell
         cell.products = products
         cell.tip = self.tip
+        cell.code = self.couponCode
         return cell
     }
     

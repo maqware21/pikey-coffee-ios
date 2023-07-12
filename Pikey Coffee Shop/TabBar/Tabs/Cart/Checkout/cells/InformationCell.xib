@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,18 +12,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="299" id="KGk-i7-Jjw" customClass="InformationCell" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="499" height="271"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="309" id="KGk-i7-Jjw" customClass="InformationCell" customModule="Pikey_Coffee_Shop" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="499" height="281"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="499" height="271"/>
+                <rect key="frame" x="0.0" y="0.0" width="499" height="281"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwJ-q6-ftb">
-                        <rect key="frame" x="16" y="16" width="467" height="239"/>
+                        <rect key="frame" x="16" y="16" width="467" height="249"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="M3P-T3-oeI">
-                                <rect key="frame" x="16" y="16" width="435" height="223"/>
+                                <rect key="frame" x="16" y="16" width="435" height="233"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5tW-6C-Wmq">
                                         <rect key="frame" x="0.0" y="0.0" width="435" height="50"/>
@@ -125,16 +125,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04M-rd-4wk">
-                                        <rect key="frame" x="0.0" y="102" width="435" height="121"/>
+                                        <rect key="frame" x="0.0" y="102" width="435" height="131"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Delivery Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1X-no-Tv0">
-                                                <rect key="frame" x="0.0" y="16" width="435" height="21.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1X-no-Tv0">
+                                                <rect key="frame" x="0.0" y="16" width="435" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOp-Se-dew">
-                                                <rect key="frame" x="0.0" y="45.5" width="435" height="59.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOp-Se-dew">
+                                                <rect key="frame" x="0.0" y="50" width="435" height="65"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationMarker" translatesAutoresizingMaskIntoConstraints="NO" id="cXo-Ew-Xgp">
                                                         <rect key="frame" x="0.0" y="8" width="30" height="38"/>
@@ -143,8 +143,8 @@
                                                             <constraint firstAttribute="width" constant="30" id="kFF-M7-ZLb"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVa-Ef-KHQ">
-                                                        <rect key="frame" x="38" y="8" width="397" height="42.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVa-Ef-KHQ">
+                                                        <rect key="frame" x="38" y="8" width="397" height="48"/>
                                                         <string key="text">Pikey Coffee Decatur Blvd South,
 Main Building, US</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -162,14 +162,36 @@ Main Building, US</string>
                                                     <constraint firstAttribute="bottom" secondItem="RVa-Ef-KHQ" secondAttribute="bottom" constant="9" id="S7X-XU-GtM"/>
                                                 </constraints>
                                             </view>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxK-9H-XoZ">
+                                                <rect key="frame" x="0.0" y="50" width="435" height="65"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No addresses have been added yet kindly add a new address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQR-49-Rhf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="435" height="65"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="sQR-49-Rhf" secondAttribute="trailing" id="6hq-56-imc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="sQR-49-Rhf" secondAttribute="bottom" id="H6Z-2J-nIu"/>
+                                                    <constraint firstItem="sQR-49-Rhf" firstAttribute="leading" secondItem="dxK-9H-XoZ" secondAttribute="leading" id="LEf-fK-d3b"/>
+                                                    <constraint firstItem="sQR-49-Rhf" firstAttribute="top" secondItem="dxK-9H-XoZ" secondAttribute="top" id="p4b-eG-zo9"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="dxK-9H-XoZ" firstAttribute="top" secondItem="gOp-Se-dew" secondAttribute="top" id="0yN-x6-1q5"/>
+                                            <constraint firstItem="dxK-9H-XoZ" firstAttribute="trailing" secondItem="gOp-Se-dew" secondAttribute="trailing" id="9BD-VS-Jel"/>
                                             <constraint firstItem="b1X-no-Tv0" firstAttribute="leading" secondItem="04M-rd-4wk" secondAttribute="leading" id="9c0-fj-Q0C"/>
                                             <constraint firstAttribute="bottom" secondItem="gOp-Se-dew" secondAttribute="bottom" constant="16" id="Thp-B8-7p9"/>
+                                            <constraint firstItem="dxK-9H-XoZ" firstAttribute="leading" secondItem="gOp-Se-dew" secondAttribute="leading" id="Vzv-0M-bRr"/>
                                             <constraint firstItem="b1X-no-Tv0" firstAttribute="top" secondItem="04M-rd-4wk" secondAttribute="top" constant="16" id="bgL-ZL-8a0"/>
                                             <constraint firstAttribute="trailing" secondItem="b1X-no-Tv0" secondAttribute="trailing" id="caf-ox-ERz"/>
                                             <constraint firstAttribute="trailing" secondItem="gOp-Se-dew" secondAttribute="trailing" id="fTc-FX-Lyn"/>
+                                            <constraint firstItem="dxK-9H-XoZ" firstAttribute="bottom" secondItem="gOp-Se-dew" secondAttribute="bottom" id="mu9-kl-z8b"/>
                                             <constraint firstItem="gOp-Se-dew" firstAttribute="leading" secondItem="b1X-no-Tv0" secondAttribute="leading" id="nQ6-xf-sI4"/>
                                             <constraint firstItem="gOp-Se-dew" firstAttribute="top" secondItem="b1X-no-Tv0" secondAttribute="bottom" constant="8" id="xEP-C7-7VE"/>
                                         </constraints>
@@ -282,10 +304,11 @@ Main Building, US</string>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="addressLabel" destination="RVa-Ef-KHQ" id="ts3-U4-dSx"/>
+                <outlet property="addressPlaceholderView" destination="dxK-9H-XoZ" id="oel-F7-5gb"/>
                 <outlet property="nameLabel" destination="kKs-Jn-nM2" id="1rD-SV-mAI"/>
                 <outlet property="numberLabel" destination="sht-Hf-Raf" id="fVN-ur-mbf"/>
             </connections>
-            <point key="canvasLocation" x="261.59420289855075" y="158.37053571428569"/>
+            <point key="canvasLocation" x="261.59420289855075" y="161.04910714285714"/>
         </tableViewCell>
     </objects>
     <resources>

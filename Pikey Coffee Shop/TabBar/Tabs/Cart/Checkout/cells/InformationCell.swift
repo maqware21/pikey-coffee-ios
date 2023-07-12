@@ -14,11 +14,17 @@ class InformationCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var addressPlaceholderView: UIView!
 
     var user = UserDefaults.standard[.user]
     var address: PickeyAddress? {
         didSet {
-            addressLabel.text = address?.address
+            guard let address else {
+                addressPlaceholderView.isHidden = false
+                return
+            }
+            addressPlaceholderView.isHidden = true
+            addressLabel.text = address.address
         }
     }
     var callback: InformationEditCallback?

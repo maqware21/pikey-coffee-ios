@@ -37,6 +37,7 @@ class CheckoutViewController: UIViewController {
         tableView.register(UINib(nibName: "CheckoutCodeCell", bundle: .main), forCellReuseIdentifier: "CheckoutCodeCell")
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         textViewPlaceholder()
+        textView.addDoneOnKeyboardWithTarget(self, action: #selector(resignKeyboard), titleText: "Done")
         // Do any additional setup after loading the view.
     }
     
@@ -100,6 +101,10 @@ class CheckoutViewController: UIViewController {
             self.view.displayNotice(with: "kindly add your location/address")
             self.moveToMyAddresses()
         }
+    }
+    
+    @objc func resignKeyboard() {
+        self.textView.resignFirstResponder()
     }
 }
 
@@ -199,6 +204,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billingDetailsCell", for: indexPath) as! BillingDetailsCell
         cell.products = products
         cell.tip = self.tip
+        cell.pickupType = selectedType
         cell.code = self.couponCode
         return cell
     }

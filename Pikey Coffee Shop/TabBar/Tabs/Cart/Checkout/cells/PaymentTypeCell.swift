@@ -34,6 +34,10 @@ class PaymentTypeCell: UITableViewCell {
         }
     }
     
+    override func layoutSubviews() {
+        purchase()
+    }
+    
     private var paymentRequest: PKPaymentRequest = {
         let request = PKPaymentRequest()
         request.merchantIdentifier = "merchant.pickeyCoffeeMerchantID"

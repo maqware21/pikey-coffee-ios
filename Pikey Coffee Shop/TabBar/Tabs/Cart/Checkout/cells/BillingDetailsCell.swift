@@ -36,7 +36,7 @@ class BillingDetailsCell: UITableViewCell {
     var pickupType: OrderTypeState? {
         didSet {
             switch pickupType {
-            case .now:
+            case .now, .future:
                 deliveryChargesView.isHidden = true
             default:
                 deliveryChargesView.isHidden = false

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PassKit
 
 protocol CheckoutAddressUpdateDelegate: AnyObject {
     func addressUpdated()
@@ -18,6 +19,17 @@ class CheckoutViewController: UIViewController {
     @IBOutlet var textView : UITextView!
     var placeholderLabel : UILabel!
     
+    private var paymentRequest: PKPaymentRequest = {
+        let request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.pickeyCoffeeMerchantID"
+        request.supportedNetworks = [.visa, .masterCard,.amex,.discover]
+        request.supportedCountries = ["US"]
+        request.merchantCapabilities = .capability3DS
+        request.countryCode = "US"
+        request.currencyCode = "USD"
+        return request
+    }()
+    
     weak var delegate: CartDelegate?
     let viewModel = CheckOutViewModel()
     var products = [Product]()
@@ -25,6 +37,7 @@ class CheckoutViewController: UIViewController {
     var selectedType: OrderTypeState!
     var tip: String = "0"
     var couponCode: String = ""
+    var selectedPaymentType: PaymentType? = .applePay
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +93,15 @@ class CheckoutViewController: UIViewController {
     }
     
     @IBAction func onClickPlaceOrder() {
+        switch selectedPaymentType {
+        case .applePay:
+            self.purchase()
+        default:
+            self.placeOrder()
+        }
+    }
+    
+    func placeOrder() {
         if let address = UserDefaults.standard[.selectedAddress] {
             let items = products.compactMap { product in
                 return Item(productID: product.id,
@@ -191,11 +213,15 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func paymentTypeCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentTypeCell", for: indexPath) as! PaymentTypeCell
-        cell.products = products
         if selectedType == .now {
             cell.rowTwoView.isHidden = true
         } else {
             cell.rowTwoView.isHidden = false
+        }
+        
+        cell.onTypeChange = {[weak self] type in
+            guard let self else {return}
+            self.selectedPaymentType = type
         }
         return cell
     }
@@ -245,5 +271,35 @@ extension CheckoutViewController: CheckOutDelegate, CheckoutAddressUpdateDelegat
     func addressUpdated() {
         self.address = UserDefaults.standard[.selectedAddress]
         tableView.reloadData()
+    }
+}
+
+
+extension CheckoutViewController: PKPaymentAuthorizationViewControllerDelegate {
+    
+    func purchase() {
+        var subTotal = 0.0
+        let discount = 0.0
+        let dileveryCharges = 0.0
+        products.forEach { product in
+            subTotal += ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) * (Double(product.selectedQuantity ?? 0))
+        }
+        let total = subTotal + discount + dileveryCharges
+        
+        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "Pickey order", amount: NSDecimalNumber(floatLiteral: total))]
+        if let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest) {
+            controller.delegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+    }
+    
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true, completion:  {
+            self.placeOrder()
+        })
     }
 }

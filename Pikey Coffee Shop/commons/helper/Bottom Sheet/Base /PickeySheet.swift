@@ -48,6 +48,7 @@ public class PickeySheet: UIViewController {
         view.addSubview(dimmedView)
         view.addSubview(contentsView)
         contentsView.translatesAutoresizingMaskIntoConstraints = false
+        contentsView.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 96).isActive = true
         contentsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         contentsView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         contentsView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true

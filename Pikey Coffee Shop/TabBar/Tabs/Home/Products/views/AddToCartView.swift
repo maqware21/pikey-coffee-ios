@@ -75,6 +75,27 @@ class AddToCartView: UIView {
         }
     }
     
+    
+    var modifiers: [Modifiers?]? {
+        didSet {
+            guard let modifiers else { return }
+            modifierStackView.arrangedSubviews.forEach { view in
+                view.removeFromSuperview()
+            }
+            modifiers.enumerated().forEach({ (index,modifier) in
+                if let modifier {
+                    let view = ModifierView(frame: .zero)
+                    view.tag = modifier.id ?? 0
+                    view.modifier = modifier
+                    modifierStackView.addArrangedSubview(view)
+                }
+            })
+            
+            self.modifierStackView.layoutIfNeeded()
+            self.modifierScrollHeight.constant = (self.modifierStackView.height + 20) > 600 ? 600 : self.modifierStackView.height + 20
+        }
+    }
+    
     var selectedAddons = [Product]()
     
     lazy var containerView: UIView = {
@@ -143,6 +164,30 @@ class AddToCartView: UIView {
         return view
     }()
     
+    lazy var modifierStackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.spacing = 8
+        view.distribution = .fill
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    lazy var modifierScrollview: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    lazy var modifierContentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     lazy var bottomContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -192,6 +237,8 @@ class AddToCartView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var modifierScrollHeight: NSLayoutConstraint!
+    
     
     func setLayout() {
         self.backgroundColor = .black
@@ -202,7 +249,7 @@ class AddToCartView: UIView {
             containerView.topAnchor.constraint(equalTo: self.topAnchor),
             containerView.leftAnchor.constraint(equalTo: self.leftAnchor),
             containerView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            containerView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
         
         self.containerView.addSubview(grabberView)
@@ -252,12 +299,38 @@ class AddToCartView: UIView {
             categoryScrollview.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
         
+        self.containerView.addSubview(modifierScrollview)
+        modifierScrollHeight = modifierScrollview.heightAnchor.constraint(equalToConstant: 300)
+        NSLayoutConstraint.activate([
+            modifierScrollview.topAnchor.constraint(equalTo: categoryScrollview.bottomAnchor, constant: 8),
+            modifierScrollview.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 0),
+            modifierScrollview.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: 0),
+            modifierScrollHeight
+        ])
+        
+        self.modifierScrollview.addSubview(modifierContentView)
+        NSLayoutConstraint.activate([
+            modifierContentView.topAnchor.constraint(equalTo: modifierScrollview.topAnchor),
+            modifierContentView.leftAnchor.constraint(equalTo: modifierScrollview.leftAnchor),
+            modifierContentView.rightAnchor.constraint(equalTo: modifierScrollview.rightAnchor),
+            modifierContentView.bottomAnchor.constraint(equalTo: modifierScrollview.bottomAnchor),
+            modifierContentView.widthAnchor.constraint(equalTo: containerView.widthAnchor)
+        ])
+        
+        self.modifierContentView.addSubview(modifierStackView)
+        NSLayoutConstraint.activate([
+            modifierStackView.topAnchor.constraint(equalTo: modifierContentView.topAnchor, constant: 0),
+            modifierStackView.leftAnchor.constraint(equalTo: self.modifierContentView.leftAnchor, constant: 0),
+            modifierStackView.rightAnchor.constraint(equalTo: self.modifierContentView.rightAnchor, constant: 0),
+            modifierStackView.bottomAnchor.constraint(equalTo: modifierContentView.bottomAnchor, constant: 0)
+        ])
+        
         self.containerView.addSubview(bottomContainer)
         NSLayoutConstraint.activate([
-            bottomContainer.topAnchor.constraint(equalTo: categoryStackView.bottomAnchor, constant: 32),
+            bottomContainer.topAnchor.constraint(equalTo: modifierScrollview.bottomAnchor, constant: 8),
             bottomContainer.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 0),
             bottomContainer.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: 0),
-            bottomContainer.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+            bottomContainer.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: 0)
         ])
         
         

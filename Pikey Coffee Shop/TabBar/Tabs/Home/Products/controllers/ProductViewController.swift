@@ -120,6 +120,7 @@ extension ProductViewController: UICollectionViewDelegate, UICollectionViewDeleg
         cell.cartButton.addAction(UIAction(handler: { _ in
             let view = AddToCartView()
             view.product = product
+            view.modifiers = product?.categories?.first?.modifiers
             view.delegate = self
             let sheet = PickeySheet(view: view)
             self.present(sheet, animated: true)

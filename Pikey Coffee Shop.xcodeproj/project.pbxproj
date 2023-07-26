@@ -42,6 +42,7 @@
 		56329026284EA3E800BBE2D5 /* gloss_and_bloom.png in Resources */ = {isa = PBXBuildFile; fileRef = 56329023284EA3E800BBE2D5 /* gloss_and_bloom.png */; };
 		56329027284EA3E800BBE2D5 /* Gloss_And_Bloom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56329024284EA3E800BBE2D5 /* Gloss_And_Bloom.ttf */; };
 		56329028284EA3E800BBE2D5 /* Read Me.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 56329025284EA3E800BBE2D5 /* Read Me.rtf */; };
+		563AE89C2A6F259300EC77A3 /* ModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563AE89B2A6F259300EC77A3 /* ModifierView.swift */; };
 		5641F4572A35DE8F00DE42EC /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641F4552A35DE8F00DE42EC /* DatePickerCell.swift */; };
 		5641F4582A35DE8F00DE42EC /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5641F4562A35DE8F00DE42EC /* DatePickerCell.xib */; };
 		564873D12847CE50003C63DD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564873D02847CE50003C63DD /* UIView+Extension.swift */; };
@@ -190,6 +191,7 @@
 		56329023284EA3E800BBE2D5 /* gloss_and_bloom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gloss_and_bloom.png; sourceTree = "<group>"; };
 		56329024284EA3E800BBE2D5 /* Gloss_And_Bloom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gloss_And_Bloom.ttf; sourceTree = "<group>"; };
 		56329025284EA3E800BBE2D5 /* Read Me.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Read Me.rtf"; sourceTree = "<group>"; };
+		563AE89B2A6F259300EC77A3 /* ModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierView.swift; sourceTree = "<group>"; };
 		5641F4552A35DE8F00DE42EC /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		5641F4562A35DE8F00DE42EC /* DatePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		564873D02847CE50003C63DD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			children = (
 				5662D7242864DCB400BDB969 /* CartCategoryView.swift */,
 				5662D7262864F67700BDB969 /* CartConterItem.swift */,
+				563AE89B2A6F259300EC77A3 /* ModifierView.swift */,
 			);
 			path = subviews;
 			sourceTree = "<group>";
@@ -1318,6 +1321,7 @@
 				568360422863B5F100A0608F /* StarRatingView.swift in Sources */,
 				5603F098286659DD008DEFDE /* AddAddressView.swift in Sources */,
 				5680BA8E284932FF003B5DBE /* RegistrationBaseController.swift in Sources */,
+				563AE89C2A6F259300EC77A3 /* ModifierView.swift in Sources */,
 				568CA45C2857C4E200589AE1 /* CartCell.swift in Sources */,
 				5692A08128FDEAE700B91F59 /* Categories.swift in Sources */,
 				56D57C5F285BC2ED00877C51 /* DeliveryView.swift in Sources */,

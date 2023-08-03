@@ -49,11 +49,13 @@ struct Modifiers: Codable {
     let name: String?
     let options: [Options]?
     let createdAt, updatedAt: String?
+    var selectedOption: Options?
 
     enum CodingKeys: String, CodingKey {
         case id, name, options
         case createdAt = "created_at"
         case updatedAt = "updated_at"
+        case selectedOption
     }
 }
 

@@ -30,6 +30,7 @@ struct Product: Codable {
     var addons: [Product]?
     let images: [Image]?
     let categories: [Category]?
+    var modifiers: [Modifiers?]?
 
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -40,6 +41,6 @@ struct Product: Codable {
         case sku, type
         case selectedQuantity = "selected_quantity"
         case isTaxable = "is_taxable"
-        case addons, images, categories
+        case addons, images, categories, modifiers
     }
 }

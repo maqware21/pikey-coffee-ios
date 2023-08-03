@@ -31,10 +31,18 @@ class CartCell: UITableViewCell {
             if let url = URL(string: product.images?.first?.path ?? "") {
                 productImage.kf.setImage(with: url)
             }
-            nameLabel.text = "\(product.name ?? "") (\(product.addons?.first?.name ?? "Small"))"
+            
+            var modifiersCollectivePrice: Double = 0
+            let attributedText = NSMutableAttributedString(string: "\(product.name ?? "") (\(product.addons?.first?.name ?? "Small"))", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .semibold)])
+            for modifier in product.modifiers ?? [] where modifier?.selectedOption != nil {
+                let secondString = NSMutableAttributedString(string: "\n\(modifier?.name ?? "") - \(modifier?.selectedOption?.name ?? "") \n = $\(modifier?.selectedOption?.price ?? 0)", attributes: [.font: UIFont.systemFont(ofSize: 14)])
+                attributedText.append(secondString)
+                modifiersCollectivePrice += modifier?.selectedOption?.price ?? 0
+            }
+            nameLabel.attributedText = attributedText
             quantityLabel.text = "x \(product.selectedQuantity ?? 0)"
-            let price = String(format: "%.2f", ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) )
-            let totalPrice = String(format: "%.2f", ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) * (Double(product.selectedQuantity ?? 0)))
+            let price = String(format: "%.2f", ((product.price ?? 0) + (product.addons?.first?.price ?? 0) + modifiersCollectivePrice))
+            let totalPrice = String(format: "%.2f", ((product.price ?? 0) + (product.addons?.first?.price ?? 0) + modifiersCollectivePrice) * (Double(product.selectedQuantity ?? 0)))
             quantityPriceLabel.text = "$\(price) x \(product.selectedQuantity ?? 0) = $\(totalPrice)"
             counterLabel.label.text = "\(product.selectedQuantity ?? 0)"
         }

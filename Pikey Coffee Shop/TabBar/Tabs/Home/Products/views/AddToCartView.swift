@@ -87,12 +87,16 @@ class AddToCartView: UIView {
                     let view = ModifierView(frame: .zero)
                     view.tag = modifier.id ?? 0
                     view.modifier = modifier
+                    view.modifierUpdated = {[weak self] option in
+                        guard let self else {return}
+                        self.modifiers?[index]?.selectedOption = option
+                    }
                     modifierStackView.addArrangedSubview(view)
                 }
             })
             
             self.modifierStackView.layoutIfNeeded()
-            self.modifierScrollHeight.constant = (self.modifierStackView.height + 20) > 600 ? 600 : self.modifierStackView.height + 20
+            self.modifierScrollHeight.constant = (self.modifierStackView.height + 20) > 380 ? 380 : self.modifierStackView.height + 20
         }
     }
     
@@ -392,6 +396,7 @@ class AddToCartView: UIView {
         var product = product
         product?.addons = selectedAddons
         product?.selectedQuantity = self.quantity
+        product?.modifiers = self.modifiers
         self.delegate?.addToCart(product)
         self.parentViewController?.dismiss(animated: true)
     }

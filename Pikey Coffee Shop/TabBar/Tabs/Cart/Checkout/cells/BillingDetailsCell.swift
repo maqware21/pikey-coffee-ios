@@ -24,7 +24,9 @@ class BillingDetailsCell: UITableViewCell {
             let discount = 0.0
             let dileveryCharges = 10.0
             products.forEach { product in
-                subTotal += ((product.price ?? 0) + (product.addons?.first?.price ?? 0)) * (Double(product.selectedQuantity ?? 0))
+                let modifierPrice = product.modifiers?.reduce(0) {$0 + ($1?.selectedOption?.price ?? 0)}
+                let productTotal = ((product.price ?? 0) + (product.addons?.first?.price ?? 0) + (modifierPrice ?? 0))
+                subTotal += productTotal * (Double(product.selectedQuantity ?? 0))
             }
             valueLabels[0].text = String(format: "$%.2f", Float(subTotal))
             valueLabels[1].text = String(format: "$%.2f", Float(discount))

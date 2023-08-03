@@ -171,6 +171,7 @@ extension ProductViewController: AddToCartDelegate {
         if let index = storedCart.firstIndex(where: {$0.id == item.id}),
             storedCart[index].addons?.first?.id ?? 0 == item.addons?.first?.id ?? 0 {
             storedCart[index].selectedQuantity = (item.selectedQuantity ?? 0) + (storedCart[index].selectedQuantity ?? 0)
+            storedCart[index].modifiers = item.modifiers
         } else {
             storedCart.append(item)
         }

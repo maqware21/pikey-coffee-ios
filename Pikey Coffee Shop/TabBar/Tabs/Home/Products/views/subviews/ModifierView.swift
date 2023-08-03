@@ -7,16 +7,21 @@
 
 import UIKit
 
-class ModifierView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
+class ModifierView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var modifier: Modifiers? {
         didSet {
             guard let modifier else { return }
             self.titleLabel.text = modifier.name
-            self.optionField.text = modifier.options?.first?.name
+            self.optionField.text = modifier.selectedOption?.name ?? modifier.options?.first?.name
+            self.selectedOption = modifier.options?.first
             self.pickerView.reloadAllComponents()
         }
     }
+    
+    var selectedOption: Options?
+    
+    var modifierUpdated: ((_: Options?) -> Void)?
     
     var pickerView = UIPickerView()
     
@@ -47,6 +52,7 @@ class ModifierView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         view.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         view.backgroundColor = .white
         view.borderStyle = .roundedRect
+        view.delegate = self
         return view
     }()
     
@@ -107,5 +113,10 @@ class ModifierView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.optionField.text = modifier?.options?[row].name
+        self.selectedOption = modifier?.options?[row]
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.modifierUpdated?(selectedOption)
     }
 }

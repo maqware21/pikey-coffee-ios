@@ -183,8 +183,8 @@ extension PreCheckoutViewController: UITableViewDelegate, UITableViewDataSource 
     
     func billingDetailsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billingDetailsCell", for: indexPath) as! BillingDetailsCell
-        cell.products = products
         cell.pickupType = selectedType
+        cell.products = products
         return cell
     }
     

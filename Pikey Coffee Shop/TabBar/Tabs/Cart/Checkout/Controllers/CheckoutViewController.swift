@@ -228,9 +228,9 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func billingDetailsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billingDetailsCell", for: indexPath) as! BillingDetailsCell
+        cell.pickupType = selectedType
         cell.products = products
         cell.tip = self.tip
-        cell.pickupType = selectedType
         cell.code = self.couponCode
         return cell
     }

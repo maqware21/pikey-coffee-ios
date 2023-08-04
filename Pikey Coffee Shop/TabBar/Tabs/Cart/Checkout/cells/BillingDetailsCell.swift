@@ -22,7 +22,7 @@ class BillingDetailsCell: UITableViewCell {
             guard let products else {return}
             var subTotal = 0.0
             let discount = 0.0
-            let dileveryCharges = 10.0
+            let dileveryCharges = pickupType == .delivery ? 10.0 : 0.0
             products.forEach { product in
                 let modifierPrice = product.modifiers?.reduce(0) {$0 + ($1?.selectedOption?.price ?? 0)}
                 let productTotal = ((product.price ?? 0) + (product.addons?.first?.price ?? 0) + (modifierPrice ?? 0))

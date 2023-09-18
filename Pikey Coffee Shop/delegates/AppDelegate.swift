@@ -10,12 +10,18 @@ import IQKeyboardManagerSwift
 import GoogleMaps
 import GooglePlaces
 import CoreLocation
+import PushNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    let beamsClient = PushNotifications.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.beamsClient.start(instanceId: "0b5b7aa7-6ac0-4676-9018-f8adc03d65ad")
+        self.beamsClient.registerForRemoteNotifications()
         
         let locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
@@ -35,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+      self.beamsClient.registerDeviceToken(deviceToken)
+    }
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.

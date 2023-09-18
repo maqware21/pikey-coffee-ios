@@ -9,4 +9,5 @@ target 'Pikey Coffee Shop' do
    pod 'GoogleMaps', '~> 7.1.0'
    pod 'GooglePlaces', '~> 7.1.0'
    pod 'PlaceholderUITextView'
+   pod 'PushNotifications'
 end

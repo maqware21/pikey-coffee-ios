@@ -15,6 +15,8 @@ struct Cart: Codable {
     let locationID: Int?
     let deliveryDate: String?
     let items: [Item]?
+    let tip: Int?
+    let promoCode: String?
 
     enum CodingKeys: String, CodingKey {
         case paymentMethod = "payment_method"
@@ -23,6 +25,8 @@ struct Cart: Codable {
         case locationID = "location_id"
         case deliveryDate = "delivery_date"
         case items
+        case tip = "tip_driver"
+        case promoCode = "Promo_code"
     }
 }
 

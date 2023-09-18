@@ -84,9 +84,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shw-cL-KSI">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="496"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4zB-7m-SE6">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar 1" translatesAutoresizingMaskIntoConstraints="NO" id="4zB-7m-SE6">
                                                         <rect key="frame" x="107" y="8" width="200" height="200"/>
-                                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="5lb-zE-mdE"/>
                                                             <constraint firstAttribute="width" constant="200" id="Ywv-yA-Hgt"/>
@@ -146,6 +146,14 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2U-7p-IEd">
+                                                        <rect key="frame" x="107" y="8" width="200" height="200"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="onClickPic" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Qsw-qW-W8o"/>
+                                                        </connections>
+                                                    </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="niH-ze-2sO">
                                                         <rect key="frame" x="16" y="240" width="382" height="240"/>
                                                         <subviews>
@@ -400,13 +408,17 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="y2U-7p-IEd" firstAttribute="bottom" secondItem="4zB-7m-SE6" secondAttribute="bottom" id="40b-dq-Mh3"/>
+                                                    <constraint firstItem="y2U-7p-IEd" firstAttribute="trailing" secondItem="4zB-7m-SE6" secondAttribute="trailing" id="87W-fb-nQI"/>
                                                     <constraint firstItem="0WN-w7-mQV" firstAttribute="bottom" secondItem="4zB-7m-SE6" secondAttribute="bottom" constant="-8" id="Be4-8M-cQo"/>
+                                                    <constraint firstItem="y2U-7p-IEd" firstAttribute="leading" secondItem="4zB-7m-SE6" secondAttribute="leading" id="GE3-eK-vKF"/>
                                                     <constraint firstItem="0WN-w7-mQV" firstAttribute="trailing" secondItem="4zB-7m-SE6" secondAttribute="trailing" constant="-8" id="JNb-8j-vTB"/>
                                                     <constraint firstAttribute="trailing" secondItem="niH-ze-2sO" secondAttribute="trailing" constant="16" id="L6P-lf-l5Q"/>
                                                     <constraint firstItem="niH-ze-2sO" firstAttribute="top" secondItem="4zB-7m-SE6" secondAttribute="bottom" constant="32" id="LU5-H9-kUJ"/>
                                                     <constraint firstItem="niH-ze-2sO" firstAttribute="leading" secondItem="Shw-cL-KSI" secondAttribute="leading" constant="16" id="fwh-rE-1ba"/>
                                                     <constraint firstItem="4zB-7m-SE6" firstAttribute="top" secondItem="Shw-cL-KSI" secondAttribute="top" constant="8" id="pED-yT-b26"/>
                                                     <constraint firstItem="4zB-7m-SE6" firstAttribute="centerX" secondItem="Shw-cL-KSI" secondAttribute="centerX" id="uAv-10-2fV"/>
+                                                    <constraint firstItem="y2U-7p-IEd" firstAttribute="top" secondItem="4zB-7m-SE6" secondAttribute="top" id="uO5-uE-C9M"/>
                                                     <constraint firstAttribute="bottom" secondItem="niH-ze-2sO" secondAttribute="bottom" constant="16" id="wpI-Pi-Pd4"/>
                                                 </constraints>
                                             </view>
@@ -485,6 +497,7 @@
                         <outlet property="emailField" destination="GZv-1c-hRg" id="zJW-ch-t1J"/>
                         <outlet property="nameField" destination="2c2-0b-STG" id="u8k-cf-3kb"/>
                         <outlet property="phoneField" destination="7UY-et-cYC" id="GxU-fU-igm"/>
+                        <outlet property="profileImageView" destination="4zB-7m-SE6" id="AN7-s6-7bo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2000,7 +2013,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
-                                                    <action selector="onClickUpdate" destination="Hdl-aZ-fHG" eventType="touchUpInside" id="aHb-rD-5EL"/>
+                                                    <action selector="onClickCheckout" destination="KVz-vE-UwI" eventType="touchUpInside" id="Gwg-vp-WJ1"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2050,9 +2063,15 @@
                         <outlet property="amountView" destination="K02-Wp-pch" id="jqZ-4Z-gjU"/>
                         <outlet property="amountViewBottom" destination="1Ge-zD-pDK" id="zGj-yh-AGL"/>
                         <outlet property="amountViewHeight" destination="eCu-i2-9dE" id="YM7-wU-99O"/>
+                        <outlet property="customAmount" destination="Nbd-LW-cfA" id="fFp-Qy-WvA"/>
                         <outlet property="customAmountView" destination="Uxu-Ho-mNE" id="zIu-9g-qpL"/>
                         <outlet property="customAmountViewBottom" destination="qL9-lj-gLA" id="tL5-n5-ATq"/>
                         <outlet property="fifteenDollarCheck" destination="DSK-Vt-esy" id="mA6-zt-PA2"/>
+                        <outlet property="messageField" destination="zCS-kt-FwN" id="Ucv-ia-997"/>
+                        <outlet property="recipientEmail" destination="8AN-wG-N0W" id="7kd-mO-MXB"/>
+                        <outlet property="recipientName" destination="sSp-fR-ZcK" id="Sfv-VT-EZI"/>
+                        <outlet property="senderEmail" destination="vUJ-Tb-ue9" id="ADL-vq-Bn0"/>
+                        <outlet property="senderName" destination="HA1-UE-fkQ" id="sHp-ys-jLY"/>
                         <outlet property="tenDollarCheck" destination="VaE-jy-MPJ" id="Jgs-Vu-yAn"/>
                     </connections>
                 </viewController>
@@ -2189,9 +2208,6 @@ Las Vegas, Nevada 89118</string>
                                                                                 <rect key="frame" x="0.0" y="0.0" width="406" height="64.5"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                                <connections>
-                                                                                    <action selector="onClickAmount" destination="KVz-vE-UwI" eventType="touchUpInside" id="sbi-F7-NpD"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2260,9 +2276,6 @@ pikeycoffee@gmail.com</string>
                                                                                 <rect key="frame" x="0.0" y="0.0" width="406" height="64.5"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                                <connections>
-                                                                                    <action selector="onClickAmount" destination="KVz-vE-UwI" eventType="touchUpInside" id="Zc9-hB-hh2"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2331,9 +2344,6 @@ pikeycoffee@gmail.com</string>
                                                                                 <rect key="frame" x="0.0" y="0.0" width="406" height="64.5"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="plain"/>
-                                                                                <connections>
-                                                                                    <action selector="onClickAmount" destination="KVz-vE-UwI" eventType="touchUpInside" id="wXw-WC-PYw"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3194,6 +3204,7 @@ Effective as of December 01, 2022</string>
     </scenes>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
+        <image name="avatar 1" width="130" height="130"/>
         <image name="cellIcon" width="48" height="48"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
@@ -3215,9 +3226,6 @@ Effective as of December 01, 2022</string>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

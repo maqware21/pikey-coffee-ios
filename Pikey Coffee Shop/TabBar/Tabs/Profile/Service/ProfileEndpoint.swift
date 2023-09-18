@@ -17,6 +17,7 @@ enum ProfileEndpoint {
     case createLocation(location: PickeyAddress)
     case deleteLocation(id: Int)
     case getMerchandisingCategories
+    case createGiftCard(giftCard: GiftCard)
 }
 
 extension ProfileEndpoint: Endpoint {
@@ -35,6 +36,8 @@ extension ProfileEndpoint: Endpoint {
             return "/api/customer/locations/\(id)"
         case .getMerchandisingCategories:
             return "/api/categories-without-pagination"
+        case .createGiftCard:
+            return "/api/gift-card/pay"
         }
     }
 
@@ -52,6 +55,8 @@ extension ProfileEndpoint: Endpoint {
             return .delete
         case .getMerchandisingCategories:
             return .get
+        case .createGiftCard:
+            return .post
         }
     }
     
@@ -87,6 +92,8 @@ extension ProfileEndpoint: Endpoint {
             return nil
         case .getMerchandisingCategories:
             return  nil
+        case .createGiftCard(let giftCard):
+            return try? giftCard.toDictionary()
         }
     }
     

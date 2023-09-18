@@ -37,6 +37,7 @@ class CheckoutViewController: UIViewController {
     var selectedType: OrderTypeState!
     var tip: String = "0"
     var couponCode: String = ""
+    var paymentToken: String = ""
     var selectedPaymentType: PaymentType? = .applePay
 
     override func viewDidLoad() {
@@ -116,7 +117,9 @@ class CheckoutViewController: UIViewController {
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let date = dateFormatter.string(from: Date())
             
-            let cart = Cart(paymentMethod: 0, token: "", type: 2, userComment: self.textView.text ?? "", locationID: address.id, deliveryDate: date, items: items)
+            let method = selectedPaymentType == .applePay ? 3 : 0
+            
+            let cart = Cart(paymentMethod: method, token: self.paymentToken, type: selectedType.rawValue, userComment: self.textView.text ?? "", locationID: address.id, deliveryDate: date, items: items, tip: Int(self.tip), promoCode: self.couponCode)
             self.showLoader()
             viewModel.createOrder(cart: cart)
         } else {
@@ -294,6 +297,7 @@ extension CheckoutViewController: PKPaymentAuthorizationViewControllerDelegate {
     }
     
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        self.paymentToken = payment.token.transactionIdentifier
         completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
     }
     

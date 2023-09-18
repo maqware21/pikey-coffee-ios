@@ -14,6 +14,7 @@ class ProfileViewController: TabItemViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     var viewModel = ProfileViewModel()
     
@@ -23,6 +24,11 @@ class ProfileViewController: TabItemViewController {
         setLayout()
         updateProfile()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let saved = UserDefaults.standard[.selectedPic] == 0 ? 1 : UserDefaults.standard[.selectedPic]
+        profileImageView.image = UIImage(named: "avatar \(saved)")
     }
     
     func setLayout() {
@@ -134,6 +140,13 @@ class ProfileViewController: TabItemViewController {
         }
     }
     
+    @IBAction func onClickPic() {
+        let controller = AvatarView()
+        controller.delegate = self
+        let vc = PickeySheet(view: controller)
+        present(vc, animated: true)
+    }
+    
     func openURL(_ url: URL) {
         UIApplication.shared.open(url)
     }
@@ -149,11 +162,15 @@ class ProfileViewController: TabItemViewController {
 }
 
 
-extension ProfileViewController: ConfirmationDelegate {
+extension ProfileViewController: ConfirmationDelegate, AvatarUpdated {
     func confirmAction() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.logout()
         }
+    }
+    
+    func onAvatarUpdate() {
+        profileImageView.image = UIImage(named: "avatar \(UserDefaults.standard[.selectedPic])")
     }
 }
 

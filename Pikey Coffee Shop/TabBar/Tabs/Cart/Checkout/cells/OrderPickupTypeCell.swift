@@ -49,8 +49,8 @@ class OrderPickupTypeCell: UITableViewCell {
     
 }
 
-enum OrderTypeState {
-    case now
-    case future
-    case delivery
+enum OrderTypeState: Int {
+    case now = 0
+    case future = 1
+    case delivery = 2
 }

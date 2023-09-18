@@ -16,6 +16,7 @@ class EditProfileViewController: EditProfileBaseViewController {
     @IBOutlet weak var nameField: IconTextField!
     @IBOutlet weak var emailField: IconTextField!
     @IBOutlet weak var phoneField: IconTextField!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     var user: User? = UserDefaults.standard[.user]
     var viewModel = ProfileViewModel()
@@ -36,6 +37,8 @@ class EditProfileViewController: EditProfileBaseViewController {
         emailField.text = user.email
         emailField.isUserInteractionEnabled = false
         phoneField.text = user.phoneNumber
+        let saved = UserDefaults.standard[.selectedPic] == 0 ? 1 : UserDefaults.standard[.selectedPic]
+        profileImageView.image = UIImage(named: "avatar \(saved)")
     }
     
     @IBAction func onClickUpdate() {
@@ -68,9 +71,16 @@ class EditProfileViewController: EditProfileBaseViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    @IBAction func onClickPic() {
+        let controller = AvatarView()
+        controller.delegate = self
+        let vc = PickeySheet(view: controller)
+        present(vc, animated: true)
+    }
 }
 
-extension EditProfileViewController: ProfileDelegate {
+extension EditProfileViewController: ProfileDelegate, AvatarUpdated {
     func profileUpdated(_ user: User?) {
         DispatchQueue.main.async {
             self.removeLoader()
@@ -88,5 +98,9 @@ extension EditProfileViewController: ProfileDelegate {
                 self.view.displayNotice(with: "Invalid user information")
             }
         }
+    }
+    
+    func onAvatarUpdate() {
+        profileImageView.image = UIImage(named: "avatar \(UserDefaults.standard[.selectedPic])")
     }
 }

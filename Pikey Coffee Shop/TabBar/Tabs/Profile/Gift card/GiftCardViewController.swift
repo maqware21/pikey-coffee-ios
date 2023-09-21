@@ -87,12 +87,14 @@ class GiftCardViewController: EditProfileBaseViewController {
 extension GiftCardViewController: PKPaymentAuthorizationViewControllerDelegate {
     
     func purchase() {
-        let total: Double = self.amount == 0 ? Double(self.customAmount.text ?? "0")! : self.amount
-        
-        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "Pickey order", amount: NSDecimalNumber(floatLiteral: total))]
-        if let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest) {
-            controller.delegate = self
-            self.present(controller, animated: true, completion: nil)
+        if self.validate() {
+            let total: Double = self.amount == 0 ? Double(self.customAmount.text ?? "0") ?? 0 : self.amount
+            
+            paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "Pickey order", amount: NSDecimalNumber(floatLiteral: total))]
+            if let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest) {
+                controller.delegate = self
+                self.present(controller, animated: true, completion: nil)
+            }
         }
     }
     
@@ -104,11 +106,10 @@ extension GiftCardViewController: PKPaymentAuthorizationViewControllerDelegate {
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         controller.dismiss(animated: true, completion:  {
             let total: Double = self.amount == 0 ? Double(self.customAmount.text ?? "0")! : self.amount
-            if self.validate() {
-                let giftCard = GiftCard(paymentMethod: 3, token: self.paymentToken, gift: Gift(toName: self.recipientName.text ?? "", fromName: self.senderName.text ?? "", toEmail: self.recipientEmail.text ?? "", fromEmail: self.senderEmail.text ?? "", amount: total, message: self.messageField.text ?? ""))
-                self.showLoader()
-                self.viewModel.createGiftCard(giftCard: giftCard)
-            }
+            
+            let giftCard = GiftCard(paymentMethod: 3, token: self.paymentToken, gift: Gift(toName: self.recipientName.text ?? "", fromName: self.senderName.text ?? "", toEmail: self.recipientEmail.text ?? "", fromEmail: self.senderEmail.text ?? "", amount: total, message: self.messageField.text ?? ""))
+            self.showLoader()
+            self.viewModel.createGiftCard(giftCard: giftCard)
         })
     }
     
@@ -150,6 +151,7 @@ extension GiftCardViewController: GiftCardDelegate {
             }
             
             self.view.displayNotice(with: "Gift card created")
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

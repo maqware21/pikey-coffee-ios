@@ -23,6 +23,7 @@ class BillingDetailsCell: UITableViewCell {
             var subTotal = 0.0
             let discount = 0.0
             let dileveryCharges = pickupType == .delivery ? 10.0 : 0.0
+            let tip = Double(self.tip ?? "0.0")!
             products.forEach { product in
                 let modifierPrice = product.modifiers?.reduce(0) {$0 + ($1?.selectedOption?.price ?? 0)}
                 let productTotal = ((product.price ?? 0) + (product.addons?.first?.price ?? 0) + (modifierPrice ?? 0))
@@ -31,7 +32,12 @@ class BillingDetailsCell: UITableViewCell {
             valueLabels[0].text = String(format: "$%.2f", Float(subTotal))
             valueLabels[1].text = String(format: "$%.2f", Float(discount))
             valueLabels[2].text = String(format: "$%.2f", Float(dileveryCharges))
-            valueLabels[5].text = String(format: "$%.2f", Float(subTotal + discount + dileveryCharges))
+            var total = Double(subTotal + discount + dileveryCharges + tip)
+            if let couponValidated = couponValidated {
+                total -= couponValidated.discountAmount ?? 0
+                total -= ((couponValidated.discountPercentage ?? 0)/100) * total
+            }
+            valueLabels[5].text = String(format: "$%.2f", Float(total))
         }
     }
     
@@ -59,6 +65,8 @@ class BillingDetailsCell: UITableViewCell {
             valueLabels[6].text = code ?? ""
         }
     }
+    
+    var couponValidated: CouponValidated?
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -39,6 +39,7 @@ class CheckoutViewController: UIViewController {
     var couponCode: String = ""
     var paymentToken: String = ""
     var selectedPaymentType: PaymentType? = .applePay
+    var couponValidated: CouponValidated?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,7 +199,8 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutCodeCell", for: indexPath) as! CheckoutCodeCell
         cell.onApply = {[weak self] value in
             self?.couponCode = value
-            self?.tableView.reloadData()
+            self?.showLoader()
+            self?.viewModel.validateCoupon(code: value)
         }
         return cell
     }
@@ -232,9 +234,10 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     func billingDetailsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billingDetailsCell", for: indexPath) as! BillingDetailsCell
         cell.pickupType = selectedType
-        cell.products = products
         cell.tip = self.tip
         cell.code = self.couponCode
+        cell.couponValidated = couponValidated
+        cell.products = products
         return cell
     }
     
@@ -274,6 +277,14 @@ extension CheckoutViewController: CheckOutDelegate, CheckoutAddressUpdateDelegat
     func addressUpdated() {
         self.address = UserDefaults.standard[.selectedAddress]
         tableView.reloadData()
+    }
+    
+    func couponValidated(_ couponValidated: CouponValidated?) {
+        DispatchQueue.main.async {
+            self.removeLoader()
+            self.couponValidated = couponValidated
+            self.tableView.reloadData()
+        }
     }
 }
 

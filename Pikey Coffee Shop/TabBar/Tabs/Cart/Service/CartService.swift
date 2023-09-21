@@ -11,6 +11,7 @@ protocol CartServiceable {
     func createOrder(cart: Cart?) async -> Result<Order, RequestError>
     func getOrders(page: Int) async -> Result<OrderList, RequestError>
     func cancelOrder(id: Int) async -> Result<Order, RequestError>
+    func validateCoupon(code: String) async -> Result<CouponValidated, RequestError>
 }
 
 struct CartService: HTTPClient, CartServiceable {
@@ -27,5 +28,9 @@ struct CartService: HTTPClient, CartServiceable {
     
     func cancelOrder(id: Int) async -> Result<Order, RequestError> {
         return await sendRequest(endpoint: CartEndpoint.cancelOrder(id: id), responseModel: Order.self)
+    }
+    
+    func validateCoupon(code: String) async -> Result<CouponValidated, RequestError> {
+        return await sendRequest(endpoint: CartEndpoint.validateCoupon(code: code), responseModel: CouponValidated.self)
     }
 }

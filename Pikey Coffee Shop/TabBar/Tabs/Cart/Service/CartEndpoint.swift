@@ -11,6 +11,7 @@ enum CartEndpoint {
     case createOrder(cart: Cart?)
     case getOrders(page: Int)
     case cancelOrder(id: Int)
+    case validateCoupon(code: String)
 }
 
 extension CartEndpoint: Endpoint {
@@ -21,6 +22,8 @@ extension CartEndpoint: Endpoint {
             return "/api/customer/orders"
         case .cancelOrder(let id):
             return "/api/customer/orders/\(id)/cancel"
+        case .validateCoupon(let code):
+            return "/api/promotions/validate/\(code)"
         }
     }
 
@@ -32,6 +35,8 @@ extension CartEndpoint: Endpoint {
             return .get
         case .cancelOrder:
             return .put
+        case .validateCoupon:
+            return .get
         }
     }
     

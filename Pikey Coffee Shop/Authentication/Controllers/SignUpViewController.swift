@@ -77,7 +77,7 @@ class SignUpViewController: RegistrationBaseController {
             return false
         }
         
-        if phoneField.isEmpty || !phoneField.hasValidPhoneNo {
+        if phoneField.isEmpty {
             self.view.displayNotice(with: "Valid phone number required")
             return false
         }

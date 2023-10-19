@@ -1617,7 +1617,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Pikey Coffee Shop/Pikey Coffee Shop.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V85844E8P7;
+				DEVELOPMENT_TEAM = 96C977C643;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pikey Coffee Shop/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This string is required to gain permission to access location services on iOS 11+ and should describe how your app uses location services. Set this string in the Info.plist";
@@ -1636,7 +1636,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.Pikey-Coffee-Shop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pikeycoffee.pickeycoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1653,7 +1653,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Pikey Coffee Shop/Pikey Coffee Shop.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V85844E8P7;
+				DEVELOPMENT_TEAM = 96C977C643;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pikey Coffee Shop/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This string is required to gain permission to access location services on iOS 11+ and should describe how your app uses location services. Set this string in the Info.plist";
@@ -1672,7 +1672,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.Pikey-Coffee-Shop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pikeycoffee.pickeycoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

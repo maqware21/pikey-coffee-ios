@@ -100,7 +100,7 @@ struct Transaction: Codable {
     let type: Int?
     let typeInText: String?
     let orderID: Int?
-    let paymentProfileID, providerTransactionID: Int?
+    let paymentProfileID: Int?
 
     enum CodingKeys: String, CodingKey {
         case amount, status
@@ -109,7 +109,6 @@ struct Transaction: Codable {
         case typeInText = "type_in_text"
         case orderID = "order_id"
         case paymentProfileID = "payment_profile_id"
-        case providerTransactionID = "provider_transaction_id"
     }
 }
 

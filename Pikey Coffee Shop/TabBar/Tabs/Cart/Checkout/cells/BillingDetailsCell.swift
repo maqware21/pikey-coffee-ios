@@ -23,7 +23,7 @@ class BillingDetailsCell: UITableViewCell {
             var subTotal = 0.0
             let discount = 0.0
             let dileveryCharges = pickupType == .delivery ? 10.0 : 0.0
-            let tip = Double(self.tip ?? "0.0")!
+            let tip = Double(valueLabels[3].text ?? "0.0") ?? 0.0
             products.forEach { product in
                 let modifierPrice = product.modifiers?.reduce(0) {$0 + ($1?.selectedOption?.price ?? 0)}
                 let productTotal = ((product.price ?? 0) + (product.addons?.first?.price ?? 0) + (modifierPrice ?? 0))
@@ -55,7 +55,12 @@ class BillingDetailsCell: UITableViewCell {
     var tip: String? {
         didSet {
             tipChargesView.isHidden = false
-            valueLabels[3].text = String(format: "$%.2f", Float(Int(tip ?? "0")!))
+            let tipArray = tip?.components(separatedBy: CharacterSet.decimalDigits.inverted)
+            for item in tipArray ?? [] {
+                if let number = Int(item) {
+                    valueLabels[3].text = String(format: "$%.2f", Float(number))
+                }
+            }
         }
     }
     

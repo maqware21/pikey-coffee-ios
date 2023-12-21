@@ -218,7 +218,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func paymentTypeCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentTypeCell", for: indexPath) as! PaymentTypeCell
-        if selectedType == .now {
+        if selectedType == .now || selectedType == .future {
             cell.rowTwoView.isHidden = true
         } else {
             cell.rowTwoView.isHidden = false

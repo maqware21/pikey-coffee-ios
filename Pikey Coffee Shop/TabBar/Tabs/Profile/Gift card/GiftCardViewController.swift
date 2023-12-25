@@ -31,7 +31,7 @@ class GiftCardViewController: EditProfileBaseViewController {
     
     private var paymentRequest: PKPaymentRequest = {
         let request = PKPaymentRequest()
-        request.merchantIdentifier = "merchant.pickeyCoffeeMerchantID"
+        request.merchantIdentifier = "merchant.com.pikeycoffee.pikey"
         request.supportedNetworks = [.visa, .masterCard,.amex,.discover]
         request.supportedCountries = ["US"]
         request.merchantCapabilities = .capability3DS

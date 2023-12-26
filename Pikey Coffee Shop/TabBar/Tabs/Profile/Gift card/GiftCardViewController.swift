@@ -106,10 +106,11 @@ extension GiftCardViewController: PKPaymentAuthorizationViewControllerDelegate {
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         controller.dismiss(animated: true, completion:  {
             let total: Double = self.amount == 0 ? Double(self.customAmount.text ?? "0")! : self.amount
-            
-            let giftCard = GiftCard(paymentMethod: 3, token: self.paymentToken, gift: Gift(toName: self.recipientName.text ?? "", fromName: self.senderName.text ?? "", toEmail: self.recipientEmail.text ?? "", fromEmail: self.senderEmail.text ?? "", amount: total, message: self.messageField.text ?? ""))
-            self.showLoader()
-            self.viewModel.createGiftCard(giftCard: giftCard)
+            if let paymentToken = self.paymentToken, !paymentToken.isEmpty {
+                let giftCard = GiftCard(paymentMethod: 3, token: self.paymentToken, gift: Gift(toName: self.recipientName.text ?? "", fromName: self.senderName.text ?? "", toEmail: self.recipientEmail.text ?? "", fromEmail: self.senderEmail.text ?? "", amount: total, message: self.messageField.text ?? ""))
+                self.showLoader()
+                self.viewModel.createGiftCard(giftCard: giftCard)
+            }
         })
     }
     

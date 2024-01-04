@@ -15,7 +15,9 @@ class InformationCell: UITableViewCell {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var addressPlaceholderView: UIView!
-
+    @IBOutlet weak var separatorView: UIView!
+    @IBOutlet weak var deliveryDetailsView: UIView!
+    
     var user = UserDefaults.standard[.user]
     var address: PickeyAddress? {
         didSet {
@@ -28,6 +30,14 @@ class InformationCell: UITableViewCell {
         }
     }
     var callback: InformationEditCallback?
+    
+    var selectedType: OrderTypeState? {
+        didSet {
+            guard let selectedType else { return }
+            self.deliveryDetailsView.isHidden = selectedType != .delivery
+            self.separatorView.isHidden = selectedType != .delivery
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

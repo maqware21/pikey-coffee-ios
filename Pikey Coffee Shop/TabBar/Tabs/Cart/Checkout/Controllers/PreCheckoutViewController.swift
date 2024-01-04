@@ -159,6 +159,7 @@ extension PreCheckoutViewController: UITableViewDelegate, UITableViewDataSource 
     func infoCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell", for: indexPath) as! InformationCell
         cell.address = address
+        cell.selectedType = self.selectedType
         cell.callback = {[weak self] in
             self?.moveToMyAddresses()
         }

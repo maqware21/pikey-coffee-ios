@@ -29,7 +29,7 @@ class HomeViewController: TabItemViewController {
         tableView.contentInset.bottom = 48
         
         //segment config
-        segment.segments = LabelSegment.segments(withTitles: ["Link to", "Home"],
+        segment.segments = LabelSegment.segments(withTitles: ["Deliver to", "Home"],
                                                  normalTextColor: .white,
                                                  selectedTextColor: .black)
         segment.setIndex(1)

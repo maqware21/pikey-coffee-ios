@@ -29,6 +29,11 @@ class AddToCartView: UIView {
             self.productName = product?.name
             self.productDetail = product?.longDescription
             self.addOns = product?.addons
+            if self.addOns?.first??.price ?? 0 > 0 {
+                self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0) + String(format: " + %.2f", self.addOns?.first??.price ?? 0.0) + " = " + String(format: "%.2f", ((product?.price ?? 0.0) + (self.addOns?.first??.price ?? 0.0)))
+            } else {
+                self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0)
+            }
         }
     }
     
@@ -57,6 +62,12 @@ class AddToCartView: UIView {
                             self.selectedAddons.removeAll()
                             if let obj = self.addOns?.first(where: { $0?.id == id }), let selected = obj {
                                 self.selectedAddons.append(selected)
+                                if selected.price ?? 0 > 0 {
+                                    self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0) + String(format: " + %.2f", selected.price ?? 0.0) + " = " + String(format: "%.2f", ((product?.price ?? 0.0) + (selected.price ?? 0.0)))
+                                } else {
+                                    self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0)
+
+                                }
                             }
                             self.categoryStackView.arrangedSubviews.forEach { view in
                                 if !(view.tag == addOn.id ?? 0) {
@@ -222,6 +233,15 @@ class AddToCartView: UIView {
         return label
     }()
     
+    lazy var totalPriceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.text = "2.0 + 0.6$"
+        label.font = UIFont.systemFont(ofSize: 18)
+        return label
+    }()
+    
     lazy var numberStack: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -337,10 +357,17 @@ class AddToCartView: UIView {
             bottomContainer.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: 0)
         ])
         
+        self.bottomContainer.addSubview(totalPriceLabel)
+        NSLayoutConstraint.activate([
+            totalPriceLabel.topAnchor.constraint(equalTo: self.bottomContainer.topAnchor, constant: 12),
+            totalPriceLabel.leftAnchor.constraint(equalTo: self.bottomContainer.leftAnchor, constant: 16),
+            totalPriceLabel.rightAnchor.constraint(equalTo: self.bottomContainer.rightAnchor, constant: -16)
+        ])
+        
         
         self.bottomContainer.addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.bottomContainer.topAnchor, constant: 24),
+            stackView.topAnchor.constraint(equalTo: self.totalPriceLabel.bottomAnchor, constant: 12),
             stackView.leftAnchor.constraint(equalTo: self.bottomContainer.leftAnchor, constant: 16),
             stackView.rightAnchor.constraint(equalTo: self.bottomContainer.rightAnchor, constant: -16),
             stackView.bottomAnchor.constraint(equalTo: self.bottomContainer.bottomAnchor, constant: -16),

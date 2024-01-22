@@ -15,8 +15,13 @@ class CartCategoryView: UIView {
         didSet {
             guard let product else { return }
             self.titleLabel.text = product.name
-            let price = String(format: "%.2f", product.price ?? 0)
-            self.priceLabel.text = "$\(price)"
+            if product.price ?? 0 > 0 {
+                let price = String(format: "%.2f", product.price ?? 0)
+                self.priceLabel.isHidden = false
+                self.priceLabel.text = "$\(price)"
+            } else {
+                self.priceLabel.isHidden = true
+            }
         }
     }
     
@@ -27,6 +32,15 @@ class CartCategoryView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.cornerRadius = 10
         view.borderColor = UIColor(named: "shadowColor")
+        return view
+    }()
+    
+    lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.spacing = 4
+        view.distribution = .fillEqually
         return view
     }()
     
@@ -74,19 +88,16 @@ class CartCategoryView: UIView {
             containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5)
         ])
         
-        containerView.addSubview(titleLabel)
+        self.containerView.addSubview(stackView)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 6),
-            titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 12),
-            titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -12)
+            stackView.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 6),
+            stackView.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 12),
+            stackView.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -12),
+            stackView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -6)
         ])
         
-        containerView.addSubview(priceLabel)
-        NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0),
-            priceLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            priceLabel.rightAnchor.constraint(equalTo: titleLabel.rightAnchor)
-        ])
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(priceLabel)
     }
     
     var isSelected: Bool = false {

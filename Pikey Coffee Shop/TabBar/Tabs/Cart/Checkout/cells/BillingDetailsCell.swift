@@ -16,6 +16,7 @@ class BillingDetailsCell: UITableViewCell {
     @IBOutlet weak var deliveryChargesView: UIStackView!
     @IBOutlet weak var tipChargesView: UIStackView!
     @IBOutlet weak var couponCodeView: UIStackView!
+    var tipAmount: Double = 0.0
     
     var products: [Product]? {
         didSet {
@@ -23,7 +24,6 @@ class BillingDetailsCell: UITableViewCell {
             var subTotal = 0.0
             let discount = 0.0
             let dileveryCharges = pickupType == .delivery ? 10.0 : 0.0
-            let tip = Double(valueLabels[3].text ?? "0.0") ?? 0.0
             products.forEach { product in
                 let modifierPrice = product.modifiers?.reduce(0) {$0 + ($1?.selectedOption?.price ?? 0)}
                 let productTotal = ((product.price ?? 0) + (product.addons?.first?.price ?? 0) + (modifierPrice ?? 0))
@@ -32,7 +32,7 @@ class BillingDetailsCell: UITableViewCell {
             valueLabels[0].text = String(format: "$%.2f", Float(subTotal))
             valueLabels[1].text = String(format: "$%.2f", Float(discount))
             valueLabels[2].text = String(format: "$%.2f", Float(dileveryCharges))
-            var total = Double(subTotal + discount + dileveryCharges + tip)
+            var total = Double(subTotal + discount + dileveryCharges + tipAmount)
             if let couponValidated = couponValidated {
                 total -= couponValidated.discountAmount ?? 0
                 total -= ((couponValidated.discountPercentage ?? 0)/100) * total
@@ -58,6 +58,7 @@ class BillingDetailsCell: UITableViewCell {
             let tipArray = tip?.components(separatedBy: CharacterSet.decimalDigits.inverted)
             for item in tipArray ?? [] {
                 if let number = Int(item) {
+                    self.tipAmount = Double(number)
                     valueLabels[3].text = String(format: "$%.2f", Float(number))
                 }
             }

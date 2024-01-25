@@ -101,6 +101,17 @@ class AddToCartView: UIView {
                     view.modifierUpdated = {[weak self] option in
                         guard let self else {return}
                         self.modifiers?[index]?.selectedOption = option
+                        let selectedAddon = self.selectedAddons.first
+                        self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0) + String(format: " + %.2f", selectedAddon?.price ?? 0.0)
+                        var totalModifier: Double = 0
+                        self.modifiers?.forEach({ mod in
+                            let selectedModifier = mod?.selectedOption
+                            if option?.price ?? 0 > 0 {
+                                self.totalPriceLabel.text = (self.totalPriceLabel.text ?? "") + String(format: " + %.2f", selectedModifier?.price ?? 0.0)
+                                totalModifier += selectedModifier?.price ?? 0.0
+                            }
+                        })
+                        self.totalPriceLabel.text = (self.totalPriceLabel.text ?? "") + " = " + String(format: "%.2f", ((product?.price ?? 0.0) + (selectedAddon?.price ?? 0.0) + totalModifier))
                     }
                     modifierStackView.addArrangedSubview(view)
                 }
@@ -446,6 +457,29 @@ class AddToCartView: UIView {
                         self.quantity = 1
                     }
                 }
+                
+                let selectedAddon = self.selectedAddons.first
+                if quantity > 1 {
+                    self.totalPriceLabel.text = String(format: "Price: (%.2f", product?.price ?? 0.0) + String(format: " + %.2f", selectedAddon?.price ?? 0.0)
+                } else {
+                    self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0) + String(format: " + %.2f", selectedAddon?.price ?? 0.0)
+                }
+                var totalModifier: Double = 0
+                self.modifiers?.forEach({ mod in
+                    let selectedModifier = mod?.selectedOption
+                    if selectedModifier?.price ?? 0 > 0 {
+                        self.totalPriceLabel.text = (self.totalPriceLabel.text ?? "") + String(format: " + %.2f", selectedModifier?.price ?? 0.0)
+                        totalModifier += selectedModifier?.price ?? 0.0
+                    }
+                })
+                var val = ((product?.price ?? 0.0) + (selectedAddon?.price ?? 0.0) + totalModifier)
+                val *= Double(self.quantity)
+                if quantity > 1 {
+                    self.totalPriceLabel.text = (self.totalPriceLabel.text ?? "") + ") * \(self.quantity) = " + String(format: "%.2f", val)
+                } else {
+                    self.totalPriceLabel.text = (self.totalPriceLabel.text ?? "") + " = " + String(format: "%.2f", val)
+                }
+                
             }
         }
     }

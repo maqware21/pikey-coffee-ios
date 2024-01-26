@@ -102,9 +102,7 @@ class AddToCartView: UIView {
                         guard let self else {return}
                         self.modifiers?[index]?.selectedOption = option
                         let selectedAddon = self.selectedAddons.first
-                        if selectedAddon?.price ?? 0 > 0 {
-                            self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0) + String(format: " + %.2f", selectedAddon?.price ?? 0.0)
-                        }
+                        self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0) + (selectedAddon?.price ?? 0 > 0 ? String(format: " + %.2f", selectedAddon?.price ?? 0.0) : "")
                         var totalModifier: Double = 0
                         self.modifiers?.forEach({ mod in
                             let selectedModifier = mod?.selectedOption
@@ -120,7 +118,7 @@ class AddToCartView: UIView {
             })
             
             self.modifierStackView.layoutIfNeeded()
-            self.modifierScrollHeight.constant = (self.modifierStackView.height + 20) > 380 ? 380 : self.modifierStackView.height + 20
+            self.modifierScrollHeight.constant = (self.modifierStackView.height + 20) > 330 ? 330 : self.modifierStackView.height + 20
         }
     }
     
@@ -375,8 +373,7 @@ class AddToCartView: UIView {
         NSLayoutConstraint.activate([
             totalPriceLabel.topAnchor.constraint(equalTo: self.bottomContainer.topAnchor, constant: 12),
             totalPriceLabel.leftAnchor.constraint(equalTo: self.bottomContainer.leftAnchor, constant: 16),
-            totalPriceLabel.rightAnchor.constraint(equalTo: self.bottomContainer.rightAnchor, constant: -16),
-            totalPriceLabel.heightAnchor.constraint(equalToConstant: 48)
+            totalPriceLabel.rightAnchor.constraint(equalTo: self.bottomContainer.rightAnchor, constant: -16)
         ])
         
         

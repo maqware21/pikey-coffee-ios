@@ -102,11 +102,13 @@ class AddToCartView: UIView {
                         guard let self else {return}
                         self.modifiers?[index]?.selectedOption = option
                         let selectedAddon = self.selectedAddons.first
-                        self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0) + String(format: " + %.2f", selectedAddon?.price ?? 0.0)
+                        if selectedAddon?.price ?? 0 > 0 {
+                            self.totalPriceLabel.text = String(format: "Price: %.2f", product?.price ?? 0.0) + String(format: " + %.2f", selectedAddon?.price ?? 0.0)
+                        }
                         var totalModifier: Double = 0
                         self.modifiers?.forEach({ mod in
                             let selectedModifier = mod?.selectedOption
-                            if option?.price ?? 0 > 0 {
+                            if selectedModifier?.price ?? 0 > 0 {
                                 self.totalPriceLabel.text = (self.totalPriceLabel.text ?? "") + String(format: " + %.2f", selectedModifier?.price ?? 0.0)
                                 totalModifier += selectedModifier?.price ?? 0.0
                             }
@@ -249,6 +251,7 @@ class AddToCartView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.text = "2.0 + 0.6$"
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
@@ -372,7 +375,8 @@ class AddToCartView: UIView {
         NSLayoutConstraint.activate([
             totalPriceLabel.topAnchor.constraint(equalTo: self.bottomContainer.topAnchor, constant: 12),
             totalPriceLabel.leftAnchor.constraint(equalTo: self.bottomContainer.leftAnchor, constant: 16),
-            totalPriceLabel.rightAnchor.constraint(equalTo: self.bottomContainer.rightAnchor, constant: -16)
+            totalPriceLabel.rightAnchor.constraint(equalTo: self.bottomContainer.rightAnchor, constant: -16),
+            totalPriceLabel.heightAnchor.constraint(equalToConstant: 48)
         ])
         
         

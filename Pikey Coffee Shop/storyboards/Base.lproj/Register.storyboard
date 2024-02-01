@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0j9-cQ-dLQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0j9-cQ-dLQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -930,10 +930,10 @@ please re-enter your email.</string>
                                             <constraint firstItem="Y5I-dO-PeC" firstAttribute="top" secondItem="yyH-Ni-bTe" secondAttribute="bottom" constant="8" id="hTU-Sv-l3J"/>
                                             <constraint firstItem="yyH-Ni-bTe" firstAttribute="top" secondItem="5qa-Er-IcJ" secondAttribute="top" constant="48" id="hav-mo-MKe"/>
                                             <constraint firstItem="Xwf-Zv-U8z" firstAttribute="top" secondItem="Rvd-Wp-jFw" secondAttribute="bottom" constant="32" id="hrO-zm-nIU"/>
-                                            <constraint firstItem="zWi-ws-7Ab" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5qa-Er-IcJ" secondAttribute="leading" constant="48" id="hyz-OK-706"/>
+                                            <constraint firstItem="zWi-ws-7Ab" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5qa-Er-IcJ" secondAttribute="leading" constant="60" id="hyz-OK-706"/>
                                             <constraint firstItem="Y5I-dO-PeC" firstAttribute="leading" secondItem="5qa-Er-IcJ" secondAttribute="leading" constant="16" id="icw-Np-05p"/>
                                             <constraint firstAttribute="trailing" secondItem="Y5I-dO-PeC" secondAttribute="trailing" constant="16" id="lGg-CK-0cW"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zWi-ws-7Ab" secondAttribute="trailing" constant="48" id="pwX-he-cUI"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zWi-ws-7Ab" secondAttribute="trailing" constant="60" id="pwX-he-cUI"/>
                                             <constraint firstItem="zWi-ws-7Ab" firstAttribute="top" secondItem="eM4-zG-lIt" secondAttribute="bottom" constant="55" id="q2i-te-Yuk"/>
                                         </constraints>
                                     </view>
@@ -1749,6 +1749,304 @@ please re-enter your email.</string>
             </objects>
             <point key="canvasLocation" x="3636" y="44"/>
         </scene>
+        <!--Terms And Policy View Controller-->
+        <scene sceneID="jTr-7Y-Hya">
+            <objects>
+                <viewController storyboardIdentifier="TermsAndPolicyViewController" id="oip-RM-qMj" customClass="TermsAndPolicyViewController" customModule="Pikey_Coffee_Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W8i-Aw-bP6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rewards &amp; Promotions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9B-S2-0d6">
+                                <rect key="frame" x="90.5" y="57.5" width="233" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMw-V9-8bw">
+                                <rect key="frame" x="24" y="101" width="374" height="761"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gc7-nH-7kR">
+                                        <rect key="frame" x="4" y="0.0" width="366" height="756"/>
+                                        <subviews>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpR-yv-K9e">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="756"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjV-qr-BVK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="9752.5"/>
+                                                        <string key="text">Agreement between User and www.pikeycoffee.com 
+
+Welcome to www.pikeycoffee.com. The www.pikeycoffee.com website (the "Site") is comprised of various web pages operated by Pikey Coffee ("PK"). www.pikeycoffee.com is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein (the "Terms"). Your use of www.pikeycoffee.com constitutes your agreement to all such Terms. Please read these terms carefully, and keep a copy of them for your reference. 
+
+  
+
+www.pikeycoffee.com is an E-Commerce Site. 
+
+  
+
+Selling Food, Drinks, and Merchandise 
+
+  
+
+Privacy 
+
+Your use of www.pikeycoffee.com is subject to PK's Privacy Policy. Please review our Privacy Policy, which also governs the Site and informs users of our data collection practices. 
+
+  
+
+Electronic Communications 
+
+Visiting www.pikeycoffee.com or sending emails to PK constitutes electronic communications. You consent to receive electronic communications and you agree that all agreements, notices, disclosures and other communications that we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communications be in writing. 
+
+  
+
+Your Account 
+
+If you use this site, you are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer, and you agree to accept responsibility for all activities that occur under your account or password. You may not assign or otherwise transfer your account to any other person or entity. You acknowledge that PK is not responsible for third party access to your account that results from theft or misappropriation of your account. PK and its associates reserve the right to refuse or cancel service, terminate accounts, or remove or edit content in our sole discretion. 
+
+  
+
+Children Under Thirteen 
+
+PK does not knowingly collect, either online or offline, personal information from persons under the age of thirteen. If you are under 18, you may use www.pikeycoffee.com only with permission of a parent or guardian. 
+
+  
+
+Links to Third Party Sites/Third Party Services 
+
+www.pikeycoffee.com may contain links to other websites ("Linked Sites"). The Linked Sites are not under the control of PK and PK is not responsible for the contents of any Linked Site, including without limitation any link contained in a Linked Site, or any changes or updates to a Linked Site. PK is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement by PK of the site or any association with its operators. 
+
+  
+
+Certain services made available via www.pikeycoffee.com are delivered by third party sites and organizations. By using any product, service or functionality originating from the www.pikeycoffee.com domain, you hereby acknowledge and consent that PK may share such information and data with any third party with whom PK has a contractual relationship to provide the requested product, service or functionality on behalf of www.pikeycoffee.com users and customers. 
+
+  
+
+No Unlawful or Prohibited Use/Intellectual Property 
+
+You are granted a non-exclusive, non-transferable, revocable license to access and use www.pikeycoffee.com strictly in accordance with these terms of use. As a condition of your use of the Site, you warrant to PK that you will not use the Site for any purpose that is unlawful or prohibited by these Terms. You may not use the Site in any manner which could damage, disable, overburden, or impair the Site or interfere with any other party's use and enjoyment of the Site. You may not obtain or attempt to obtain any materials or information through any means not intentionally made available or provided for through the Site. 
+
+  
+
+All content included as part of the Service, such as text, graphics, logos, images, as well as the compilation thereof, and any software used on the Site, is the property of PK or its suppliers and protected by copyright and other laws that protect intellectual property and proprietary rights. You agree to observe and abide by all copyright and other proprietary notices, legends or other restrictions contained in any such content and will not make any changes thereto. 
+
+  
+
+You will not modify, publish, transmit, reverse engineer, participate in the transfer or sale, create derivative works, or in any way exploit any of the content, in whole or in part, found on the Site. PK content is not for resale. Your use of the Site does not entitle you to make any unauthorized use of any protected content, and in particular you will not delete or alter any proprietary rights or attribution notices in any content. You will use protected content solely for your personal use, and will make no other use of the content without the express written permission of PK and the copyright owner. You agree that you do not acquire any ownership rights in any protected content. We do not grant you any licenses, express or implied, to the intellectual property of PK or our licensors except as expressly authorized by these Terms. 
+
+  
+
+International Users 
+
+The Service is controlled, operated and administered by PK from our offices within the USA. If you access the Service from a location outside the USA, you are responsible for compliance with all local laws. You agree that you will not use the PK Content accessed through www.pikeycoffee.com in any country or in any manner prohibited by any applicable laws, restrictions or regulations. 
+
+  
+
+Indemnification 
+
+You agree to indemnify, defend and hold harmless PK, its officers, directors, employees, agents and third parties, for any losses, costs, liabilities and expenses (including reasonable attorney's fees) relating to or arising out of your use of or inability to use the Site or services, any user postings made by you, your violation of any terms of this Agreement or your violation of any rights of a third party, or your violation of any applicable laws, rules or regulations. PK reserves the right, at its own cost, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, in which event you will fully cooperate with PK in asserting any available defenses. 
+
+  
+
+Arbitration 
+
+In the event the parties are not able to resolve any dispute between them arising out of or concerning these Terms and Conditions, or any provisions hereof, whether in contract, tort, or otherwise at law or in equity for damages or any other relief, then such dispute shall be resolved only by final and binding arbitration pursuant to the Federal Arbitration Act, conducted by a single neutral arbitrator and administered by the American Arbitration Association, or a similar arbitration service selected by the parties, in a location mutually agreed upon by the parties. The arbitrator's award shall be final, and judgment may be entered upon it in any court having jurisdiction. In the event that any legal or equitable action, proceeding or arbitration arises out of or concerns these Terms and Conditions, the prevailing party shall be entitled to recover its costs and reasonable attorney's fees. The parties agree to arbitrate all disputes and claims in regards to these Terms and Conditions or any disputes arising as a result of these Terms and Conditions, whether directly or indirectly, including Tort claims that are a result of these Terms and Conditions. The parties agree that the Federal Arbitration Act governs the interpretation and enforcement of this provision. The entire dispute, including the scope and enforceability of this arbitration provision shall be determined by the Arbitrator. This arbitration provision shall survive the termination of these Terms and Conditions. 
+
+  
+
+Class Action Waiver 
+
+Any arbitration under these Terms and Conditions will take place on an individual basis; class arbitrations and class/representative/collective actions are not permitted. THE PARTIES AGREE THAT A PARTY MAY BRING CLAIMS AGAINST THE OTHER ONLY IN EACH'S INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PUTATIVE CLASS, COLLECTIVE AND/ OR REPRESENTATIVE PROCEEDING, SUCH AS IN THE FORM OF A PRIVATE ATTORNEY GENERAL ACTION AGAINST THE OTHER. Further, unless both you and PK agree otherwise, the arbitrator may not consolidate more than one person's claims, and may not otherwise preside over any form of a representative or class proceeding. 
+
+  
+
+Liability Disclaimer 
+
+THE INFORMATION, SOFTWARE, PRODUCTS, AND SERVICES INCLUDED IN OR AVAILABLE THROUGH THE SITE MAY INCLUDE INACCURACIES OR TYPOGRAPHICAL ERRORS. CHANGES ARE PERIODICALLY ADDED TO THE INFORMATION HEREIN. PIKEY COFFEE AND/OR ITS SUPPLIERS MAY MAKE IMPROVEMENTS AND/OR CHANGES IN THE SITE AT ANY TIME. 
+
+  
+
+PIKEY COFFEE AND/OR ITS SUPPLIERS MAKE NO REPRESENTATIONS ABOUT THE SUITABILITY, RELIABILITY, AVAILABILITY, TIMELINESS, AND ACCURACY OF THE INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS CONTAINED ON THE SITE FOR ANY PURPOSE. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ALL SUCH INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS ARE PROVIDED "AS IS" WITHOUT WARRANTY OR CONDITION OF ANY KIND. PIKEY COFFEE AND/OR ITS SUPPLIERS HEREBY DISCLAIM ALL WARRANTIES AND CONDITIONS WITH REGARD TO THIS INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS, INCLUDING ALL IMPLIED WARRANTIES OR CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. 
+
+  
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL PIKEY COFFEE AND/OR ITS SUPPLIERS BE LIABLE FOR ANY DIRECT, INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF USE, DATA OR PROFITS, ARISING OUT OF OR IN ANY WAY CONNECTED WITH THE USE OR PERFORMANCE OF THE SITE, WITH THE DELAY OR INABILITY TO USE THE SITE OR RELATED SERVICES, THE PROVISION OF OR FAILURE TO PROVIDE SERVICES, OR FOR ANY INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS OBTAINED THROUGH THE SITE, OR OTHERWISE ARISING OUT OF THE USE OF THE SITE, WHETHER BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY OR OTHERWISE, EVEN IF PIKEY COFFEE OR ANY OF ITS SUPPLIERS HAS BEEN ADVISED OF THE POSSIBILITY OF DAMAGES. BECAUSE SOME STATES/JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU. IF YOU ARE DISSATISFIED WITH ANY PORTION OF THE SITE, OR WITH ANY OF THESE TERMS OF USE, YOUR SOLE AND EXCLUSIVE REMEDY IS TO DISCONTINUE USING THE SITE. 
+
+  
+
+Termination/Access Restriction 
+
+PK reserves the right, in its sole discretion, to terminate your access to the Site and the related services or any portion thereof at any time, without notice. To the maximum extent permitted by law, this agreement is governed by the laws of the State of Nevada and you hereby consent to the exclusive jurisdiction and venue of courts in Nevada in all disputes arising out of or relating to the use of the Site. Use of the Site is unauthorized in any jurisdiction that does not give effect to all provisions of these Terms, including, without limitation, this section. 
+
+  
+
+You agree that no joint venture, partnership, employment, or agency relationship exists between you and PK as a result of this agreement or use of the Site. PK's performance of this agreement is subject to existing laws and legal process, and nothing contained in this agreement is in derogation of PK's right to comply with governmental, court and law enforcement requests or requirements relating to your use of the Site or information provided to or gathered by PK with respect to such use. If any part of this agreement is determined to be invalid or unenforceable pursuant to applicable law including, but not limited to, the warranty disclaimers and liability limitations set forth above, then the invalid or unenforceable provision will be deemed superseded by a valid, enforceable provision that most closely matches the intent of the original provision and the remainder of the agreement shall continue in effect. 
+
+  
+
+Unless otherwise specified herein, this agreement constitutes the entire agreement between the user and PK with respect to the Site and it supersedes all prior or contemporaneous communications and proposals, whether electronic, oral or written, between the user and PK with respect to the Site. A printed version of this agreement and of any notice given in electronic form shall be admissible in judicial or administrative proceedings based upon or relating to this agreement to the same extent and subject to the same conditions as other business documents and records originally generated and maintained in printed form. It is the express wish to the parties that this agreement and all related documents be written in English. 
+
+  
+
+Changes to Terms 
+
+PK reserves the right, in its sole discretion, to change the Terms under which www.pikeycoffee.com is offered. The most current version of the Terms will supersede all previous versions. PK encourages you to periodically review the Terms to stay informed of our updates. 
+
+  
+
+Contact Us 
+
+PK welcomes your questions or comments regarding the Terms: 
+
+  
+
+Pikey Coffee 
+
+6430 S Decatur Blvd Suite 800 
+
+Las Vegas, Nevada 89118 
+
+  
+
+  
+
+Email Address: 
+
+pikeycoffee@gmail.com 
+
+  
+
+Telephone number: 
+
+702-780-4876 
+
+  
+
+Effective as of December 01, 2022</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" name="coffeeGray"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="FjV-qr-BVK" firstAttribute="trailing" secondItem="hZH-Oc-eOv" secondAttribute="trailing" id="32y-8M-KLG"/>
+                                                    <constraint firstItem="hZH-Oc-eOv" firstAttribute="leading" secondItem="FjV-qr-BVK" secondAttribute="leading" id="GVT-41-NiK"/>
+                                                    <constraint firstItem="FjV-qr-BVK" firstAttribute="bottom" secondItem="hZH-Oc-eOv" secondAttribute="bottom" id="mH2-e9-YUI"/>
+                                                    <constraint firstItem="FjV-qr-BVK" firstAttribute="width" secondItem="lX3-9O-b2y" secondAttribute="width" id="mip-l3-dPw"/>
+                                                    <constraint firstItem="hZH-Oc-eOv" firstAttribute="top" secondItem="FjV-qr-BVK" secondAttribute="top" id="znn-zu-K9r"/>
+                                                </constraints>
+                                                <viewLayoutGuide key="contentLayoutGuide" id="hZH-Oc-eOv"/>
+                                                <viewLayoutGuide key="frameLayoutGuide" id="lX3-9O-b2y"/>
+                                            </scrollView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="bpR-yv-K9e" secondAttribute="trailing" id="HJn-Sw-xPF"/>
+                                            <constraint firstItem="bpR-yv-K9e" firstAttribute="leading" secondItem="gc7-nH-7kR" secondAttribute="leading" id="NmY-0h-Kr4"/>
+                                            <constraint firstItem="bpR-yv-K9e" firstAttribute="top" secondItem="gc7-nH-7kR" secondAttribute="top" id="cDb-1e-w46"/>
+                                            <constraint firstAttribute="bottom" secondItem="bpR-yv-K9e" secondAttribute="bottom" id="jBc-Yh-mZ0"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" name="shadowColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="-6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gc7-nH-7kR" firstAttribute="top" secondItem="eMw-V9-8bw" secondAttribute="top" id="Vbo-Ni-wh8"/>
+                                    <constraint firstAttribute="trailing" secondItem="gc7-nH-7kR" secondAttribute="trailing" constant="4" id="eeg-cY-bPm"/>
+                                    <constraint firstItem="gc7-nH-7kR" firstAttribute="leading" secondItem="eMw-V9-8bw" secondAttribute="leading" constant="4" id="hO7-ei-0xP"/>
+                                    <constraint firstAttribute="bottom" secondItem="gc7-nH-7kR" secondAttribute="bottom" constant="5" id="lre-7G-ZRc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcH-Do-IDf">
+                                <rect key="frame" x="16" y="48" width="45" height="45"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zpo-BT-p82">
+                                        <rect key="frame" x="10.5" y="15" width="24" height="15"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="faO-Bm-EWQ"/>
+                                            <constraint firstAttribute="height" constant="20" id="xRM-gG-TJ4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIt-rx-dTI">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="onClickBack" destination="oip-RM-qMj" eventType="touchUpInside" id="ePZ-bY-rB8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="vIt-rx-dTI" firstAttribute="top" secondItem="ZcH-Do-IDf" secondAttribute="top" id="0t2-tQ-yE2"/>
+                                    <constraint firstAttribute="trailing" secondItem="vIt-rx-dTI" secondAttribute="trailing" id="8Sr-vY-HNJ"/>
+                                    <constraint firstAttribute="height" constant="45" id="Fne-77-GuE"/>
+                                    <constraint firstAttribute="width" constant="45" id="Nlv-eg-0NI"/>
+                                    <constraint firstItem="zpo-BT-p82" firstAttribute="centerX" secondItem="ZcH-Do-IDf" secondAttribute="centerX" id="Vxk-tG-08o"/>
+                                    <constraint firstItem="zpo-BT-p82" firstAttribute="centerY" secondItem="ZcH-Do-IDf" secondAttribute="centerY" id="gNc-Zo-rdw"/>
+                                    <constraint firstItem="vIt-rx-dTI" firstAttribute="leading" secondItem="ZcH-Do-IDf" secondAttribute="leading" id="j89-Sx-uZY"/>
+                                    <constraint firstAttribute="bottom" secondItem="vIt-rx-dTI" secondAttribute="bottom" id="kr2-fP-BFL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="shadowColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jGZ-vv-nCT"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eMw-V9-8bw" firstAttribute="leading" secondItem="jGZ-vv-nCT" secondAttribute="leading" constant="24" id="0gK-yc-j2j"/>
+                            <constraint firstItem="eMw-V9-8bw" firstAttribute="top" secondItem="ZcH-Do-IDf" secondAttribute="bottom" constant="8" id="Oxo-RN-tdB"/>
+                            <constraint firstItem="ZcH-Do-IDf" firstAttribute="leading" secondItem="jGZ-vv-nCT" secondAttribute="leading" constant="16" id="X49-wK-bOg"/>
+                            <constraint firstItem="eMw-V9-8bw" firstAttribute="trailing" secondItem="jGZ-vv-nCT" secondAttribute="trailing" constant="-16" id="ZED-iL-NsF"/>
+                            <constraint firstItem="t9B-S2-0d6" firstAttribute="centerY" secondItem="ZcH-Do-IDf" secondAttribute="centerY" id="iJc-jp-U4I"/>
+                            <constraint firstItem="t9B-S2-0d6" firstAttribute="centerX" secondItem="jGZ-vv-nCT" secondAttribute="centerX" id="ll0-Fj-oR5"/>
+                            <constraint firstItem="ZcH-Do-IDf" firstAttribute="top" secondItem="jGZ-vv-nCT" secondAttribute="top" id="qfd-mn-5ns"/>
+                            <constraint firstItem="jGZ-vv-nCT" firstAttribute="bottom" secondItem="eMw-V9-8bw" secondAttribute="bottom" id="xOQ-vx-wM9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="FjV-qr-BVK" id="f6X-wl-Qdn"/>
+                        <outlet property="titleLabel" destination="t9B-S2-0d6" id="ZVR-Jd-VPH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YaO-Eb-TeH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4503" y="59"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="47s-lG-kOe">
             <objects>
@@ -1768,6 +2066,7 @@ please re-enter your email.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <image name="cellIcon" width="48" height="48"/>
         <image name="checkIcon" width="14" height="14"/>
         <image name="eraseIcon" width="26" height="19"/>

@@ -21,7 +21,7 @@ class VerificationViewController: RegistrationBaseController {
                                        font: UIFont.systemFont(ofSize: 22),
                                        isUnderLined: true)
         
-        resendCodeLabel.addRangeGesture(stringRange: "Resend Code") {
+        resendCodeLabel.addRangeGesture(stringRange: "Resend Code") { _ in
             print("resend code clicked")
         }
     }

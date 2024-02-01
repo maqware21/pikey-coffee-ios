@@ -83,7 +83,7 @@ class BillingDetailsCell: UITableViewCell {
                                       textColor: .white,
                                       isUnderLined: true)
         
-        valueLabels[4].addRangeGesture(stringRange: "Avail Points") {
+        valueLabels[4].addRangeGesture(stringRange: "Avail Points") { _ in
             print("avail clicked")
         }
         

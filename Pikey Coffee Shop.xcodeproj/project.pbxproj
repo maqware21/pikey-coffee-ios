@@ -153,6 +153,7 @@
 		56E479782AB4D7AF00D3F9CE /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E479772AB4D7AF00D3F9CE /* AvatarView.swift */; };
 		56E4797C2AB4D99A00D3F9CE /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E4797A2AB4D99A00D3F9CE /* AvatarCollectionViewCell.swift */; };
 		56E4797D2AB4D99A00D3F9CE /* AvatarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E4797B2AB4D99A00D3F9CE /* AvatarCollectionViewCell.xib */; };
+		56E4D88B2B6C22EF001766B3 /* TermsAndPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E4D88A2B6C22EF001766B3 /* TermsAndPolicyViewController.swift */; };
 		56EDB30A2A1A8D3000CAA59A /* GiftCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EDB3092A1A8D3000CAA59A /* GiftCardViewController.swift */; };
 		56EDB30D2A1A9BC200CAA59A /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EDB30C2A1A9BC200CAA59A /* HelpViewController.swift */; };
 		56F532F028526614006695DD /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F532EF28526614006695DD /* NotificationsViewController.swift */; };
@@ -305,6 +306,7 @@
 		56E479772AB4D7AF00D3F9CE /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		56E4797A2AB4D99A00D3F9CE /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
 		56E4797B2AB4D99A00D3F9CE /* AvatarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarCollectionViewCell.xib; sourceTree = "<group>"; };
+		56E4D88A2B6C22EF001766B3 /* TermsAndPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndPolicyViewController.swift; sourceTree = "<group>"; };
 		56EDB3092A1A8D3000CAA59A /* GiftCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardViewController.swift; sourceTree = "<group>"; };
 		56EDB30C2A1A9BC200CAA59A /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		56F532EF28526614006695DD /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -748,6 +750,7 @@
 				565FA1AD284A8722007E8C1C /* SignUpViewController.swift */,
 				565FA1AF284A9182007E8C1C /* VerificationViewController.swift */,
 				56C6653F295210C500898969 /* LoginViewController+AppleAuth.swift */,
+				56E4D88A2B6C22EF001766B3 /* TermsAndPolicyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1373,6 +1376,7 @@
 				5692A07F28FDE39400B91F59 /* HomeService.swift in Sources */,
 				564873E028480C06003C63DD /* UILabel+Extension.swift in Sources */,
 				56942DD3291C11BA001438CB /* Encodable+Extension.swift in Sources */,
+				56E4D88B2B6C22EF001766B3 /* TermsAndPolicyViewController.swift in Sources */,
 				56DC00532923F6B000180F70 /* CartEndpoint.swift in Sources */,
 				562C4A4429BFCE3E00848447 /* OrderedItemsCell.swift in Sources */,
 				564873DE2847FA18003C63DD /* IconTextField.swift in Sources */,

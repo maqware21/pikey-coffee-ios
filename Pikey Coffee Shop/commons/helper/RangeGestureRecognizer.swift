@@ -2,8 +2,9 @@ import UIKit
 
 public class RangeGestureRecognizer: UITapGestureRecognizer {
     // Stored variables
-    typealias MethodHandler = () -> Void
+    typealias MethodHandler = (_ string: String?) -> Void
     var stringRange: String?
+    var stringRanges: [String]?
     var function: MethodHandler?
   
     func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {

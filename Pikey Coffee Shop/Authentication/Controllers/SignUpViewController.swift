@@ -33,20 +33,22 @@ class SignUpViewController: RegistrationBaseController {
                                     font: UIFont.systemFont(ofSize: 18),
                                     isUnderLined: true)
         
-        loginMessage.addRangeGesture(stringRange: "Log In") {
+        loginMessage.addRangeGesture(stringRange: "Log In") { _ in
             self.navigationController?.popViewController(animated: true)
         }
         
-        let termsAndConditiontext = "By signing up, you agree to our Terms and Conditions."
+        let termsAndConditiontext = "By signing up, you agree to our \nTerms and Conditions \nand Privacy Policy."
         
         termsAndConditionLabel.tappableLabels(string: termsAndConditiontext,
-                                              tappableStrings: ["Terms and Conditions"],
+                                              tappableStrings: ["Terms and Conditions", "Privacy Policy"],
                                               textColor: .white,
                                               font: UIFont.systemFont(ofSize: 18),
                                               isUnderLined: true)
-        
-        termsAndConditionLabel.addRangeGesture(stringRange: termsAndConditiontext) {
-            print("terms clicked")
+        termsAndConditionLabel.addRangeGestures(stringRanges: ["Terms and Conditions", "Privacy Policy"]) {[weak self] val in
+            if let controller = self?.storyboard?.instantiateViewController(withIdentifier: "TermsAndPolicyViewController") as? TermsAndPolicyViewController {
+                controller.typeString = val ?? ""
+                self?.navigationController?.pushViewController(controller, animated: true)
+            }
         }
         passwordField.enablePasswordToggle()
     }

@@ -35,7 +35,7 @@ public extension UILabel {
         return label.frame.height
     }
     
-    typealias MethodHandler = () -> Void
+    typealias MethodHandler = (_ string: String?) -> Void
     
     func addRangeGesture(stringRange: String, function: @escaping MethodHandler) {
         let recognizer = RangeGestureRecognizer(target: self, action: #selector(tappedOnLabel(_ :)))
@@ -47,12 +47,32 @@ public extension UILabel {
         self.addGestureRecognizer(tapgesture)
     }
     
+    func addRangeGestures(stringRanges: [String], function: @escaping MethodHandler) {
+        let recognizer = RangeGestureRecognizer(target: self, action: #selector(tappedOnLabel(_ :)))
+        recognizer.stringRanges = stringRanges
+        recognizer.function = function
+        self.isUserInteractionEnabled = true
+        let tapgesture: UITapGestureRecognizer = recognizer
+        tapgesture.numberOfTapsRequired = 1
+        self.addGestureRecognizer(tapgesture)
+    }
+    
     @objc func tappedOnLabel(_ gesture: RangeGestureRecognizer) {
         guard let text = self.text else { return }
-        let stringRange = (text as NSString).range(of: gesture.stringRange ?? "")
-        if gesture.didTapAttributedTextInLabel(label: self, inRange: stringRange) {
-            guard let existedFunction = gesture.function else { return }
-            existedFunction()
+        if gesture.stringRanges?.count ?? 0 > 0 {
+            gesture.stringRanges?.forEach({ string in
+                let stringRange = (text as NSString).range(of: string)
+                if gesture.didTapAttributedTextInLabel(label: self, inRange: stringRange) {
+                    guard let existedFunction = gesture.function else { return }
+                    existedFunction(string)
+                }
+            })
+        } else {
+            let stringRange = (text as NSString).range(of: gesture.stringRange ?? "")
+            if gesture.didTapAttributedTextInLabel(label: self, inRange: stringRange) {
+                guard let existedFunction = gesture.function else { return }
+                existedFunction(gesture.stringRange)
+            }
         }
     }
     

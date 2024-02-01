@@ -29,7 +29,7 @@ class ForgetPasswordViewController: RegistrationBaseController {
                                     font: UIFont.systemFont(ofSize: 18),
                                     isUnderLined: true)
         
-        loginMessage.addRangeGesture(stringRange: "Log In") {
+        loginMessage.addRangeGesture(stringRange: "Log In") { _ in
             self.navigationController?.popViewController(animated: true)
         }
         emailField.delegate = self

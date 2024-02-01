@@ -33,7 +33,7 @@ class LoginViewController: RegistrationBaseController {
                                      font: UIFont.systemFont(ofSize: 18),
                                      isUnderLined: true)
         
-        signUpMessage.addRangeGesture(stringRange: "Sign Up") {
+        signUpMessage.addRangeGesture(stringRange: "Sign Up") { _ in
             if let controller = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") {
                 self.navigationController?.pushViewController(controller, animated: true)
             }

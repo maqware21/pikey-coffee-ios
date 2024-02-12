@@ -17,7 +17,7 @@ extension Endpoint {
     }
 
     var host: String {
-        return "dev.pikeycoffee.com"
+        return "pikeycoffee.com"
     }
     
     var header: [String: String]? {

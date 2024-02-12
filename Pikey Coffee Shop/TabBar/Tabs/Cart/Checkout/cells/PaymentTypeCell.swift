@@ -25,6 +25,7 @@ class PaymentTypeCell: UITableViewCell {
     }
     
     func configureRows(_ tag: Int) {
+        rowTwoBullet.isHidden =  true
         if tag == 1 {
             rowOneBullet.backgroundColor = .white
             rowTwoBullet.backgroundColor = .clear
@@ -41,4 +42,5 @@ class PaymentTypeCell: UITableViewCell {
 enum PaymentType {
     case applePay
     case cash
+    case delivery
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class OrderPickupTypeCell: UITableViewCell {
 
+    @IBOutlet weak var deliveryCell: UIButton!
     @IBOutlet weak var rowOneBullet: UIView!
     @IBOutlet weak var rowTwoBullet: UIView!
     @IBOutlet weak var rowThreeBullet: UIView!
@@ -23,10 +24,15 @@ class OrderPickupTypeCell: UITableViewCell {
     
     @IBAction func onClickRow(_ sender: UIButton!) {
         configureRows(sender.tag)
+        
     }
     
+    @IBAction func dLabel(_ sender: Any) {
+    }
     func configureRows(_ tag: Int) {
-        if tag == 1 {
+        deliveryCell.isHidden =  true
+        rowThreeBullet.isHidden =  true
+                if tag == 1 {
             rowOneBullet.backgroundColor = .white
             rowTwoBullet.backgroundColor = .clear
             rowThreeBullet.backgroundColor = .clear
@@ -39,11 +45,12 @@ class OrderPickupTypeCell: UITableViewCell {
             selectedType = .future
             stateSelected?(selectedType)
         } else {
-            rowOneBullet.backgroundColor = .clear
-            rowTwoBullet.backgroundColor = .clear
-            rowThreeBullet.backgroundColor = .white
-            selectedType = .delivery
-            stateSelected?(selectedType)
+              print("test")
+//            rowOneBullet.backgroundColor = .clear
+//            rowTwoBullet.backgroundColor = .clear
+//            rowThreeBullet.backgroundColor = .white
+//            selectedType = .delivery
+//            stateSelected?(selectedType)
         }
     }
     

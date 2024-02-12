@@ -11,11 +11,13 @@ import StoreKit
 
 class ProfileViewController: TabItemViewController {
     
+    @IBOutlet weak var heightButton: NSLayoutConstraint!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet weak var addressLabelView: UIView!
     var viewModel = ProfileViewModel()
     
     override func viewDidLoad() {
@@ -23,6 +25,8 @@ class ProfileViewController: TabItemViewController {
         viewModel.delegate = self
         setLayout()
         updateProfile()
+        addressLabelView.isHidden =  true
+        heightButton.constant=0.0
         // Do any additional setup after loading the view.
     }
     

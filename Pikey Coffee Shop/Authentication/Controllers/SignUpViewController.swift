@@ -15,14 +15,41 @@ class SignUpViewController: RegistrationBaseController {
     @IBOutlet weak var phoneField: IconTextField!
     @IBOutlet weak var termsAndConditionLabel: UILabel!
     @IBOutlet weak var loginMessage: UILabel!
-    
+    @IBOutlet weak var plabel: UILabel!
     var viewModel = AuthenticationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let termsTapGesture = UITapGestureRecognizer(target: self, action: #selector(termsAndConditionsTapped))
+        plabel.isUserInteractionEnabled = true
+        plabel.addGestureRecognizer(termsTapGesture)
+          
+          // Style the label
+          let paragraphStyle = NSMutableParagraphStyle()
+          paragraphStyle.alignment = .right  // If you want to center-align the label text
+          
+        let attributes: [NSAttributedString.Key: Any] = [
+                    .underlineStyle: NSUnderlineStyle.single.rawValue,
+                    .foregroundColor: UIColor.white,
+                    .font: UIFont.systemFont(ofSize: 18)
+                ]
+        
+          let attributeString = NSMutableAttributedString(string: "Privacy policy", attributes: attributes)
+        plabel.attributedText = attributeString
+        
         viewModel.authenticationDelegate = self
         // Do any additional setup after loading the view.
     }
+    
+    @objc func termsAndConditionsTapped() {
+        if let url = URL(string: "https://pikeycoffee.com/policy"),
+                  UIApplication.shared.canOpenURL(url) {
+                   // Open the URL outside the app in the default web browser
+                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+               }
+    }
+    
+    
 
     override func setLayout() {
         let logintext = "Already have an account? Log In"
@@ -37,19 +64,24 @@ class SignUpViewController: RegistrationBaseController {
             self.navigationController?.popViewController(animated: true)
         }
         
-        let termsAndConditiontext = "By signing up, you agree to our \nTerms and Conditions \nand Privacy Policy."
+        let termsAndConditiontext = "By signing up, you agree to our \nTerms and Conditions"
         
         termsAndConditionLabel.tappableLabels(string: termsAndConditiontext,
-                                              tappableStrings: ["Terms and Conditions", "Privacy Policy"],
+                                              tappableStrings: ["Terms and Conditions"],
                                               textColor: .white,
                                               font: UIFont.systemFont(ofSize: 18),
                                               isUnderLined: true)
+    
         termsAndConditionLabel.addRangeGestures(stringRanges: ["Terms and Conditions", "Privacy Policy"]) {[weak self] val in
             if let controller = self?.storyboard?.instantiateViewController(withIdentifier: "TermsAndPolicyViewController") as? TermsAndPolicyViewController {
-                controller.typeString = val ?? ""
-                self?.navigationController?.pushViewController(controller, animated: true)
+                if let url = URL(string: "https://pikeycoffee.com/terms-conditions"),
+                          UIApplication.shared.canOpenURL(url) {
+                           // Open the URL outside the app in the default web browser
+                           UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                       }
             }
         }
+     
         passwordField.enablePasswordToggle()
     }
     

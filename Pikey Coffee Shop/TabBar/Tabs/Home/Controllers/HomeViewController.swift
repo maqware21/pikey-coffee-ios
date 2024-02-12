@@ -24,18 +24,21 @@ class HomeViewController: TabItemViewController {
         //tableView config
         tableView.delegate = self
         tableView.dataSource = self
+        
         tableView.register(UINib(nibName: "HomeHeadlineCell", bundle: .main), forCellReuseIdentifier: "homeCell")
         tableView.register(UINib(nibName: "HomeFeedCell", bundle: .main), forCellReuseIdentifier: "homeFeedCell")
         tableView.contentInset.bottom = 48
         
         //segment config
-        segment.segments = LabelSegment.segments(withTitles: ["Deliver to", "Home"],
+        segment.segments = LabelSegment.segments(withTitles: ["Menu"],
                                                  normalTextColor: .white,
                                                  selectedTextColor: .black)
         segment.setIndex(1)
 
         self.loadData(page: 1)
     }
+    
+    
     
     func onClickAddressOptoin() {
         let controller = DeliveryView(frame: .zero)
@@ -49,9 +52,8 @@ class HomeViewController: TabItemViewController {
     }
     
     @IBAction func onSegmentValueChanged(_ sender: BetterSegmentedControl!) {
-        if sender.index == 0 {
-            onClickAddressOptoin()
-        }
+        // Call the new method with the selected segment index
+        segment.isHidden = true
     }
     
     func loadData(page: Int) {
@@ -62,6 +64,7 @@ class HomeViewController: TabItemViewController {
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

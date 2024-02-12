@@ -57,9 +57,10 @@ extension RewardAndPromotionVC: UICollectionViewDelegate, UICollectionViewDataSo
         default:
             assert(false, "Unexpected element kind")
         }
+        return headerView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return section == 0 ? CGSize(width: self.collectionView.frame.width, height: 0) : CGSize(width: self.collectionView.frame.width, height: 56)
+        return section == 0 ? CGSize(width: self.collectionView.frame.width, height: 0) : CGSize(width: self.collectionView.frame.width, height: 100)
     }
 }

@@ -47,7 +47,7 @@ class BillingDetailsCell: UITableViewCell {
             case .now, .future:
                 deliveryChargesView.isHidden = true
             default:
-                deliveryChargesView.isHidden = false
+                deliveryChargesView.isHidden = true
             }
         }
     }

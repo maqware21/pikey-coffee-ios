@@ -8,6 +8,8 @@
 import UIKit
 
 class RewardsHeaderCell: UICollectionViewCell {
+    
+    @IBOutlet weak var titleLable: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -27,11 +27,16 @@ class RewardAndPromotionVC: EditProfileBaseViewController {
 extension RewardAndPromotionVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 4 : 1
+        if section == 0 {
+            return 4
+        } else if section == 1 {
+            return 1
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,6 +56,11 @@ extension RewardAndPromotionVC: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "RewardsHeaderCell", for: indexPath)
+        if indexPath.section == 2 {
+            (headerView as? RewardsHeaderCell)?.titleLable.text = "Get a Free Puppucino for your Pup with any purchase"
+        } else {
+            (headerView as? RewardsHeaderCell)?.titleLable.text = "Free medium drink on your birthday. *Proof of \nbirthday is required."
+        }
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             return headerView

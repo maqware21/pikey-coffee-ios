@@ -68,9 +68,11 @@ class ProductViewController: UIViewController {
 //    }
     
     func fetchProducts(id: Int, page: Int = 1) {
-        self.productData = nil
-        self.collectionView.reloadData()
-        self.showLoader()
+        if page == 1 {
+            self.productData = nil
+            self.collectionView.reloadData()
+            self.showLoader()
+        }
         viewModel.getProducts(with: id, for: page)
     }
     

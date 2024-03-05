@@ -1192,8 +1192,8 @@
 				56720DC928469F9F006AAFFA /* Sources */,
 				56720DCA28469F9F006AAFFA /* Frameworks */,
 				56720DCB28469F9F006AAFFA /* Resources */,
-				1335A992D1567070FAC6178F /* [CP] Copy Pods Resources */,
 				3E2108A1E078E603F1678190 /* [CP] Embed Pods Frameworks */,
+				3B59645CA62742ECAC8D8A5A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1317,7 +1317,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1335A992D1567070FAC6178F /* [CP] Copy Pods Resources */ = {
+		3B59645CA62742ECAC8D8A5A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1620,26 +1620,22 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Pikey Coffee Shop/Pikey Coffee Shop.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 96C977C643;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pikey Coffee Shop/Info.plist";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This string is required to gain permission to access location services on iOS 11+ and should describe how your app uses location services. Set this string in the Info.plist";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This string is required to gain permission to access location services on iOS 8+ when the app in the background and should describe how your app uses location services. Set this string in the Info.plist";
-				INFOPLIST_KEY_NSLocationUsageDescription = "This string is optional but recommended on iOS 6 & 7 and should describe how your app uses location services. Set this string in the Info.plist";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This string is required to gain permission to access location services on iOS 8+ and should describe how your app uses location services. Set this string in the Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Register;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 8;
+				MARKETING_VERSION = 9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pikeycoffee.pickeycoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1656,26 +1652,22 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Pikey Coffee Shop/Pikey Coffee Shop.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 96C977C643;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pikey Coffee Shop/Info.plist";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This string is required to gain permission to access location services on iOS 11+ and should describe how your app uses location services. Set this string in the Info.plist";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This string is required to gain permission to access location services on iOS 8+ when the app in the background and should describe how your app uses location services. Set this string in the Info.plist";
-				INFOPLIST_KEY_NSLocationUsageDescription = "This string is optional but recommended on iOS 6 & 7 and should describe how your app uses location services. Set this string in the Info.plist";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This string is required to gain permission to access location services on iOS 8+ and should describe how your app uses location services. Set this string in the Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Register;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 8;
+				MARKETING_VERSION = 9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pikeycoffee.pickeycoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

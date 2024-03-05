@@ -11,6 +11,7 @@ import BetterSegmentedControl
 
 class HomeViewController: TabItemViewController {
 
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: BetterSegmentedControl!
     internal var viewModel = HomeViewModel()
@@ -30,9 +31,10 @@ class HomeViewController: TabItemViewController {
         tableView.contentInset.bottom = 48
         
         //segment config
-        segment.segments = LabelSegment.segments(withTitles: ["Menu"],
-                                                 normalTextColor: .white,
-                                                 selectedTextColor: .black)
+//        segment.segments = LabelSegment.segments(withTitles: ["Menu"],
+//                                                 normalTextColor: .white,
+//                                                 selectedTextColor: .black)
+        segment.isHidden =  true
         segment.setIndex(1)
 
         self.loadData(page: 1)

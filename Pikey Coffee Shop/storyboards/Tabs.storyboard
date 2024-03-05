@@ -51,6 +51,11 @@
                                         <rect key="frame" x="0.0" y="82" width="414" height="732"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CafeImage" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9oT-zm-mVm">
+                                        <rect key="frame" x="65" y="-24" width="245" height="107"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -73,13 +78,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoImage" destination="9oT-zm-mVm" id="DsF-MN-Hjs"/>
                         <outlet property="segment" destination="JRA-AU-rxE" id="xbt-8E-3yy"/>
                         <outlet property="tableView" destination="v3x-X4-AX0" id="hLH-F8-ckh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="73"/>
+            <point key="canvasLocation" x="100.00000000000001" y="72.991071428571431"/>
         </scene>
         <!--Order View Controller-->
         <scene sceneID="kHW-hX-lf0">
@@ -271,8 +277,8 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S04-eg-EF1">
-                                                <rect key="frame" x="134" y="8" width="146" height="146"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S04-eg-EF1">
+                                                <rect key="frame" x="195" y="74" width="24" height="14"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
@@ -1604,6 +1610,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CafeImage" width="750" height="750"/>
         <image name="accountSettingsIcon" width="53" height="50"/>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <image name="avatar 1" width="1024" height="1024"/>
